@@ -1,0 +1,93 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – Open Source</title><link>https://sdmx.io/categories/open-source/</link><description>Recent content in Open Source on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Fri, 18 Jan 2019 19:06:14 +0800</lastBuildDate><atom:link href="https://sdmx.io/categories/open-source/index.xml" rel="self" type="application/rss+xml"/><item><title>Cloud Native Sandbox</title><link>https://sdmx.io/blog/cloud-native-sandbox/</link><pubDate>Fri, 18 Jan 2019 19:06:14 +0800</pubDate><guid>https://sdmx.io/blog/cloud-native-sandbox/</guid><description>
+&lt;p>Github: &lt;a href="https://github.com/rootsongjc/cloud-native-sandbox" title="https://github.com/rootsongjc/cloud-native-sandbox" target="_blank" rel="noopener">https://github.com/rootsongjc/cloud-native-sandbox&lt;/a>
+&lt;/p>
+&lt;p>Cloud Native Sandbox can help you setup a standalone Kubernetes and istio environment with Docker on you own laptop.&lt;/p>
+&lt;p>The sandbox integrated with the following components:&lt;/p>
+&lt;ul>
+&lt;li>Kubernetes v1.10.3&lt;/li>
+&lt;li>Istio v1.0.4&lt;/li>
+&lt;li>Kubernetes dashboard v1.8.3&lt;/li>
+&lt;/ul>
+&lt;h2 id="differences-with-kubernetes-vagrant-centos-cluster">Differences with kubernetes-vagrant-centos-cluster&lt;/h2>
+&lt;p>As I have created the &lt;a href="https://github.com/rootsongjc/kubernetes-vagrant-centos-cluster" title="kubernetes-vagrant-centos-cluster" target="_blank" rel="noopener">kubernetes-vagrant-centos-cluster&lt;/a>
+to set up a Kubernetes cluster and istio service mesh with &lt;code>vagrantfile&lt;/code> which consists of 1 master(also as node) and 3 nodes, but there is a big problem that it is so high weight and consume resources. So I made this light weight sandbox.&lt;/p>
+&lt;p>&lt;strong>Features&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>No VirtualBox or Vagrantfile required&lt;/li>
+&lt;li>Light weight&lt;/li>
+&lt;li>High speed, low drag&lt;/li>
+&lt;li>Easy to operate&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Services&lt;/strong>&lt;/p>
+&lt;p>As the sandbox setup, you will get the following services.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>Record with &lt;a href="https://github.com/nbedos/termtosvg" title="termtosvg" target="_blank" rel="noopener">termtosvg&lt;/a>
+.&lt;/p>
+&lt;h2 id="prerequisite">Prerequisite&lt;/h2>
+&lt;p>You only need a laptop with Docker Desktop installed and &lt;a href="https://docs.docker.com/docker-for-mac/#kubernetes" title="Kubernetes enabled" target="_blank" rel="noopener">Kubernetes enabled&lt;/a>
+.&lt;/p>
+&lt;p>Note: Leave enough resources for Docker Desktop. At least 2 CPU, 4G memory.&lt;/p>
+&lt;h2 id="install">Install&lt;/h2>
+&lt;p>To start the sandbox, you have to run the following steps.&lt;/p>
+&lt;h3 id="kubernetes-dashboardoptional">Kubernetes dashboard(Optional)&lt;/h3>
+&lt;p>Install Kubernetes dashboard.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">kubectl apply -f install/dashbaord/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Get the dashboard token.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">kubectl -n kube-system describe secret default&lt;span class="p">|&lt;/span> awk &lt;span class="s1">&amp;#39;$1==&amp;#34;token:&amp;#34;{print $2}&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Expose &lt;code>kubernetes-dashboard&lt;/code> service.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">kubectl -n kube-system get pod -l k8s-app&lt;span class="o">=&lt;/span>kubernetes-dashboard -o &lt;span class="nv">jsonpath&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;{.items[0].metadata.name}&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Login to Kubernetes dashboard on &lt;a href="http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login" title="http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login" target="_blank" rel="noopener">http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login&lt;/a>
+with the above token.&lt;/p>
+&lt;h3 id="istiorequired">Istio(Required)&lt;/h3>
+&lt;p>Install istio service mesh with the default add-ons.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Install istio&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">kubectl apply -f install/istio/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To expose service &lt;code>grafana&lt;/code> on &lt;a href="http://localhost:3000" title="http://localhost:3000" target="_blank" rel="noopener">http://localhost:3000&lt;/a>
+.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">kubectl -n istio-system port-forward &lt;span class="k">$(&lt;/span>kubectl -n istio-system get pod -l &lt;span class="nv">app&lt;/span>&lt;span class="o">=&lt;/span>grafana -o &lt;span class="nv">jsonpath&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;{.items[0].metadata.name}&amp;#39;&lt;/span>&lt;span class="k">)&lt;/span> 3000:3000 &lt;span class="p">&amp;amp;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To expose service &lt;code>prometheus&lt;/code> on &lt;a href="http://localhost:9090" title="http://localhost:9090" target="_blank" rel="noopener">http://localhost:9090&lt;/a>
+.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">kubectl -n istio-system port-forward &lt;span class="k">$(&lt;/span>kubectl -n istio-system get pod -l &lt;span class="nv">app&lt;/span>&lt;span class="o">=&lt;/span>prometheus -o &lt;span class="nv">jsonpath&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;{.items[0].metadata.name}&amp;#39;&lt;/span>&lt;span class="k">)&lt;/span> 9090:9090 &lt;span class="p">&amp;amp;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To expose service &lt;code>jaeger&lt;/code> on &lt;a href="http://localhost:16686" title="http://localhost:16686" target="_blank" rel="noopener">http://localhost:16686&lt;/a>
+.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">kubectl -n istio-system port-forward &lt;span class="k">$(&lt;/span>kubectl -n istio-system get pod -l &lt;span class="nv">app&lt;/span>&lt;span class="o">=&lt;/span>jaeger -o &lt;span class="nv">jsonpath&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;{.items[0].metadata.name}&amp;#39;&lt;/span>&lt;span class="k">)&lt;/span> 16686:16686 &lt;span class="p">&amp;amp;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To expose service &lt;code>servicegraph&lt;/code> on &lt;a href="http://localhost:8088/dotviz" title="http://localhost:8088/dotviz" target="_blank" rel="noopener">http://localhost:8088/dotviz&lt;/a>
+, &lt;a href="http://localhost:8088/force/forcegraph.html" title="http://localhost:8088/force/forcegraph.html" target="_blank" rel="noopener">http://localhost:8088/force/forcegraph.html&lt;/a>
+.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">kubectl -n istio-system port-forward &lt;span class="k">$(&lt;/span>kubectl -n istio-system get pod -l &lt;span class="nv">app&lt;/span>&lt;span class="o">=&lt;/span>servicegraph -o &lt;span class="nv">jsonpath&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;{.items[0].metadata.name}&amp;#39;&lt;/span>&lt;span class="k">)&lt;/span> 8088:8088 &lt;span class="p">&amp;amp;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="kiali">Kiali&lt;/h3>
+&lt;p>Install &lt;a href="https://www.kiali.io/" title="kiali" target="_blank" rel="noopener">kiali&lt;/a>
+.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">kubectl -n istio-system apply -f install/kiali
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To expose service &lt;code>kiali&lt;/code> on &lt;a href="http://localhost:20001" title="http://localhost:20001" target="_blank" rel="noopener">http://localhost:20001&lt;/a>
+.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">kubectl -n istio-system port-forward &lt;span class="k">$(&lt;/span>kubectl -n istio-system get pod -l &lt;span class="nv">app&lt;/span>&lt;span class="o">=&lt;/span>kiali -o &lt;span class="nv">jsonpath&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;{.items[0].metadata.name}&amp;#39;&lt;/span>&lt;span class="k">)&lt;/span> 20001:20001 &lt;span class="p">&amp;amp;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="bookinfo-sample">Bookinfo sample&lt;/h2>
+&lt;p>Deploy &lt;a href="https://istio.io/docs/examples/bookinfo/" title="bookinfo sample" target="_blank" rel="noopener">bookinfo sample&lt;/a>
+.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Enable sidecar auto injection&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">kubectl label namespace default istio-injection&lt;span class="o">=&lt;/span>enabled
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Deploy bookinfo sample&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">kubectl -n default apply -f sample/bookinfo
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Visit &lt;code>productpage&lt;/code> on &lt;a href="http://localhost/productpage" title="http://localhost/productpage" target="_blank" rel="noopener">http://localhost/productpage&lt;/a>
+.&lt;/p>
+&lt;p>Let&amp;rsquo;s generate some loads.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> &lt;span class="o">((&lt;/span>&lt;span class="nv">i&lt;/span>&lt;span class="o">=&lt;/span>0&lt;span class="p">;&lt;/span>i&amp;lt;1000&lt;span class="p">;&lt;/span>&lt;span class="nv">i&lt;/span>&lt;span class="o">=&lt;/span>i+1&lt;span class="o">))&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">do&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;Step-&amp;gt;&lt;/span>&lt;span class="nv">$i&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>curl http://localhost/productpage&lt;span class="p">;&lt;/span>&lt;span class="k">done&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can watch the service status through &lt;a href="http://localhost:3000" title="http://localhost:3000" target="_blank" rel="noopener">http://localhost:3000&lt;/a>
+.&lt;/p>
+&lt;h2 id="client-tools">Client tools&lt;/h2>
+&lt;p>To operate the applications on Kubernetes, you should install the following tools.&lt;/p>
+&lt;p>&lt;strong>Required&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/" title="kubectl" target="_blank" rel="noopener">kubectl&lt;/a>
+- Deploy and manage applications on Kubernetes.&lt;/li>
+&lt;li>&lt;a href="https://istio.io/docs/reference/commands/istioctl/" title="istioctl" target="_blank" rel="noopener">istioctl&lt;/a>
+- Istio configuration command line utility.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Optional&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/ahmetb/kubectx" title="kubectx" target="_blank" rel="noopener">kubectx&lt;/a>
+- Switch faster between clusters and namespaces in kubectl&lt;/li>
+&lt;li>&lt;a href="https://github.com/jonmosco/kube-ps1" title="kube-ps1" target="_blank" rel="noopener">kube-ps1&lt;/a>
+- Kubernetes prompt info for bash and zsh&lt;/li>
+&lt;/ul></description></item></channel></rss>

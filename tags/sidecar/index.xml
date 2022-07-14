@@ -1,0 +1,512 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – sidecar</title><link>https://sdmx.io/tags/sidecar/</link><description>Recent content in sidecar on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Thu, 12 May 2022 19:18:40 +0800</lastBuildDate><atom:link href="https://sdmx.io/tags/sidecar/index.xml" rel="self" type="application/rss+xml"/><item><title>Istio data plane pod startup process explained</title><link>https://sdmx.io/blog/istio-pod-process-lifecycle/</link><pubDate>Thu, 12 May 2022 19:18:40 +0800</pubDate><guid>https://sdmx.io/blog/istio-pod-process-lifecycle/</guid><description>
+&lt;p>This article will explain:&lt;/p>
+&lt;ul>
+&lt;li>The sidecar auto-injection process in Istio&lt;/li>
+&lt;li>The init container startup process in Istio&lt;/li>
+&lt;li>The startup process of a Pod with Sidecar auto-injection enabled&lt;/li>
+&lt;/ul>
+&lt;p>The following figure shows the components of a Pod in the Istio data plane after it has been started.&lt;/p>
+&lt;p>&lt;figure class="mx-auto text-center">
+&lt;img src="https://sdmx.io/blog/istio-pod-process-lifecycle/istio-pod-lifecycle.jpg" data-img="/blog/istio-pod-process-lifecycle/istio-pod-lifecycle.jpg" data-width="1200" data-height="813" alt="istio-pod-lifecycle.jpg" data-caption="Istio data plane pod">
+&lt;figcaption>Istio data plane pod&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;h2 id="sidecar-injection-in-istio">Sidecar injection in Istio&lt;/h2>
+&lt;p>The following two sidecar injection methods are available in Istio.&lt;/p>
+&lt;ul>
+&lt;li>Manual injection using &lt;code>istioctl&lt;/code>.&lt;/li>
+&lt;li>Kubernetes-based &lt;a href="https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/" title="mutating webhook admission controller" target="_blank" rel="noopener">mutating webhook admission controller&lt;/a>
+automatic sidecar injection method.&lt;/li>
+&lt;/ul>
+&lt;p>Whether injected manually or automatically, SIDECAR&amp;rsquo;s injection process follows the following steps.&lt;/p>
+&lt;ol>
+&lt;li>Kubernetes needs to know the Istio cluster to which the sidecar to be injected is connected and its configuration.&lt;/li>
+&lt;li>Kubernetes needs to know the configuration of the sidecar container itself to be injected, such as the image address, boot parameters, etc.&lt;/li>
+&lt;li>Kubernetes injects the above configuration into the side of the application container by the sidecar injection template and the configuration parameters of the above configuration-filled sidecar.&lt;/li>
+&lt;/ol>
+&lt;p>The sidecar can be injected manually using the following command.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">istioctl kube-inject -f &lt;span class="si">${&lt;/span>&lt;span class="nv">YAML_FILE&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="p">|&lt;/span> kuebectl apply -f -
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This command is injected using Istio&amp;rsquo;s built-in sidecar configuration, see the &lt;a href="https://istio.io" title="Istio official website" target="_blank" rel="noopener">Istio official website&lt;/a>
+for details on how to use Istio below.&lt;/p>
+&lt;p>When the injection is complete you will see that Istio has injected initContainer and sidecar proxy-related configurations into the original pod template.&lt;/p>
+&lt;h3 id="init-container">Init container&lt;/h3>
+&lt;p>The Init container is a dedicated container that runs before the application container is launched and is used to contain some utilities or installation scripts that do not exist in the application image.&lt;/p>
+&lt;p>Multiple Init containers can be specified in a Pod, and if more than one is specified, the Init containers will run sequentially. The next Init container can only be run if the previous Init container must run successfully. Kubernetes only initializes the Pod and runs the application container when all the Init containers have been run.&lt;/p>
+&lt;p>The Init container uses Linux Namespace, so it has a different view of the file system than the application container. As a result, they can have access to Secret in a way that application containers cannot.&lt;/p>
+&lt;p>During Pod startup, the Init container starts sequentially after the network and data volumes are initialized. Each container must be successfully exited before the next container can be started. If exiting due to an error will result in a container startup failure, it will retry according to the policy specified in the Pod&amp;rsquo;s restartPolicy. However, if the Pod&amp;rsquo;s restartPolicy is set to Always, the restartPolicy is used when the Init container failed.&lt;/p>
+&lt;p>The Pod will not become Ready until all Init containers are successful. The ports of the Init containers will not be aggregated in the Service. The Pod that is being initialized is in the Pending state but should set the Initializing state to true. The Init container will automatically terminate once it is run.&lt;/p>
+&lt;h2 id="sidecar-injection-example-analysis">Sidecar injection example analysis&lt;/h2>
+&lt;p>For a detailed YAML configuration for the bookinfo applications, see &lt;code>bookinfo.yaml&lt;/code> for the official Istio YAML of productpage in the bookinfo sample.&lt;/p>
+&lt;p>The following will be explained in the following terms.&lt;/p>
+&lt;ul>
+&lt;li>Injection of Sidecar containers&lt;/li>
+&lt;li>Creation of iptables rules&lt;/li>
+&lt;li>The detailed process of routing&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">apps/v1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Deployment&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">productpage-v1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">labels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">app&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">productpage&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">v1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">spec&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">replicas&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">selector&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">matchLabels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">app&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">productpage&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">v1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">labels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">app&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">productpage&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">v1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">spec&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">serviceAccountName&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">bookinfo-productpage&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">containers&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">productpage&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">docker.io/istio/examples-bookinfo-productpage-v1:1.15.0&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">imagePullPolicy&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">IfNotPresent&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">containerPort&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">9080&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumeMounts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tmp&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">mountPath&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">/tmp&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tmp&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">emptyDir&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>{}&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Let&amp;rsquo;s see the &lt;code>productpage&lt;/code> container’s &lt;a href="https://github.com/istio/istio/blob/master/samples/bookinfo/src/productpage/Dockerfile" title="Dockerfile" target="_blank" rel="noopener">Dockerfile&lt;/a>
+.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-docker" data-lang="docker">&lt;span class="line">&lt;span class="cl">&lt;span class="k">FROM&lt;/span>&lt;span class="s"> python:3.7.4-slim&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">COPY&lt;/span> requirements.txt ./&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> pip install --no-cache-dir -r requirements.txt&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">COPY&lt;/span> test-requirements.txt ./&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> pip install --no-cache-dir -r test-requirements.txt&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">COPY&lt;/span> productpage.py /opt/microservices/&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">COPY&lt;/span> tests/unit/* /opt/microservices/&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">COPY&lt;/span> templates /opt/microservices/templates&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">COPY&lt;/span> static /opt/microservices/static&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">COPY&lt;/span> requirements.txt /opt/microservices/&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">ARG&lt;/span> flood_factor&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">ENV&lt;/span> FLOOD_FACTOR &lt;span class="si">${&lt;/span>&lt;span class="nv">flood_factor&lt;/span>&lt;span class="k">:-&lt;/span>&lt;span class="nv">0&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">EXPOSE&lt;/span>&lt;span class="s"> 9080&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">WORKDIR&lt;/span>&lt;span class="s"> /opt/microservices&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> python -m unittest discover&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">USER&lt;/span>&lt;span class="s"> 1&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">CMD&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;python&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;productpage.py&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;9080&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We see that &lt;code>ENTRYPOINT&lt;/code> is not configured in Dockerfile, so &lt;code>CMD&lt;/code>’s configuration &lt;code>python productpage.py 9080&lt;/code> will be the default &lt;code>ENTRYPOINT&lt;/code>, keep that in mind and look at the configuration after the sidecar injection.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ istioctl kube-inject -f samples/bookinfo/platform/kube/bookinfo.yaml
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We intercept only a portion of the YAML configuration that is part of the Deployment configuration associated with productpage.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">containers&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">docker.io/istio/examples-bookinfo-productpage-v1:1.15.0&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># application image&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">productpage&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">containerPort&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">9080&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">args&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">proxy&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">sidecar&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- --&lt;span class="l">domain&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">$(POD_NAMESPACE).svc.cluster.local&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- --&lt;span class="l">configPath&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">/etc/istio/proxy&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- --&lt;span class="l">binaryPath&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">/usr/local/bin/envoy&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- --&lt;span class="l">serviceCluster&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">productpage.$(POD_NAMESPACE)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- --&lt;span class="l">drainDuration&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">45s&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- --&lt;span class="l">parentShutdownDuration&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">1m0s&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- --&lt;span class="l">discoveryAddress&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">istiod.istio-system.svc:15012&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- --&lt;span class="l">zipkinAddress&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">zipkin.istio-system:9411&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- --&lt;span class="l">proxyLogLevel=warning&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- --&lt;span class="l">proxyComponentLogLevel=misc:error&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- --&lt;span class="l">connectTimeout&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">10s&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- --&lt;span class="l">proxyAdminPort&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;15000&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- --&lt;span class="l">concurrency&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;2&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- --&lt;span class="l">controlPlaneAuthPolicy&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">NONE&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- --&lt;span class="l">dnsRefreshRate&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">300s&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- --&lt;span class="l">statusPort&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;15020&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- --&lt;span class="l">trust-domain=cluster.local&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- --&lt;span class="l">controlPlaneBootstrap=false&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">docker.io/istio/proxyv2:1.5.1&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># sidecar proxy&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">istio-proxy&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">containerPort&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">15090&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">http-envoy-prom&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">protocol&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">TCP&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">initContainers&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">command&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">istio-iptables&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- -&lt;span class="l">p&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;15001&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- -&lt;span class="l">z&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;15006&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- -&lt;span class="l">u&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;1337&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- -&lt;span class="l">m&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">REDIRECT&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- -&lt;span class="l">i&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s1">&amp;#39;*&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- -&lt;span class="l">x&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- -&lt;span class="l">b&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s1">&amp;#39;*&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- -&lt;span class="l">d&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">15090&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="m">15020&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">docker.io/istio/proxyv2:1.5.1&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># init container&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">istio-init&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Istio&amp;rsquo;s configuration for application Pod injection mainly includes:&lt;/p>
+&lt;ul>
+&lt;li>Init container &lt;code>istio-init&lt;/code>: for setting iptables port forwarding in the pod&lt;/li>
+&lt;li>Sidecar container &lt;code>istio-proxy&lt;/code>: running a sidecar proxy, such as Envoy or MOSN&lt;/li>
+&lt;/ul>
+&lt;p>The two containers will be parsed separately.&lt;/p>
+&lt;h2 id="init-container-analysis">Init container analysis&lt;/h2>
+&lt;p>The Init container that Istio injects into the pod is named &lt;code>istio-init&lt;/code>, and we see in the YAML file above after Istio&amp;rsquo;s injection is complete that the init command for this container is.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">istio-iptables -p &lt;span class="m">15001&lt;/span> -z &lt;span class="m">15006&lt;/span> -u &lt;span class="m">1337&lt;/span> -m REDIRECT -i &lt;span class="s1">&amp;#39;*&amp;#39;&lt;/span> -x &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span> -b &lt;span class="s1">&amp;#39;*&amp;#39;&lt;/span> -d 15090,15020
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Let&amp;rsquo;s check the container&amp;rsquo;s Dockerfile again to see how &lt;code>ENTRYPOINT&lt;/code> determines what commands are executed at startup.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-docker" data-lang="docker">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># ommit&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="c"># The pilot-agent will bootstrap Envoy.&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">ENTRYPOINT&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;/usr/local/bin/pilot-agent&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We see that the entrypoint of the &lt;code>istio-init&lt;/code> container is the &lt;code>/usr/local/bin/istio-iptables&lt;/code> command line, and the location of the code for this command-line tool is in the &lt;code>tools/istio-iptables&lt;/code> directory of the Istio source code repository.&lt;/p>
+&lt;h3 id="init-container-initiation">Init container initiation&lt;/h3>
+&lt;p>The Init container&amp;rsquo;s entrypoint is the &lt;code>istio-iptables&lt;/code> command line, which is used as follows.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">Usage:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> istio-iptables &lt;span class="o">[&lt;/span>flags&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Flags:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -n, --dry-run Do not call any external dependencies like iptables
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -p, --envoy-port string Specify the envoy port to which redirect all TCP traffic &lt;span class="o">(&lt;/span>default &lt;span class="nv">$ENVOY_PORT&lt;/span> &lt;span class="o">=&lt;/span> 15001&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -h, --help &lt;span class="nb">help&lt;/span> &lt;span class="k">for&lt;/span> istio-iptables
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -z, --inbound-capture-port string Port to which all inbound TCP traffic to the pod/VM should be redirected to &lt;span class="o">(&lt;/span>default &lt;span class="nv">$INBOUND_CAPTURE_PORT&lt;/span> &lt;span class="o">=&lt;/span> 15006&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> --iptables-probe-port string &lt;span class="nb">set&lt;/span> listen port &lt;span class="k">for&lt;/span> failure detection &lt;span class="o">(&lt;/span>default &lt;span class="s2">&amp;#34;15002&amp;#34;&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -m, --istio-inbound-interception-mode string The mode used to redirect inbound connections to Envoy, either &lt;span class="s2">&amp;#34;REDIRECT&amp;#34;&lt;/span> or &lt;span class="s2">&amp;#34;TPROXY&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -b, --istio-inbound-ports string Comma separated list of inbound ports &lt;span class="k">for&lt;/span> which traffic is to be redirected to Envoy &lt;span class="o">(&lt;/span>optional&lt;span class="o">)&lt;/span>. The wildcard character &lt;span class="s2">&amp;#34;*&amp;#34;&lt;/span> can be used to configure redirection &lt;span class="k">for&lt;/span> all ports. An empty list will disable
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -t, --istio-inbound-tproxy-mark string
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -r, --istio-inbound-tproxy-route-table string
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -d, --istio-local-exclude-ports string Comma separated list of inbound ports to be excluded from redirection to Envoy &lt;span class="o">(&lt;/span>optional&lt;span class="o">)&lt;/span>. Only applies when all inbound traffic &lt;span class="o">(&lt;/span>i.e. &lt;span class="s2">&amp;#34;*&amp;#34;&lt;/span>&lt;span class="o">)&lt;/span> is being redirected &lt;span class="o">(&lt;/span>default to &lt;span class="nv">$ISTIO_LOCAL_EXCLUDE_PORTS&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -o, --istio-local-outbound-ports-exclude string Comma separated list of outbound ports to be excluded from redirection to Envoy
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -i, --istio-service-cidr string Comma separated list of IP ranges in CIDR form to redirect to envoy &lt;span class="o">(&lt;/span>optional&lt;span class="o">)&lt;/span>. The wildcard character &lt;span class="s2">&amp;#34;*&amp;#34;&lt;/span> can be used to redirect all outbound traffic. An empty list will disable all outbound
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -x, --istio-service-exclude-cidr string Comma separated list of IP ranges in CIDR form to be excluded from redirection. Only applies when all outbound traffic &lt;span class="o">(&lt;/span>i.e. &lt;span class="s2">&amp;#34;*&amp;#34;&lt;/span>&lt;span class="o">)&lt;/span> is being redirected &lt;span class="o">(&lt;/span>default to &lt;span class="nv">$ISTIO_SERVICE_EXCLUDE_CIDR&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -k, --kube-virt-interfaces string Comma separated list of virtual interfaces whose inbound traffic &lt;span class="o">(&lt;/span>from VM&lt;span class="o">)&lt;/span> will be treated as outbound
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> --probe-timeout duration failure detection timeout &lt;span class="o">(&lt;/span>default 5s&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -g, --proxy-gid string Specify the GID of the user &lt;span class="k">for&lt;/span> which the redirection is not applied. &lt;span class="o">(&lt;/span>same default value as -u param&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -u, --proxy-uid string Specify the UID of the user &lt;span class="k">for&lt;/span> which the redirection is not applied. Typically, this is the UID of the proxy container
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -f, --restore-format Print iptables rules in iptables-restore interpretable format &lt;span class="o">(&lt;/span>default &lt;span class="nb">true&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> --run-validation Validate iptables
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> --skip-rule-apply Skip iptables apply
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The above incoming parameters are reassembled into iptables rules. For more information on how to use this command, visit &lt;code>tools/istio-iptables/pkg/cmd/root.go&lt;/code>.&lt;/p>
+&lt;p>The significance of the container&amp;rsquo;s existence is that it allows the sidecar agent to intercept all inbound and outbound traffic to the pod, redirect all inbound traffic to port 15006 (sidecar) except port 15090 (used by Prometheus) and port 15092 (Ingress Gateway), and then intercept outbound traffic from the application container which is processed by sidecar (listening through port 15001) and then outbound. See the &lt;a href="https://istio.io/docs/ops/deployment/requirements/" title="official Istio documentation" target="_blank" rel="noopener">official Istio documentation&lt;/a>
+for port usage in Istio.&lt;/p>
+&lt;p>&lt;strong>Command analysis&lt;/strong>&lt;/p>
+&lt;p>Here is the purpose of this start-up command.&lt;/p>
+&lt;ul>
+&lt;li>Forward all traffic from the application container to port 15006 of the sidecar.&lt;/li>
+&lt;li>Run with the &lt;code>istio-proxy&lt;/code> user identity, with a UID of 1337, the userspace where the sidecar is located, which is the default user used by the &lt;code>istio-proxy&lt;/code> container, see the runAsUser field of the YAML configuration.&lt;/li>
+&lt;li>Use the default REDIRECT mode to redirect traffic.&lt;/li>
+&lt;li>Redirect all outbound traffic to the sidecar proxy (via port 15001).&lt;/li>
+&lt;/ul>
+&lt;p>Because the Init container is automatically terminated after initialization, since we cannot log into the container to view the iptables information, the Init container initialization results are retained in the application container and sidecar container.&lt;/p>
+&lt;h2 id="pod-startup-sequence">Pod Startup Sequence&lt;/h2>
+&lt;p>The startup process of a Pod with Sidecar auto-injection enabled is as follows.&lt;/p>
+&lt;ol>
+&lt;li>The Init container starts first, injecting iptables rules into the Pod for transparent traffic interception.&lt;/li>
+&lt;li>Subsequently, Kubernetes starts the containers in the order in which they are declared in the Pod Spec, but this is non-blocking and there is no guarantee that the first container will be started before the next one is started. &lt;code>istio-proxy&lt;/code> container starts, &lt;code>pilot-agent&lt;/code> will be the PID 1 process, which is the first process in the Linux user space and is responsible for pulling up other processes and handling zombie processes. The &lt;code>pilot-agent&lt;/code> generates the Envoy bootstrap configuration and fork the envoy process; the application container is started almost simultaneously with the &lt;code>istio-proxy&lt;/code> container, and the readiness probe comes in handy to prevent the container inside the Pod from receiving outside traffic before it is ready to start. Kubernetes will perform a readiness check on port 15021 of the &lt;code>istio-proxy&lt;/code> container, and the &lt;code>kubelet&lt;/code> will not route traffic to the Pod until the &lt;code>isito-proxy&lt;/code> has finished booting.&lt;/li>
+&lt;li>After the Pod is started, the &lt;code>pilot-agent&lt;/code> becomes a daemon that monitors the rest of the system and provides Envoy with Bootstrap configuration, certificates, health checks, configuration hot reloading, identity support, and process lifecycle management, among other things.&lt;/li>
+&lt;/ol>
+&lt;h2 id="pod-container-startup-order-problem">Pod container startup order problem&lt;/h2>
+&lt;p>In the process of Pod startup there is a container startup order problem. Suppose the following situation, the application container starts first and requests other services, when the &lt;code>istio-proxy&lt;/code> container has not finished starting, then the request will fail, and if your application is not robust enough, it may even cause the application container to crash and the Pod to restart. The solution for this situation is to&lt;/p>
+&lt;ul>
+&lt;li>Modify the application to add timeout retries.&lt;/li>
+&lt;li>Increase the start delay of the process in the application container, for example by increasing the sleep time.&lt;/li>
+&lt;li>Add a &lt;a href="https://kubernetes.io/docs/tasks/configure-pod-container/attach-handler-lifecycle-event/" title="postStart" target="_blank" rel="noopener">postStart&lt;/a>
+configuration to the application container to detect if the application process has finished starting, and Kubernetes will only mark the Pod&amp;rsquo;s state as &lt;code>Running&lt;/code> if the detection is successful.&lt;/li>
+&lt;/ul>
+&lt;h2 id="summary">Summary&lt;/h2>
+&lt;p>This article walks you through the process of starting Pods in the Istio data plane, and the issues that arise because of the order in which Pod contenters are started.&lt;/p></description></item><item><title> Istio component ports and functions in detail</title><link>https://sdmx.io/blog/istio-components-and-ports/</link><pubDate>Sun, 08 May 2022 10:18:40 +0800</pubDate><guid>https://sdmx.io/blog/istio-components-and-ports/</guid><description>
+&lt;p>In my last two blogs:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://sdmx.io/en/blog/sidecar-injection-iptables-and-traffic-routing/" title="Sidecar injection, transparent traffic hijacking , and routing process in Istio explained in detail">Sidecar injection, transparent traffic hijacking , and routing process in Istio explained in detail&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://sdmx.io/en/blog/istio-sidecar-traffic-types/" title="Traffic types and iptables rules in Istio sidecar explained">Traffic types and iptables rules in Istio sidecar explained&lt;/a>
+&lt;/li>
+&lt;/ul>
+&lt;p>I gave you a detailed overview of the traffic in the Istio data plane, but the data plane does not exist in isolation. This article will show you the ports and their usages for each component of both the control plane and data plane in Istio, which will help you understand the relationship between these flows and troubleshoot them.&lt;/p>
+&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>Firstly, I will show you a global schematic. The following figure shows the components of a sidecar in the Istio data plane, and the objects that interact with it.&lt;/p>
+&lt;p>&lt;figure class="mx-auto text-center">
+&lt;img src="https://sdmx.io/blog/istio-components-and-ports/istio-ports-components.webp" data-img="/blog/istio-components-and-ports/istio-ports-components.webp" data-width="5230" data-height="2506" alt="istio-ports-components.webp" data-caption="Istio components">
+&lt;figcaption>Istio components&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;p>We can use the &lt;code>nsenter&lt;/code> command to enter the namespace of the &lt;code>productpage&lt;/code> Pod of the Bookinfo example and see the information about the ports it is listening on internally.&lt;/p>
+&lt;p>&lt;figure class="mx-auto text-center">
+&lt;img src="https://sdmx.io/blog/istio-components-and-ports/sidecar-ports.webp" data-img="/blog/istio-components-and-ports/sidecar-ports.webp" data-width="1566" data-height="740" alt="sidecar-ports.webp" data-caption="Istio sidecar ports">
+&lt;figcaption>Istio sidecar ports&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;p>From the figure, we can see that besides the port 9080 that the &lt;code>productpage&lt;/code> application listens to, the Sidecar container also listens to a large number of other ports, such as 15000, 15001, 15004, 15006, 15021, 15090, etc. You can learn about the ports used in Istio in the &lt;a href="https://istio.io/latest/docs/ops/deployment/requirements/" title="Istio documentation" target="_blank" rel="noopener">Istio documentation&lt;/a>
+.&lt;/p>
+&lt;p>Let&amp;rsquo;s go back into the &lt;code>productpage&lt;/code> Pod and use the &lt;code>lsof -i&lt;/code> command to see the ports it has open, as shown in the following figure.&lt;/p>
+&lt;p>&lt;figure class="mx-auto text-center">
+&lt;img src="https://sdmx.io/blog/istio-components-and-ports/product-pod-ports.webp" data-img="/blog/istio-components-and-ports/product-pod-ports.webp" data-width="2714" data-height="902" alt="product-pod-ports.webp" data-caption="Productpage Pod ports">
+&lt;figcaption>Productpage Pod ports&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;p>We can see that there is a TCP connection established between the &lt;code>pilot-agent&lt;/code> and &lt;code>istiod&lt;/code>, the port in the listening described above, and the TCP connection established inside the Pod, which corresponds to the figure at the beginning of the article.&lt;/p>
+&lt;p>The root process of the Sidecar container (&lt;code>istio-proxy&lt;/code>) is &lt;code>pilot-agent&lt;/code>, and the startup command is shown below.&lt;/p>
+&lt;p>&lt;figure class="mx-auto text-center">
+&lt;img src="https://sdmx.io/blog/istio-components-and-ports/sidecar-procecces.webp" data-img="/blog/istio-components-and-ports/sidecar-procecces.webp" data-width="2768" data-height="540" alt="sidecar-procecces.webp" data-caption="Internal procecces in Sidecar">
+&lt;figcaption>Internal procecces in Sidecar&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;p>As we can see from the figure, the PID of its &lt;code>pilot-agent&lt;/code> process is 1, and it forked the Envoy process.&lt;/p>
+&lt;p>Check the ports it opens in Istiod, as shown in the figure below.&lt;/p>
+&lt;p>&lt;figure class="mx-auto text-center">
+&lt;img src="https://sdmx.io/blog/istio-components-and-ports/sidecar-lsof.webp" data-img="/blog/istio-components-and-ports/sidecar-lsof.webp" data-width="2544" data-height="760" alt="sidecar-lsof.webp" data-caption="Istiod ports">
+&lt;figcaption>Istiod ports&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;p>We can see the ports that are listened to, the inter-process and remote communication connections.&lt;/p>
+&lt;h2 id="ports-usage-overview">Ports usage overview&lt;/h2>
+&lt;p>These ports can play a pivotal role when you are troubleshooting. They are described below according to the component and function in which the port is located.&lt;/p>
+&lt;h3 id="ports-in-istiod">Ports in Istiod&lt;/h3>
+&lt;p>The ports in Istiod are relatively few and single-function.&lt;/p>
+&lt;ul>
+&lt;li>9876: ControlZ user interface, exposing information about Istiod&amp;rsquo;s processes&lt;/li>
+&lt;li>8080: Istiod debugging port, through which the configuration and status information of the grid can be queried&lt;/li>
+&lt;li>15010: Exposes the xDS API and issues plain text certificates&lt;/li>
+&lt;li>15012: Same functionality as port 15010, but uses TLS communication&lt;/li>
+&lt;li>15014: Exposes control plane metrics to Prometheus&lt;/li>
+&lt;li>15017: Sidecar injection and configuration validation port&lt;/li>
+&lt;/ul>
+&lt;h2 id="ports-in-sidecar">Ports in sidecar&lt;/h2>
+&lt;p>From the above, we see that there are numerous ports in the sidecar.&lt;/p>
+&lt;ul>
+&lt;li>15000: Envoy admin interface, which you can use to query and modify the configuration of Envoy Proxy. Please refer to&lt;a href="https://www.envoyproxy.io/docs/envoy/latest/operations/admin" title=" Envoy documentation" target="_blank" rel="noopener"> Envoy documentation&lt;/a>
+for details.&lt;/li>
+&lt;li>15001: Used to handle outbound traffic.&lt;/li>
+&lt;li>15004: Debug port (explained further below).&lt;/li>
+&lt;li>15006: Used to handle inbound traffic.&lt;/li>
+&lt;li>15020: Summarizes statistics, perform health checks on Envoy and DNS agents, and debugs &lt;code>pilot-agent&lt;/code> processes, as explained in detail below.&lt;/li>
+&lt;li>15021: Used for sidecar health checks to determine if the injected Pod is ready to receive traffic. We set up the readiness probe on the &lt;code>/healthz/ready&lt;/code> path on this port, and Istio hands off the sidecar readiness checks to kubelet.&lt;/li>
+&lt;li>15053: Local DNS proxy for scenarios where the cluster&amp;rsquo;s internal domain names are not resolved by Kubernetes DNS.&lt;/li>
+&lt;li>15090: Envoy Prometheus query port, through which the &lt;code>pilot-agent&lt;/code> will scratch metrics.&lt;/li>
+&lt;/ul>
+&lt;p>The above ports can be divided into the following categories.&lt;/p>
+&lt;ul>
+&lt;li>Responsible for inter-process communication, such as 15001, 15006, 15053&lt;/li>
+&lt;li>Health check and information statistics, e.g. 150021, 15090&lt;/li>
+&lt;li>Debugging: 15000, 15004&lt;/li>
+&lt;/ul>
+&lt;p>Let&amp;rsquo;s look at the key ports in detail.&lt;/p>
+&lt;h2 id="15000">15000&lt;/h2>
+&lt;p>15000 is Envoy&amp;rsquo;s Admin interface, which allows us to modify Envoy and get a view and query metrics and configurations.&lt;/p>
+&lt;p>The Admin interface consists of a REST API with multiple endpoints and a simple user interface. You can enable the Envoy Admin interface view in the &lt;code>productpage&lt;/code> Pod using the following command:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">kubectl -n default port-forward deploy/productpage-v1 &lt;span class="m">15000&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Visit &lt;code>http://localhost:15000&lt;/code> in your browser and you will see the Envoy Admin interface as shown below.&lt;/p>
+&lt;p>&lt;figure class="mx-auto text-center">
+&lt;img src="https://sdmx.io/blog/istio-components-and-ports/envoy-admin.webp" data-img="/blog/istio-components-and-ports/envoy-admin.webp" data-width="660" data-height="1158" alt="envoy-admin.webp" data-caption="Envoy Admin interface">
+&lt;figcaption>Envoy Admin interface&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;h2 id="15004">15004&lt;/h2>
+&lt;p>With the &lt;code>pilot-agent&lt;/code> proxy &lt;code>istiod&lt;/code> debug endpoint on port 8080, you can access localhost&amp;rsquo;s port 15004 in the data plane Pod to query the grid information, which has the same effect as port 8080 below.&lt;/p>
+&lt;h2 id="8080">8080&lt;/h2>
+&lt;p>You can also forward &lt;code>istiod&lt;/code> port 8080 locally by running the following command:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">kubectl -n istio-system port-forward deploy/istiod &lt;span class="m">8080&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Visit &lt;code>http://localhost:8080/debug&lt;/code> in your browser and you will see the debug endpoint as shown in the figure below.&lt;/p>
+&lt;p>&lt;figure class="mx-auto text-center">
+&lt;img src="https://sdmx.io/blog/istio-components-and-ports/pilot-debug-console.webp" data-img="/blog/istio-components-and-ports/pilot-debug-console.webp" data-width="1080" data-height="1243" alt="pilot-debug-console.webp" data-caption="Pilot Debug Console">
+&lt;figcaption>Pilot Debug Console&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;p>Of course, this is only one way to get the mesh information and debug the mesh, you can also use &lt;code>istioctl&lt;/code> command or Kiali to debug it, which will be more efficient and intuitive.&lt;/p>
+&lt;h2 id="15020">15020&lt;/h2>
+&lt;p>Port 15020 has three main usages.&lt;/p>
+&lt;ol>
+&lt;li>Aggregating metrics: You can query port 15090 for Envoy&amp;rsquo;s metrics, or you can configure it to query the application&amp;rsquo;s metrics, aggregating Envoy, application, and its own metrics for Prometheus to collect. The corresponding debug endpoint is &lt;code>/stats/prometheus&lt;/code>.&lt;/li>
+&lt;li>Performing health checks on Envoy and DNS agent: the corresponding debug endpoints are &lt;code>/healthz/ready&lt;/code> and &lt;code>/app-health&lt;/code>.&lt;/li>
+&lt;li>Debugging &lt;code>pilot-agent&lt;/code> processes: the corresponding debug endpoints are &lt;code>/quitquitquit&lt;/code>, &lt;code>debug/ndsz&lt;/code> and &lt;code>/debug/pprof&lt;/code>.&lt;/li>
+&lt;/ol>
+&lt;p>The following figure shows the debugging information you see when you open &lt;code>http://localhost:15020/debug/pprof&lt;/code> in your browser.&lt;/p>
+&lt;p>&lt;figure class="mx-auto text-center">
+&lt;img src="https://sdmx.io/blog/istio-components-and-ports/pprof.webp" data-img="/blog/istio-components-and-ports/pprof.webp" data-width="1761" data-height="1080" alt="pprof.webp" data-caption="pprof endpoint">
+&lt;figcaption>pprof endpoint&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;p>The information in the figure shows the stack information of the &lt;code>pilot-agent&lt;/code>.&lt;/p>
+&lt;h2 id="summary">Summary&lt;/h2>
+&lt;p>By understanding the component ports in Istio, you should have a better understanding of the relationship between the components in Istio and their internal traffic. Being familiar with the functions of these ports will help in troubleshooting the mesh.&lt;/p></description></item><item><title>Traffic types and iptables rules in Istio sidecar explained</title><link>https://sdmx.io/blog/istio-sidecar-traffic-types/</link><pubDate>Sat, 07 May 2022 11:18:40 +0800</pubDate><guid>https://sdmx.io/blog/istio-sidecar-traffic-types/</guid><description>
+&lt;p>As we know that Istio uses iptables for traffic hijacking, where the iptables rule chains has one called ISTIO_OUTPUT, which contains the following rules.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;strong>Rule&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>target&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>in&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>out&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>source&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>destination&lt;/strong>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>1&lt;/td>
+&lt;td>RETURN&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>lo&lt;/td>
+&lt;td>127.0.0.6&lt;/td>
+&lt;td>anywhere&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>2&lt;/td>
+&lt;td>ISTIO_IN_REDIRECT&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>lo&lt;/td>
+&lt;td>anywhere&lt;/td>
+&lt;td>!localhost owner UID match 1337&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>3&lt;/td>
+&lt;td>RETURN&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>lo&lt;/td>
+&lt;td>anywhere&lt;/td>
+&lt;td>anywhere !owner UID match 1337&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>4&lt;/td>
+&lt;td>RETURN&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>anywhere&lt;/td>
+&lt;td>anywhere owner UID match 1337&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>5&lt;/td>
+&lt;td>ISTIO_IN_REDIRECT&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>lo&lt;/td>
+&lt;td>anywhere&lt;/td>
+&lt;td>!localhost owner GID match 1337&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>6&lt;/td>
+&lt;td>RETURN&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>lo&lt;/td>
+&lt;td>anywhere&lt;/td>
+&lt;td>anywhere !owner GID match 1337&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>7&lt;/td>
+&lt;td>RETURN&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>anywhere&lt;/td>
+&lt;td>anywhere owner GID match 1337&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>8&lt;/td>
+&lt;td>RETURN&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>anywhere&lt;/td>
+&lt;td>localhost&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>9&lt;/td>
+&lt;td>ISTIO_REDIRECT&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>anywhere&lt;/td>
+&lt;td>anywhere&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>The sidecar applies these rules to deal with different types of traffic. This article will show you the six types of traffic and their iptables rules in Istio sidecar.&lt;/p>
+&lt;h2 id="iptables-traffic-routing-in-sidecar">iptables Traffic Routing in Sidecar&lt;/h2>
+&lt;p>The following list summarizes the six types of traffic in Sidecar.&lt;/p>
+&lt;ol>
+&lt;li>Remote service accessing local service: Remote Pod -&amp;gt; Local Pod&lt;/li>
+&lt;li>Local service accessing remote service: Local Pod -&amp;gt; Remote Pod&lt;/li>
+&lt;li>Prometheus crawling metrics of local service: Prometheus -&amp;gt; Local Pod&lt;/li>
+&lt;li>Traffic between Local Pod service: Local Pod -&amp;gt; Local Pod&lt;/li>
+&lt;li>Inter-process TCP traffic within Envoy&lt;/li>
+&lt;li>Sidecar to Istiod traffic&lt;/li>
+&lt;/ol>
+&lt;p>The following will explain the iptables routing rules within Sidecar for each scenario, which specifies which rule in ISTIO_OUTPUT is used for routing.&lt;/p>
+&lt;h3 id="type-1-remote-pod---local-pod">Type 1: Remote Pod -&amp;gt; Local Pod&lt;/h3>
+&lt;p>The following are the iptables rules for remote services, applications or clients accessing the local pod IP of the data plane.&lt;/p>
+&lt;p>Remote Pod -&amp;gt; &lt;code>RREROUTING&lt;/code> -&amp;gt; &lt;code>ISTIO_INBOUND&lt;/code> -&amp;gt; &lt;code>ISTIO_IN_REDIRECT&lt;/code> -&amp;gt; Envoy 15006 (Inbound) -&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 1&lt;/strong> -&amp;gt; &lt;code> POSTROUTING&lt;/code> -&amp;gt; Local Pod&lt;/p>
+&lt;p>We see that the traffic only passes through the Envoy 15006 Inbound port once. The following diagram shows this scenario of the iptables rules.&lt;/p>
+&lt;p>&lt;figure class="mx-auto text-center">
+&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/remote-pod-local-pod.jpg" data-img="/blog/istio-sidecar-traffic-types/remote-pod-local-pod.jpg" data-width="2384" data-height="1706" alt="remote-pod-local-pod.jpg" data-caption="Remote Pod to Local Pod">
+&lt;figcaption>Remote Pod to Local Pod&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;h3 id="type-2-local-pod---remote-pod">Type 2: Local Pod -&amp;gt; Remote Pod&lt;/h3>
+&lt;p>The following are the iptables rules that the local pod IP goes through to access the remote service.&lt;/p>
+&lt;p>Local Pod-&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 9&lt;/strong> -&amp;gt; &lt;code>ISTIO_REDIRECT&lt;/code> -&amp;gt; Envoy 15001 (Outbound) -&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 4&lt;/strong> -&amp;gt; &lt;code>POSTROUTING&lt;/code> -&amp;gt; Remote Pod&lt;/p>
+&lt;p>We see that the traffic only goes through the Envoy 15001 Outbound port.&lt;/p>
+&lt;p>&lt;figure class="mx-auto text-center">
+&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/local-pod-remote-pod.jpg" data-img="/blog/istio-sidecar-traffic-types/local-pod-remote-pod.jpg" data-width="2384" data-height="1704" alt="local-pod-remote-pod.jpg" data-caption="Local Pod to Remote Pod">
+&lt;figcaption>Local Pod to Remote Pod&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;p>The traffic in both scenarios above passes through Envoy only once because only one scenario occurs in that Pod, sending or receiving requests.&lt;/p>
+&lt;h3 id="type-3-prometheus---local-pod">Type 3: Prometheus -&amp;gt; Local Pod&lt;/h3>
+&lt;p>Prometheus traffic that grabs data plane metrics does not have to go through the Envoy proxy.&lt;/p>
+&lt;p>These traffic pass through the following iptables rules.&lt;/p>
+&lt;p>Prometheus-&amp;gt; &lt;code>RREROUTING&lt;/code> -&amp;gt; &lt;code>ISTIO_INBOUND&lt;/code> (traffic destined for ports 15002, 15090 will go to &lt;code>INPUT&lt;/code>) -&amp;gt; &lt;code>INPUT&lt;/code> -&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 3&lt;/strong> -&amp;gt; &lt;code>POSTROUTING&lt;/code> -&amp;gt; Local Pod&lt;/p>
+&lt;p>&lt;figure class="mx-auto text-center">
+&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/prometheus-local-pod.jpg" data-img="/blog/istio-sidecar-traffic-types/prometheus-local-pod.jpg" data-width="2384" data-height="1704" alt="prometheus-local-pod.jpg" data-caption="Prometheus to Local Pod">
+&lt;figcaption>Prometheus to Local Pod&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;h3 id="type-4-local-pod---local-pod">Type 4: Local Pod -&amp;gt; Local Pod&lt;/h3>
+&lt;p>A Pod may simultaneously have two or more services. If the Local Pod accesses a service on the current Pod, the traffic will go through Envoy 15001 and Envoy 15006 ports to reach the service port of the Local Pod.&lt;/p>
+&lt;p>The iptables rules for this traffic are as follows.&lt;/p>
+&lt;p>Local Pod-&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 9&lt;/strong> -&amp;gt; &lt;code>ISTIO_REDIRECT&lt;/code> -&amp;gt; Envoy 15001（Outbound）-&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 2&lt;/strong> -&amp;gt; &lt;code>ISTIO_IN_REDIRECT&lt;/code> -&amp;gt; Envoy 15006（Inbound）-&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 1&lt;/strong> -&amp;gt; &lt;code>POSTROUTING&lt;/code> -&amp;gt; Local Pod&lt;/p>
+&lt;p>&lt;figure class="mx-auto text-center">
+&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/local-pod-local-pod.jpg" data-img="/blog/istio-sidecar-traffic-types/local-pod-local-pod.jpg" data-width="2384" data-height="1704" alt="local-pod-local-pod.jpg" data-caption="Local Pod to Local Pod">
+&lt;figcaption>Local Pod to Local Pod&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;h3 id="type-5-inter-process-tcp-traffic-within-envoy">Type 5: Inter-process TCP traffic within Envoy&lt;/h3>
+&lt;p>Envoy internal processes with UID and GID 1337 will communicate with each other using lo NICs and localhost domains.&lt;/p>
+&lt;p>The iptables rules that these flows pass through are as follows.&lt;/p>
+&lt;p>Envoy process (Localhost) -&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 8&lt;/strong> -&amp;gt; &lt;code>POSTROUTING&lt;/code> -&amp;gt; Envoy process (Localhost)&lt;/p>
+&lt;p>&lt;figure class="mx-auto text-center">
+&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/envoy-internal-tcp-traffic.jpg" data-img="/blog/istio-sidecar-traffic-types/envoy-internal-tcp-traffic.jpg" data-width="2386" data-height="1706" alt="envoy-internal-tcp-traffic.jpg" data-caption="Envoy inter-process TCP traffic">
+&lt;figcaption>Envoy inter-process TCP traffic&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;h3 id="type-6-sidecar-to-istiod-traffic">Type 6: Sidecar to Istiod traffic&lt;/h3>
+&lt;p>Sidecar needs access to Istiod to synchronize its configuration so that Envoy will have traffic sent to Istiod.&lt;/p>
+&lt;p>The iptables rules that this traffic passes through are as follows.&lt;/p>
+&lt;p>&lt;code>pilot-agent&lt;/code> process -&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>Istio_OUTPUT&lt;/code> RULE 9&lt;/strong> -&amp;gt; Envoy 15001 (Outbound Handler) -&amp;gt; OUTPUT -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 4&lt;/strong> -&amp;gt; &lt;code>POSTROUTING&lt;/code> -&amp;gt; Istiod&lt;/p>
+&lt;p>&lt;figure class="mx-auto text-center">
+&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/sidecar-istiod.jpg" data-img="/blog/istio-sidecar-traffic-types/sidecar-istiod.jpg" data-width="2384" data-height="1704" alt="sidecar-istiod.jpg" data-caption="Sidecar to Istiod">
+&lt;figcaption>Sidecar to Istiod&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;h2 id="summary">Summary&lt;/h2>
+&lt;p>All the sidecar proxies that Istio injects into the Pod or installed in the virtual machine form the data plane of the service mesh, which is also the main workload location of Istio. In my next blog, I will take you through the ports of each component in Envoy and their functions, so that we can have a more comprehensive understanding of the traffic in Istio.&lt;/p></description></item></channel></rss>

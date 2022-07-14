@@ -1,0 +1,92 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – ABAC</title><link>https://sdmx.io/tags/abac/</link><description>Recent content in ABAC on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Sat, 20 Feb 2021 14:12:40 +0800</lastBuildDate><atom:link href="https://sdmx.io/tags/abac/index.xml" rel="self" type="application/rss+xml"/><item><title>Why You Should Choose NGAC as Your Access Control Model</title><link>https://sdmx.io/blog/why-you-should-choose-ngac-as-your-access-control-model/</link><pubDate>Sat, 20 Feb 2021 14:12:40 +0800</pubDate><guid>https://sdmx.io/blog/why-you-should-choose-ngac-as-your-access-control-model/</guid><description>
+&lt;p>Different companies or software providers have devised countless ways to control user access to functions or resources, such as Discretionary Access Control (DAC), Mandatory Access Control (MAC), Role-Based Access Control (RBAC), and Attribute-Based Access Control (ABAC). In essence, whatever the type of access control model, three basic elements can be abstracted: user, system/application, and policy.&lt;/p>
+&lt;p>In this article, we will introduce ABAC, RBAC, and a new access control model — Next Generation Access Control (NGAC) — and compare the similarities and differences between the three, as well as why you should consider NGAC.&lt;/p>
+&lt;h2 id="what-is-rbac">What Is RBAC?&lt;/h2>
+&lt;p>RBAC, or Role-Based Access Control, takes an approach whereby users are granted (or denied) access to resources based on their role in the organization. Every role is assigned a collection of permissions and restrictions, which is great because you don’t need to keep track of every system user and their attributes. You just need to update appropriate roles, assign roles to users, or remove assignments. But this can be difficult to manage and scale. Enterprises that use the RBAC static role-based model have experienced role explosion: large companies may have tens of thousands of similar but distinct roles or users whose roles change over time, making it difficult to track roles or audit unneeded permissions. RBAC has fixed access rights, with no provision for ephemeral permissions or for considering attributes like location, time, or device. Enterprises using RBAC have had difficulty meeting the complex access control requirements to meet regulatory requirements of other organizational needs.&lt;/p>
+&lt;h3 id="rbac-example">RBAC Example&lt;/h3>
+&lt;p>Here’s an example Role in the “default” namespace in Kubernetes that can be used to grant read access to pods:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">rbac.authorization.k8s.io/v1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Role&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">namespace&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">default&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pod-reader&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">rules&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>- &lt;span class="nt">apiGroups&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;v1&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">resources&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;pods&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">verbs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;get&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;watch&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;list&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="what-is-abac">What Is ABAC?&lt;/h2>
+&lt;p>ABAC stands for Attribute-Based Access Control. At a high level, &lt;a href="https://www.nist.gov/publications/guide-attribute-based-access-control-abac-definition-and-considerations-1" title="NIST defines" target="_blank" rel="noopener">NIST defines&lt;/a>
+ABAC as an access control method “where subject requests to perform operations on objects are granted or denied based on assigned attributes of the subject, environment conditions, and a set of policies that are specified in terms of those attributes and conditions.” ABAC is a fine-grained model since you can assign any attributes to the user, but at the same time it becomes a burden and hard to manage:&lt;/p>
+&lt;ol>
+&lt;li>When defining permissions, the relationship between users and objects cannot be visualized.&lt;/li>
+&lt;li>If the rules are a little complex or confusingly designed, it will be troublesome for the administrator to maintain and trace.&lt;/li>
+&lt;/ol>
+&lt;p>This can cause performance problems when there is a large number of permissions to process.&lt;/p>
+&lt;h3 id="abac-example">ABAC Example&lt;/h3>
+&lt;p>Kubernetes initially uses ABAC as access control and is configured via JSON Lines, for example:&lt;/p>
+&lt;p>Alice can just read pods in namespace “foo”:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>&lt;span class="nt">&amp;#34;apiVersion&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;abac.authorization.kubernetes.io/v1beta1&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nt">&amp;#34;kind&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;Policy&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nt">&amp;#34;spec&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="nt">&amp;#34;user&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;alice&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nt">&amp;#34;namespace&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;foo&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nt">&amp;#34;resource&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;pods&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nt">&amp;#34;readonly&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">}}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="what-is-ngac">What Is NGAC?&lt;/h2>
+&lt;p>NGAC, or Next Generation Access Control, takes the approach of modeling access decision data as a graph. NGAC enables a systematic, policy-consistent approach to access control, granting or denying users administrative capabilities with a high level of granularity. NGAC was developed by &lt;a href="https://www.nist.gov/" title="NIST" target="_blank" rel="noopener">NIST&lt;/a>
+(National Institute of Standards and Technology) and is currently used in &lt;a href="https://www.tetrate.io/blog/introducing-tetrate-q/" title="Tetrate Q" target="_blank" rel="noopener">Tetrate Q&lt;/a>
+and &lt;a href="https://www.tetrate.io/tetrate-service-bridge/" title="Tetrate Service Bridge" target="_blank" rel="noopener">Tetrate Service Bridge&lt;/a>
+.&lt;/p>
+&lt;p>There are several types of entities; they represent the resources you want to protect, the relationships between them, and the actors that interact with the system. The entities are:&lt;/p>
+&lt;ol>
+&lt;li>Users&lt;/li>
+&lt;li>Objects&lt;/li>
+&lt;li>User attributes, such as organization unit&lt;/li>
+&lt;li>Object attributes, such as folders&lt;/li>
+&lt;li>Policy classes, such as file system access, location, and time&lt;/li>
+&lt;/ol>
+&lt;p>NIST’s David Ferraiolo and &lt;a href="https://www.tetrate.io/?utm_content=inline-mention" title="Tetrate" target="_blank" rel="noopener">Tetrate&lt;/a>
+‘s Ignasi Barrera shared how NGAC works at their &lt;a href="https://www.tetrate.io/blog/unpacking-next-generation-access-control-ngac-and-tetrate-q/" title="presentation" target="_blank" rel="noopener">presentation&lt;/a>
+on Next Generation Access Control at Service Mesh Day 2019 in San Francisco.&lt;/p>
+&lt;p>NGAC is based on the assumption that you can represent the system you want to protect in a graph that represents the resources you want to protect and your organizational structure, in a way that has meaning to you and that adheres to your organization semantics. On top of this model that is very particular to your organization, you can overlay policies. Between the resource model and the user model, the permissions are defined. This way NGAC provides an elegant way of representing the resources you want to protect, the different actors in the system, and how both worlds are tied together with permissions.&lt;/p>
+&lt;p>&lt;figure class="mx-auto text-center">
+&lt;img src="https://sdmx.io/blog/why-you-should-choose-ngac-as-your-access-control-model/008eGmZEly1gpb7y6dffaj30ke0ay0ue.jpg" data-img="/blog/why-you-should-choose-ngac-as-your-access-control-model/008eGmZEly1gpb7y6dffaj30ke0ay0ue.jpg" data-width="734" data-height="394" alt="008eGmZEly1gpb7y6dffaj30ke0ay0ue.jpg" data-caption="NGAC DAG">
+&lt;figcaption>NGAC DAG&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;p>Image via &lt;a href="https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=922390" title="Linear Time Algorithms to Restrict Insider Access using Multi-Policy Access Control Systems" target="_blank" rel="noopener">Linear Time Algorithms to Restrict Insider Access using Multi-Policy Access Control Systems&lt;/a>
+&lt;/p>
+&lt;h3 id="ngac-example">NGAC Example&lt;/h3>
+&lt;p>The following example shows a simple NGAC graph with a User DAG representing an organization structure, an Object DAG representing files and folders in a filesystem, a categorization of the files, and two different policies — file system and scope — that can be combined to make access decisions. The association edges between the two DAGs define the permissions the actors have on the target resources.&lt;/p>
+&lt;p>&lt;figure class="mx-auto text-center">
+&lt;img src="https://sdmx.io/blog/why-you-should-choose-ngac-as-your-access-control-model/008eGmZEly1gpb7y4v7x3j30lx0f7my9.jpg" data-img="/blog/why-you-should-choose-ngac-as-your-access-control-model/008eGmZEly1gpb7y4v7x3j30lx0f7my9.jpg" data-width="789" data-height="547" alt="008eGmZEly1gpb7y4v7x3j30lx0f7my9.jpg" data-caption="NGAC">
+&lt;figcaption>NGAC&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;p>In this graph we can see a representation of two files, “resume” and “contract” in the “/hr-docs” folder, each linked to a category (“public/confidential”). There are also two policy classes, “File System” and “Scope,” where the objects in the graph are attached — these need to be satisfied in order to get access to each file.&lt;/p>
+&lt;p>User Allice has read and write access to both files in the example, because a path links Allice to each of the files and the paths grant permissions on both policy classes. However, user Bob only has access to the “resume” file, because although there exists a path from Bob to the “contract” file that satisfies the “File System” policy class with “read” permissions, there is no path granting permissions on the “Scope” policy class. So, access to the “contract” file is denied to Bob.&lt;/p>
+&lt;h2 id="why-choose-ngac">Why Choose NGAC?&lt;/h2>
+&lt;p>The need to keep track of attributes of all objects creates a manageability burden in the case of ABAC. RBAC reduces the burden since we extract all access information to roles, but this paradigm suffers from role explosion problems and can also become unmanageable. With NGAC we have everything we need in graphs — in a compact, centralized fashion.&lt;/p>
+&lt;p>When access decisions are complex, processing times of ABAC can rise exponentially. RBAC becomes especially hard to manage at scale, while NGAC scales linearly.&lt;/p>
+&lt;p>Where NGAC really shines is in flexibility. It can be configured to allow or disallow access based not only on object attributes, but also on other conditions — time, location, phase of the moon, and so on.&lt;/p>
+&lt;p>Other key advantages of NGAC include the ability to set policies consistently (to meet compliance requirements) and the ability to set ephemeral policies. For example, NGAC could grant a developer one-time access to resources during an outage, without leaving unnecessary permissions in place that could later lead to a security breach. NGAC can evaluate and combine multiple policies in a single access decision, while keeping its linear time complexity.&lt;/p>
+&lt;h2 id="summary">Summary&lt;/h2>
+&lt;p>The following table compares ABAC, RBAC, and NGAC in several aspects.&lt;/p>
+&lt;p>&lt;figure class="mx-auto text-center">
+&lt;img src="https://sdmx.io/blog/why-you-should-choose-ngac-as-your-access-control-model/008eGmZEly1gpb7y5ehmej30zs0fw76d.jpg" data-img="/blog/why-you-should-choose-ngac-as-your-access-control-model/008eGmZEly1gpb7y5ehmej30zs0fw76d.jpg" data-width="1288" data-height="572" alt="008eGmZEly1gpb7y5ehmej30zs0fw76d.jpg" data-caption="NGAC vs RBAC vs ABAC">
+&lt;figcaption>NGAC vs RBAC vs ABAC&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;p>In conclusion:&lt;/p>
+&lt;ul>
+&lt;li>RBAC is simpler and has good performance, but can suffer at scale.&lt;/li>
+&lt;li>ABAC is flexible, but performance and auditability are a problem.&lt;/li>
+&lt;li>NGAC fixes those gaps by using a novel, elegant revolutionary approach: overlay access policies on top of an existing representation of the world, provided by the user. You can model RBAC and ABAC policies as well.&lt;/li>
+&lt;/ul>
+&lt;h2 id="references">References&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://nvlpubs.nist.gov/nistpubs/specialpublications/NIST.SP.800-162.pdf" title="Guide to Attribute-Based Access Control (ABAC) Definition and Considerations" target="_blank" rel="noopener">Guide to Attribute-Based Access Control (ABAC) Definition and Considerations&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6953980/" title="Deploying ABAC policies using RBAC Systems" target="_blank" rel="noopener">Deploying ABAC policies using RBAC Systems&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://www.comparitech.com/net-admin/rbac-vs-abac/" title="RBAC vs. ABAC: What’s the Difference?" target="_blank" rel="noopener">RBAC vs. ABAC: What’s the Difference?&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://www.linkedin.com/pulse/role-explosion-unintended-consequence-rbac-oren-ohayon-harel/" title="Role Explosion: The Unintended Consequence of RBAC" target="_blank" rel="noopener">Role Explosion: The Unintended Consequence of RBAC&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://www.nist.gov/publications/exploring-next-generation-access-control-methodologies" title="Exploring the Next Generation of Access Control Methodologies" target="_blank" rel="noopener">Exploring the Next Generation of Access Control Methodologies&lt;/a>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>

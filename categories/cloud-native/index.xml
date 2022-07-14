@@ -1,0 +1,289 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – cloud native</title><link>https://sdmx.io/categories/cloud-native/</link><description>Recent content in cloud native on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Sat, 11 Aug 2018 11:37:36 +0800</lastBuildDate><atom:link href="https://sdmx.io/categories/cloud-native/index.xml" rel="self" type="application/rss+xml"/><item><title>Cloud Native and me - the past, current and future</title><link>https://sdmx.io/blog/cloud-native-and-me-the-past-current-and-future/</link><pubDate>Sat, 11 Aug 2018 11:37:36 +0800</pubDate><guid>https://sdmx.io/blog/cloud-native-and-me-the-past-current-and-future/</guid><description>
+&lt;p>Today I am honored to announce that I have become a &lt;a href="https://www.cncf.io/people/ambassadors/" title="CNCF Ambassador" target="_blank" rel="noopener">CNCF Ambassador&lt;/a>
+. Here is my story with Cloud Native.&lt;/p>
+&lt;h2 id="origin">Origin&lt;/h2>
+&lt;p>The first time to attend the Cloud Native Computing Foundation is at the LC3 in Beijing 2017. I attended the meeting again this year, and in November of this year, CNCF will hold the &lt;a href="https://www.lfasiallc.com/events/kubecon-cloudnativecon-china-2018/" title="KubeCon &amp;amp;amp; CloudNativeCon" target="_blank" rel="noopener">KubeCon &amp;amp; CloudNativeCon&lt;/a>
+for the first time in Shanghai, China. I&amp;rsquo;ll be there too.&lt;/p>
+&lt;h2 id="cloud-native-books">Cloud Native Books&lt;/h2>
+&lt;p>My origins with the Cloud Native is originated from Kevin Hoffman&amp;rsquo;s book &lt;a href="https://sdmx.io/en/book/cloud-native-go" title="Cloud Native Go">Cloud Native Go&lt;/a>
+. I translated this book at the end of 2016. Since then, in China, the translation of the word &lt;code>Cloud Native&lt;/code> has not been determined, we introduced it with &lt;code>云原生&lt;/code> to China.&lt;/p>
+&lt;p>And then I begin to write the &lt;a href="https://github.com/rootsongjc/kubernetes-handbook" title="kubernetes-handbook" target="_blank" rel="noopener">kubernetes-handbook&lt;/a>
+on GitHub. So far, it has more than 2000 stars. This book has written more than 200,000 Chinese characters, the first commit happened on April 14, 2017.&lt;/p>
+&lt;p>Since the the book Cloud Native Go completed, the publisher recommended another Cloud Native book to me - &lt;a href="https://sdmx.io/en/book/cloud-native-python/" title="Cloud Native Python">Cloud Native Python&lt;/a>
+by Manish Sethi.&lt;/p>
+&lt;p>And the book &lt;a href="https://sdmx.io/en/book/cloud-native-java/" title="Cloud Native Java">Cloud Native Java&lt;/a>
+by Josh Long and Kenny Bastani.&lt;/p>
+&lt;p>In March 2018, with the hope that &lt;code>Bring the world equal opportunities&lt;/code> and &lt;code>Building a Financial Cloud Native Infrastructure&lt;/code>, I joined the &lt;a href="http://antfin.com" title="Ant Group" target="_blank" rel="noopener">Ant Group&lt;/a>
+.&lt;/p>
+&lt;h2 id="servicemesher-community">ServiceMesher Community&lt;/h2>
+&lt;p>By the time of May 2018, I start to organize the &lt;a href="http://www.servicemesher.com" title="ServiceMesher" target="_blank" rel="noopener">ServiceMesher&lt;/a>
+community.&lt;/p>
+&lt;p>In the last few months, we work with other open source communities in China, such as &lt;a href="http://www.k8smeetup.com" title="k8smeetup" target="_blank" rel="noopener">k8smeetup&lt;/a>
+, &lt;a href="http://shardingjdbc.io/" title="Sharding-Sphere" target="_blank" rel="noopener">Sharding-Sphere&lt;/a>
+, &lt;a href="http://skywalking.apache.org/" title="Apache SkyWalking" target="_blank" rel="noopener">Apache SkyWalking&lt;/a>
+. Our community has grown to have 1,700 members and two round meetups in &lt;a href="http://www.servicemesher.com/blog/hangzhou-meetup-20180630/" title="Hangzhou" target="_blank" rel="noopener">Hangzhou&lt;/a>
+and &lt;a href="http://www.servicemesher.com/blog/beijing-meetup-20180729/" title="Beijing" target="_blank" rel="noopener">Beijing&lt;/a>
+till now.&lt;/p>
+&lt;p>More than 300 people participated in the scene and more than 20,000 people watched it live by &lt;a href="http://www.itdks.com/eventlist/detail/2311" title="IT大咖说" target="_blank" rel="noopener">IT大咖说&lt;/a>
+。&lt;/p>
+&lt;h2 id="future">Future&lt;/h2>
+&lt;p>Here are some hopes of mine:&lt;/p>
+&lt;ul>
+&lt;li>Open source culture become popular in China&lt;/li>
+&lt;li>More and more people would like to be involved in open source projects&lt;/li>
+&lt;li>Host one open source project into the CNCF&lt;/li>
+&lt;li>A book related to Cloud Native or Service Mesh&lt;/li>
+&lt;li>Strengthen cultural exchanges between China and the global&lt;/li>
+&lt;/ul>
+&lt;p>Finally, welcome to China for traveling or share your topic with us on Cloud Native, and in the mean while we will share our experience on large scale web apps to the world. Hope to hear your voice!&lt;/p></description></item><item><title>High Level Cloud Native From Kevin Hoffman</title><link>https://sdmx.io/blog/high-level-cloud-native-from-kevin-hoffman/</link><pubDate>Fri, 15 Sep 2017 20:32:47 +0800</pubDate><guid>https://sdmx.io/blog/high-level-cloud-native-from-kevin-hoffman/</guid><description>
+&lt;p>Kevin Hoffman(From Capital One, twitter &lt;a href="https://twitter.com/KevinHoffman" title="@KevinHoffman" target="_blank" rel="noopener">@KevinHoffman&lt;/a>
+) was making a speech on &lt;em>TalkingData T11 Smart Data Summit&lt;/em>.&lt;/p>
+&lt;p>He addressed that &lt;strong>15 Factors of Cloud Native&lt;/strong> which based on Heroku&amp;rsquo;s original &lt;a href="https://12factor.net" title="Twelve-Factor App" target="_blank" rel="noopener">Twelve-Factor App&lt;/a>
+, but he add more 3 another factors on it.&lt;/p>
+&lt;p>Let&amp;rsquo;s have a look at the 15 factors of Cloud Native.&lt;/p>
+&lt;h2 id="1-one-codebase-one-app">1. One codebase, one App&lt;/h2>
+&lt;ul>
+&lt;li>Single version-controlled codebase, many deploys&lt;/li>
+&lt;li>Multiple apps should not share code
+&lt;ul>
+&lt;li>Microservices need separate release schedules&lt;/li>
+&lt;li>Upgrade, deploy one without impacting others&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Tie build and deploy pipelines to single codebase&lt;/li>
+&lt;/ul>
+&lt;h2 id="2-api-first">2. API first&lt;/h2>
+&lt;ul>
+&lt;li>Service ecosystem requires a contract
+&lt;ul>
+&lt;li>Public API&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Multiple teams on different schedulers
+&lt;ul>
+&lt;li>Code to contract/API, not code dependencies&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Use well-documented contract standards
+&lt;ul>
+&lt;li>Protobuf IDL, Swagger, Apiary, etc&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>API First != REST first
+&lt;ul>
+&lt;li>RPC can be more appropriate in some situations&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="3-dependency-management">3. Dependency Management&lt;/h2>
+&lt;ul>
+&lt;li>Explicitly declare dependencies&lt;/li>
+&lt;li>Include all dependencies with app release&lt;/li>
+&lt;li>Create immutable build artifact (e.g. docker image)&lt;/li>
+&lt;li>Rely on smallest docker image
+&lt;ul>
+&lt;li>Base on scratch if possible&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>App cannot rely on host for system tools or libraries&lt;/li>
+&lt;/ul>
+&lt;h2 id="4-design-build-release-run">4. Design, Build, Release, Run&lt;/h2>
+&lt;ul>
+&lt;li>Design part of iterative cycle
+&lt;ul>
+&lt;li>Agile doesn’t mean random or undesigned&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Mature CI/CD pipeline and teams
+&lt;ul>
+&lt;li>Design to production in days not months&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Build immutable artifacts&lt;/li>
+&lt;li>Release automatically deploys to environment
+&lt;ul>
+&lt;li>Environments contains config, not release artifact&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="5-configuration-credentials-code">5. Configuration, Credentials, Code&lt;/h2>
+&lt;ul>
+&lt;li>&amp;ldquo;3 Cs&amp;rdquo; volatile substances that explode when combinded&lt;/li>
+&lt;li>Password in a config file is as bad as password in code&lt;/li>
+&lt;li>App must accept &amp;ldquo;3 Cs&amp;rdquo; from &lt;strong>environment&lt;/strong> and only use harmless defaults&lt;/li>
+&lt;li>Test - Could you expose code on Github and not reveal passwords, URLs, credentials?&lt;/li>
+&lt;/ul>
+&lt;h2 id="6-logs">6. Logs&lt;/h2>
+&lt;ul>
+&lt;li>Emit formatted logs to stdout&lt;/li>
+&lt;li>Code should not know about destination or purpose of log emissions&lt;/li>
+&lt;li>Use downstream log aggregator
+&lt;ul>
+&lt;li>collect, store, process, expose logs&lt;/li>
+&lt;li>ELK, Splunk, Sumo, etc&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Use &lt;strong>structured&lt;/strong> logs to allow query and analysis
+&lt;ul>
+&lt;li>JSON, csv, KV, etc&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Logs are not metrics&lt;/li>
+&lt;/ul>
+&lt;h2 id="7-disposability">7. Disposability&lt;/h2>
+&lt;ul>
+&lt;li>App must start as quickly as possible&lt;/li>
+&lt;li>App must stop quickly and gracefully&lt;/li>
+&lt;li>Processes start and stop all the time in the cloud&lt;/li>
+&lt;li>Every scale up/down disposes of processes&lt;/li>
+&lt;li>Slow dispose == slow scale&lt;/li>
+&lt;li>Slow dispose or startup can cause availability gaps&lt;/li>
+&lt;/ul>
+&lt;h2 id="8-backing-services">8. Backing Services&lt;/h2>
+&lt;ul>
+&lt;li>Assume all resources supplied by backingservices&lt;/li>
+&lt;li>Cannotassume mutable file system
+&lt;ul>
+&lt;li>“Disk as a Service” (e.g. S3, virtual mounts, etc)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Every backing service is bound resource
+&lt;ul>
+&lt;li>URL, credentials, etc-&amp;gt; environment config&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Host does not satisfy NFRs
+&lt;ul>
+&lt;li>Backing services and cloud infrastructure&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="9-environment-parity">9. Environment Parity&lt;/h2>
+&lt;ul>
+&lt;li>“Works on my machine”
+&lt;ul>
+&lt;li>Cloud-native anti-pattern. Must &lt;strong>work everywhere&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Every commit is candidate for deployment&lt;/li>
+&lt;li>Automated acceptance tests
+&lt;ul>
+&lt;li>Provide no confidence if environments don’t match&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="10-administrative-processes">10. Administrative Processes&lt;/h2>
+&lt;ul>
+&lt;li>Database migrations&lt;/li>
+&lt;li>Run-once scripts or jobs&lt;/li>
+&lt;li>Avoid using for batch operations, consider instead:
+&lt;ul>
+&lt;li>Event sourcing&lt;/li>
+&lt;li>Schedulers&lt;/li>
+&lt;li>Triggers from queues, etc&lt;/li>
+&lt;li>Lambdas/functions&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="11-port-binding">11. Port Binding&lt;/h2>
+&lt;ul>
+&lt;li>In cloud, infrastructure determines port&lt;/li>
+&lt;li>App must accept port assigned by platform&lt;/li>
+&lt;li>Containers have internal/external ports
+&lt;ul>
+&lt;li>App design must embrace this&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Never use reserved ports&lt;/li>
+&lt;li>Beware of container “host mode” networking&lt;/li>
+&lt;/ul>
+&lt;h2 id="12-stateless-processes">12. Stateless Processes&lt;/h2>
+&lt;ul>
+&lt;li>What is stateless?&lt;/li>
+&lt;li>Long-term state handled by a backing service&lt;/li>
+&lt;li>In-memory state lives onlyas long as request&lt;/li>
+&lt;li>Requests from same client routed to different instances
+&lt;ul>
+&lt;li>“Sticky sessions” cloud native anti-pattern&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="13-concurency">13. Concurency&lt;/h2>
+&lt;ul>
+&lt;li>Scale horizontally using the process model&lt;/li>
+&lt;li>Build disposable, stateless, share-nothing processes&lt;/li>
+&lt;li>Avoid adding CPU/RAM to increase scale/throughput&lt;/li>
+&lt;li>Where possible, let platform/libraries do threading
+&lt;ul>
+&lt;li>Many single-threaded services &amp;gt; 1 multi-threaded monolith&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="14-telemetry">14. Telemetry&lt;/h2>
+&lt;ul>
+&lt;li>Monitor apps in the cloud like satellite in orbit&lt;/li>
+&lt;li>No tether, no live debugger&lt;/li>
+&lt;li>Application Perf Monitoring (APM)&lt;/li>
+&lt;li>Domain Telemetry&lt;/li>
+&lt;li>Health and system logs&lt;/li>
+&lt;/ul>
+&lt;h2 id="15-authentication--authorization">15. Authentication &amp;amp; Authorization&lt;/h2>
+&lt;ul>
+&lt;li>Security should never be an afterthought&lt;/li>
+&lt;li>Auth should be explicit, documented decision
+&lt;ul>
+&lt;li>Even if anonymous access is allowed&lt;/li>
+&lt;li>Don’t allow anonymous access&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Bearer tokens/OAuth/OIDC best practices&lt;/li>
+&lt;li>Audit all attempts to access&lt;/li>
+&lt;/ul>
+&lt;h2 id="migrating-monoliths-to-the-cloud">Migrating Monoliths to the Cloud&lt;/h2>
+&lt;p>After this 15 factors, he also gave us some tips about how to &lt;strong>migrate monoliths to the Cloud&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>Make a rule - stop adding to the monolith
+&lt;ul>
+&lt;li>All new code must be cloud native&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Prioritize features
+&lt;ul>
+&lt;li>Where will you get most benefit from cloud native?&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Come up with a plan
+&lt;ul>
+&lt;li>Decompose monolith over time&lt;/li>
+&lt;li>Fast, agile iterations toward ultimate goal&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Use multiple strategies and patterns&lt;/li>
+&lt;/ul>
+&lt;h2 id="go---the-best-language-for-building-cloud-native-app">Go - the Best Language for Building Cloud Native App&lt;/h2>
+&lt;p>At last, he advise us the programming language Go is the best language to build Cloud Native applications for these reasons below:&lt;/p>
+&lt;ul>
+&lt;li>Lightweight&lt;/li>
+&lt;li>Easily learning curve&lt;/li>
+&lt;li>Compiles to native binaries&lt;/li>
+&lt;li>Very fast&lt;/li>
+&lt;li>Large, thriving, engaged community
+&lt;ul>
+&lt;li>&lt;a href="http://gopherize.me" title="http://gopherize.me" target="_blank" rel="noopener">http://gopherize.me&lt;/a>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Kevin also wrote a book &lt;strong>Cloud Native Go&lt;/strong> to show how to &lt;strong>Building Web Applications and Microservices for the Cloud with Go and React&lt;/strong>. This book has been translated to Chinese by four guys from TalkingData with ❤️. 《Cloud Native Go 构建基于Go和React的云原生Web应用与微服务》published by PHEI publisher house.&lt;/p>
+&lt;p>Kevin was signing his name on the book&lt;/p>
+&lt;p>&lt;figure class="mx-auto text-center">
+&lt;img src="https://sdmx.io/blog/high-level-cloud-native-from-kevin-hoffman/kevin-hoffman-siging-on-the-book.jpg" data-img="/blog/high-level-cloud-native-from-kevin-hoffman/kevin-hoffman-siging-on-the-book.jpg" data-width="599" data-height="400" alt="kevin-hoffman-siging-on-the-book.jpg" data-caption="kevin siging on the book">
+&lt;figcaption>kevin siging on the book&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;p>This is his first visit to China, as a main translator of this book I an honored to be with him to take this photo.&lt;/p>
+&lt;p>&lt;figure class="mx-auto text-center">
+&lt;img src="https://sdmx.io/blog/high-level-cloud-native-from-kevin-hoffman/kevin-hoffman-with-me.jpg" data-img="/blog/high-level-cloud-native-from-kevin-hoffman/kevin-hoffman-with-me.jpg" data-width="539" data-height="355" alt="kevin-hoffman-with-me.jpg" data-caption="kevin hoffman with me">
+&lt;figcaption>kevin hoffman with me&lt;/figcaption>
+&lt;/figure>
+&lt;/p></description></item></channel></rss>

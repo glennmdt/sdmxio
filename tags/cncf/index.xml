@@ -1,0 +1,38 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – cncf</title><link>https://sdmx.io/tags/cncf/</link><description>Recent content in cncf on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Sat, 11 Aug 2018 11:37:36 +0800</lastBuildDate><atom:link href="https://sdmx.io/tags/cncf/index.xml" rel="self" type="application/rss+xml"/><item><title>Cloud Native and me - the past, current and future</title><link>https://sdmx.io/blog/cloud-native-and-me-the-past-current-and-future/</link><pubDate>Sat, 11 Aug 2018 11:37:36 +0800</pubDate><guid>https://sdmx.io/blog/cloud-native-and-me-the-past-current-and-future/</guid><description>
+&lt;p>Today I am honored to announce that I have become a &lt;a href="https://www.cncf.io/people/ambassadors/" title="CNCF Ambassador" target="_blank" rel="noopener">CNCF Ambassador&lt;/a>
+. Here is my story with Cloud Native.&lt;/p>
+&lt;h2 id="origin">Origin&lt;/h2>
+&lt;p>The first time to attend the Cloud Native Computing Foundation is at the LC3 in Beijing 2017. I attended the meeting again this year, and in November of this year, CNCF will hold the &lt;a href="https://www.lfasiallc.com/events/kubecon-cloudnativecon-china-2018/" title="KubeCon &amp;amp;amp; CloudNativeCon" target="_blank" rel="noopener">KubeCon &amp;amp; CloudNativeCon&lt;/a>
+for the first time in Shanghai, China. I&amp;rsquo;ll be there too.&lt;/p>
+&lt;h2 id="cloud-native-books">Cloud Native Books&lt;/h2>
+&lt;p>My origins with the Cloud Native is originated from Kevin Hoffman&amp;rsquo;s book &lt;a href="https://sdmx.io/en/book/cloud-native-go" title="Cloud Native Go">Cloud Native Go&lt;/a>
+. I translated this book at the end of 2016. Since then, in China, the translation of the word &lt;code>Cloud Native&lt;/code> has not been determined, we introduced it with &lt;code>云原生&lt;/code> to China.&lt;/p>
+&lt;p>And then I begin to write the &lt;a href="https://github.com/rootsongjc/kubernetes-handbook" title="kubernetes-handbook" target="_blank" rel="noopener">kubernetes-handbook&lt;/a>
+on GitHub. So far, it has more than 2000 stars. This book has written more than 200,000 Chinese characters, the first commit happened on April 14, 2017.&lt;/p>
+&lt;p>Since the the book Cloud Native Go completed, the publisher recommended another Cloud Native book to me - &lt;a href="https://sdmx.io/en/book/cloud-native-python/" title="Cloud Native Python">Cloud Native Python&lt;/a>
+by Manish Sethi.&lt;/p>
+&lt;p>And the book &lt;a href="https://sdmx.io/en/book/cloud-native-java/" title="Cloud Native Java">Cloud Native Java&lt;/a>
+by Josh Long and Kenny Bastani.&lt;/p>
+&lt;p>In March 2018, with the hope that &lt;code>Bring the world equal opportunities&lt;/code> and &lt;code>Building a Financial Cloud Native Infrastructure&lt;/code>, I joined the &lt;a href="http://antfin.com" title="Ant Group" target="_blank" rel="noopener">Ant Group&lt;/a>
+.&lt;/p>
+&lt;h2 id="servicemesher-community">ServiceMesher Community&lt;/h2>
+&lt;p>By the time of May 2018, I start to organize the &lt;a href="http://www.servicemesher.com" title="ServiceMesher" target="_blank" rel="noopener">ServiceMesher&lt;/a>
+community.&lt;/p>
+&lt;p>In the last few months, we work with other open source communities in China, such as &lt;a href="http://www.k8smeetup.com" title="k8smeetup" target="_blank" rel="noopener">k8smeetup&lt;/a>
+, &lt;a href="http://shardingjdbc.io/" title="Sharding-Sphere" target="_blank" rel="noopener">Sharding-Sphere&lt;/a>
+, &lt;a href="http://skywalking.apache.org/" title="Apache SkyWalking" target="_blank" rel="noopener">Apache SkyWalking&lt;/a>
+. Our community has grown to have 1,700 members and two round meetups in &lt;a href="http://www.servicemesher.com/blog/hangzhou-meetup-20180630/" title="Hangzhou" target="_blank" rel="noopener">Hangzhou&lt;/a>
+and &lt;a href="http://www.servicemesher.com/blog/beijing-meetup-20180729/" title="Beijing" target="_blank" rel="noopener">Beijing&lt;/a>
+till now.&lt;/p>
+&lt;p>More than 300 people participated in the scene and more than 20,000 people watched it live by &lt;a href="http://www.itdks.com/eventlist/detail/2311" title="IT大咖说" target="_blank" rel="noopener">IT大咖说&lt;/a>
+。&lt;/p>
+&lt;h2 id="future">Future&lt;/h2>
+&lt;p>Here are some hopes of mine:&lt;/p>
+&lt;ul>
+&lt;li>Open source culture become popular in China&lt;/li>
+&lt;li>More and more people would like to be involved in open source projects&lt;/li>
+&lt;li>Host one open source project into the CNCF&lt;/li>
+&lt;li>A book related to Cloud Native or Service Mesh&lt;/li>
+&lt;li>Strengthen cultural exchanges between China and the global&lt;/li>
+&lt;/ul>
+&lt;p>Finally, welcome to China for traveling or share your topic with us on Cloud Native, and in the mean while we will share our experience on large scale web apps to the world. Hope to hear your voice!&lt;/p></description></item></channel></rss>
