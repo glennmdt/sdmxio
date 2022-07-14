@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – kubernetes</title><link>https://sdmx.io/tags/kubernetes/</link><description>Recent content in kubernetes on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Mon, 24 May 2021 08:00:00 +0800</lastBuildDate><atom:link href="https://sdmx.io/tags/kubernetes/index.xml" rel="self" type="application/rss+xml"/><item><title>Happy Istio 4th Anniversary -- Retrospect and Outlook</title><link>https://sdmx.io/blog/istio-4-year-birthday/</link><pubDate>Mon, 24 May 2021 08:00:00 +0800</pubDate><guid>https://sdmx.io/blog/istio-4-year-birthday/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – kubernetes</title><link>https://glennmdt.github.io/sdmxio/tags/kubernetes/</link><description>Recent content in kubernetes on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Mon, 24 May 2021 08:00:00 +0800</lastBuildDate><atom:link href="https://glennmdt.github.io/sdmxio/tags/kubernetes/index.xml" rel="self" type="application/rss+xml"/><item><title>Happy Istio 4th Anniversary -- Retrospect and Outlook</title><link>https://glennmdt.github.io/sdmxio/blog/istio-4-year-birthday/</link><pubDate>Mon, 24 May 2021 08:00:00 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/istio-4-year-birthday/</guid><description>
 &lt;p>Istio was named by &lt;a href="https://tetrate.io/" title="Tetrate" target="_blank" rel="noopener">Tetrate&lt;/a>
 founder Varun Talwar and Google lead engineer Louis Ryan in 2017 and was open sourced on May 24, 2017. Today is the fourth anniversary of Istio’s open source arrival. Let’s take a look back at Istio’s four years of development — and look forward to Istio’s future.&lt;/p>
 &lt;h3 id="istios-open-source-history">Istio’s open source history&lt;/h3>
@@ -60,7 +60,7 @@ of a steering committee for the Istio community and the transfer of the trademar
 was successfully held in February 2021, with thousands of people attending the online conference. There is also a &lt;a href="https://www.youtube.com/watch?v=6m-rhyfy8sg&amp;amp;list=PL7wB27eZmdffS-g_xh7X-b0echc_XZMKV&amp;amp;index=8" title="large Istio community in China" target="_blank" rel="noopener">large Istio community in China&lt;/a>
 , and face-to-face Istio community meetups will be held there in 2021. Stay tuned for more.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-4-year-birthday/008i3skNly1gquicfqg14j31lw0smwl2.jpg" data-img="/blog/istio-4-year-birthday/008i3skNly1gquicfqg14j31lw0smwl2.jpg" data-width="2084" data-height="1030" alt="008i3skNly1gquicfqg14j31lw0smwl2.jpg" data-caption="">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-4-year-birthday/008i3skNly1gquicfqg14j31lw0smwl2.jpg" data-img="/sdmxio/blog/istio-4-year-birthday/008i3skNly1gquicfqg14j31lw0smwl2.jpg" data-width="2084" data-height="1030" alt="008i3skNly1gquicfqg14j31lw0smwl2.jpg" data-caption="">
 &lt;figcaption>&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -68,7 +68,7 @@ was successfully held in February 2021, with thousands of people attending the o
 &lt;h3 id="the-future">The future&lt;/h3>
 &lt;p>After 4 years of development, there is not only a large user base around Istio, but also several Istio vendors, as you can see on the &lt;a href="https://istio.io/" title="homepage" target="_blank" rel="noopener">homepage&lt;/a>
 of the recently revamped Istio website. In the last few releases, Istio has shifted its development focus to improving the Day 2 Operation experience. We also expect to see more Istio adoption path recommendations, case studies, learning materials, training, and certifications (such as the industry’s first &lt;a href="https://academy.tetrate.io/courses/certified-istio-administrator" title="Certified Istio Administrator" target="_blank" rel="noopener">Certified Istio Administrator&lt;/a>
-from Tetrate) that will facilitate the adoption of Istio.&lt;/p></description></item><item><title>What Is Istio and Why Does Kubernetes Need it?</title><link>https://sdmx.io/blog/what-is-istio-and-why-does-kubernetes-need-it/</link><pubDate>Wed, 28 Apr 2021 09:06:14 +0800</pubDate><guid>https://sdmx.io/blog/what-is-istio-and-why-does-kubernetes-need-it/</guid><description>
+from Tetrate) that will facilitate the adoption of Istio.&lt;/p></description></item><item><title>What Is Istio and Why Does Kubernetes Need it?</title><link>https://glennmdt.github.io/sdmxio/blog/what-is-istio-and-why-does-kubernetes-need-it/</link><pubDate>Wed, 28 Apr 2021 09:06:14 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/what-is-istio-and-why-does-kubernetes-need-it/</guid><description>
 &lt;p>Istio, &lt;a href="https://www.cncf.io/blog/2020/03/04/2019-cncf-survey-results-are-here-deployments-are-growing-in-size-and-speed-as-cloud-native-adoption-becomes-mainstream/" title="the most popular service mesh implementation" target="_blank" rel="noopener">the most popular service mesh implementation&lt;/a>
 , was developed on top of Kubernetes and has a different niche in the cloud native application ecosystem than Kubernetes. Rather than introduce you directly to what Istio has to offer, this article will explain how Istio came about and what it is in relation to Kubernetes.&lt;/p>
 &lt;h2 id="why-is-there-an-istio">Why Is There an Istio?&lt;/h2>
@@ -79,7 +79,7 @@ from Tetrate) that will facilitate the adoption of Istio.&lt;/p></description></
 &lt;h2 id="how-do-you-do-service-management-in-kubernetes">How Do You Do Service Management in Kubernetes?&lt;/h2>
 &lt;p>The following diagram shows the service model in Kubernetes:&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/what-is-istio-and-why-does-kubernetes-need-it/service-model.jpg" data-img="/blog/what-is-istio-and-why-does-kubernetes-need-it/service-model.jpg" data-width="1920" data-height="1200" alt="service-model.jpg" data-caption="Kubernetes Service Model">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/what-is-istio-and-why-does-kubernetes-need-it/service-model.jpg" data-img="/sdmxio/blog/what-is-istio-and-why-does-kubernetes-need-it/service-model.jpg" data-width="1920" data-height="1200" alt="service-model.jpg" data-caption="Kubernetes Service Model">
 &lt;figcaption>Kubernetes Service Model&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -94,7 +94,7 @@ from Tetrate) that will facilitate the adoption of Istio.&lt;/p></description></
 &lt;h2 id="the-basics-of-istio">The Basics of Istio&lt;/h2>
 &lt;p>The following diagram shows the service model in Istio, which supports both workloads and virtual machines in Kubernetes.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/what-is-istio-and-why-does-kubernetes-need-it/istio.jpg" data-img="/blog/what-is-istio-and-why-does-kubernetes-need-it/istio.jpg" data-width="1999" data-height="1104" alt="istio.jpg" data-caption="Istio">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/what-is-istio-and-why-does-kubernetes-need-it/istio.jpg" data-img="/sdmxio/blog/what-is-istio-and-why-does-kubernetes-need-it/istio.jpg" data-width="1999" data-height="1104" alt="istio.jpg" data-caption="Istio">
 &lt;figcaption>Istio&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -115,7 +115,7 @@ from Tetrate) that will facilitate the adoption of Istio.&lt;/p></description></
 &lt;li>Istio is currently the most popular service mesh implementation, relying on Kubernetes but also scalable to virtual machine loads.&lt;/li>
 &lt;li>Istio’s core consists of a control plane and a data plane, with Envoy as the default data-plane agent.&lt;/li>
 &lt;li>Istio acts as the network layer of the cloud native infrastructure and is transparent to applications.&lt;/li>
-&lt;/ul></description></item><item><title>Why Do You Need Istio When You Already Have Kubernetes?</title><link>https://sdmx.io/blog/why-do-you-need-istio-when-you-already-have-kubernetes/</link><pubDate>Wed, 07 Apr 2021 08:27:17 +0800</pubDate><guid>https://sdmx.io/blog/why-do-you-need-istio-when-you-already-have-kubernetes/</guid><description>
+&lt;/ul></description></item><item><title>Why Do You Need Istio When You Already Have Kubernetes?</title><link>https://glennmdt.github.io/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/</link><pubDate>Wed, 07 Apr 2021 08:27:17 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/</guid><description>
 &lt;p>If you’ve heard of service mesh and tried &lt;a href="https://istio.io/" title="Istio" target="_blank" rel="noopener">Istio&lt;/a>
 , you may have the following questions:&lt;/p>
 &lt;ol>
@@ -139,7 +139,7 @@ from Tetrate) that will facilitate the adoption of Istio.&lt;/p></description></
 &lt;h2 id="kubernetes-vs-service-mesh">Kubernetes vs Service Mesh&lt;/h2>
 &lt;p>The following diagram shows the service access relationship in Kubernetes and service mesh (one sidecar per pod model).&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7knfo4dj31hk0redrz.jpg" data-img="/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7knfo4dj31hk0redrz.jpg" data-width="1928" data-height="986" alt="008eGmZEly1gpb7knfo4dj31hk0redrz.jpg" data-caption="Kubernetes vs Service Mesh">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7knfo4dj31hk0redrz.jpg" data-img="/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7knfo4dj31hk0redrz.jpg" data-width="1928" data-height="986" alt="008eGmZEly1gpb7knfo4dj31hk0redrz.jpg" data-caption="Kubernetes vs Service Mesh">
 &lt;figcaption>Kubernetes vs Service Mesh&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -147,7 +147,7 @@ from Tetrate) that will facilitate the adoption of Istio.&lt;/p></description></
 &lt;p>Each node in a Kubernetes cluster deploys a kube-proxy component that communicates with the Kubernetes API Server, gets information about the services in the cluster, and then sets iptables rules to send requests for service directly to the corresponding Endpoint (a pod belonging to the same group of services).&lt;/p>
 &lt;h3 id="service-discovery">Service Discovery&lt;/h3>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7knwb79j30kq0fcjs9.jpg" data-img="/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7knwb79j30kq0fcjs9.jpg" data-width="746" data-height="552" alt="008eGmZEly1gpb7knwb79j30kq0fcjs9.jpg" data-caption="Service Discovery">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7knwb79j30kq0fcjs9.jpg" data-img="/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7knwb79j30kq0fcjs9.jpg" data-width="746" data-height="552" alt="008eGmZEly1gpb7knwb79j30kq0fcjs9.jpg" data-caption="Service Discovery">
 &lt;figcaption>Service Discovery&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -171,7 +171,7 @@ for detailed configuration.&lt;/p>
 &lt;p>Envoy is the default sidecar proxy in Istio. Istio extends its control plane based on Enovy’s xDS protocol. We need to familiarize ourselves with Envoy’s basic terminology before talking about Envoy’s xDS protocol. The following is a list of basic terms and their data structures in Envoy; please refer to the &lt;a href="https://envoyproxy.io/" title="Envoy documentation" target="_blank" rel="noopener">Envoy documentation&lt;/a>
 for more details.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7koah95j31450tetta.jpg" data-img="/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7koah95j31450tetta.jpg" data-width="1445" data-height="1058" alt="008eGmZEly1gpb7koah95j31450tetta.jpg" data-caption="Envoy">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7koah95j31450tetta.jpg" data-img="/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7koah95j31450tetta.jpg" data-width="1445" data-height="1058" alt="008eGmZEly1gpb7koah95j31450tetta.jpg" data-caption="Envoy">
 &lt;figcaption>Envoy&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -187,11 +187,11 @@ for more details.&lt;/p>
 &lt;p>The xDS protocol was proposed by Envoy and is the default sidecar proxy in Istio, but as long as the xDS protocol is implemented, it can theoretically be used as a sidecar proxy in Istio — such as the &lt;a href="https://github.com/mosn/mosn" title="MOSN" target="_blank" rel="noopener">MOSN&lt;/a>
 open source by Ant Group.&lt;/p>
 &lt;p>&lt;a href="https://cdn.thenewstack.io/media/2021/03/b800bf17-image3.png" title="&amp;lt;figure class=&amp;#34;mx-auto text-center&amp;#34;&amp;gt;
-&amp;lt;img src=&amp;#34;/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg&amp;#34; data-img=&amp;#34;/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg&amp;#34; data-width=&amp;#34;1302&amp;#34; data-height=&amp;#34;782&amp;#34; alt=&amp;#34;008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg&amp;#34; data-caption=&amp;#34;img&amp;#34;&amp;gt;
+&amp;lt;img src=&amp;#34;/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg&amp;#34; data-img=&amp;#34;/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg&amp;#34; data-width=&amp;#34;1302&amp;#34; data-height=&amp;#34;782&amp;#34; alt=&amp;#34;008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg&amp;#34; data-caption=&amp;#34;img&amp;#34;&amp;gt;
 &amp;lt;figcaption&amp;gt;img&amp;lt;/figcaption&amp;gt;
 &amp;lt;/figure&amp;gt;
 " target="_blank" rel="noopener">&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg" data-img="/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg" data-width="1302" data-height="782" alt="008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg" data-caption="img">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg" data-img="/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg" data-width="1302" data-height="782" alt="008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg" data-caption="img">
 &lt;figcaption>img&lt;/figcaption>
 &lt;/figure>
 &lt;/a>
@@ -266,7 +266,7 @@ open source by Ant Group.&lt;/p>
 &lt;/ul>
 &lt;h2 id="summary">Summary&lt;/h2>
 &lt;p>If the object managed by Kubernetes is a pod, then the object managed in service mesh is a service, so it’s just a matter of using Kubernetes to manage microservices and then applying service mesh. If you don’t even want to manage a service, then use a serverless platform like &lt;a href="https://knative.dev/" title="Knative" target="_blank" rel="noopener">Knative&lt;/a>
-— but that’s an afterthought.&lt;/p></description></item><item><title>Cloud Native Sandbox</title><link>https://sdmx.io/blog/cloud-native-sandbox/</link><pubDate>Fri, 18 Jan 2019 19:06:14 +0800</pubDate><guid>https://sdmx.io/blog/cloud-native-sandbox/</guid><description>
+— but that’s an afterthought.&lt;/p></description></item><item><title>Cloud Native Sandbox</title><link>https://glennmdt.github.io/sdmxio/blog/cloud-native-sandbox/</link><pubDate>Fri, 18 Jan 2019 19:06:14 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/cloud-native-sandbox/</guid><description>
 &lt;p>Github: &lt;a href="https://github.com/rootsongjc/cloud-native-sandbox" title="https://github.com/rootsongjc/cloud-native-sandbox" target="_blank" rel="noopener">https://github.com/rootsongjc/cloud-native-sandbox&lt;/a>
 &lt;/p>
 &lt;p>Cloud Native Sandbox can help you setup a standalone Kubernetes and istio environment with Docker on you own laptop.&lt;/p>

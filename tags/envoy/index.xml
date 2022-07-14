@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – envoy</title><link>https://sdmx.io/tags/envoy/</link><description>Recent content in envoy on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Thu, 12 May 2022 21:08:59 +0800</lastBuildDate><atom:link href="https://sdmx.io/tags/envoy/index.xml" rel="self" type="application/rss+xml"/><item><title>Sidecar injection, transparent traffic hijacking , and routing process in Istio explained in detail</title><link>https://sdmx.io/blog/sidecar-injection-iptables-and-traffic-routing/</link><pubDate>Thu, 12 May 2022 21:08:59 +0800</pubDate><guid>https://sdmx.io/blog/sidecar-injection-iptables-and-traffic-routing/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – envoy</title><link>https://glennmdt.github.io/sdmxio/tags/envoy/</link><description>Recent content in envoy on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Thu, 12 May 2022 21:08:59 +0800</lastBuildDate><atom:link href="https://glennmdt.github.io/sdmxio/tags/envoy/index.xml" rel="self" type="application/rss+xml"/><item><title>Sidecar injection, transparent traffic hijacking , and routing process in Istio explained in detail</title><link>https://glennmdt.github.io/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/</link><pubDate>Thu, 12 May 2022 21:08:59 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/</guid><description>
 &lt;p>Updated on May 6, 2022&lt;/p>
 &lt;p>Based on Istio version 1.13, this article will present the following.&lt;/p>
 &lt;ul>
@@ -9,7 +9,7 @@
 &lt;/ul>
 &lt;p>The figure below shows how the &lt;code>productpage&lt;/code> service requests access to &lt;code>http://reviews.default.svc.cluster.local:9080/&lt;/code> and how the sidecar proxy inside the reviews service does traffic blocking and routing forwarding when traffic goes inside the &lt;code>reviews&lt;/code> service.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/sidecar-injection-iptables-and-traffic-routing/istio-iptables.svg" data-img="/blog/sidecar-injection-iptables-and-traffic-routing/istio-iptables.svg" alt="istio-iptables.svg" data-caption="Istio transparent traffic hijacking and traffic routing diagram">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/istio-iptables.svg" data-img="/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/istio-iptables.svg" alt="istio-iptables.svg" data-caption="Istio transparent traffic hijacking and traffic routing diagram">
 &lt;figcaption>Istio transparent traffic hijacking and traffic routing diagram&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -18,7 +18,7 @@
 &lt;h2 id="sidecar-pattern">Sidecar pattern&lt;/h2>
 &lt;p>Dividing the functionality of an application into separate processes running in the same minimal scheduling unit (e.g. Pod in Kubernetes) can be considered sidecar mode. As shown in the figure below, the sidecar pattern allows you to add more features next to your application without additional third-party component configuration or modifications to the application code.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/sidecar-injection-iptables-and-traffic-routing/sidecar-pattern.svg" data-img="/blog/sidecar-injection-iptables-and-traffic-routing/sidecar-pattern.svg" alt="sidecar-pattern.svg" data-caption="Sidecar pattern">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/sidecar-pattern.svg" data-img="/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/sidecar-pattern.svg" alt="sidecar-pattern.svg" data-caption="Sidecar pattern">
 &lt;figcaption>Sidecar pattern&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -187,7 +187,7 @@
 &lt;/table>
 &lt;p>The following diagram shows the detailed flow of the &lt;code>ISTIO_ROUTE&lt;/code> rule.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/sidecar-injection-iptables-and-traffic-routing/istio-route-iptables.svg" data-img="/blog/sidecar-injection-iptables-and-traffic-routing/istio-route-iptables.svg" alt="istio-route-iptables.svg" data-caption="ISTIO_ROUTE iptables rules">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/istio-route-iptables.svg" data-img="/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/istio-route-iptables.svg" alt="istio-route-iptables.svg" data-caption="ISTIO_ROUTE iptables rules">
 &lt;figcaption>ISTIO_ROUTE iptables rules&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -496,7 +496,7 @@ Hook Connect Diagram
 &lt;/li>
 &lt;li>&lt;a href="https://mosn.io/en/docs/concept/traffic-hijack/" title="The traffic hijacking solution when MOSN is used as a sidecar - mosn.io" target="_blank" rel="noopener">The traffic hijacking solution when MOSN is used as a sidecar - mosn.io&lt;/a>
 &lt;/li>
-&lt;/ul></description></item><item><title>Understanding How Envoy Sidecar Intercept and Route Traffic in Istio Service Mesh</title><link>https://sdmx.io/blog/understanding-how-envoy-sidecar-intercept-and-route-traffic-in-istio-service-mesh/</link><pubDate>Thu, 27 Dec 2018 10:01:22 +0800</pubDate><guid>https://sdmx.io/blog/understanding-how-envoy-sidecar-intercept-and-route-traffic-in-istio-service-mesh/</guid><description>
+&lt;/ul></description></item><item><title>Understanding How Envoy Sidecar Intercept and Route Traffic in Istio Service Mesh</title><link>https://glennmdt.github.io/sdmxio/blog/understanding-how-envoy-sidecar-intercept-and-route-traffic-in-istio-service-mesh/</link><pubDate>Thu, 27 Dec 2018 10:01:22 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/understanding-how-envoy-sidecar-intercept-and-route-traffic-in-istio-service-mesh/</guid><description>
 &lt;p>Updated at Mar 8, 2022&lt;/p>
 &lt;p>This article uses Istio&amp;rsquo;s official &lt;a href="https://istio.io/latest/docs/examples/bookinfo/" title="bookinfo sample" target="_blank" rel="noopener">bookinfo sample&lt;/a>
 to explain how Envoy performs routing forwarding after the traffic entering the Pod and forwarded to Envoy sidecar by iptables, detailing the inbound and outbound processing. For a detailed analysis of traffic interception, see &lt;a href="https://jimmysong.io/blog/envoy-sidecar-injection-in-istio-service-mesh-deep-dive/" title="Understanding Envoy Sidecar Proxy Injection and Traffic Interception in Istio Service Mesh" target="_blank" rel="noopener">Understanding Envoy Sidecar Proxy Injection and Traffic Interception in Istio Service Mesh&lt;/a>
@@ -527,7 +527,7 @@ to explain how Envoy performs routing forwarding after the traffic entering the 
 &lt;h2 id="how-envoy-handles-route-forwarding">How Envoy handles route forwarding&lt;/h2>
 &lt;p>The following figure shows a &lt;code>productpage&lt;/code>service access request &lt;code>http://reviews.default.svc.cluster.local:9080/&lt;/code>, when traffic enters &lt;code>reviews&lt;/code> the internal services, &lt;code>reviews&lt;/code> internal services Envoy Sidecar is how to do traffic blocked the route forward.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/understanding-how-envoy-sidecar-intercept-and-route-traffic-in-istio-service-mesh/sidecar-iptables.webp" data-img="/blog/understanding-how-envoy-sidecar-intercept-and-route-traffic-in-istio-service-mesh/sidecar-iptables.webp" data-width="2968" data-height="1872" alt="sidecar-iptables.webp" data-caption="Istio transparent traffic hijacking and traffic routing schematic">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/understanding-how-envoy-sidecar-intercept-and-route-traffic-in-istio-service-mesh/sidecar-iptables.webp" data-img="/sdmxio/blog/understanding-how-envoy-sidecar-intercept-and-route-traffic-in-istio-service-mesh/sidecar-iptables.webp" data-width="2968" data-height="1872" alt="sidecar-iptables.webp" data-caption="Istio transparent traffic hijacking and traffic routing schematic">
 &lt;figcaption>Istio transparent traffic hijacking and traffic routing schematic&lt;/figcaption>
 &lt;/figure>
 &lt;/p>

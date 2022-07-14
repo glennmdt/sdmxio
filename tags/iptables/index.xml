@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – iptables</title><link>https://sdmx.io/tags/iptables/</link><description>Recent content in iptables on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Thu, 12 May 2022 21:08:59 +0800</lastBuildDate><atom:link href="https://sdmx.io/tags/iptables/index.xml" rel="self" type="application/rss+xml"/><item><title>Sidecar injection, transparent traffic hijacking , and routing process in Istio explained in detail</title><link>https://sdmx.io/blog/sidecar-injection-iptables-and-traffic-routing/</link><pubDate>Thu, 12 May 2022 21:08:59 +0800</pubDate><guid>https://sdmx.io/blog/sidecar-injection-iptables-and-traffic-routing/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – iptables</title><link>https://glennmdt.github.io/sdmxio/tags/iptables/</link><description>Recent content in iptables on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Thu, 12 May 2022 21:08:59 +0800</lastBuildDate><atom:link href="https://glennmdt.github.io/sdmxio/tags/iptables/index.xml" rel="self" type="application/rss+xml"/><item><title>Sidecar injection, transparent traffic hijacking , and routing process in Istio explained in detail</title><link>https://glennmdt.github.io/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/</link><pubDate>Thu, 12 May 2022 21:08:59 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/</guid><description>
 &lt;p>Updated on May 6, 2022&lt;/p>
 &lt;p>Based on Istio version 1.13, this article will present the following.&lt;/p>
 &lt;ul>
@@ -9,7 +9,7 @@
 &lt;/ul>
 &lt;p>The figure below shows how the &lt;code>productpage&lt;/code> service requests access to &lt;code>http://reviews.default.svc.cluster.local:9080/&lt;/code> and how the sidecar proxy inside the reviews service does traffic blocking and routing forwarding when traffic goes inside the &lt;code>reviews&lt;/code> service.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/sidecar-injection-iptables-and-traffic-routing/istio-iptables.svg" data-img="/blog/sidecar-injection-iptables-and-traffic-routing/istio-iptables.svg" alt="istio-iptables.svg" data-caption="Istio transparent traffic hijacking and traffic routing diagram">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/istio-iptables.svg" data-img="/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/istio-iptables.svg" alt="istio-iptables.svg" data-caption="Istio transparent traffic hijacking and traffic routing diagram">
 &lt;figcaption>Istio transparent traffic hijacking and traffic routing diagram&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -18,7 +18,7 @@
 &lt;h2 id="sidecar-pattern">Sidecar pattern&lt;/h2>
 &lt;p>Dividing the functionality of an application into separate processes running in the same minimal scheduling unit (e.g. Pod in Kubernetes) can be considered sidecar mode. As shown in the figure below, the sidecar pattern allows you to add more features next to your application without additional third-party component configuration or modifications to the application code.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/sidecar-injection-iptables-and-traffic-routing/sidecar-pattern.svg" data-img="/blog/sidecar-injection-iptables-and-traffic-routing/sidecar-pattern.svg" alt="sidecar-pattern.svg" data-caption="Sidecar pattern">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/sidecar-pattern.svg" data-img="/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/sidecar-pattern.svg" alt="sidecar-pattern.svg" data-caption="Sidecar pattern">
 &lt;figcaption>Sidecar pattern&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -187,7 +187,7 @@
 &lt;/table>
 &lt;p>The following diagram shows the detailed flow of the &lt;code>ISTIO_ROUTE&lt;/code> rule.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/sidecar-injection-iptables-and-traffic-routing/istio-route-iptables.svg" data-img="/blog/sidecar-injection-iptables-and-traffic-routing/istio-route-iptables.svg" alt="istio-route-iptables.svg" data-caption="ISTIO_ROUTE iptables rules">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/istio-route-iptables.svg" data-img="/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/istio-route-iptables.svg" alt="istio-route-iptables.svg" data-caption="ISTIO_ROUTE iptables rules">
 &lt;figcaption>ISTIO_ROUTE iptables rules&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -496,14 +496,14 @@ Hook Connect Diagram
 &lt;/li>
 &lt;li>&lt;a href="https://mosn.io/en/docs/concept/traffic-hijack/" title="The traffic hijacking solution when MOSN is used as a sidecar - mosn.io" target="_blank" rel="noopener">The traffic hijacking solution when MOSN is used as a sidecar - mosn.io&lt;/a>
 &lt;/li>
-&lt;/ul></description></item><item><title>Understanding iptalbes</title><link>https://sdmx.io/blog/understanding-iptables/</link><pubDate>Thu, 12 May 2022 12:18:40 +0800</pubDate><guid>https://sdmx.io/blog/understanding-iptables/</guid><description>
+&lt;/ul></description></item><item><title>Understanding iptalbes</title><link>https://glennmdt.github.io/sdmxio/blog/understanding-iptables/</link><pubDate>Thu, 12 May 2022 12:18:40 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/understanding-iptables/</guid><description>
 &lt;p>iptables is an important feature in the Linux kernel and has a wide range of applications. iptables is used by default in Istio for transparent traffic hijacking. Understanding iptables is very important for us to understand how Istio works. This article will give you a brief introduction to iptbles.&lt;/p>
 &lt;h2 id="iptables-introduction">iptables introduction&lt;/h2>
 &lt;p>iptables is a management tool for netfilter, the firewall software in the Linux kernel. netfilter is located in the user space and is part of netfilter. netfilter is located in the kernel space and has not only network address conversion, but also packet content modification and packet filtering firewall functions.&lt;/p>
 &lt;p>Before learning about iptables for Init container initialization, let&amp;rsquo;s go over iptables and rule configuration.&lt;/p>
 &lt;p>The following figure shows the iptables call chain.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/understanding-iptables/iptables.jpg" data-img="/blog/understanding-iptables/iptables.jpg" data-width="726" data-height="1443" alt="iptables.jpg" data-caption="iptables 调用链">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/understanding-iptables/iptables.jpg" data-img="/sdmxio/blog/understanding-iptables/iptables.jpg" data-width="726" data-height="1443" alt="iptables.jpg" data-caption="iptables 调用链">
 &lt;figcaption>iptables 调用链&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -586,7 +586,7 @@ Hook Connect Diagram
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We see three default chains, INPUT, FORWARD, and OUTPUT, with the first line of output in each chain indicating the chain name (INPUT/FORWARD/OUTPUT in this case), followed by the default policy (ACCEPT).&lt;/p>
 &lt;p>The following is a proposed structure diagram of iptables, where traffic passes through the INPUT chain and then enters the upper protocol stack, such as:&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/understanding-iptables/iptables-chains.jpg" data-img="/blog/understanding-iptables/iptables-chains.jpg" data-width="1333" data-height="410" alt="iptables-chains.jpg" data-caption="iptables chains">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/understanding-iptables/iptables-chains.jpg" data-img="/sdmxio/blog/understanding-iptables/iptables-chains.jpg" data-width="1333" data-height="410" alt="iptables-chains.jpg" data-caption="iptables chains">
 &lt;figcaption>iptables chains&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -607,7 +607,7 @@ Hook Connect Diagram
 &lt;p>Target types include ACCEPT, REJECT, DROP, LOG, SNAT, MASQUERADE, DNAT, REDIRECT, RETURN or jump to other rules, etc. You can determine where the telegram is going by executing only one rule in a chain that matches in order, except for the RETURN type, which is similar to the return statement in programming languages, which returns to its call point and continues to execute the next rule.&lt;/p>
 &lt;p>From the output, you can see that the Init container does not create any rules in the default link of iptables, but instead creates a new link.&lt;/p>
 &lt;h2 id="summary">Summary&lt;/h2>
-&lt;p>With the above brief introduction to iptables, you have understood how iptables works, the rule chain and its execution order.&lt;/p></description></item><item><title>Traffic types and iptables rules in Istio sidecar explained</title><link>https://sdmx.io/blog/istio-sidecar-traffic-types/</link><pubDate>Sat, 07 May 2022 11:18:40 +0800</pubDate><guid>https://sdmx.io/blog/istio-sidecar-traffic-types/</guid><description>
+&lt;p>With the above brief introduction to iptables, you have understood how iptables works, the rule chain and its execution order.&lt;/p></description></item><item><title>Traffic types and iptables rules in Istio sidecar explained</title><link>https://glennmdt.github.io/sdmxio/blog/istio-sidecar-traffic-types/</link><pubDate>Sat, 07 May 2022 11:18:40 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/istio-sidecar-traffic-types/</guid><description>
 &lt;p>As we know that Istio uses iptables for traffic hijacking, where the iptables rule chains has one called ISTIO_OUTPUT, which contains the following rules.&lt;/p>
 &lt;table>
 &lt;thead>
@@ -712,7 +712,7 @@ Hook Connect Diagram
 &lt;p>Remote Pod -&amp;gt; &lt;code>RREROUTING&lt;/code> -&amp;gt; &lt;code>ISTIO_INBOUND&lt;/code> -&amp;gt; &lt;code>ISTIO_IN_REDIRECT&lt;/code> -&amp;gt; Envoy 15006 (Inbound) -&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 1&lt;/strong> -&amp;gt; &lt;code> POSTROUTING&lt;/code> -&amp;gt; Local Pod&lt;/p>
 &lt;p>We see that the traffic only passes through the Envoy 15006 Inbound port once. The following diagram shows this scenario of the iptables rules.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/remote-pod-local-pod.jpg" data-img="/blog/istio-sidecar-traffic-types/remote-pod-local-pod.jpg" data-width="2384" data-height="1706" alt="remote-pod-local-pod.jpg" data-caption="Remote Pod to Local Pod">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-sidecar-traffic-types/remote-pod-local-pod.jpg" data-img="/sdmxio/blog/istio-sidecar-traffic-types/remote-pod-local-pod.jpg" data-width="2384" data-height="1706" alt="remote-pod-local-pod.jpg" data-caption="Remote Pod to Local Pod">
 &lt;figcaption>Remote Pod to Local Pod&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -721,7 +721,7 @@ Hook Connect Diagram
 &lt;p>Local Pod-&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 9&lt;/strong> -&amp;gt; &lt;code>ISTIO_REDIRECT&lt;/code> -&amp;gt; Envoy 15001 (Outbound) -&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 4&lt;/strong> -&amp;gt; &lt;code>POSTROUTING&lt;/code> -&amp;gt; Remote Pod&lt;/p>
 &lt;p>We see that the traffic only goes through the Envoy 15001 Outbound port.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/local-pod-remote-pod.jpg" data-img="/blog/istio-sidecar-traffic-types/local-pod-remote-pod.jpg" data-width="2384" data-height="1704" alt="local-pod-remote-pod.jpg" data-caption="Local Pod to Remote Pod">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-sidecar-traffic-types/local-pod-remote-pod.jpg" data-img="/sdmxio/blog/istio-sidecar-traffic-types/local-pod-remote-pod.jpg" data-width="2384" data-height="1704" alt="local-pod-remote-pod.jpg" data-caption="Local Pod to Remote Pod">
 &lt;figcaption>Local Pod to Remote Pod&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -731,7 +731,7 @@ Hook Connect Diagram
 &lt;p>These traffic pass through the following iptables rules.&lt;/p>
 &lt;p>Prometheus-&amp;gt; &lt;code>RREROUTING&lt;/code> -&amp;gt; &lt;code>ISTIO_INBOUND&lt;/code> (traffic destined for ports 15002, 15090 will go to &lt;code>INPUT&lt;/code>) -&amp;gt; &lt;code>INPUT&lt;/code> -&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 3&lt;/strong> -&amp;gt; &lt;code>POSTROUTING&lt;/code> -&amp;gt; Local Pod&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/prometheus-local-pod.jpg" data-img="/blog/istio-sidecar-traffic-types/prometheus-local-pod.jpg" data-width="2384" data-height="1704" alt="prometheus-local-pod.jpg" data-caption="Prometheus to Local Pod">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-sidecar-traffic-types/prometheus-local-pod.jpg" data-img="/sdmxio/blog/istio-sidecar-traffic-types/prometheus-local-pod.jpg" data-width="2384" data-height="1704" alt="prometheus-local-pod.jpg" data-caption="Prometheus to Local Pod">
 &lt;figcaption>Prometheus to Local Pod&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -740,7 +740,7 @@ Hook Connect Diagram
 &lt;p>The iptables rules for this traffic are as follows.&lt;/p>
 &lt;p>Local Pod-&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 9&lt;/strong> -&amp;gt; &lt;code>ISTIO_REDIRECT&lt;/code> -&amp;gt; Envoy 15001（Outbound）-&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 2&lt;/strong> -&amp;gt; &lt;code>ISTIO_IN_REDIRECT&lt;/code> -&amp;gt; Envoy 15006（Inbound）-&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 1&lt;/strong> -&amp;gt; &lt;code>POSTROUTING&lt;/code> -&amp;gt; Local Pod&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/local-pod-local-pod.jpg" data-img="/blog/istio-sidecar-traffic-types/local-pod-local-pod.jpg" data-width="2384" data-height="1704" alt="local-pod-local-pod.jpg" data-caption="Local Pod to Local Pod">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-sidecar-traffic-types/local-pod-local-pod.jpg" data-img="/sdmxio/blog/istio-sidecar-traffic-types/local-pod-local-pod.jpg" data-width="2384" data-height="1704" alt="local-pod-local-pod.jpg" data-caption="Local Pod to Local Pod">
 &lt;figcaption>Local Pod to Local Pod&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -749,7 +749,7 @@ Hook Connect Diagram
 &lt;p>The iptables rules that these flows pass through are as follows.&lt;/p>
 &lt;p>Envoy process (Localhost) -&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 8&lt;/strong> -&amp;gt; &lt;code>POSTROUTING&lt;/code> -&amp;gt; Envoy process (Localhost)&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/envoy-internal-tcp-traffic.jpg" data-img="/blog/istio-sidecar-traffic-types/envoy-internal-tcp-traffic.jpg" data-width="2386" data-height="1706" alt="envoy-internal-tcp-traffic.jpg" data-caption="Envoy inter-process TCP traffic">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-sidecar-traffic-types/envoy-internal-tcp-traffic.jpg" data-img="/sdmxio/blog/istio-sidecar-traffic-types/envoy-internal-tcp-traffic.jpg" data-width="2386" data-height="1706" alt="envoy-internal-tcp-traffic.jpg" data-caption="Envoy inter-process TCP traffic">
 &lt;figcaption>Envoy inter-process TCP traffic&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -758,7 +758,7 @@ Hook Connect Diagram
 &lt;p>The iptables rules that this traffic passes through are as follows.&lt;/p>
 &lt;p>&lt;code>pilot-agent&lt;/code> process -&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>Istio_OUTPUT&lt;/code> RULE 9&lt;/strong> -&amp;gt; Envoy 15001 (Outbound Handler) -&amp;gt; OUTPUT -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 4&lt;/strong> -&amp;gt; &lt;code>POSTROUTING&lt;/code> -&amp;gt; Istiod&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/sidecar-istiod.jpg" data-img="/blog/istio-sidecar-traffic-types/sidecar-istiod.jpg" data-width="2384" data-height="1704" alt="sidecar-istiod.jpg" data-caption="Sidecar to Istiod">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-sidecar-traffic-types/sidecar-istiod.jpg" data-img="/sdmxio/blog/istio-sidecar-traffic-types/sidecar-istiod.jpg" data-width="2384" data-height="1704" alt="sidecar-istiod.jpg" data-caption="Sidecar to Istiod">
 &lt;figcaption>Sidecar to Istiod&lt;/figcaption>
 &lt;/figure>
 &lt;/p>

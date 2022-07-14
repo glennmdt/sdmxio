@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – sidecar</title><link>https://sdmx.io/tags/sidecar/</link><description>Recent content in sidecar on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Thu, 12 May 2022 19:18:40 +0800</lastBuildDate><atom:link href="https://sdmx.io/tags/sidecar/index.xml" rel="self" type="application/rss+xml"/><item><title>Istio data plane pod startup process explained</title><link>https://sdmx.io/blog/istio-pod-process-lifecycle/</link><pubDate>Thu, 12 May 2022 19:18:40 +0800</pubDate><guid>https://sdmx.io/blog/istio-pod-process-lifecycle/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – sidecar</title><link>https://glennmdt.github.io/sdmxio/tags/sidecar/</link><description>Recent content in sidecar on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Thu, 12 May 2022 19:18:40 +0800</lastBuildDate><atom:link href="https://glennmdt.github.io/sdmxio/tags/sidecar/index.xml" rel="self" type="application/rss+xml"/><item><title>Istio data plane pod startup process explained</title><link>https://glennmdt.github.io/sdmxio/blog/istio-pod-process-lifecycle/</link><pubDate>Thu, 12 May 2022 19:18:40 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/istio-pod-process-lifecycle/</guid><description>
 &lt;p>This article will explain:&lt;/p>
 &lt;ul>
 &lt;li>The sidecar auto-injection process in Istio&lt;/li>
@@ -7,7 +7,7 @@
 &lt;/ul>
 &lt;p>The following figure shows the components of a Pod in the Istio data plane after it has been started.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-pod-process-lifecycle/istio-pod-lifecycle.jpg" data-img="/blog/istio-pod-process-lifecycle/istio-pod-lifecycle.jpg" data-width="1200" data-height="813" alt="istio-pod-lifecycle.jpg" data-caption="Istio data plane pod">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-pod-process-lifecycle/istio-pod-lifecycle.jpg" data-img="/sdmxio/blog/istio-pod-process-lifecycle/istio-pod-lifecycle.jpg" data-width="1200" data-height="813" alt="istio-pod-lifecycle.jpg" data-caption="Istio data plane pod">
 &lt;figcaption>Istio data plane pod&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -239,25 +239,25 @@ for port usage in Istio.&lt;/p>
 configuration to the application container to detect if the application process has finished starting, and Kubernetes will only mark the Pod&amp;rsquo;s state as &lt;code>Running&lt;/code> if the detection is successful.&lt;/li>
 &lt;/ul>
 &lt;h2 id="summary">Summary&lt;/h2>
-&lt;p>This article walks you through the process of starting Pods in the Istio data plane, and the issues that arise because of the order in which Pod contenters are started.&lt;/p></description></item><item><title> Istio component ports and functions in detail</title><link>https://sdmx.io/blog/istio-components-and-ports/</link><pubDate>Sun, 08 May 2022 10:18:40 +0800</pubDate><guid>https://sdmx.io/blog/istio-components-and-ports/</guid><description>
+&lt;p>This article walks you through the process of starting Pods in the Istio data plane, and the issues that arise because of the order in which Pod contenters are started.&lt;/p></description></item><item><title> Istio component ports and functions in detail</title><link>https://glennmdt.github.io/sdmxio/blog/istio-components-and-ports/</link><pubDate>Sun, 08 May 2022 10:18:40 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/istio-components-and-ports/</guid><description>
 &lt;p>In my last two blogs:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://sdmx.io/en/blog/sidecar-injection-iptables-and-traffic-routing/" title="Sidecar injection, transparent traffic hijacking , and routing process in Istio explained in detail">Sidecar injection, transparent traffic hijacking , and routing process in Istio explained in detail&lt;/a>
+&lt;li>&lt;a href="https://glennmdt.github.io/sdmxio/en/blog/sidecar-injection-iptables-and-traffic-routing/" title="Sidecar injection, transparent traffic hijacking , and routing process in Istio explained in detail">Sidecar injection, transparent traffic hijacking , and routing process in Istio explained in detail&lt;/a>
 &lt;/li>
-&lt;li>&lt;a href="https://sdmx.io/en/blog/istio-sidecar-traffic-types/" title="Traffic types and iptables rules in Istio sidecar explained">Traffic types and iptables rules in Istio sidecar explained&lt;/a>
+&lt;li>&lt;a href="https://glennmdt.github.io/sdmxio/en/blog/istio-sidecar-traffic-types/" title="Traffic types and iptables rules in Istio sidecar explained">Traffic types and iptables rules in Istio sidecar explained&lt;/a>
 &lt;/li>
 &lt;/ul>
 &lt;p>I gave you a detailed overview of the traffic in the Istio data plane, but the data plane does not exist in isolation. This article will show you the ports and their usages for each component of both the control plane and data plane in Istio, which will help you understand the relationship between these flows and troubleshoot them.&lt;/p>
 &lt;h2 id="overview">Overview&lt;/h2>
 &lt;p>Firstly, I will show you a global schematic. The following figure shows the components of a sidecar in the Istio data plane, and the objects that interact with it.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-components-and-ports/istio-ports-components.webp" data-img="/blog/istio-components-and-ports/istio-ports-components.webp" data-width="5230" data-height="2506" alt="istio-ports-components.webp" data-caption="Istio components">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-components-and-ports/istio-ports-components.webp" data-img="/sdmxio/blog/istio-components-and-ports/istio-ports-components.webp" data-width="5230" data-height="2506" alt="istio-ports-components.webp" data-caption="Istio components">
 &lt;figcaption>Istio components&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
 &lt;p>We can use the &lt;code>nsenter&lt;/code> command to enter the namespace of the &lt;code>productpage&lt;/code> Pod of the Bookinfo example and see the information about the ports it is listening on internally.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-components-and-ports/sidecar-ports.webp" data-img="/blog/istio-components-and-ports/sidecar-ports.webp" data-width="1566" data-height="740" alt="sidecar-ports.webp" data-caption="Istio sidecar ports">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-components-and-ports/sidecar-ports.webp" data-img="/sdmxio/blog/istio-components-and-ports/sidecar-ports.webp" data-width="1566" data-height="740" alt="sidecar-ports.webp" data-caption="Istio sidecar ports">
 &lt;figcaption>Istio sidecar ports&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -265,21 +265,21 @@ configuration to the application container to detect if the application process 
 .&lt;/p>
 &lt;p>Let&amp;rsquo;s go back into the &lt;code>productpage&lt;/code> Pod and use the &lt;code>lsof -i&lt;/code> command to see the ports it has open, as shown in the following figure.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-components-and-ports/product-pod-ports.webp" data-img="/blog/istio-components-and-ports/product-pod-ports.webp" data-width="2714" data-height="902" alt="product-pod-ports.webp" data-caption="Productpage Pod ports">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-components-and-ports/product-pod-ports.webp" data-img="/sdmxio/blog/istio-components-and-ports/product-pod-ports.webp" data-width="2714" data-height="902" alt="product-pod-ports.webp" data-caption="Productpage Pod ports">
 &lt;figcaption>Productpage Pod ports&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
 &lt;p>We can see that there is a TCP connection established between the &lt;code>pilot-agent&lt;/code> and &lt;code>istiod&lt;/code>, the port in the listening described above, and the TCP connection established inside the Pod, which corresponds to the figure at the beginning of the article.&lt;/p>
 &lt;p>The root process of the Sidecar container (&lt;code>istio-proxy&lt;/code>) is &lt;code>pilot-agent&lt;/code>, and the startup command is shown below.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-components-and-ports/sidecar-procecces.webp" data-img="/blog/istio-components-and-ports/sidecar-procecces.webp" data-width="2768" data-height="540" alt="sidecar-procecces.webp" data-caption="Internal procecces in Sidecar">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-components-and-ports/sidecar-procecces.webp" data-img="/sdmxio/blog/istio-components-and-ports/sidecar-procecces.webp" data-width="2768" data-height="540" alt="sidecar-procecces.webp" data-caption="Internal procecces in Sidecar">
 &lt;figcaption>Internal procecces in Sidecar&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
 &lt;p>As we can see from the figure, the PID of its &lt;code>pilot-agent&lt;/code> process is 1, and it forked the Envoy process.&lt;/p>
 &lt;p>Check the ports it opens in Istiod, as shown in the figure below.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-components-and-ports/sidecar-lsof.webp" data-img="/blog/istio-components-and-ports/sidecar-lsof.webp" data-width="2544" data-height="760" alt="sidecar-lsof.webp" data-caption="Istiod ports">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-components-and-ports/sidecar-lsof.webp" data-img="/sdmxio/blog/istio-components-and-ports/sidecar-lsof.webp" data-width="2544" data-height="760" alt="sidecar-lsof.webp" data-caption="Istiod ports">
 &lt;figcaption>Istiod ports&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -322,7 +322,7 @@ for details.&lt;/li>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">kubectl -n default port-forward deploy/productpage-v1 &lt;span class="m">15000&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Visit &lt;code>http://localhost:15000&lt;/code> in your browser and you will see the Envoy Admin interface as shown below.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-components-and-ports/envoy-admin.webp" data-img="/blog/istio-components-and-ports/envoy-admin.webp" data-width="660" data-height="1158" alt="envoy-admin.webp" data-caption="Envoy Admin interface">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-components-and-ports/envoy-admin.webp" data-img="/sdmxio/blog/istio-components-and-ports/envoy-admin.webp" data-width="660" data-height="1158" alt="envoy-admin.webp" data-caption="Envoy Admin interface">
 &lt;figcaption>Envoy Admin interface&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -333,7 +333,7 @@ for details.&lt;/li>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">kubectl -n istio-system port-forward deploy/istiod &lt;span class="m">8080&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Visit &lt;code>http://localhost:8080/debug&lt;/code> in your browser and you will see the debug endpoint as shown in the figure below.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-components-and-ports/pilot-debug-console.webp" data-img="/blog/istio-components-and-ports/pilot-debug-console.webp" data-width="1080" data-height="1243" alt="pilot-debug-console.webp" data-caption="Pilot Debug Console">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-components-and-ports/pilot-debug-console.webp" data-img="/sdmxio/blog/istio-components-and-ports/pilot-debug-console.webp" data-width="1080" data-height="1243" alt="pilot-debug-console.webp" data-caption="Pilot Debug Console">
 &lt;figcaption>Pilot Debug Console&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -347,13 +347,13 @@ for details.&lt;/li>
 &lt;/ol>
 &lt;p>The following figure shows the debugging information you see when you open &lt;code>http://localhost:15020/debug/pprof&lt;/code> in your browser.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-components-and-ports/pprof.webp" data-img="/blog/istio-components-and-ports/pprof.webp" data-width="1761" data-height="1080" alt="pprof.webp" data-caption="pprof endpoint">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-components-and-ports/pprof.webp" data-img="/sdmxio/blog/istio-components-and-ports/pprof.webp" data-width="1761" data-height="1080" alt="pprof.webp" data-caption="pprof endpoint">
 &lt;figcaption>pprof endpoint&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
 &lt;p>The information in the figure shows the stack information of the &lt;code>pilot-agent&lt;/code>.&lt;/p>
 &lt;h2 id="summary">Summary&lt;/h2>
-&lt;p>By understanding the component ports in Istio, you should have a better understanding of the relationship between the components in Istio and their internal traffic. Being familiar with the functions of these ports will help in troubleshooting the mesh.&lt;/p></description></item><item><title>Traffic types and iptables rules in Istio sidecar explained</title><link>https://sdmx.io/blog/istio-sidecar-traffic-types/</link><pubDate>Sat, 07 May 2022 11:18:40 +0800</pubDate><guid>https://sdmx.io/blog/istio-sidecar-traffic-types/</guid><description>
+&lt;p>By understanding the component ports in Istio, you should have a better understanding of the relationship between the components in Istio and their internal traffic. Being familiar with the functions of these ports will help in troubleshooting the mesh.&lt;/p></description></item><item><title>Traffic types and iptables rules in Istio sidecar explained</title><link>https://glennmdt.github.io/sdmxio/blog/istio-sidecar-traffic-types/</link><pubDate>Sat, 07 May 2022 11:18:40 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/istio-sidecar-traffic-types/</guid><description>
 &lt;p>As we know that Istio uses iptables for traffic hijacking, where the iptables rule chains has one called ISTIO_OUTPUT, which contains the following rules.&lt;/p>
 &lt;table>
 &lt;thead>
@@ -458,7 +458,7 @@ for details.&lt;/li>
 &lt;p>Remote Pod -&amp;gt; &lt;code>RREROUTING&lt;/code> -&amp;gt; &lt;code>ISTIO_INBOUND&lt;/code> -&amp;gt; &lt;code>ISTIO_IN_REDIRECT&lt;/code> -&amp;gt; Envoy 15006 (Inbound) -&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 1&lt;/strong> -&amp;gt; &lt;code> POSTROUTING&lt;/code> -&amp;gt; Local Pod&lt;/p>
 &lt;p>We see that the traffic only passes through the Envoy 15006 Inbound port once. The following diagram shows this scenario of the iptables rules.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/remote-pod-local-pod.jpg" data-img="/blog/istio-sidecar-traffic-types/remote-pod-local-pod.jpg" data-width="2384" data-height="1706" alt="remote-pod-local-pod.jpg" data-caption="Remote Pod to Local Pod">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-sidecar-traffic-types/remote-pod-local-pod.jpg" data-img="/sdmxio/blog/istio-sidecar-traffic-types/remote-pod-local-pod.jpg" data-width="2384" data-height="1706" alt="remote-pod-local-pod.jpg" data-caption="Remote Pod to Local Pod">
 &lt;figcaption>Remote Pod to Local Pod&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -467,7 +467,7 @@ for details.&lt;/li>
 &lt;p>Local Pod-&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 9&lt;/strong> -&amp;gt; &lt;code>ISTIO_REDIRECT&lt;/code> -&amp;gt; Envoy 15001 (Outbound) -&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 4&lt;/strong> -&amp;gt; &lt;code>POSTROUTING&lt;/code> -&amp;gt; Remote Pod&lt;/p>
 &lt;p>We see that the traffic only goes through the Envoy 15001 Outbound port.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/local-pod-remote-pod.jpg" data-img="/blog/istio-sidecar-traffic-types/local-pod-remote-pod.jpg" data-width="2384" data-height="1704" alt="local-pod-remote-pod.jpg" data-caption="Local Pod to Remote Pod">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-sidecar-traffic-types/local-pod-remote-pod.jpg" data-img="/sdmxio/blog/istio-sidecar-traffic-types/local-pod-remote-pod.jpg" data-width="2384" data-height="1704" alt="local-pod-remote-pod.jpg" data-caption="Local Pod to Remote Pod">
 &lt;figcaption>Local Pod to Remote Pod&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -477,7 +477,7 @@ for details.&lt;/li>
 &lt;p>These traffic pass through the following iptables rules.&lt;/p>
 &lt;p>Prometheus-&amp;gt; &lt;code>RREROUTING&lt;/code> -&amp;gt; &lt;code>ISTIO_INBOUND&lt;/code> (traffic destined for ports 15002, 15090 will go to &lt;code>INPUT&lt;/code>) -&amp;gt; &lt;code>INPUT&lt;/code> -&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 3&lt;/strong> -&amp;gt; &lt;code>POSTROUTING&lt;/code> -&amp;gt; Local Pod&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/prometheus-local-pod.jpg" data-img="/blog/istio-sidecar-traffic-types/prometheus-local-pod.jpg" data-width="2384" data-height="1704" alt="prometheus-local-pod.jpg" data-caption="Prometheus to Local Pod">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-sidecar-traffic-types/prometheus-local-pod.jpg" data-img="/sdmxio/blog/istio-sidecar-traffic-types/prometheus-local-pod.jpg" data-width="2384" data-height="1704" alt="prometheus-local-pod.jpg" data-caption="Prometheus to Local Pod">
 &lt;figcaption>Prometheus to Local Pod&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -486,7 +486,7 @@ for details.&lt;/li>
 &lt;p>The iptables rules for this traffic are as follows.&lt;/p>
 &lt;p>Local Pod-&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 9&lt;/strong> -&amp;gt; &lt;code>ISTIO_REDIRECT&lt;/code> -&amp;gt; Envoy 15001（Outbound）-&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 2&lt;/strong> -&amp;gt; &lt;code>ISTIO_IN_REDIRECT&lt;/code> -&amp;gt; Envoy 15006（Inbound）-&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 1&lt;/strong> -&amp;gt; &lt;code>POSTROUTING&lt;/code> -&amp;gt; Local Pod&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/local-pod-local-pod.jpg" data-img="/blog/istio-sidecar-traffic-types/local-pod-local-pod.jpg" data-width="2384" data-height="1704" alt="local-pod-local-pod.jpg" data-caption="Local Pod to Local Pod">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-sidecar-traffic-types/local-pod-local-pod.jpg" data-img="/sdmxio/blog/istio-sidecar-traffic-types/local-pod-local-pod.jpg" data-width="2384" data-height="1704" alt="local-pod-local-pod.jpg" data-caption="Local Pod to Local Pod">
 &lt;figcaption>Local Pod to Local Pod&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -495,7 +495,7 @@ for details.&lt;/li>
 &lt;p>The iptables rules that these flows pass through are as follows.&lt;/p>
 &lt;p>Envoy process (Localhost) -&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 8&lt;/strong> -&amp;gt; &lt;code>POSTROUTING&lt;/code> -&amp;gt; Envoy process (Localhost)&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/envoy-internal-tcp-traffic.jpg" data-img="/blog/istio-sidecar-traffic-types/envoy-internal-tcp-traffic.jpg" data-width="2386" data-height="1706" alt="envoy-internal-tcp-traffic.jpg" data-caption="Envoy inter-process TCP traffic">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-sidecar-traffic-types/envoy-internal-tcp-traffic.jpg" data-img="/sdmxio/blog/istio-sidecar-traffic-types/envoy-internal-tcp-traffic.jpg" data-width="2386" data-height="1706" alt="envoy-internal-tcp-traffic.jpg" data-caption="Envoy inter-process TCP traffic">
 &lt;figcaption>Envoy inter-process TCP traffic&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -504,7 +504,7 @@ for details.&lt;/li>
 &lt;p>The iptables rules that this traffic passes through are as follows.&lt;/p>
 &lt;p>&lt;code>pilot-agent&lt;/code> process -&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>Istio_OUTPUT&lt;/code> RULE 9&lt;/strong> -&amp;gt; Envoy 15001 (Outbound Handler) -&amp;gt; OUTPUT -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 4&lt;/strong> -&amp;gt; &lt;code>POSTROUTING&lt;/code> -&amp;gt; Istiod&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/sidecar-istiod.jpg" data-img="/blog/istio-sidecar-traffic-types/sidecar-istiod.jpg" data-width="2384" data-height="1704" alt="sidecar-istiod.jpg" data-caption="Sidecar to Istiod">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-sidecar-traffic-types/sidecar-istiod.jpg" data-img="/sdmxio/blog/istio-sidecar-traffic-types/sidecar-istiod.jpg" data-width="2384" data-height="1704" alt="sidecar-istiod.jpg" data-caption="Sidecar to Istiod">
 &lt;figcaption>Sidecar to Istiod&lt;/figcaption>
 &lt;/figure>
 &lt;/p>

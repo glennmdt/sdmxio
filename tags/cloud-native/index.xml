@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – cloud native</title><link>https://sdmx.io/tags/cloud-native/</link><description>Recent content in cloud native on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Wed, 12 Jan 2022 16:43:27 +0800</lastBuildDate><atom:link href="https://sdmx.io/tags/cloud-native/index.xml" rel="self" type="application/rss+xml"/><item><title>Service Mesh in 2021: the ecosystem is emerging</title><link>https://sdmx.io/blog/service-mesh-in-2021/</link><pubDate>Wed, 12 Jan 2022 16:43:27 +0800</pubDate><guid>https://sdmx.io/blog/service-mesh-in-2021/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – cloud native</title><link>https://glennmdt.github.io/sdmxio/tags/cloud-native/</link><description>Recent content in cloud native on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Wed, 12 Jan 2022 16:43:27 +0800</lastBuildDate><atom:link href="https://glennmdt.github.io/sdmxio/tags/cloud-native/index.xml" rel="self" type="application/rss+xml"/><item><title>Service Mesh in 2021: the ecosystem is emerging</title><link>https://glennmdt.github.io/sdmxio/blog/service-mesh-in-2021/</link><pubDate>Wed, 12 Jan 2022 16:43:27 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/service-mesh-in-2021/</guid><description>
 &lt;p>As the service mesh architecture concept gains traction and the scenarios for its applications emerge, there is no shortage of discussions about it in the community. I have worked on service mesh with the community for 4 years now, and will summarize the development of service mesh in 2021 from this perspective. Since Istio is the most popular service mesh, this article will focus on the technical and ecological aspects of Istio.&lt;/p>
 &lt;h2 id="service-mesh-a-critical-tech-for-cloud-native-infrastructure">Service mesh: a critical tech for Cloud Native Infrastructure&lt;/h2>
 &lt;p>As one of the vital technologies &lt;a href="https://github.com/cncf/toc/blob/main/DEFINITION.md" title="defined by CNCF" target="_blank" rel="noopener">defined by CNCF&lt;/a>
@@ -12,7 +12,7 @@ for cloud native, Istio has been around for five years now. Their development ha
 theory) and is in between the “early majority” and “late majority” phases of adoption. Based on feedback from the audience of &lt;a href="https://github.com/tetratelabs/istio-weekly/" title="Istio Weekly," target="_blank" rel="noopener">Istio Weekly,&lt;/a>
 users are no longer blindly following new technologies for experimentation and are starting to consider whether they need them in their organization dialectically.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/service-mesh-in-2021/008i3skNly1gysddnj9i2j30sg0fqaaz.jpg" data-img="/blog/service-mesh-in-2021/008i3skNly1gysddnj9i2j30sg0fqaaz.jpg" data-width="1024" data-height="566" alt="008i3skNly1gysddnj9i2j30sg0fqaaz.jpg" data-caption="Cross the chasm">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/service-mesh-in-2021/008i3skNly1gysddnj9i2j30sg0fqaaz.jpg" data-img="/sdmxio/blog/service-mesh-in-2021/008i3skNly1gysddnj9i2j30sg0fqaaz.jpg" data-width="1024" data-height="566" alt="008i3skNly1gysddnj9i2j30sg0fqaaz.jpg" data-caption="Cross the chasm">
 &lt;figcaption>Cross the chasm&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -20,7 +20,7 @@ users are no longer blindly following new technologies for experimentation and a
 (Distributed Application Runtime), which represents the capability model for cloud native middleware, &lt;a href="https://oam.dev/" title="OAM" target="_blank" rel="noopener">OAM&lt;/a>
 , which defines the cloud native application model, and the service mesh, which defines the L7 network model.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/service-mesh-in-2021/008i3skNly1gysddogtenj30sg0qlwgs.jpg" data-img="/blog/service-mesh-in-2021/008i3skNly1gysddogtenj30sg0qlwgs.jpg" data-width="1024" data-height="957" alt="008i3skNly1gysddogtenj30sg0qlwgs.jpg" data-caption="Cloud Native Stack">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/service-mesh-in-2021/008i3skNly1gysddogtenj30sg0qlwgs.jpg" data-img="/sdmxio/blog/service-mesh-in-2021/008i3skNly1gysddogtenj30sg0qlwgs.jpg" data-width="1024" data-height="957" alt="008i3skNly1gysddogtenj30sg0qlwgs.jpg" data-caption="Cloud Native Stack">
 &lt;figcaption>Cloud Native Stack&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -54,7 +54,7 @@ specification to provide a set of proxy-independent streaming APIs and utilities
 &lt;h3 id="deployment-models">Deployment models&lt;/h3>
 &lt;p>When the service mesh concept first emerged, there was a debate between the Per-node and Sidecar models, represented by Linkerd and Istio. eBPF later proposed a kernel to sink the service mesh, which led to more service mesh deployment models, as shown in the figure below.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/service-mesh-in-2021/008i3skNly1gysddpco2mj30qz0sgwhk.jpg" data-img="/blog/service-mesh-in-2021/008i3skNly1gysddpco2mj30qz0sgwhk.jpg" data-width="971" data-height="1024" alt="008i3skNly1gysddpco2mj30qz0sgwhk.jpg" data-caption="Service Mesh Deployment Models">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/service-mesh-in-2021/008i3skNly1gysddpco2mj30qz0sgwhk.jpg" data-img="/sdmxio/blog/service-mesh-in-2021/008i3skNly1gysddpco2mj30qz0sgwhk.jpg" data-width="971" data-height="1024" alt="008i3skNly1gysddpco2mj30qz0sgwhk.jpg" data-caption="Service Mesh Deployment Models">
 &lt;figcaption>Service Mesh Deployment Models&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -193,7 +193,7 @@ was held in Beijing with more than 100 attendees.&lt;/li>
 &lt;/table>
 &lt;p>Note: Data is as of January 6, 2022&lt;/p>
 &lt;h2 id="summary">Summary&lt;/h2>
-&lt;p>Looking back, we can see that, unlike previous years where users were experimenting, users in 2021 looked for more practical uses for service mesh before implementing them. Their position as the infrastructure of cloud native networks is further strengthened, and more importantly, the service mesh ecosystem is emerging. Looking ahead, in 2022, two technologies to watch are eBPF and WebAssembly(Wasm). We believe that more good examples of service mesh practices will emerge, taking the ecology and standardization a step further.&lt;/p></description></item><item><title>The debate in the community about Istio and service mesh</title><link>https://sdmx.io/blog/the-debate-in-the-community-about-istio-and-service-mesh/</link><pubDate>Fri, 17 Dec 2021 16:43:27 +0800</pubDate><guid>https://sdmx.io/blog/the-debate-in-the-community-about-istio-and-service-mesh/</guid><description>
+&lt;p>Looking back, we can see that, unlike previous years where users were experimenting, users in 2021 looked for more practical uses for service mesh before implementing them. Their position as the infrastructure of cloud native networks is further strengthened, and more importantly, the service mesh ecosystem is emerging. Looking ahead, in 2022, two technologies to watch are eBPF and WebAssembly(Wasm). We believe that more good examples of service mesh practices will emerge, taking the ecology and standardization a step further.&lt;/p></description></item><item><title>The debate in the community about Istio and service mesh</title><link>https://glennmdt.github.io/sdmxio/blog/the-debate-in-the-community-about-istio-and-service-mesh/</link><pubDate>Fri, 17 Dec 2021 16:43:27 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/the-debate-in-the-community-about-istio-and-service-mesh/</guid><description>
 &lt;p>You can use Istio to do &lt;a href="https://www.tetrate.io/blog/multicluster-management-with-kubernetes-and-istio/" title="multi-cluster management" target="_blank" rel="noopener">multi-cluster management&lt;/a>
 , &lt;a href="https://www.tetrate.io/blog/istio-servicemesh-api-gateway/" title="API Gateway" target="_blank" rel="noopener">API Gateway&lt;/a>
 , and manage applications on Kubernetes or &lt;a href="https://www.tetrate.io/blog/istio-18-a-virtual-machine-integration-odyssey/" title="virtual machines" target="_blank" rel="noopener">virtual machines&lt;/a>
@@ -219,7 +219,7 @@ was just released in November – and has evolved significantly since the explos
 &lt;p>A service mesh uses iptables to do traffic hijacking by default to be transparent to applications. When the number of services is large, there are a lot of iptables rules that affect network performance. You can use techniques like &lt;a href="https://cloudnative.to/blog/how-ebpf-streamlines-the-service-mesh/" title="eBPF" target="_blank" rel="noopener">eBPF&lt;/a>
 to provide application performance, but the method requires a high version of the operating system kernel, which few enterprises can achieve.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/the-debate-in-the-community-about-istio-and-service-mesh/008i3skNly1gxgyfcfm5oj30sg0djmxt.jpg" data-img="/blog/the-debate-in-the-community-about-istio-and-service-mesh/008i3skNly1gxgyfcfm5oj30sg0djmxt.jpg" data-width="1024" data-height="487" alt="008i3skNly1gxgyfcfm5oj30sg0djmxt.jpg" data-caption="Istio DNS">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/the-debate-in-the-community-about-istio-and-service-mesh/008i3skNly1gxgyfcfm5oj30sg0djmxt.jpg" data-img="/sdmxio/blog/the-debate-in-the-community-about-istio-and-service-mesh/008i3skNly1gxgyfcfm5oj30sg0djmxt.jpg" data-width="1024" data-height="487" alt="008i3skNly1gxgyfcfm5oj30sg0djmxt.jpg" data-caption="Istio DNS">
 &lt;figcaption>Istio DNS&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -250,7 +250,7 @@ resource in the open-source project &lt;a href="https://github.com/openkruise/kr
 &lt;li>&lt;a href="https://academy.tetrate.io/courses/certified-istio-administrator" title="Certified Istio Administrator" target="_blank" rel="noopener">Certified Istio Administrator&lt;/a>
 &lt;/li>
 &lt;/ul>
-&lt;p>Yes, Istio is complex, but it’s been getting more and more manageable with every release. In my next blog, I will introduce you to two open source projects that extend Istio and give you some insight into what’s going on in the Istio community.&lt;/p></description></item><item><title>Service Mesh - an integral part of cloud-native applications</title><link>https://sdmx.io/blog/service-mesh-an-integral-part-of-cloud-native-apps/</link><pubDate>Sun, 12 Dec 2021 16:43:27 +0800</pubDate><guid>https://sdmx.io/blog/service-mesh-an-integral-part-of-cloud-native-apps/</guid><description>
+&lt;p>Yes, Istio is complex, but it’s been getting more and more manageable with every release. In my next blog, I will introduce you to two open source projects that extend Istio and give you some insight into what’s going on in the Istio community.&lt;/p></description></item><item><title>Service Mesh - an integral part of cloud-native applications</title><link>https://glennmdt.github.io/sdmxio/blog/service-mesh-an-integral-part-of-cloud-native-apps/</link><pubDate>Sun, 12 Dec 2021 16:43:27 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/service-mesh-an-integral-part-of-cloud-native-apps/</guid><description>
 &lt;p>If you don’t know what Istio is, you can read my previous articles below:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.tetrate.io/blog/what-is-istio-and-why-does-kubernetes-need-it/" title="What Is Istio and Why Does Kubernetes Need it?" target="_blank" rel="noopener">What Is Istio and Why Does Kubernetes Need it?&lt;/a>
@@ -267,7 +267,7 @@ resource in the open-source project &lt;a href="https://github.com/openkruise/kr
 &lt;h3 id="kubernetes-vs-xds-vs-istio">&lt;strong>Kubernetes vs. xDS vs. Istio&lt;/strong>&lt;/h3>
 &lt;p>This diagram shows the layered architecture of Kubernetes and Istio.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxss9mamj30n90d73zs.jpg" data-img="/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxss9mamj30n90d73zs.jpg" data-width="837" data-height="475" alt="008i3skNly1gxgxss9mamj30n90d73zs.jpg" data-caption="img">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxss9mamj30n90d73zs.jpg" data-img="/sdmxio/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxss9mamj30n90d73zs.jpg" data-width="837" data-height="475" alt="008i3skNly1gxgxss9mamj30n90d73zs.jpg" data-caption="img">
 &lt;figcaption>img&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -276,14 +276,14 @@ resource in the open-source project &lt;a href="https://github.com/openkruise/kr
 &lt;p>Kube-proxy implements traffic load balancing between multiple pod instances of a Kubernetes service. But how do you finely control the traffic between these services — such as dividing the traffic by percentage to different application versions (which are all part of the same service, but on other deployments), or doing canary releases and blue-green releases?&lt;/p>
 &lt;p>The Kubernetes community gives a way to do canary releases using Deployment, assigning different pods to deployed services by modifying the pod’s label.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxsswmoij30sg0kl76r.jpg" data-img="/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxsswmoij30sg0kl76r.jpg" data-width="1024" data-height="741" alt="008i3skNly1gxgxsswmoij30sg0kl76r.jpg" data-caption="Envoy Architecture">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxsswmoij30sg0kl76r.jpg" data-img="/sdmxio/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxsswmoij30sg0kl76r.jpg" data-width="1024" data-height="741" alt="008i3skNly1gxgxsswmoij30sg0kl76r.jpg" data-caption="Envoy Architecture">
 &lt;figcaption>Envoy Architecture&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
 &lt;p>Currently, the most popular open-source implementation of service mesh in the world is Istio. From the &lt;a href="https://www.cncf.io/wp-content/uploads/2020/11/CNCF_Survey_Report_2020.pdf" title="CNCF Survey Report 2020" target="_blank" rel="noopener">CNCF Survey Report 2020&lt;/a>
 , we know that Istio is the most used service mesh in production today. Many companies have built their service mesh based on Istio, such as Ant, Airbnb, eBay, NetEase, Tencent, etc.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxstgg4qj30sg0gg0ts.jpg" data-img="/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxstgg4qj30sg0gg0ts.jpg" data-width="1024" data-height="592" alt="008i3skNly1gxgxstgg4qj30sg0gg0ts.jpg" data-caption="CNCF Survey Report 2020">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxstgg4qj30sg0gg0ts.jpg" data-img="/sdmxio/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxstgg4qj30sg0gg0ts.jpg" data-width="1024" data-height="592" alt="008i3skNly1gxgxstgg4qj30sg0gg0ts.jpg" data-caption="CNCF Survey Report 2020">
 &lt;figcaption>CNCF Survey Report 2020&lt;/figcaption>
 &lt;/figure>
 &lt;/p>

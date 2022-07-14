@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – slime</title><link>https://sdmx.io/tags/slime/</link><description>Recent content in slime on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Mon, 10 Jan 2022 16:43:27 +0800</lastBuildDate><atom:link href="https://sdmx.io/tags/slime/index.xml" rel="self" type="application/rss+xml"/><item><title>Introducing Slime and Aeraki in the evolution of Istio open-source ecosystem</title><link>https://sdmx.io/blog/istio-extensions-slime-and-aeraki/</link><pubDate>Mon, 10 Jan 2022 16:43:27 +0800</pubDate><guid>https://sdmx.io/blog/istio-extensions-slime-and-aeraki/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – slime</title><link>https://glennmdt.github.io/sdmxio/tags/slime/</link><description>Recent content in slime on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Mon, 10 Jan 2022 16:43:27 +0800</lastBuildDate><atom:link href="https://glennmdt.github.io/sdmxio/tags/slime/index.xml" rel="self" type="application/rss+xml"/><item><title>Introducing Slime and Aeraki in the evolution of Istio open-source ecosystem</title><link>https://glennmdt.github.io/sdmxio/blog/istio-extensions-slime-and-aeraki/</link><pubDate>Mon, 10 Jan 2022 16:43:27 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/istio-extensions-slime-and-aeraki/</guid><description>
 &lt;p>It’s been more than &lt;a href="https://www.tetrate.io/blog/happy-istio-4th-anniversary-retrospect-and-outlook/" title="four years" target="_blank" rel="noopener">four years&lt;/a>
 since Istio launched in May 2017, and while the project has had a strong following on GitHub and 10+ releases, its growing open-source ecosystem is still in its infancy.&lt;/p>
 &lt;p>Recently added support for &lt;a href="https://www.tetrate.io/blog/istio-wasm-extensions-and-ecosystem/" title="WebAssembly extensions" target="_blank" rel="noopener">WebAssembly extensions&lt;/a>
@@ -134,7 +134,7 @@ is an Istio-based, intelligent mesh manager open-sourced by NetEase’s microser
 &lt;/ul>
 &lt;p>The following diagram shows the flow chart of Istio as an Istio management plane.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-extensions-slime-and-aeraki/slime-arch.png" data-img="/blog/istio-extensions-slime-and-aeraki/slime-arch.png" data-width="1921" data-height="1081" alt="slime-arch.png" data-caption="Slime architecture">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-extensions-slime-and-aeraki/slime-arch.png" data-img="/sdmxio/blog/istio-extensions-slime-and-aeraki/slime-arch.png" data-width="1921" data-height="1081" alt="slime-arch.png" data-caption="Slime architecture">
 &lt;figcaption>Slime architecture&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -148,7 +148,7 @@ is an Istio-based, intelligent mesh manager open-sourced by NetEase’s microser
 &lt;/ol>
 &lt;p>The diagram below shows the internal architecture of Slime.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-extensions-slime-and-aeraki/slime-internal.png" data-img="/blog/istio-extensions-slime-and-aeraki/slime-internal.png" data-width="1921" data-height="1081" alt="slime-internal.png" data-caption="Slime Internal">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-extensions-slime-and-aeraki/slime-internal.png" data-img="/sdmxio/blog/istio-extensions-slime-and-aeraki/slime-internal.png" data-width="1921" data-height="1081" alt="slime-internal.png" data-caption="Slime Internal">
 &lt;figcaption>Slime Internal&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -160,7 +160,7 @@ is an Istio-based, intelligent mesh manager open-sourced by NetEase’s microser
 &lt;/ul>
 &lt;p>The following diagram shows the architecture of Slime Adaptive Traffic Limiting.
 &lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-extensions-slime-and-aeraki/slime-smart-filter.png" data-img="/blog/istio-extensions-slime-and-aeraki/slime-smart-filter.png" data-width="1920" data-height="1081" alt="slime-smart-filter.png" data-caption="Slime smart limiter">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-extensions-slime-and-aeraki/slime-smart-filter.png" data-img="/sdmxio/blog/istio-extensions-slime-and-aeraki/slime-smart-filter.png" data-width="1920" data-height="1081" alt="slime-smart-filter.png" data-caption="Slime smart limiter">
 &lt;figcaption>Slime smart limiter&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -184,7 +184,7 @@ and the other that monitors the data. Slime also provides an external monitoring
 &lt;p>&lt;a href="https://github.com/aeraki-framework/aeraki" title="Aeraki" target="_blank" rel="noopener">Aeraki&lt;/a>
 is a service mesh project open sourced by Tencent Cloud in March 2021. Aeraki provides an end-to-end cloud-native service mesh protocol extension solution that provides Istio with powerful third-party protocol extension capabilities in a non-intrusive way, supporting traffic management for Dubbo, Thrift, Redis, and private protocols in Istio. Aeraki’s architecture is shown in the following diagram.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-extensions-slime-and-aeraki/aeraki-architecture.png" data-img="/blog/istio-extensions-slime-and-aeraki/aeraki-architecture.png" data-width="1920" data-height="1081" alt="aeraki-architecture.png" data-caption="Aeraki architecture">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-extensions-slime-and-aeraki/aeraki-architecture.png" data-img="/sdmxio/blog/istio-extensions-slime-and-aeraki/aeraki-architecture.png" data-width="1920" data-height="1081" alt="aeraki-architecture.png" data-caption="Aeraki architecture">
 &lt;figcaption>Aeraki architecture&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -197,7 +197,7 @@ is a service mesh project open sourced by Tencent Cloud in March 2021. Aeraki pr
 &lt;/ul>
 &lt;p>Before the introduction of MetaProtocol Proxy, if you wanted to use Envoy to implement an L7 protocol to implement routing, traffic limiting, telemetry, etc., you needed to write a complete TCP filter, which would have required a lot of work. For most L7 protocols, the required traffic management capabilities are similar, so there is no need to duplicate this work in each L7 filter implementation. The Aeraki project uses a MetaProtocol Proxy to implement these unified capabilities, as shown in the following figure.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-extensions-slime-and-aeraki/metaprotocol-proxy.png" data-img="/blog/istio-extensions-slime-and-aeraki/metaprotocol-proxy.png" data-width="3000" data-height="1081" alt="metaprotocol-proxy.png" data-caption="MetaProtocol proxy">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-extensions-slime-and-aeraki/metaprotocol-proxy.png" data-img="/sdmxio/blog/istio-extensions-slime-and-aeraki/metaprotocol-proxy.png" data-width="3000" data-height="1081" alt="metaprotocol-proxy.png" data-caption="MetaProtocol proxy">
 &lt;figcaption>MetaProtocol proxy&lt;/figcaption>
 &lt;/figure>
 &lt;/p>

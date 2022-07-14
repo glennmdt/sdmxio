@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – Blogs</title><link>https://sdmx.io/blog/</link><description>Recent content in Blogs on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Wed, 29 Jun 2022 11:27:49 +0800</lastBuildDate><atom:link href="https://sdmx.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Why would you need SPIRE for authentication with Istio?</title><link>https://sdmx.io/blog/why-istio-need-spire/</link><pubDate>Wed, 29 Jun 2022 11:27:49 +0800</pubDate><guid>https://sdmx.io/blog/why-istio-need-spire/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – Blogs</title><link>https://glennmdt.github.io/sdmxio/blog/</link><description>Recent content in Blogs on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Wed, 29 Jun 2022 11:27:49 +0800</lastBuildDate><atom:link href="https://glennmdt.github.io/sdmxio/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Why would you need SPIRE for authentication with Istio?</title><link>https://glennmdt.github.io/sdmxio/blog/why-istio-need-spire/</link><pubDate>Wed, 29 Jun 2022 11:27:49 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/why-istio-need-spire/</guid><description>
 &lt;p>&lt;a href="https://istio.io/latest/news/releases/1.14.x/announcing-1.14/" title="Istio 1.14" target="_blank" rel="noopener">Istio 1.14&lt;/a>
 was released in June of this year, and one of the most notable features of this release is support for &lt;a href="https://spiffe.io/docs/latest/spire-about/" title="SPIRE" target="_blank" rel="noopener">SPIRE&lt;/a>
 , which is one of the implementations of &lt;a href="https://spiffe.io/" title="SPIFFE" target="_blank" rel="noopener">SPIFFE&lt;/a>
@@ -35,7 +35,7 @@ was released in June of this year, and one of the most notable features of this 
 &lt;p>The most significant advantage of SDS is the ease with which certificates can be managed. Without this feature, certificates would have to be created as a secret and then mounted into the agent container in a Kubernetes deployment. The secret must be updated, and the proxy container must be re-deployed if the certificate expires. Using SDS, Istio can push the certificates to all Envoy instances in the service mesh. If the certificate expires, the server only needs to push the new certificate to the Envoy instance; Envoy will use the new certificate right away, and the proxy container will not need to be re-deployed.&lt;/p>
 &lt;p>The architecture of using SPIRE for authentication in Istio is depicted in the diagram below.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/why-istio-need-spire/spire-istio-arch.jpg" data-img="/blog/why-istio-need-spire/spire-istio-arch.jpg" data-width="1200" data-height="965" alt="spire-istio-arch.jpg" data-caption="SPIRE Architecture with Istio">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/why-istio-need-spire/spire-istio-arch.jpg" data-img="/sdmxio/blog/why-istio-need-spire/spire-istio-arch.jpg" data-width="1200" data-height="965" alt="spire-istio-arch.jpg" data-caption="SPIRE Architecture with Istio">
 &lt;figcaption>SPIRE Architecture with Istio&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -70,9 +70,9 @@ The workload authentication process in the Istio mesh
 &lt;p>Please refer to the &lt;a href="https://istio.io/latest/docs/ops/integrations/spire" title="Istio documentation" target="_blank" rel="noopener">Istio documentation&lt;/a>
 to learn how to use SPIRE for authentication in Istio.&lt;/p>
 &lt;h2 id="summary">Summary&lt;/h2>
-&lt;p>SPIFFE unifies identity standards in heterogeneous environments, which is the foundation of zero-trust networks. In Istio, whether we use SPIRE or not, authentication is not perceptible to workloads. By using SPIRE to provide authentication for workloads, we can effectively manage workload identity and lay the foundation for a zero-trust network.&lt;/p></description></item><item><title>In-Depth Understanding of Istio: Announcing the Publication of a New Istio Book</title><link>https://sdmx.io/blog/istio-service-mesh-book/</link><pubDate>Wed, 15 Jun 2022 20:27:49 +0800</pubDate><guid>https://sdmx.io/blog/istio-service-mesh-book/</guid><description>
+&lt;p>SPIFFE unifies identity standards in heterogeneous environments, which is the foundation of zero-trust networks. In Istio, whether we use SPIRE or not, authentication is not perceptible to workloads. By using SPIRE to provide authentication for workloads, we can effectively manage workload identity and lay the foundation for a zero-trust network.&lt;/p></description></item><item><title>In-Depth Understanding of Istio: Announcing the Publication of a New Istio Book</title><link>https://glennmdt.github.io/sdmxio/blog/istio-service-mesh-book/</link><pubDate>Wed, 15 Jun 2022 20:27:49 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/istio-service-mesh-book/</guid><description>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-service-mesh-book/book.jpg" data-img="/blog/istio-service-mesh-book/book.jpg" data-width="1200" data-height="800" alt="book.jpg" data-caption="">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-service-mesh-book/book.jpg" data-img="/sdmxio/blog/istio-service-mesh-book/book.jpg" data-width="1200" data-height="800" alt="book.jpg" data-caption="">
 &lt;figcaption>&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -138,7 +138,7 @@ data-height="401"
 />&lt;/a>&lt;figcaption>
 &lt;p>&lt;a href="https://item.jd.com/13200745.html" title="Buy now" target="_blank" rel="noopener">Buy now&lt;/a>&lt;/p>
 &lt;/figcaption>
-&lt;/figure></description></item><item><title>How to build Istio?</title><link>https://sdmx.io/blog/how-to-build-istio/</link><pubDate>Sun, 15 May 2022 14:18:40 +0800</pubDate><guid>https://sdmx.io/blog/how-to-build-istio/</guid><description>
+&lt;/figure></description></item><item><title>How to build Istio?</title><link>https://glennmdt.github.io/sdmxio/blog/how-to-build-istio/</link><pubDate>Sun, 15 May 2022 14:18:40 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/how-to-build-istio/</guid><description>
 &lt;p>This article will guide you on how to compile the Istio binaries and Docker images on macOS.&lt;/p>
 &lt;h2 id="before-you-begin">Before you begin&lt;/h2>
 &lt;p>Before we start, refer to the &lt;a href="https://github.com/istio/istio/wiki/Preparing-for-Development-Mac" title="Istio Wiki" target="_blank" rel="noopener">Istio Wiki&lt;/a>
@@ -217,7 +217,7 @@ from GitHub to the &lt;code>$GOPATH/src/istio.io/istio&lt;/code> directory, and 
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/istio/istio/wiki/Using-the-Code-Base" title="Using the Code Base - github.com" target="_blank" rel="noopener">Using the Code Base - github.com&lt;/a>
 &lt;/li>
-&lt;/ul></description></item><item><title>Sidecar injection, transparent traffic hijacking , and routing process in Istio explained in detail</title><link>https://sdmx.io/blog/sidecar-injection-iptables-and-traffic-routing/</link><pubDate>Thu, 12 May 2022 21:08:59 +0800</pubDate><guid>https://sdmx.io/blog/sidecar-injection-iptables-and-traffic-routing/</guid><description>
+&lt;/ul></description></item><item><title>Sidecar injection, transparent traffic hijacking , and routing process in Istio explained in detail</title><link>https://glennmdt.github.io/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/</link><pubDate>Thu, 12 May 2022 21:08:59 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/</guid><description>
 &lt;p>Updated on May 6, 2022&lt;/p>
 &lt;p>Based on Istio version 1.13, this article will present the following.&lt;/p>
 &lt;ul>
@@ -228,7 +228,7 @@ from GitHub to the &lt;code>$GOPATH/src/istio.io/istio&lt;/code> directory, and 
 &lt;/ul>
 &lt;p>The figure below shows how the &lt;code>productpage&lt;/code> service requests access to &lt;code>http://reviews.default.svc.cluster.local:9080/&lt;/code> and how the sidecar proxy inside the reviews service does traffic blocking and routing forwarding when traffic goes inside the &lt;code>reviews&lt;/code> service.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/sidecar-injection-iptables-and-traffic-routing/istio-iptables.svg" data-img="/blog/sidecar-injection-iptables-and-traffic-routing/istio-iptables.svg" alt="istio-iptables.svg" data-caption="Istio transparent traffic hijacking and traffic routing diagram">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/istio-iptables.svg" data-img="/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/istio-iptables.svg" alt="istio-iptables.svg" data-caption="Istio transparent traffic hijacking and traffic routing diagram">
 &lt;figcaption>Istio transparent traffic hijacking and traffic routing diagram&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -237,7 +237,7 @@ from GitHub to the &lt;code>$GOPATH/src/istio.io/istio&lt;/code> directory, and 
 &lt;h2 id="sidecar-pattern">Sidecar pattern&lt;/h2>
 &lt;p>Dividing the functionality of an application into separate processes running in the same minimal scheduling unit (e.g. Pod in Kubernetes) can be considered sidecar mode. As shown in the figure below, the sidecar pattern allows you to add more features next to your application without additional third-party component configuration or modifications to the application code.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/sidecar-injection-iptables-and-traffic-routing/sidecar-pattern.svg" data-img="/blog/sidecar-injection-iptables-and-traffic-routing/sidecar-pattern.svg" alt="sidecar-pattern.svg" data-caption="Sidecar pattern">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/sidecar-pattern.svg" data-img="/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/sidecar-pattern.svg" alt="sidecar-pattern.svg" data-caption="Sidecar pattern">
 &lt;figcaption>Sidecar pattern&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -406,7 +406,7 @@ from GitHub to the &lt;code>$GOPATH/src/istio.io/istio&lt;/code> directory, and 
 &lt;/table>
 &lt;p>The following diagram shows the detailed flow of the &lt;code>ISTIO_ROUTE&lt;/code> rule.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/sidecar-injection-iptables-and-traffic-routing/istio-route-iptables.svg" data-img="/blog/sidecar-injection-iptables-and-traffic-routing/istio-route-iptables.svg" alt="istio-route-iptables.svg" data-caption="ISTIO_ROUTE iptables rules">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/istio-route-iptables.svg" data-img="/sdmxio/blog/sidecar-injection-iptables-and-traffic-routing/istio-route-iptables.svg" alt="istio-route-iptables.svg" data-caption="ISTIO_ROUTE iptables rules">
 &lt;figcaption>ISTIO_ROUTE iptables rules&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -715,7 +715,7 @@ Hook Connect Diagram
 &lt;/li>
 &lt;li>&lt;a href="https://mosn.io/en/docs/concept/traffic-hijack/" title="The traffic hijacking solution when MOSN is used as a sidecar - mosn.io" target="_blank" rel="noopener">The traffic hijacking solution when MOSN is used as a sidecar - mosn.io&lt;/a>
 &lt;/li>
-&lt;/ul></description></item><item><title>Istio data plane pod startup process explained</title><link>https://sdmx.io/blog/istio-pod-process-lifecycle/</link><pubDate>Thu, 12 May 2022 19:18:40 +0800</pubDate><guid>https://sdmx.io/blog/istio-pod-process-lifecycle/</guid><description>
+&lt;/ul></description></item><item><title>Istio data plane pod startup process explained</title><link>https://glennmdt.github.io/sdmxio/blog/istio-pod-process-lifecycle/</link><pubDate>Thu, 12 May 2022 19:18:40 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/istio-pod-process-lifecycle/</guid><description>
 &lt;p>This article will explain:&lt;/p>
 &lt;ul>
 &lt;li>The sidecar auto-injection process in Istio&lt;/li>
@@ -724,7 +724,7 @@ Hook Connect Diagram
 &lt;/ul>
 &lt;p>The following figure shows the components of a Pod in the Istio data plane after it has been started.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-pod-process-lifecycle/istio-pod-lifecycle.jpg" data-img="/blog/istio-pod-process-lifecycle/istio-pod-lifecycle.jpg" data-width="1200" data-height="813" alt="istio-pod-lifecycle.jpg" data-caption="Istio data plane pod">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-pod-process-lifecycle/istio-pod-lifecycle.jpg" data-img="/sdmxio/blog/istio-pod-process-lifecycle/istio-pod-lifecycle.jpg" data-width="1200" data-height="813" alt="istio-pod-lifecycle.jpg" data-caption="Istio data plane pod">
 &lt;figcaption>Istio data plane pod&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -956,14 +956,14 @@ for port usage in Istio.&lt;/p>
 configuration to the application container to detect if the application process has finished starting, and Kubernetes will only mark the Pod&amp;rsquo;s state as &lt;code>Running&lt;/code> if the detection is successful.&lt;/li>
 &lt;/ul>
 &lt;h2 id="summary">Summary&lt;/h2>
-&lt;p>This article walks you through the process of starting Pods in the Istio data plane, and the issues that arise because of the order in which Pod contenters are started.&lt;/p></description></item><item><title>Understanding iptalbes</title><link>https://sdmx.io/blog/understanding-iptables/</link><pubDate>Thu, 12 May 2022 12:18:40 +0800</pubDate><guid>https://sdmx.io/blog/understanding-iptables/</guid><description>
+&lt;p>This article walks you through the process of starting Pods in the Istio data plane, and the issues that arise because of the order in which Pod contenters are started.&lt;/p></description></item><item><title>Understanding iptalbes</title><link>https://glennmdt.github.io/sdmxio/blog/understanding-iptables/</link><pubDate>Thu, 12 May 2022 12:18:40 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/understanding-iptables/</guid><description>
 &lt;p>iptables is an important feature in the Linux kernel and has a wide range of applications. iptables is used by default in Istio for transparent traffic hijacking. Understanding iptables is very important for us to understand how Istio works. This article will give you a brief introduction to iptbles.&lt;/p>
 &lt;h2 id="iptables-introduction">iptables introduction&lt;/h2>
 &lt;p>iptables is a management tool for netfilter, the firewall software in the Linux kernel. netfilter is located in the user space and is part of netfilter. netfilter is located in the kernel space and has not only network address conversion, but also packet content modification and packet filtering firewall functions.&lt;/p>
 &lt;p>Before learning about iptables for Init container initialization, let&amp;rsquo;s go over iptables and rule configuration.&lt;/p>
 &lt;p>The following figure shows the iptables call chain.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/understanding-iptables/iptables.jpg" data-img="/blog/understanding-iptables/iptables.jpg" data-width="726" data-height="1443" alt="iptables.jpg" data-caption="iptables 调用链">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/understanding-iptables/iptables.jpg" data-img="/sdmxio/blog/understanding-iptables/iptables.jpg" data-width="726" data-height="1443" alt="iptables.jpg" data-caption="iptables 调用链">
 &lt;figcaption>iptables 调用链&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1046,7 +1046,7 @@ configuration to the application container to detect if the application process 
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We see three default chains, INPUT, FORWARD, and OUTPUT, with the first line of output in each chain indicating the chain name (INPUT/FORWARD/OUTPUT in this case), followed by the default policy (ACCEPT).&lt;/p>
 &lt;p>The following is a proposed structure diagram of iptables, where traffic passes through the INPUT chain and then enters the upper protocol stack, such as:&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/understanding-iptables/iptables-chains.jpg" data-img="/blog/understanding-iptables/iptables-chains.jpg" data-width="1333" data-height="410" alt="iptables-chains.jpg" data-caption="iptables chains">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/understanding-iptables/iptables-chains.jpg" data-img="/sdmxio/blog/understanding-iptables/iptables-chains.jpg" data-width="1333" data-height="410" alt="iptables-chains.jpg" data-caption="iptables chains">
 &lt;figcaption>iptables chains&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1067,25 +1067,25 @@ configuration to the application container to detect if the application process 
 &lt;p>Target types include ACCEPT, REJECT, DROP, LOG, SNAT, MASQUERADE, DNAT, REDIRECT, RETURN or jump to other rules, etc. You can determine where the telegram is going by executing only one rule in a chain that matches in order, except for the RETURN type, which is similar to the return statement in programming languages, which returns to its call point and continues to execute the next rule.&lt;/p>
 &lt;p>From the output, you can see that the Init container does not create any rules in the default link of iptables, but instead creates a new link.&lt;/p>
 &lt;h2 id="summary">Summary&lt;/h2>
-&lt;p>With the above brief introduction to iptables, you have understood how iptables works, the rule chain and its execution order.&lt;/p></description></item><item><title> Istio component ports and functions in detail</title><link>https://sdmx.io/blog/istio-components-and-ports/</link><pubDate>Sun, 08 May 2022 10:18:40 +0800</pubDate><guid>https://sdmx.io/blog/istio-components-and-ports/</guid><description>
+&lt;p>With the above brief introduction to iptables, you have understood how iptables works, the rule chain and its execution order.&lt;/p></description></item><item><title> Istio component ports and functions in detail</title><link>https://glennmdt.github.io/sdmxio/blog/istio-components-and-ports/</link><pubDate>Sun, 08 May 2022 10:18:40 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/istio-components-and-ports/</guid><description>
 &lt;p>In my last two blogs:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://sdmx.io/en/blog/sidecar-injection-iptables-and-traffic-routing/" title="Sidecar injection, transparent traffic hijacking , and routing process in Istio explained in detail">Sidecar injection, transparent traffic hijacking , and routing process in Istio explained in detail&lt;/a>
+&lt;li>&lt;a href="https://glennmdt.github.io/sdmxio/en/blog/sidecar-injection-iptables-and-traffic-routing/" title="Sidecar injection, transparent traffic hijacking , and routing process in Istio explained in detail">Sidecar injection, transparent traffic hijacking , and routing process in Istio explained in detail&lt;/a>
 &lt;/li>
-&lt;li>&lt;a href="https://sdmx.io/en/blog/istio-sidecar-traffic-types/" title="Traffic types and iptables rules in Istio sidecar explained">Traffic types and iptables rules in Istio sidecar explained&lt;/a>
+&lt;li>&lt;a href="https://glennmdt.github.io/sdmxio/en/blog/istio-sidecar-traffic-types/" title="Traffic types and iptables rules in Istio sidecar explained">Traffic types and iptables rules in Istio sidecar explained&lt;/a>
 &lt;/li>
 &lt;/ul>
 &lt;p>I gave you a detailed overview of the traffic in the Istio data plane, but the data plane does not exist in isolation. This article will show you the ports and their usages for each component of both the control plane and data plane in Istio, which will help you understand the relationship between these flows and troubleshoot them.&lt;/p>
 &lt;h2 id="overview">Overview&lt;/h2>
 &lt;p>Firstly, I will show you a global schematic. The following figure shows the components of a sidecar in the Istio data plane, and the objects that interact with it.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-components-and-ports/istio-ports-components.webp" data-img="/blog/istio-components-and-ports/istio-ports-components.webp" data-width="5230" data-height="2506" alt="istio-ports-components.webp" data-caption="Istio components">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-components-and-ports/istio-ports-components.webp" data-img="/sdmxio/blog/istio-components-and-ports/istio-ports-components.webp" data-width="5230" data-height="2506" alt="istio-ports-components.webp" data-caption="Istio components">
 &lt;figcaption>Istio components&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
 &lt;p>We can use the &lt;code>nsenter&lt;/code> command to enter the namespace of the &lt;code>productpage&lt;/code> Pod of the Bookinfo example and see the information about the ports it is listening on internally.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-components-and-ports/sidecar-ports.webp" data-img="/blog/istio-components-and-ports/sidecar-ports.webp" data-width="1566" data-height="740" alt="sidecar-ports.webp" data-caption="Istio sidecar ports">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-components-and-ports/sidecar-ports.webp" data-img="/sdmxio/blog/istio-components-and-ports/sidecar-ports.webp" data-width="1566" data-height="740" alt="sidecar-ports.webp" data-caption="Istio sidecar ports">
 &lt;figcaption>Istio sidecar ports&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1093,21 +1093,21 @@ configuration to the application container to detect if the application process 
 .&lt;/p>
 &lt;p>Let&amp;rsquo;s go back into the &lt;code>productpage&lt;/code> Pod and use the &lt;code>lsof -i&lt;/code> command to see the ports it has open, as shown in the following figure.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-components-and-ports/product-pod-ports.webp" data-img="/blog/istio-components-and-ports/product-pod-ports.webp" data-width="2714" data-height="902" alt="product-pod-ports.webp" data-caption="Productpage Pod ports">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-components-and-ports/product-pod-ports.webp" data-img="/sdmxio/blog/istio-components-and-ports/product-pod-ports.webp" data-width="2714" data-height="902" alt="product-pod-ports.webp" data-caption="Productpage Pod ports">
 &lt;figcaption>Productpage Pod ports&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
 &lt;p>We can see that there is a TCP connection established between the &lt;code>pilot-agent&lt;/code> and &lt;code>istiod&lt;/code>, the port in the listening described above, and the TCP connection established inside the Pod, which corresponds to the figure at the beginning of the article.&lt;/p>
 &lt;p>The root process of the Sidecar container (&lt;code>istio-proxy&lt;/code>) is &lt;code>pilot-agent&lt;/code>, and the startup command is shown below.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-components-and-ports/sidecar-procecces.webp" data-img="/blog/istio-components-and-ports/sidecar-procecces.webp" data-width="2768" data-height="540" alt="sidecar-procecces.webp" data-caption="Internal procecces in Sidecar">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-components-and-ports/sidecar-procecces.webp" data-img="/sdmxio/blog/istio-components-and-ports/sidecar-procecces.webp" data-width="2768" data-height="540" alt="sidecar-procecces.webp" data-caption="Internal procecces in Sidecar">
 &lt;figcaption>Internal procecces in Sidecar&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
 &lt;p>As we can see from the figure, the PID of its &lt;code>pilot-agent&lt;/code> process is 1, and it forked the Envoy process.&lt;/p>
 &lt;p>Check the ports it opens in Istiod, as shown in the figure below.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-components-and-ports/sidecar-lsof.webp" data-img="/blog/istio-components-and-ports/sidecar-lsof.webp" data-width="2544" data-height="760" alt="sidecar-lsof.webp" data-caption="Istiod ports">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-components-and-ports/sidecar-lsof.webp" data-img="/sdmxio/blog/istio-components-and-ports/sidecar-lsof.webp" data-width="2544" data-height="760" alt="sidecar-lsof.webp" data-caption="Istiod ports">
 &lt;figcaption>Istiod ports&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1150,7 +1150,7 @@ for details.&lt;/li>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">kubectl -n default port-forward deploy/productpage-v1 &lt;span class="m">15000&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Visit &lt;code>http://localhost:15000&lt;/code> in your browser and you will see the Envoy Admin interface as shown below.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-components-and-ports/envoy-admin.webp" data-img="/blog/istio-components-and-ports/envoy-admin.webp" data-width="660" data-height="1158" alt="envoy-admin.webp" data-caption="Envoy Admin interface">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-components-and-ports/envoy-admin.webp" data-img="/sdmxio/blog/istio-components-and-ports/envoy-admin.webp" data-width="660" data-height="1158" alt="envoy-admin.webp" data-caption="Envoy Admin interface">
 &lt;figcaption>Envoy Admin interface&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1161,7 +1161,7 @@ for details.&lt;/li>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">kubectl -n istio-system port-forward deploy/istiod &lt;span class="m">8080&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Visit &lt;code>http://localhost:8080/debug&lt;/code> in your browser and you will see the debug endpoint as shown in the figure below.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-components-and-ports/pilot-debug-console.webp" data-img="/blog/istio-components-and-ports/pilot-debug-console.webp" data-width="1080" data-height="1243" alt="pilot-debug-console.webp" data-caption="Pilot Debug Console">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-components-and-ports/pilot-debug-console.webp" data-img="/sdmxio/blog/istio-components-and-ports/pilot-debug-console.webp" data-width="1080" data-height="1243" alt="pilot-debug-console.webp" data-caption="Pilot Debug Console">
 &lt;figcaption>Pilot Debug Console&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1175,13 +1175,13 @@ for details.&lt;/li>
 &lt;/ol>
 &lt;p>The following figure shows the debugging information you see when you open &lt;code>http://localhost:15020/debug/pprof&lt;/code> in your browser.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-components-and-ports/pprof.webp" data-img="/blog/istio-components-and-ports/pprof.webp" data-width="1761" data-height="1080" alt="pprof.webp" data-caption="pprof endpoint">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-components-and-ports/pprof.webp" data-img="/sdmxio/blog/istio-components-and-ports/pprof.webp" data-width="1761" data-height="1080" alt="pprof.webp" data-caption="pprof endpoint">
 &lt;figcaption>pprof endpoint&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
 &lt;p>The information in the figure shows the stack information of the &lt;code>pilot-agent&lt;/code>.&lt;/p>
 &lt;h2 id="summary">Summary&lt;/h2>
-&lt;p>By understanding the component ports in Istio, you should have a better understanding of the relationship between the components in Istio and their internal traffic. Being familiar with the functions of these ports will help in troubleshooting the mesh.&lt;/p></description></item><item><title>Traffic types and iptables rules in Istio sidecar explained</title><link>https://sdmx.io/blog/istio-sidecar-traffic-types/</link><pubDate>Sat, 07 May 2022 11:18:40 +0800</pubDate><guid>https://sdmx.io/blog/istio-sidecar-traffic-types/</guid><description>
+&lt;p>By understanding the component ports in Istio, you should have a better understanding of the relationship between the components in Istio and their internal traffic. Being familiar with the functions of these ports will help in troubleshooting the mesh.&lt;/p></description></item><item><title>Traffic types and iptables rules in Istio sidecar explained</title><link>https://glennmdt.github.io/sdmxio/blog/istio-sidecar-traffic-types/</link><pubDate>Sat, 07 May 2022 11:18:40 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/istio-sidecar-traffic-types/</guid><description>
 &lt;p>As we know that Istio uses iptables for traffic hijacking, where the iptables rule chains has one called ISTIO_OUTPUT, which contains the following rules.&lt;/p>
 &lt;table>
 &lt;thead>
@@ -1286,7 +1286,7 @@ for details.&lt;/li>
 &lt;p>Remote Pod -&amp;gt; &lt;code>RREROUTING&lt;/code> -&amp;gt; &lt;code>ISTIO_INBOUND&lt;/code> -&amp;gt; &lt;code>ISTIO_IN_REDIRECT&lt;/code> -&amp;gt; Envoy 15006 (Inbound) -&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 1&lt;/strong> -&amp;gt; &lt;code> POSTROUTING&lt;/code> -&amp;gt; Local Pod&lt;/p>
 &lt;p>We see that the traffic only passes through the Envoy 15006 Inbound port once. The following diagram shows this scenario of the iptables rules.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/remote-pod-local-pod.jpg" data-img="/blog/istio-sidecar-traffic-types/remote-pod-local-pod.jpg" data-width="2384" data-height="1706" alt="remote-pod-local-pod.jpg" data-caption="Remote Pod to Local Pod">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-sidecar-traffic-types/remote-pod-local-pod.jpg" data-img="/sdmxio/blog/istio-sidecar-traffic-types/remote-pod-local-pod.jpg" data-width="2384" data-height="1706" alt="remote-pod-local-pod.jpg" data-caption="Remote Pod to Local Pod">
 &lt;figcaption>Remote Pod to Local Pod&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1295,7 +1295,7 @@ for details.&lt;/li>
 &lt;p>Local Pod-&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 9&lt;/strong> -&amp;gt; &lt;code>ISTIO_REDIRECT&lt;/code> -&amp;gt; Envoy 15001 (Outbound) -&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 4&lt;/strong> -&amp;gt; &lt;code>POSTROUTING&lt;/code> -&amp;gt; Remote Pod&lt;/p>
 &lt;p>We see that the traffic only goes through the Envoy 15001 Outbound port.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/local-pod-remote-pod.jpg" data-img="/blog/istio-sidecar-traffic-types/local-pod-remote-pod.jpg" data-width="2384" data-height="1704" alt="local-pod-remote-pod.jpg" data-caption="Local Pod to Remote Pod">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-sidecar-traffic-types/local-pod-remote-pod.jpg" data-img="/sdmxio/blog/istio-sidecar-traffic-types/local-pod-remote-pod.jpg" data-width="2384" data-height="1704" alt="local-pod-remote-pod.jpg" data-caption="Local Pod to Remote Pod">
 &lt;figcaption>Local Pod to Remote Pod&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1305,7 +1305,7 @@ for details.&lt;/li>
 &lt;p>These traffic pass through the following iptables rules.&lt;/p>
 &lt;p>Prometheus-&amp;gt; &lt;code>RREROUTING&lt;/code> -&amp;gt; &lt;code>ISTIO_INBOUND&lt;/code> (traffic destined for ports 15002, 15090 will go to &lt;code>INPUT&lt;/code>) -&amp;gt; &lt;code>INPUT&lt;/code> -&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 3&lt;/strong> -&amp;gt; &lt;code>POSTROUTING&lt;/code> -&amp;gt; Local Pod&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/prometheus-local-pod.jpg" data-img="/blog/istio-sidecar-traffic-types/prometheus-local-pod.jpg" data-width="2384" data-height="1704" alt="prometheus-local-pod.jpg" data-caption="Prometheus to Local Pod">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-sidecar-traffic-types/prometheus-local-pod.jpg" data-img="/sdmxio/blog/istio-sidecar-traffic-types/prometheus-local-pod.jpg" data-width="2384" data-height="1704" alt="prometheus-local-pod.jpg" data-caption="Prometheus to Local Pod">
 &lt;figcaption>Prometheus to Local Pod&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1314,7 +1314,7 @@ for details.&lt;/li>
 &lt;p>The iptables rules for this traffic are as follows.&lt;/p>
 &lt;p>Local Pod-&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 9&lt;/strong> -&amp;gt; &lt;code>ISTIO_REDIRECT&lt;/code> -&amp;gt; Envoy 15001（Outbound）-&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 2&lt;/strong> -&amp;gt; &lt;code>ISTIO_IN_REDIRECT&lt;/code> -&amp;gt; Envoy 15006（Inbound）-&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 1&lt;/strong> -&amp;gt; &lt;code>POSTROUTING&lt;/code> -&amp;gt; Local Pod&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/local-pod-local-pod.jpg" data-img="/blog/istio-sidecar-traffic-types/local-pod-local-pod.jpg" data-width="2384" data-height="1704" alt="local-pod-local-pod.jpg" data-caption="Local Pod to Local Pod">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-sidecar-traffic-types/local-pod-local-pod.jpg" data-img="/sdmxio/blog/istio-sidecar-traffic-types/local-pod-local-pod.jpg" data-width="2384" data-height="1704" alt="local-pod-local-pod.jpg" data-caption="Local Pod to Local Pod">
 &lt;figcaption>Local Pod to Local Pod&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1323,7 +1323,7 @@ for details.&lt;/li>
 &lt;p>The iptables rules that these flows pass through are as follows.&lt;/p>
 &lt;p>Envoy process (Localhost) -&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 8&lt;/strong> -&amp;gt; &lt;code>POSTROUTING&lt;/code> -&amp;gt; Envoy process (Localhost)&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/envoy-internal-tcp-traffic.jpg" data-img="/blog/istio-sidecar-traffic-types/envoy-internal-tcp-traffic.jpg" data-width="2386" data-height="1706" alt="envoy-internal-tcp-traffic.jpg" data-caption="Envoy inter-process TCP traffic">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-sidecar-traffic-types/envoy-internal-tcp-traffic.jpg" data-img="/sdmxio/blog/istio-sidecar-traffic-types/envoy-internal-tcp-traffic.jpg" data-width="2386" data-height="1706" alt="envoy-internal-tcp-traffic.jpg" data-caption="Envoy inter-process TCP traffic">
 &lt;figcaption>Envoy inter-process TCP traffic&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1332,12 +1332,12 @@ for details.&lt;/li>
 &lt;p>The iptables rules that this traffic passes through are as follows.&lt;/p>
 &lt;p>&lt;code>pilot-agent&lt;/code> process -&amp;gt; &lt;code>OUTPUT&lt;/code> -&amp;gt; &lt;strong>&lt;code>Istio_OUTPUT&lt;/code> RULE 9&lt;/strong> -&amp;gt; Envoy 15001 (Outbound Handler) -&amp;gt; OUTPUT -&amp;gt; &lt;strong>&lt;code>ISTIO_OUTPUT&lt;/code> RULE 4&lt;/strong> -&amp;gt; &lt;code>POSTROUTING&lt;/code> -&amp;gt; Istiod&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-sidecar-traffic-types/sidecar-istiod.jpg" data-img="/blog/istio-sidecar-traffic-types/sidecar-istiod.jpg" data-width="2384" data-height="1704" alt="sidecar-istiod.jpg" data-caption="Sidecar to Istiod">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-sidecar-traffic-types/sidecar-istiod.jpg" data-img="/sdmxio/blog/istio-sidecar-traffic-types/sidecar-istiod.jpg" data-width="2384" data-height="1704" alt="sidecar-istiod.jpg" data-caption="Sidecar to Istiod">
 &lt;figcaption>Sidecar to Istiod&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
 &lt;h2 id="summary">Summary&lt;/h2>
-&lt;p>All the sidecar proxies that Istio injects into the Pod or installed in the virtual machine form the data plane of the service mesh, which is also the main workload location of Istio. In my next blog, I will take you through the ports of each component in Envoy and their functions, so that we can have a more comprehensive understanding of the traffic in Istio.&lt;/p></description></item><item><title>What's new in Istio 1.13?</title><link>https://sdmx.io/blog/what-is-new-in-istio-1-13/</link><pubDate>Mon, 28 Mar 2022 16:43:27 +0800</pubDate><guid>https://sdmx.io/blog/what-is-new-in-istio-1-13/</guid><description>
+&lt;p>All the sidecar proxies that Istio injects into the Pod or installed in the virtual machine form the data plane of the service mesh, which is also the main workload location of Istio. In my next blog, I will take you through the ports of each component in Envoy and their functions, so that we can have a more comprehensive understanding of the traffic in Istio.&lt;/p></description></item><item><title>What's new in Istio 1.13?</title><link>https://glennmdt.github.io/sdmxio/blog/what-is-new-in-istio-1-13/</link><pubDate>Mon, 28 Mar 2022 16:43:27 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/what-is-new-in-istio-1-13/</guid><description>
 &lt;p>Istio 1.13 is the first release of 2022, and, not surprisingly, the Istio team will continue to release new versions every quarter. Overall, the new features in this release include:&lt;/p>
 &lt;ul>
 &lt;li>Support for newer versions of Kubernetes&lt;/li>
@@ -1352,7 +1352,7 @@ that Istio 1.13 supports Kubernetes versions 1.20, 1.21, 1.22, and 1.23, and has
 . There are a lot of cheat sheets about configuring Istio, using resources, dealing with everyday problems, etc., in this project, which will be online soon, so stay tuned.&lt;/p>
 &lt;p>The following screenshot is from the Istio cheatsheet website, it shows the basic cheat sheet for setting up Istio.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/what-is-new-in-istio-1-13/istio-cheatsheet.jpg" data-img="/blog/what-is-new-in-istio-1-13/istio-cheatsheet.jpg" data-width="1728" data-height="1080" alt="istio-cheatsheet.jpg" data-caption="Istio cheatsheet">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/what-is-new-in-istio-1-13/istio-cheatsheet.jpg" data-img="/sdmxio/blog/what-is-new-in-istio-1-13/istio-cheatsheet.jpg" data-width="1728" data-height="1080" alt="istio-cheatsheet.jpg" data-caption="Istio cheatsheet">
 &lt;figcaption>Istio cheatsheet&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1391,19 +1391,19 @@ to configure a multi-network, primary-remote cluster, and Istio will automatical
 that could lead to an unauthenticated control plane denial of service attack.&lt;/p>
 &lt;p>The figure below shows a multi-cluster primary-remote mesh where istiod exposes port 15012 to the public Internet via a gateway so that a pod on another network can connect to it.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/what-is-new-in-istio-1-13/multi-network-mesh.jpg" data-img="/blog/what-is-new-in-istio-1-13/multi-network-mesh.jpg" data-width="1299" data-height="1080" alt="multi-network-mesh.jpg" data-caption="Multi-network Mesh">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/what-is-new-in-istio-1-13/multi-network-mesh.jpg" data-img="/sdmxio/blog/what-is-new-in-istio-1-13/multi-network-mesh.jpg" data-width="1299" data-height="1080" alt="multi-network-mesh.jpg" data-caption="Multi-network Mesh">
 &lt;figcaption>Multi-network Mesh&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
 &lt;p>When installing a multi-network, primary-remote mode Istio mesh, for a remote Kubernetes cluster to access the control plane, an east-west Gateway needs to be installed in the Primary cluster, exposing port 15012 of the control plane istiod to the Internet. An attacker could send specially crafted messages to that port, causing the control plane to crash. If you set up a firewall to allow traffic from only some IPs to access this port, you will be able to reduce the impact of the problem. It is recommended that you upgrade to Istio 1.13.1 immediately to resolve the issue completely.&lt;/p>
 &lt;h3 id="istiocon-2022">IstioCon 2022&lt;/h3>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/what-is-new-in-istio-1-13/istiocon-2022.jpg" data-img="/blog/what-is-new-in-istio-1-13/istiocon-2022.jpg" data-width="1318" data-height="736" alt="istiocon-2022.jpg" data-caption="IstioCon 2022">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/what-is-new-in-istio-1-13/istiocon-2022.jpg" data-img="/sdmxio/blog/what-is-new-in-istio-1-13/istiocon-2022.jpg" data-width="1318" data-height="736" alt="istiocon-2022.jpg" data-caption="IstioCon 2022">
 &lt;figcaption>IstioCon 2022&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
 &lt;p>Finally, as a committee member for the last and current IstioCon, I call on everyone to register for &lt;a href="https://events.istio.io/istiocon-2022/" title="IstioCon 2022" target="_blank" rel="noopener">IstioCon 2022&lt;/a>
-, which will be held online on April 25! It will be an industry-focused event, a platform to connect contributors and users to discuss the uses of Istio in different architectural setups, its limitations, and where to take the project next. The main focus on end-user companies, as we look forward to sharing a diversity of case studies showing how to use Istio in production.&lt;/p></description></item><item><title>Service Mesh in 2021: the ecosystem is emerging</title><link>https://sdmx.io/blog/service-mesh-in-2021/</link><pubDate>Wed, 12 Jan 2022 16:43:27 +0800</pubDate><guid>https://sdmx.io/blog/service-mesh-in-2021/</guid><description>
+, which will be held online on April 25! It will be an industry-focused event, a platform to connect contributors and users to discuss the uses of Istio in different architectural setups, its limitations, and where to take the project next. The main focus on end-user companies, as we look forward to sharing a diversity of case studies showing how to use Istio in production.&lt;/p></description></item><item><title>Service Mesh in 2021: the ecosystem is emerging</title><link>https://glennmdt.github.io/sdmxio/blog/service-mesh-in-2021/</link><pubDate>Wed, 12 Jan 2022 16:43:27 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/service-mesh-in-2021/</guid><description>
 &lt;p>As the service mesh architecture concept gains traction and the scenarios for its applications emerge, there is no shortage of discussions about it in the community. I have worked on service mesh with the community for 4 years now, and will summarize the development of service mesh in 2021 from this perspective. Since Istio is the most popular service mesh, this article will focus on the technical and ecological aspects of Istio.&lt;/p>
 &lt;h2 id="service-mesh-a-critical-tech-for-cloud-native-infrastructure">Service mesh: a critical tech for Cloud Native Infrastructure&lt;/h2>
 &lt;p>As one of the vital technologies &lt;a href="https://github.com/cncf/toc/blob/main/DEFINITION.md" title="defined by CNCF" target="_blank" rel="noopener">defined by CNCF&lt;/a>
@@ -1417,7 +1417,7 @@ for cloud native, Istio has been around for five years now. Their development ha
 theory) and is in between the “early majority” and “late majority” phases of adoption. Based on feedback from the audience of &lt;a href="https://github.com/tetratelabs/istio-weekly/" title="Istio Weekly," target="_blank" rel="noopener">Istio Weekly,&lt;/a>
 users are no longer blindly following new technologies for experimentation and are starting to consider whether they need them in their organization dialectically.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/service-mesh-in-2021/008i3skNly1gysddnj9i2j30sg0fqaaz.jpg" data-img="/blog/service-mesh-in-2021/008i3skNly1gysddnj9i2j30sg0fqaaz.jpg" data-width="1024" data-height="566" alt="008i3skNly1gysddnj9i2j30sg0fqaaz.jpg" data-caption="Cross the chasm">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/service-mesh-in-2021/008i3skNly1gysddnj9i2j30sg0fqaaz.jpg" data-img="/sdmxio/blog/service-mesh-in-2021/008i3skNly1gysddnj9i2j30sg0fqaaz.jpg" data-width="1024" data-height="566" alt="008i3skNly1gysddnj9i2j30sg0fqaaz.jpg" data-caption="Cross the chasm">
 &lt;figcaption>Cross the chasm&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1425,7 +1425,7 @@ users are no longer blindly following new technologies for experimentation and a
 (Distributed Application Runtime), which represents the capability model for cloud native middleware, &lt;a href="https://oam.dev/" title="OAM" target="_blank" rel="noopener">OAM&lt;/a>
 , which defines the cloud native application model, and the service mesh, which defines the L7 network model.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/service-mesh-in-2021/008i3skNly1gysddogtenj30sg0qlwgs.jpg" data-img="/blog/service-mesh-in-2021/008i3skNly1gysddogtenj30sg0qlwgs.jpg" data-width="1024" data-height="957" alt="008i3skNly1gysddogtenj30sg0qlwgs.jpg" data-caption="Cloud Native Stack">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/service-mesh-in-2021/008i3skNly1gysddogtenj30sg0qlwgs.jpg" data-img="/sdmxio/blog/service-mesh-in-2021/008i3skNly1gysddogtenj30sg0qlwgs.jpg" data-width="1024" data-height="957" alt="008i3skNly1gysddogtenj30sg0qlwgs.jpg" data-caption="Cloud Native Stack">
 &lt;figcaption>Cloud Native Stack&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1459,7 +1459,7 @@ specification to provide a set of proxy-independent streaming APIs and utilities
 &lt;h3 id="deployment-models">Deployment models&lt;/h3>
 &lt;p>When the service mesh concept first emerged, there was a debate between the Per-node and Sidecar models, represented by Linkerd and Istio. eBPF later proposed a kernel to sink the service mesh, which led to more service mesh deployment models, as shown in the figure below.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/service-mesh-in-2021/008i3skNly1gysddpco2mj30qz0sgwhk.jpg" data-img="/blog/service-mesh-in-2021/008i3skNly1gysddpco2mj30qz0sgwhk.jpg" data-width="971" data-height="1024" alt="008i3skNly1gysddpco2mj30qz0sgwhk.jpg" data-caption="Service Mesh Deployment Models">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/service-mesh-in-2021/008i3skNly1gysddpco2mj30qz0sgwhk.jpg" data-img="/sdmxio/blog/service-mesh-in-2021/008i3skNly1gysddpco2mj30qz0sgwhk.jpg" data-width="971" data-height="1024" alt="008i3skNly1gysddpco2mj30qz0sgwhk.jpg" data-caption="Service Mesh Deployment Models">
 &lt;figcaption>Service Mesh Deployment Models&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1598,7 +1598,7 @@ was held in Beijing with more than 100 attendees.&lt;/li>
 &lt;/table>
 &lt;p>Note: Data is as of January 6, 2022&lt;/p>
 &lt;h2 id="summary">Summary&lt;/h2>
-&lt;p>Looking back, we can see that, unlike previous years where users were experimenting, users in 2021 looked for more practical uses for service mesh before implementing them. Their position as the infrastructure of cloud native networks is further strengthened, and more importantly, the service mesh ecosystem is emerging. Looking ahead, in 2022, two technologies to watch are eBPF and WebAssembly(Wasm). We believe that more good examples of service mesh practices will emerge, taking the ecology and standardization a step further.&lt;/p></description></item><item><title>Introducing Slime and Aeraki in the evolution of Istio open-source ecosystem</title><link>https://sdmx.io/blog/istio-extensions-slime-and-aeraki/</link><pubDate>Mon, 10 Jan 2022 16:43:27 +0800</pubDate><guid>https://sdmx.io/blog/istio-extensions-slime-and-aeraki/</guid><description>
+&lt;p>Looking back, we can see that, unlike previous years where users were experimenting, users in 2021 looked for more practical uses for service mesh before implementing them. Their position as the infrastructure of cloud native networks is further strengthened, and more importantly, the service mesh ecosystem is emerging. Looking ahead, in 2022, two technologies to watch are eBPF and WebAssembly(Wasm). We believe that more good examples of service mesh practices will emerge, taking the ecology and standardization a step further.&lt;/p></description></item><item><title>Introducing Slime and Aeraki in the evolution of Istio open-source ecosystem</title><link>https://glennmdt.github.io/sdmxio/blog/istio-extensions-slime-and-aeraki/</link><pubDate>Mon, 10 Jan 2022 16:43:27 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/istio-extensions-slime-and-aeraki/</guid><description>
 &lt;p>It’s been more than &lt;a href="https://www.tetrate.io/blog/happy-istio-4th-anniversary-retrospect-and-outlook/" title="four years" target="_blank" rel="noopener">four years&lt;/a>
 since Istio launched in May 2017, and while the project has had a strong following on GitHub and 10+ releases, its growing open-source ecosystem is still in its infancy.&lt;/p>
 &lt;p>Recently added support for &lt;a href="https://www.tetrate.io/blog/istio-wasm-extensions-and-ecosystem/" title="WebAssembly extensions" target="_blank" rel="noopener">WebAssembly extensions&lt;/a>
@@ -1734,7 +1734,7 @@ is an Istio-based, intelligent mesh manager open-sourced by NetEase’s microser
 &lt;/ul>
 &lt;p>The following diagram shows the flow chart of Istio as an Istio management plane.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-extensions-slime-and-aeraki/slime-arch.png" data-img="/blog/istio-extensions-slime-and-aeraki/slime-arch.png" data-width="1921" data-height="1081" alt="slime-arch.png" data-caption="Slime architecture">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-extensions-slime-and-aeraki/slime-arch.png" data-img="/sdmxio/blog/istio-extensions-slime-and-aeraki/slime-arch.png" data-width="1921" data-height="1081" alt="slime-arch.png" data-caption="Slime architecture">
 &lt;figcaption>Slime architecture&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1748,7 +1748,7 @@ is an Istio-based, intelligent mesh manager open-sourced by NetEase’s microser
 &lt;/ol>
 &lt;p>The diagram below shows the internal architecture of Slime.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-extensions-slime-and-aeraki/slime-internal.png" data-img="/blog/istio-extensions-slime-and-aeraki/slime-internal.png" data-width="1921" data-height="1081" alt="slime-internal.png" data-caption="Slime Internal">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-extensions-slime-and-aeraki/slime-internal.png" data-img="/sdmxio/blog/istio-extensions-slime-and-aeraki/slime-internal.png" data-width="1921" data-height="1081" alt="slime-internal.png" data-caption="Slime Internal">
 &lt;figcaption>Slime Internal&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1760,7 +1760,7 @@ is an Istio-based, intelligent mesh manager open-sourced by NetEase’s microser
 &lt;/ul>
 &lt;p>The following diagram shows the architecture of Slime Adaptive Traffic Limiting.
 &lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-extensions-slime-and-aeraki/slime-smart-filter.png" data-img="/blog/istio-extensions-slime-and-aeraki/slime-smart-filter.png" data-width="1920" data-height="1081" alt="slime-smart-filter.png" data-caption="Slime smart limiter">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-extensions-slime-and-aeraki/slime-smart-filter.png" data-img="/sdmxio/blog/istio-extensions-slime-and-aeraki/slime-smart-filter.png" data-width="1920" data-height="1081" alt="slime-smart-filter.png" data-caption="Slime smart limiter">
 &lt;figcaption>Slime smart limiter&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1784,7 +1784,7 @@ and the other that monitors the data. Slime also provides an external monitoring
 &lt;p>&lt;a href="https://github.com/aeraki-framework/aeraki" title="Aeraki" target="_blank" rel="noopener">Aeraki&lt;/a>
 is a service mesh project open sourced by Tencent Cloud in March 2021. Aeraki provides an end-to-end cloud-native service mesh protocol extension solution that provides Istio with powerful third-party protocol extension capabilities in a non-intrusive way, supporting traffic management for Dubbo, Thrift, Redis, and private protocols in Istio. Aeraki’s architecture is shown in the following diagram.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-extensions-slime-and-aeraki/aeraki-architecture.png" data-img="/blog/istio-extensions-slime-and-aeraki/aeraki-architecture.png" data-width="1920" data-height="1081" alt="aeraki-architecture.png" data-caption="Aeraki architecture">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-extensions-slime-and-aeraki/aeraki-architecture.png" data-img="/sdmxio/blog/istio-extensions-slime-and-aeraki/aeraki-architecture.png" data-width="1920" data-height="1081" alt="aeraki-architecture.png" data-caption="Aeraki architecture">
 &lt;figcaption>Aeraki architecture&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1797,7 +1797,7 @@ is a service mesh project open sourced by Tencent Cloud in March 2021. Aeraki pr
 &lt;/ul>
 &lt;p>Before the introduction of MetaProtocol Proxy, if you wanted to use Envoy to implement an L7 protocol to implement routing, traffic limiting, telemetry, etc., you needed to write a complete TCP filter, which would have required a lot of work. For most L7 protocols, the required traffic management capabilities are similar, so there is no need to duplicate this work in each L7 filter implementation. The Aeraki project uses a MetaProtocol Proxy to implement these unified capabilities, as shown in the following figure.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-extensions-slime-and-aeraki/metaprotocol-proxy.png" data-img="/blog/istio-extensions-slime-and-aeraki/metaprotocol-proxy.png" data-width="3000" data-height="1081" alt="metaprotocol-proxy.png" data-caption="MetaProtocol proxy">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-extensions-slime-and-aeraki/metaprotocol-proxy.png" data-img="/sdmxio/blog/istio-extensions-slime-and-aeraki/metaprotocol-proxy.png" data-width="3000" data-height="1081" alt="metaprotocol-proxy.png" data-caption="MetaProtocol proxy">
 &lt;figcaption>MetaProtocol proxy&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1809,7 +1809,7 @@ is a service mesh project open sourced by Tencent Cloud in March 2021. Aeraki pr
 &lt;p>You have to again build a management plane on top of Istio and add an abstraction layer to add CRDs that apply to cluster management, such as cluster traffic configuration, policy configuration, etc. Additionally, you have to deploy a Gateway in each cluster that connects uniformly to an edge proxy that interconnects all the groups.&lt;/p>
 &lt;p>To learn more about Tetrate Service Bridge (TSB), which provides this layer of infrastructure, you can go &lt;a href="https://www.tetrate.io/tetrate-service-bridge/" title="here" target="_blank" rel="noopener">here&lt;/a>
 . TSB is built on the open source Istio with enhancements, it follows the concept of the above two open source projects, and also builds a management plane to support heterogeneous environments.&lt;/p>
-&lt;p>As we can see, the Istio-based projects and the open source environment are booming and companies like Tetrate are doing useful jobs of productizing and making Istio available to all workloads.&lt;/p></description></item><item><title>The debate in the community about Istio and service mesh</title><link>https://sdmx.io/blog/the-debate-in-the-community-about-istio-and-service-mesh/</link><pubDate>Fri, 17 Dec 2021 16:43:27 +0800</pubDate><guid>https://sdmx.io/blog/the-debate-in-the-community-about-istio-and-service-mesh/</guid><description>
+&lt;p>As we can see, the Istio-based projects and the open source environment are booming and companies like Tetrate are doing useful jobs of productizing and making Istio available to all workloads.&lt;/p></description></item><item><title>The debate in the community about Istio and service mesh</title><link>https://glennmdt.github.io/sdmxio/blog/the-debate-in-the-community-about-istio-and-service-mesh/</link><pubDate>Fri, 17 Dec 2021 16:43:27 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/the-debate-in-the-community-about-istio-and-service-mesh/</guid><description>
 &lt;p>You can use Istio to do &lt;a href="https://www.tetrate.io/blog/multicluster-management-with-kubernetes-and-istio/" title="multi-cluster management" target="_blank" rel="noopener">multi-cluster management&lt;/a>
 , &lt;a href="https://www.tetrate.io/blog/istio-servicemesh-api-gateway/" title="API Gateway" target="_blank" rel="noopener">API Gateway&lt;/a>
 , and manage applications on Kubernetes or &lt;a href="https://www.tetrate.io/blog/istio-18-a-virtual-machine-integration-odyssey/" title="virtual machines" target="_blank" rel="noopener">virtual machines&lt;/a>
@@ -1835,7 +1835,7 @@ was just released in November – and has evolved significantly since the explos
 &lt;p>A service mesh uses iptables to do traffic hijacking by default to be transparent to applications. When the number of services is large, there are a lot of iptables rules that affect network performance. You can use techniques like &lt;a href="https://cloudnative.to/blog/how-ebpf-streamlines-the-service-mesh/" title="eBPF" target="_blank" rel="noopener">eBPF&lt;/a>
 to provide application performance, but the method requires a high version of the operating system kernel, which few enterprises can achieve.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/the-debate-in-the-community-about-istio-and-service-mesh/008i3skNly1gxgyfcfm5oj30sg0djmxt.jpg" data-img="/blog/the-debate-in-the-community-about-istio-and-service-mesh/008i3skNly1gxgyfcfm5oj30sg0djmxt.jpg" data-width="1024" data-height="487" alt="008i3skNly1gxgyfcfm5oj30sg0djmxt.jpg" data-caption="Istio DNS">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/the-debate-in-the-community-about-istio-and-service-mesh/008i3skNly1gxgyfcfm5oj30sg0djmxt.jpg" data-img="/sdmxio/blog/the-debate-in-the-community-about-istio-and-service-mesh/008i3skNly1gxgyfcfm5oj30sg0djmxt.jpg" data-width="1024" data-height="487" alt="008i3skNly1gxgyfcfm5oj30sg0djmxt.jpg" data-caption="Istio DNS">
 &lt;figcaption>Istio DNS&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1866,7 +1866,7 @@ resource in the open-source project &lt;a href="https://github.com/openkruise/kr
 &lt;li>&lt;a href="https://academy.tetrate.io/courses/certified-istio-administrator" title="Certified Istio Administrator" target="_blank" rel="noopener">Certified Istio Administrator&lt;/a>
 &lt;/li>
 &lt;/ul>
-&lt;p>Yes, Istio is complex, but it’s been getting more and more manageable with every release. In my next blog, I will introduce you to two open source projects that extend Istio and give you some insight into what’s going on in the Istio community.&lt;/p></description></item><item><title>Service Mesh - an integral part of cloud-native applications</title><link>https://sdmx.io/blog/service-mesh-an-integral-part-of-cloud-native-apps/</link><pubDate>Sun, 12 Dec 2021 16:43:27 +0800</pubDate><guid>https://sdmx.io/blog/service-mesh-an-integral-part-of-cloud-native-apps/</guid><description>
+&lt;p>Yes, Istio is complex, but it’s been getting more and more manageable with every release. In my next blog, I will introduce you to two open source projects that extend Istio and give you some insight into what’s going on in the Istio community.&lt;/p></description></item><item><title>Service Mesh - an integral part of cloud-native applications</title><link>https://glennmdt.github.io/sdmxio/blog/service-mesh-an-integral-part-of-cloud-native-apps/</link><pubDate>Sun, 12 Dec 2021 16:43:27 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/service-mesh-an-integral-part-of-cloud-native-apps/</guid><description>
 &lt;p>If you don’t know what Istio is, you can read my previous articles below:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.tetrate.io/blog/what-is-istio-and-why-does-kubernetes-need-it/" title="What Is Istio and Why Does Kubernetes Need it?" target="_blank" rel="noopener">What Is Istio and Why Does Kubernetes Need it?&lt;/a>
@@ -1883,7 +1883,7 @@ resource in the open-source project &lt;a href="https://github.com/openkruise/kr
 &lt;h3 id="kubernetes-vs-xds-vs-istio">&lt;strong>Kubernetes vs. xDS vs. Istio&lt;/strong>&lt;/h3>
 &lt;p>This diagram shows the layered architecture of Kubernetes and Istio.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxss9mamj30n90d73zs.jpg" data-img="/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxss9mamj30n90d73zs.jpg" data-width="837" data-height="475" alt="008i3skNly1gxgxss9mamj30n90d73zs.jpg" data-caption="img">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxss9mamj30n90d73zs.jpg" data-img="/sdmxio/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxss9mamj30n90d73zs.jpg" data-width="837" data-height="475" alt="008i3skNly1gxgxss9mamj30n90d73zs.jpg" data-caption="img">
 &lt;figcaption>img&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1892,14 +1892,14 @@ resource in the open-source project &lt;a href="https://github.com/openkruise/kr
 &lt;p>Kube-proxy implements traffic load balancing between multiple pod instances of a Kubernetes service. But how do you finely control the traffic between these services — such as dividing the traffic by percentage to different application versions (which are all part of the same service, but on other deployments), or doing canary releases and blue-green releases?&lt;/p>
 &lt;p>The Kubernetes community gives a way to do canary releases using Deployment, assigning different pods to deployed services by modifying the pod’s label.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxsswmoij30sg0kl76r.jpg" data-img="/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxsswmoij30sg0kl76r.jpg" data-width="1024" data-height="741" alt="008i3skNly1gxgxsswmoij30sg0kl76r.jpg" data-caption="Envoy Architecture">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxsswmoij30sg0kl76r.jpg" data-img="/sdmxio/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxsswmoij30sg0kl76r.jpg" data-width="1024" data-height="741" alt="008i3skNly1gxgxsswmoij30sg0kl76r.jpg" data-caption="Envoy Architecture">
 &lt;figcaption>Envoy Architecture&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
 &lt;p>Currently, the most popular open-source implementation of service mesh in the world is Istio. From the &lt;a href="https://www.cncf.io/wp-content/uploads/2020/11/CNCF_Survey_Report_2020.pdf" title="CNCF Survey Report 2020" target="_blank" rel="noopener">CNCF Survey Report 2020&lt;/a>
 , we know that Istio is the most used service mesh in production today. Many companies have built their service mesh based on Istio, such as Ant, Airbnb, eBay, NetEase, Tencent, etc.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxstgg4qj30sg0gg0ts.jpg" data-img="/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxstgg4qj30sg0gg0ts.jpg" data-width="1024" data-height="592" alt="008i3skNly1gxgxstgg4qj30sg0gg0ts.jpg" data-caption="CNCF Survey Report 2020">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxstgg4qj30sg0gg0ts.jpg" data-img="/sdmxio/blog/service-mesh-an-integral-part-of-cloud-native-apps/008i3skNly1gxgxstgg4qj30sg0gg0ts.jpg" data-width="1024" data-height="592" alt="008i3skNly1gxgxstgg4qj30sg0gg0ts.jpg" data-caption="CNCF Survey Report 2020">
 &lt;figcaption>CNCF Survey Report 2020&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1913,7 +1913,7 @@ resource in the open-source project &lt;a href="https://github.com/openkruise/kr
 &lt;li>Observability: understanding the dependencies between services and the nature and flow of traffic between them provides the ability to identify problems quickly.&lt;/li>
 &lt;li>Policy enforcement: controlling access policies between services by configuring the mesh rather than by changing the code.&lt;/li>
 &lt;li>Service Identification and Security: providing service identifiability and security protection in the mesh.&lt;/li>
-&lt;/ul></description></item><item><title>Using Istio service mesh as API Gateway</title><link>https://sdmx.io/blog/istio-servicemesh-api-gateway/</link><pubDate>Fri, 06 Aug 2021 10:22:00 +0800</pubDate><guid>https://sdmx.io/blog/istio-servicemesh-api-gateway/</guid><description>
+&lt;/ul></description></item><item><title>Using Istio service mesh as API Gateway</title><link>https://glennmdt.github.io/sdmxio/blog/istio-servicemesh-api-gateway/</link><pubDate>Fri, 06 Aug 2021 10:22:00 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/istio-servicemesh-api-gateway/</guid><description>
 &lt;p>API gateways have been around for a long time as the entry point for clients to access the back-end, mainly to manage “north-south” traffic, In recent years, service mesh architectures have become popular, mainly for managing internal systems,(i.e. “east-west” traffic), while a service mesh like Istio also has built-in gateways that bring traffic inside and outside the system under unified control. This often creates confusion for first-time users of Istio. What is the relationship between the service mesh and the API gateway? How does Istio’s gateway work? What are the ways to expose the services in the Istio mesh? This article gives you the answer.&lt;/p>
 &lt;h2 id="key-insights">Key Insights&lt;/h2>
 &lt;ul>
@@ -1924,7 +1924,7 @@ resource in the open-source project &lt;a href="https://github.com/openkruise/kr
 &lt;h2 id="how-do-i-expose-services-in-the-istio-mesh">How do I expose services in the Istio mesh?&lt;/h2>
 &lt;p>The following diagram shows four approaches to expose services in the Istio mesh using Istio Gateway, Kubernetes Ingress, API Gateway, and NodePort/LB.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-servicemesh-api-gateway/access-cluster.svg" data-img="/blog/istio-servicemesh-api-gateway/access-cluster.svg" alt="access-cluster.svg" data-caption="Exposing services through Istio Ingress Gateway">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-servicemesh-api-gateway/access-cluster.svg" data-img="/sdmxio/blog/istio-servicemesh-api-gateway/access-cluster.svg" alt="access-cluster.svg" data-caption="Exposing services through Istio Ingress Gateway">
 &lt;figcaption>Exposing services through Istio Ingress Gateway&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -1964,7 +1964,7 @@ resource in the open-source project &lt;a href="https://github.com/openkruise/kr
 &lt;h2 id="using-kubernetes-ingress-to-expose-traffic">Using Kubernetes Ingress to expose traffic&lt;/h2>
 &lt;p>We all know that clients of a Kubernetes cluster cannot directly access the IP address of a pod because the pod is in a network plane built into Kubernetes. We can expose services inside Kubernetes outside the cluster using NodePort or Load Balancer Kubernetes service type. To support virtual hosting, hiding and saving IP addresses, you can use Ingress resources to expose services in Kubernetes.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-servicemesh-api-gateway/ingress.svg" data-img="/blog/istio-servicemesh-api-gateway/ingress.svg" alt="ingress.svg" data-caption="Kubernetes Ingress to expose services">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-servicemesh-api-gateway/ingress.svg" data-img="/sdmxio/blog/istio-servicemesh-api-gateway/ingress.svg" alt="ingress.svg" data-caption="Kubernetes Ingress to expose services">
 &lt;figcaption>Kubernetes Ingress to expose services&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2048,14 +2048,14 @@ resource in the open-source project &lt;a href="https://github.com/openkruise/kr
 &lt;p>Currently, some API Gateway imitations are building their own service mesh by deploying them in the sidecar.&lt;/p>
 &lt;h2 id="summary">Summary&lt;/h2>
 &lt;p>In the Istio mesh, you can use a variety of Kubernetes Ingress Controllers to act as entry gateways, but of course, you can also use Istio’s built-in Istio Gateway directly, for policy control, traffic management, and usage monitoring. The advantage of this is that the gateway can be managed directly through Istio’s control plane, without the need for additional tools. But for functions such as API statement cycle management, complex billing, protocol conversion, and authentication, a traditional API gateway may be a better fit for you. So, you can choose according to your needs, or you can use a combination.&lt;/p>
-&lt;p>Some traditional reverse proxies are also moving towards Service Mesh, such as Nginx with Nginx Service Mesh and Traefik with Traefik Mesh, and some API gateway products are also moving towards Service Mesh, such as Kong with Kuma, and in the future, we will see more convergence of API gateways, reverse proxies, and service meshes.&lt;/p></description></item><item><title>Multicluster Management with Kubernetes and Istio</title><link>https://sdmx.io/blog/multicluster-management-with-kubernetes-and-istio/</link><pubDate>Mon, 12 Jul 2021 22:22:00 +0800</pubDate><guid>https://sdmx.io/blog/multicluster-management-with-kubernetes-and-istio/</guid><description>
+&lt;p>Some traditional reverse proxies are also moving towards Service Mesh, such as Nginx with Nginx Service Mesh and Traefik with Traefik Mesh, and some API gateway products are also moving towards Service Mesh, such as Kong with Kuma, and in the future, we will see more convergence of API gateways, reverse proxies, and service meshes.&lt;/p></description></item><item><title>Multicluster Management with Kubernetes and Istio</title><link>https://glennmdt.github.io/sdmxio/blog/multicluster-management-with-kubernetes-and-istio/</link><pubDate>Mon, 12 Jul 2021 22:22:00 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/multicluster-management-with-kubernetes-and-istio/</guid><description>
 &lt;p>Do you have multiple Kubernetes clusters and a service mesh? Do your virtual machines and services in a Kubernetes cluster need to interact? This article will take you through the process and considerations of building a hybrid cloud using Kubernetes and an Istio Service Mesh. Together, Kubernetes and Istio can be used to bring hybrid workloads into a mesh and achieve interoperability for multicluster. But another layer of infrastructure — a management plane — is helpful for managing multicluster or multimesh deployments.&lt;/p>
 &lt;h2 id="kubernetes">Kubernetes&lt;/h2>
 &lt;p>Using Kubernetes enables rapid deployment of a distributed environment that enables cloud interoperability and unifies the control plane on the cloud. It also provides resource objects, such as Service, Ingress and &lt;a href="https://kubernetes.io/blog/2021/04/22/evolving-kubernetes-networking-with-the-gateway-api/" title="Gateway" target="_blank" rel="noopener">Gateway&lt;/a>
 , to handle application traffic. The Kubernetes API Server communicates with the kube-proxy component on each node in the cluster, creates iptables rules for the node, and forwards requests to other pods.&lt;/p>
 &lt;p>Assuming that a client now wants to access a service in Kubernetes, the request is first sent to the Ingress/Gateway, then forwarded to the backend service (Service A in the diagram below) based on the routing configuration in the Ingress/Gateway. Then Service A polls an instance of Service B for the traffic requested by Service B. Lastly, the traffic requested by Service A for Service B is polled forward to Service B’s instance.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/multicluster-management-with-kubernetes-and-istio/008i3skNly1gsgg6a11l1j31lu0u042s.jpg" data-img="/blog/multicluster-management-with-kubernetes-and-istio/008i3skNly1gsgg6a11l1j31lu0u042s.jpg" data-width="2082" data-height="1080" alt="008i3skNly1gsgg6a11l1j31lu0u042s.jpg" data-caption="Kubernetes">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/multicluster-management-with-kubernetes-and-istio/008i3skNly1gsgg6a11l1j31lu0u042s.jpg" data-img="/sdmxio/blog/multicluster-management-with-kubernetes-and-istio/008i3skNly1gsgg6a11l1j31lu0u042s.jpg" data-width="2082" data-height="1080" alt="008i3skNly1gsgg6a11l1j31lu0u042s.jpg" data-caption="Kubernetes">
 &lt;figcaption>Kubernetes&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2083,7 +2083,7 @@ enables multicluster management capabilities, which allows all Kubernetes cluste
 &lt;p>The following is a multicluster architecture for &lt;a href="https://kubesphere.io/" title="KubeSphere" target="_blank" rel="noopener">KubeSphere&lt;/a>
 — one of the most commonly used Kubernetes multicluster management architectures — where the Host Cluster serves as the control plane with two member clusters, West and East.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/multicluster-management-with-kubernetes-and-istio/008i3skNly1gsgg7a2ojvj31aa0u0491.jpg" data-img="/blog/multicluster-management-with-kubernetes-and-istio/008i3skNly1gsgg7a2ojvj31aa0u0491.jpg" data-width="1666" data-height="1080" alt="008i3skNly1gsgg7a2ojvj31aa0u0491.jpg" data-caption="Multicluster">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/multicluster-management-with-kubernetes-and-istio/008i3skNly1gsgg7a2ojvj31aa0u0491.jpg" data-img="/sdmxio/blog/multicluster-management-with-kubernetes-and-istio/008i3skNly1gsgg7a2ojvj31aa0u0491.jpg" data-width="1666" data-height="1080" alt="008i3skNly1gsgg7a2ojvj31aa0u0491.jpg" data-caption="Multicluster">
 &lt;figcaption>Multicluster&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2093,7 +2093,7 @@ enables multicluster management capabilities, which allows all Kubernetes cluste
 &lt;p>Consider using the Istio service mesh when we have multilingual, multiversion microservices running in Kubernetes and need finer-grained canary publishing and unified security policy management for inter-service observability. Istio enables intelligent application-aware load balancing from the application layer to other Service Mesh-enabled services in the cluster, by transparently intercepting all traffic to and from the application using IPTables, and bypassing the primary kube-proxy load balancing. The Istio control plane communicates with the Kubernetes API Server to obtain information about all registered services in the cluster.&lt;/p>
 &lt;p>The following diagram illustrates the basics of Istio, where all nodes belong to the same Kubernetes cluster.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/multicluster-management-with-kubernetes-and-istio/008i3skNly1gsgg6sdrk2j32v60u0qbb.jpg" data-img="/blog/multicluster-management-with-kubernetes-and-istio/008i3skNly1gsgg6sdrk2j32v60u0qbb.jpg" data-width="3714" data-height="1080" alt="008i3skNly1gsgg6sdrk2j32v60u0qbb.jpg" data-caption="Istio Service Mesh">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/multicluster-management-with-kubernetes-and-istio/008i3skNly1gsgg6sdrk2j32v60u0qbb.jpg" data-img="/sdmxio/blog/multicluster-management-with-kubernetes-and-istio/008i3skNly1gsgg6sdrk2j32v60u0qbb.jpg" data-width="3714" data-height="1080" alt="008i3skNly1gsgg6sdrk2j32v60u0qbb.jpg" data-caption="Istio Service Mesh">
 &lt;figcaption>Istio Service Mesh&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2103,20 +2103,20 @@ exist for Istio’s multicluster deployments — depending on network isolation,
 &lt;h2 id="management-plane">Management Plane&lt;/h2>
 &lt;p>To manage gateways, traffic and security groupings, and apply them to different clusters and namespaces, you’ll need to add another layer of abstraction on top of Istio: a management plane. The diagram below shows the multitenant model of Tetrate Service Bridge (TSB). TSB uses Next Generation Access Control (NGAC) — a fine-grained authorization framework — to manage user access and also facilitate the construction of a zero-trust network.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/multicluster-management-with-kubernetes-and-istio/008i3skNly1gsgg8ndcajj31il0u00z9.jpg" data-img="/blog/multicluster-management-with-kubernetes-and-istio/008i3skNly1gsgg8ndcajj31il0u00z9.jpg" data-width="1965" data-height="1080" alt="008i3skNly1gsgg8ndcajj31il0u00z9.jpg" data-caption="Management Plane">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/multicluster-management-with-kubernetes-and-istio/008i3skNly1gsgg8ndcajj31il0u00z9.jpg" data-img="/sdmxio/blog/multicluster-management-with-kubernetes-and-istio/008i3skNly1gsgg8ndcajj31il0u00z9.jpg" data-width="1965" data-height="1080" alt="008i3skNly1gsgg8ndcajj31il0u00z9.jpg" data-caption="Management Plane">
 &lt;figcaption>Management Plane&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
 &lt;p>Istio provides workload identification, protected by strong mTLS encryption. This zero-trust model is better than trusting workloads based on topology information, such as source IP. A common control plane for multicluster management is built on top of Istio. Then a management plane is added to manage multiple clusters — providing multitenancy, management configuration, observability, and more.&lt;/p>
 &lt;p>The diagram below shows the architecture of Tetrate Service Bridge.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/multicluster-management-with-kubernetes-and-istio/008i3skNly1gsgg951mknj314g0u0dnf.jpg" data-img="/blog/multicluster-management-with-kubernetes-and-istio/008i3skNly1gsgg951mknj314g0u0dnf.jpg" data-width="1456" data-height="1080" alt="008i3skNly1gsgg951mknj314g0u0dnf.jpg" data-caption="Tetrate Service Bridge">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/multicluster-management-with-kubernetes-and-istio/008i3skNly1gsgg951mknj314g0u0dnf.jpg" data-img="/sdmxio/blog/multicluster-management-with-kubernetes-and-istio/008i3skNly1gsgg951mknj314g0u0dnf.jpg" data-width="1456" data-height="1080" alt="008i3skNly1gsgg951mknj314g0u0dnf.jpg" data-caption="Tetrate Service Bridge">
 &lt;figcaption>Tetrate Service Bridge&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
 &lt;h2 id="summary">Summary&lt;/h2>
 &lt;p>Interoperability of heterogeneous clusters is achieved with Kubernetes. Istio brings containerized and virtual machine loads into a single control plane, to unify traffic, security and observability within the clusters. However, as the number of clusters, network environments and user permissions become more complex, there is a need to build another management plane above Istio’s control plane (for example, &lt;a href="https://www.tetrate.io/tetrate-service-bridge/" title="Tetrate Service Bridge" target="_blank" rel="noopener">Tetrate Service Bridge&lt;/a>
-) for hybrid cloud management.&lt;/p></description></item><item><title>How to debug microservices in Kubernetes with proxy, sidecar or service mesh?</title><link>https://sdmx.io/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/</link><pubDate>Mon, 05 Jul 2021 22:22:00 +0800</pubDate><guid>https://sdmx.io/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/</guid><description>
+) for hybrid cloud management.&lt;/p></description></item><item><title>How to debug microservices in Kubernetes with proxy, sidecar or service mesh?</title><link>https://glennmdt.github.io/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/</link><pubDate>Mon, 05 Jul 2021 22:22:00 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/</guid><description>
 &lt;p>Kubernetes is arguably the best environment for running microservices so far, but the experience of debugging microservices in a Kubernetes environment may not be as user-friendly. This article will show you how to debug microservices in Kubernetes, introduce common tools, and explain how the introduction of Istio impacts debugging microservices.&lt;/p>
 &lt;h2 id="debugging-microservices-is-vastly-different-from-traditional-monolithic-applications">Debugging microservices is vastly different from traditional monolithic applications&lt;/h2>
 &lt;p>The debugging of microservices has been a long-standing problem for software developers. This challenge does not exist in traditional monolithic applications because developers can leverage the debugger in IDEs to add breakpoints, modify environment variables, single-step execution, etc. for their applications, all of which provide great help in software debugging. With the popularity of Kubernetes, the debugging of microservices becomes a thorny issue, where the following issues are more complicated than the debugging of traditional monolithic applications.&lt;/p>
@@ -2138,7 +2138,7 @@ exist for Istio’s multicluster deployments — depending on network isolation,
 &lt;p>&lt;a href="https://www.telepresence.io/" title="Telepresence" target="_blank" rel="noopener">Telepresence&lt;/a>
 is essentially a local proxy that proxies data volumes, environment variables, and networks in a Kubernetes cluster locally. The following diagram shows the main usage scenarios for Telepresence.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/telepresence.jpg" data-img="/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/telepresence.jpg" data-width="1080" data-height="1197" alt="telepresence.jpg" data-caption="Proxy mode: Telepresence">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/telepresence.jpg" data-img="/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/telepresence.jpg" data-width="1080" data-height="1197" alt="telepresence.jpg" data-caption="Proxy mode: Telepresence">
 &lt;figcaption>Proxy mode: Telepresence&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2152,7 +2152,7 @@ is essentially a local proxy that proxies data volumes, environment variables, a
 &lt;p>&lt;a href="https://nocalhost.dev/" title="Nocalhost" target="_blank" rel="noopener">Nocalhost&lt;/a>
 is a Kubernetes-based cloud development environment. To use it, you just need to install a plugin in your IDE – VS Code to extend Kubernetes and shorten the development feedback cycle. The development environment can be isolated by creating different namespaces for different users and using ServiceAccount when binding to different user corners. Nocalhost also provides a web console and API for administrators to manage different development environments.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/sidecar-nocalhost.jpg" data-img="/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/sidecar-nocalhost.jpg" data-width="1928" data-height="1080" alt="sidecar-nocalhost.jpg" data-caption="Sidecar mode: Nocalhost">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/sidecar-nocalhost.jpg" data-img="/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/sidecar-nocalhost.jpg" data-width="1928" data-height="1080" alt="sidecar-nocalhost.jpg" data-caption="Sidecar mode: Nocalhost">
 &lt;figcaption>Sidecar mode: Nocalhost&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2165,20 +2165,20 @@ to quickly start trying it out. To use the Nocalhost plugin in VS Code, you need
 &lt;p>Here is an example of the &lt;a href="https://istio.io/latest/docs/examples/bookinfo/" title="bookinfo sample" target="_blank" rel="noopener">bookinfo sample&lt;/a>
 provided by Istio. You can open the cloned code in your local IDE and click the hammer next to the code file to enter development mode. Selecting the corresponding DevContainer and Nocalhost will automatically inject a development container sidecar into the pod and automatically enter the container in the terminal, as shown in the following figure.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/nocalhost-vs-code.jpg" data-img="/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/nocalhost-vs-code.jpg" data-width="1722" data-height="1080" alt="nocalhost-vs-code.jpg" data-caption="Nocalhost VS code">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/nocalhost-vs-code.jpg" data-img="/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/nocalhost-vs-code.jpg" data-width="1722" data-height="1080" alt="nocalhost-vs-code.jpg" data-caption="Nocalhost VS code">
 &lt;figcaption>Nocalhost VS code&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
 &lt;p>In development mode, the code is modified locally without rebuilding the image, and the remote development environment takes effect in real time, which can greatly accelerate the development speed. At the same time, Nocalhost also provides a server for managing the development environment and user rights, as shown in the following figure.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/nocalhost-web-admin.jpg" data-img="/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/nocalhost-web-admin.jpg" data-width="2354" data-height="1080" alt="nocalhost-web-admin.jpg" data-caption="Nocalhost Web">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/nocalhost-web-admin.jpg" data-img="/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/nocalhost-web-admin.jpg" data-width="2354" data-height="1080" alt="nocalhost-web-admin.jpg" data-caption="Nocalhost Web">
 &lt;figcaption>Nocalhost Web&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
 &lt;h3 id="service-mesh--debugging-microservices-with-istio">Service Mesh – debugging microservices with Istio&lt;/h3>
 &lt;p>The above method of using proxy and sidecar can only debug one service at a time. You’ll need a mesh to get the global status of the application, such as the metrics of the service obtained, and debug the performance of the service by understanding the dependency and invocation process of the service through distributed tracing. These observability features need to be implemented by injecting sidecar uniformly for all services. And, when your services are in the process of migrating from VMs to Kubernetes, using Istio can bring VMs and Kubernetes into a single network plane (as shown below), making it easy for developers to debug and do incremental migrations.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/istio-service-mesh.jpg" data-img="/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/istio-service-mesh.jpg" data-width="1956" data-height="1080" alt="istio-service-mesh.jpg" data-caption="Serivce Mesh mode: Istio">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/istio-service-mesh.jpg" data-img="/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/istio-service-mesh.jpg" data-width="1956" data-height="1080" alt="istio-service-mesh.jpg" data-caption="Serivce Mesh mode: Istio">
 &lt;figcaption>Serivce Mesh mode: Istio&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2189,7 +2189,7 @@ provided by Istio. You can open the cloned code in your local IDE and click the 
 &lt;/ul>
 &lt;h2 id="summary">Summary&lt;/h2>
 &lt;p>In the process of microservicing applications and migrating from virtual machines to Kubernetes, developers need to make a lot of changes in their mindset and habits. By building a VPN between local and Kubernetes via proxy, developers can easily debug services in Kubernetes as if they were local services. By injecting a sidecar into the pod, you can achieve real-time debugging and speed up the development process. Finally, the Istio service mesh truly enables global observability, and you can also use tools like &lt;a href="https://www.tetrate.io/tetrate-service-bridge/" title="Tetrate Service Bridge" target="_blank" rel="noopener">Tetrate Service Bridge&lt;/a>
-to manage heterogeneous platforms, helping you gradually move from monolithic applications to microservices.&lt;/p></description></item><item><title>Happy Istio 4th Anniversary -- Retrospect and Outlook</title><link>https://sdmx.io/blog/istio-4-year-birthday/</link><pubDate>Mon, 24 May 2021 08:00:00 +0800</pubDate><guid>https://sdmx.io/blog/istio-4-year-birthday/</guid><description>
+to manage heterogeneous platforms, helping you gradually move from monolithic applications to microservices.&lt;/p></description></item><item><title>Happy Istio 4th Anniversary -- Retrospect and Outlook</title><link>https://glennmdt.github.io/sdmxio/blog/istio-4-year-birthday/</link><pubDate>Mon, 24 May 2021 08:00:00 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/istio-4-year-birthday/</guid><description>
 &lt;p>Istio was named by &lt;a href="https://tetrate.io/" title="Tetrate" target="_blank" rel="noopener">Tetrate&lt;/a>
 founder Varun Talwar and Google lead engineer Louis Ryan in 2017 and was open sourced on May 24, 2017. Today is the fourth anniversary of Istio’s open source arrival. Let’s take a look back at Istio’s four years of development — and look forward to Istio’s future.&lt;/p>
 &lt;h3 id="istios-open-source-history">Istio’s open source history&lt;/h3>
@@ -2251,7 +2251,7 @@ of a steering committee for the Istio community and the transfer of the trademar
 was successfully held in February 2021, with thousands of people attending the online conference. There is also a &lt;a href="https://www.youtube.com/watch?v=6m-rhyfy8sg&amp;amp;list=PL7wB27eZmdffS-g_xh7X-b0echc_XZMKV&amp;amp;index=8" title="large Istio community in China" target="_blank" rel="noopener">large Istio community in China&lt;/a>
 , and face-to-face Istio community meetups will be held there in 2021. Stay tuned for more.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-4-year-birthday/008i3skNly1gquicfqg14j31lw0smwl2.jpg" data-img="/blog/istio-4-year-birthday/008i3skNly1gquicfqg14j31lw0smwl2.jpg" data-width="2084" data-height="1030" alt="008i3skNly1gquicfqg14j31lw0smwl2.jpg" data-caption="">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-4-year-birthday/008i3skNly1gquicfqg14j31lw0smwl2.jpg" data-img="/sdmxio/blog/istio-4-year-birthday/008i3skNly1gquicfqg14j31lw0smwl2.jpg" data-width="2084" data-height="1030" alt="008i3skNly1gquicfqg14j31lw0smwl2.jpg" data-caption="">
 &lt;figcaption>&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2259,7 +2259,7 @@ was successfully held in February 2021, with thousands of people attending the o
 &lt;h3 id="the-future">The future&lt;/h3>
 &lt;p>After 4 years of development, there is not only a large user base around Istio, but also several Istio vendors, as you can see on the &lt;a href="https://istio.io/" title="homepage" target="_blank" rel="noopener">homepage&lt;/a>
 of the recently revamped Istio website. In the last few releases, Istio has shifted its development focus to improving the Day 2 Operation experience. We also expect to see more Istio adoption path recommendations, case studies, learning materials, training, and certifications (such as the industry’s first &lt;a href="https://academy.tetrate.io/courses/certified-istio-administrator" title="Certified Istio Administrator" target="_blank" rel="noopener">Certified Istio Administrator&lt;/a>
-from Tetrate) that will facilitate the adoption of Istio.&lt;/p></description></item><item><title>What Is Istio and Why Does Kubernetes Need it?</title><link>https://sdmx.io/blog/what-is-istio-and-why-does-kubernetes-need-it/</link><pubDate>Wed, 28 Apr 2021 09:06:14 +0800</pubDate><guid>https://sdmx.io/blog/what-is-istio-and-why-does-kubernetes-need-it/</guid><description>
+from Tetrate) that will facilitate the adoption of Istio.&lt;/p></description></item><item><title>What Is Istio and Why Does Kubernetes Need it?</title><link>https://glennmdt.github.io/sdmxio/blog/what-is-istio-and-why-does-kubernetes-need-it/</link><pubDate>Wed, 28 Apr 2021 09:06:14 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/what-is-istio-and-why-does-kubernetes-need-it/</guid><description>
 &lt;p>Istio, &lt;a href="https://www.cncf.io/blog/2020/03/04/2019-cncf-survey-results-are-here-deployments-are-growing-in-size-and-speed-as-cloud-native-adoption-becomes-mainstream/" title="the most popular service mesh implementation" target="_blank" rel="noopener">the most popular service mesh implementation&lt;/a>
 , was developed on top of Kubernetes and has a different niche in the cloud native application ecosystem than Kubernetes. Rather than introduce you directly to what Istio has to offer, this article will explain how Istio came about and what it is in relation to Kubernetes.&lt;/p>
 &lt;h2 id="why-is-there-an-istio">Why Is There an Istio?&lt;/h2>
@@ -2270,7 +2270,7 @@ from Tetrate) that will facilitate the adoption of Istio.&lt;/p></description></
 &lt;h2 id="how-do-you-do-service-management-in-kubernetes">How Do You Do Service Management in Kubernetes?&lt;/h2>
 &lt;p>The following diagram shows the service model in Kubernetes:&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/what-is-istio-and-why-does-kubernetes-need-it/service-model.jpg" data-img="/blog/what-is-istio-and-why-does-kubernetes-need-it/service-model.jpg" data-width="1920" data-height="1200" alt="service-model.jpg" data-caption="Kubernetes Service Model">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/what-is-istio-and-why-does-kubernetes-need-it/service-model.jpg" data-img="/sdmxio/blog/what-is-istio-and-why-does-kubernetes-need-it/service-model.jpg" data-width="1920" data-height="1200" alt="service-model.jpg" data-caption="Kubernetes Service Model">
 &lt;figcaption>Kubernetes Service Model&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2285,7 +2285,7 @@ from Tetrate) that will facilitate the adoption of Istio.&lt;/p></description></
 &lt;h2 id="the-basics-of-istio">The Basics of Istio&lt;/h2>
 &lt;p>The following diagram shows the service model in Istio, which supports both workloads and virtual machines in Kubernetes.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/what-is-istio-and-why-does-kubernetes-need-it/istio.jpg" data-img="/blog/what-is-istio-and-why-does-kubernetes-need-it/istio.jpg" data-width="1999" data-height="1104" alt="istio.jpg" data-caption="Istio">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/what-is-istio-and-why-does-kubernetes-need-it/istio.jpg" data-img="/sdmxio/blog/what-is-istio-and-why-does-kubernetes-need-it/istio.jpg" data-width="1999" data-height="1104" alt="istio.jpg" data-caption="Istio">
 &lt;figcaption>Istio&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2306,7 +2306,7 @@ from Tetrate) that will facilitate the adoption of Istio.&lt;/p></description></
 &lt;li>Istio is currently the most popular service mesh implementation, relying on Kubernetes but also scalable to virtual machine loads.&lt;/li>
 &lt;li>Istio’s core consists of a control plane and a data plane, with Envoy as the default data-plane agent.&lt;/li>
 &lt;li>Istio acts as the network layer of the cloud native infrastructure and is transparent to applications.&lt;/li>
-&lt;/ul></description></item><item><title>Why Do You Need Istio When You Already Have Kubernetes?</title><link>https://sdmx.io/blog/why-do-you-need-istio-when-you-already-have-kubernetes/</link><pubDate>Wed, 07 Apr 2021 08:27:17 +0800</pubDate><guid>https://sdmx.io/blog/why-do-you-need-istio-when-you-already-have-kubernetes/</guid><description>
+&lt;/ul></description></item><item><title>Why Do You Need Istio When You Already Have Kubernetes?</title><link>https://glennmdt.github.io/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/</link><pubDate>Wed, 07 Apr 2021 08:27:17 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/</guid><description>
 &lt;p>If you’ve heard of service mesh and tried &lt;a href="https://istio.io/" title="Istio" target="_blank" rel="noopener">Istio&lt;/a>
 , you may have the following questions:&lt;/p>
 &lt;ol>
@@ -2330,7 +2330,7 @@ from Tetrate) that will facilitate the adoption of Istio.&lt;/p></description></
 &lt;h2 id="kubernetes-vs-service-mesh">Kubernetes vs Service Mesh&lt;/h2>
 &lt;p>The following diagram shows the service access relationship in Kubernetes and service mesh (one sidecar per pod model).&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7knfo4dj31hk0redrz.jpg" data-img="/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7knfo4dj31hk0redrz.jpg" data-width="1928" data-height="986" alt="008eGmZEly1gpb7knfo4dj31hk0redrz.jpg" data-caption="Kubernetes vs Service Mesh">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7knfo4dj31hk0redrz.jpg" data-img="/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7knfo4dj31hk0redrz.jpg" data-width="1928" data-height="986" alt="008eGmZEly1gpb7knfo4dj31hk0redrz.jpg" data-caption="Kubernetes vs Service Mesh">
 &lt;figcaption>Kubernetes vs Service Mesh&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2338,7 +2338,7 @@ from Tetrate) that will facilitate the adoption of Istio.&lt;/p></description></
 &lt;p>Each node in a Kubernetes cluster deploys a kube-proxy component that communicates with the Kubernetes API Server, gets information about the services in the cluster, and then sets iptables rules to send requests for service directly to the corresponding Endpoint (a pod belonging to the same group of services).&lt;/p>
 &lt;h3 id="service-discovery">Service Discovery&lt;/h3>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7knwb79j30kq0fcjs9.jpg" data-img="/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7knwb79j30kq0fcjs9.jpg" data-width="746" data-height="552" alt="008eGmZEly1gpb7knwb79j30kq0fcjs9.jpg" data-caption="Service Discovery">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7knwb79j30kq0fcjs9.jpg" data-img="/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7knwb79j30kq0fcjs9.jpg" data-width="746" data-height="552" alt="008eGmZEly1gpb7knwb79j30kq0fcjs9.jpg" data-caption="Service Discovery">
 &lt;figcaption>Service Discovery&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2362,7 +2362,7 @@ for detailed configuration.&lt;/p>
 &lt;p>Envoy is the default sidecar proxy in Istio. Istio extends its control plane based on Enovy’s xDS protocol. We need to familiarize ourselves with Envoy’s basic terminology before talking about Envoy’s xDS protocol. The following is a list of basic terms and their data structures in Envoy; please refer to the &lt;a href="https://envoyproxy.io/" title="Envoy documentation" target="_blank" rel="noopener">Envoy documentation&lt;/a>
 for more details.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7koah95j31450tetta.jpg" data-img="/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7koah95j31450tetta.jpg" data-width="1445" data-height="1058" alt="008eGmZEly1gpb7koah95j31450tetta.jpg" data-caption="Envoy">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7koah95j31450tetta.jpg" data-img="/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7koah95j31450tetta.jpg" data-width="1445" data-height="1058" alt="008eGmZEly1gpb7koah95j31450tetta.jpg" data-caption="Envoy">
 &lt;figcaption>Envoy&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2378,11 +2378,11 @@ for more details.&lt;/p>
 &lt;p>The xDS protocol was proposed by Envoy and is the default sidecar proxy in Istio, but as long as the xDS protocol is implemented, it can theoretically be used as a sidecar proxy in Istio — such as the &lt;a href="https://github.com/mosn/mosn" title="MOSN" target="_blank" rel="noopener">MOSN&lt;/a>
 open source by Ant Group.&lt;/p>
 &lt;p>&lt;a href="https://cdn.thenewstack.io/media/2021/03/b800bf17-image3.png" title="&amp;lt;figure class=&amp;#34;mx-auto text-center&amp;#34;&amp;gt;
-&amp;lt;img src=&amp;#34;/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg&amp;#34; data-img=&amp;#34;/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg&amp;#34; data-width=&amp;#34;1302&amp;#34; data-height=&amp;#34;782&amp;#34; alt=&amp;#34;008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg&amp;#34; data-caption=&amp;#34;img&amp;#34;&amp;gt;
+&amp;lt;img src=&amp;#34;/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg&amp;#34; data-img=&amp;#34;/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg&amp;#34; data-width=&amp;#34;1302&amp;#34; data-height=&amp;#34;782&amp;#34; alt=&amp;#34;008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg&amp;#34; data-caption=&amp;#34;img&amp;#34;&amp;gt;
 &amp;lt;figcaption&amp;gt;img&amp;lt;/figcaption&amp;gt;
 &amp;lt;/figure&amp;gt;
 " target="_blank" rel="noopener">&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg" data-img="/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg" data-width="1302" data-height="782" alt="008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg" data-caption="img">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg" data-img="/sdmxio/blog/why-do-you-need-istio-when-you-already-have-kubernetes/008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg" data-width="1302" data-height="782" alt="008eGmZEly1gpb7kk7wk4j31060lqgqx.jpg" data-caption="img">
 &lt;figcaption>img&lt;/figcaption>
 &lt;/figure>
 &lt;/a>
@@ -2457,7 +2457,7 @@ open source by Ant Group.&lt;/p>
 &lt;/ul>
 &lt;h2 id="summary">Summary&lt;/h2>
 &lt;p>If the object managed by Kubernetes is a pod, then the object managed in service mesh is a service, so it’s just a matter of using Kubernetes to manage microservices and then applying service mesh. If you don’t even want to manage a service, then use a serverless platform like &lt;a href="https://knative.dev/" title="Knative" target="_blank" rel="noopener">Knative&lt;/a>
-— but that’s an afterthought.&lt;/p></description></item><item><title>Why You Should Choose NGAC as Your Access Control Model</title><link>https://sdmx.io/blog/why-you-should-choose-ngac-as-your-access-control-model/</link><pubDate>Sat, 20 Feb 2021 14:12:40 +0800</pubDate><guid>https://sdmx.io/blog/why-you-should-choose-ngac-as-your-access-control-model/</guid><description>
+— but that’s an afterthought.&lt;/p></description></item><item><title>Why You Should Choose NGAC as Your Access Control Model</title><link>https://glennmdt.github.io/sdmxio/blog/why-you-should-choose-ngac-as-your-access-control-model/</link><pubDate>Sat, 20 Feb 2021 14:12:40 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/why-you-should-choose-ngac-as-your-access-control-model/</guid><description>
 &lt;p>Different companies or software providers have devised countless ways to control user access to functions or resources, such as Discretionary Access Control (DAC), Mandatory Access Control (MAC), Role-Based Access Control (RBAC), and Attribute-Based Access Control (ABAC). In essence, whatever the type of access control model, three basic elements can be abstracted: user, system/application, and policy.&lt;/p>
 &lt;p>In this article, we will introduce ABAC, RBAC, and a new access control model — Next Generation Access Control (NGAC) — and compare the similarities and differences between the three, as well as why you should consider NGAC.&lt;/p>
 &lt;h2 id="what-is-rbac">What Is RBAC?&lt;/h2>
@@ -2503,7 +2503,7 @@ and &lt;a href="https://www.tetrate.io/tetrate-service-bridge/" title="Tetrate S
 on Next Generation Access Control at Service Mesh Day 2019 in San Francisco.&lt;/p>
 &lt;p>NGAC is based on the assumption that you can represent the system you want to protect in a graph that represents the resources you want to protect and your organizational structure, in a way that has meaning to you and that adheres to your organization semantics. On top of this model that is very particular to your organization, you can overlay policies. Between the resource model and the user model, the permissions are defined. This way NGAC provides an elegant way of representing the resources you want to protect, the different actors in the system, and how both worlds are tied together with permissions.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/why-you-should-choose-ngac-as-your-access-control-model/008eGmZEly1gpb7y6dffaj30ke0ay0ue.jpg" data-img="/blog/why-you-should-choose-ngac-as-your-access-control-model/008eGmZEly1gpb7y6dffaj30ke0ay0ue.jpg" data-width="734" data-height="394" alt="008eGmZEly1gpb7y6dffaj30ke0ay0ue.jpg" data-caption="NGAC DAG">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/why-you-should-choose-ngac-as-your-access-control-model/008eGmZEly1gpb7y6dffaj30ke0ay0ue.jpg" data-img="/sdmxio/blog/why-you-should-choose-ngac-as-your-access-control-model/008eGmZEly1gpb7y6dffaj30ke0ay0ue.jpg" data-width="734" data-height="394" alt="008eGmZEly1gpb7y6dffaj30ke0ay0ue.jpg" data-caption="NGAC DAG">
 &lt;figcaption>NGAC DAG&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2512,7 +2512,7 @@ on Next Generation Access Control at Service Mesh Day 2019 in San Francisco.&lt;
 &lt;h3 id="ngac-example">NGAC Example&lt;/h3>
 &lt;p>The following example shows a simple NGAC graph with a User DAG representing an organization structure, an Object DAG representing files and folders in a filesystem, a categorization of the files, and two different policies — file system and scope — that can be combined to make access decisions. The association edges between the two DAGs define the permissions the actors have on the target resources.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/why-you-should-choose-ngac-as-your-access-control-model/008eGmZEly1gpb7y4v7x3j30lx0f7my9.jpg" data-img="/blog/why-you-should-choose-ngac-as-your-access-control-model/008eGmZEly1gpb7y4v7x3j30lx0f7my9.jpg" data-width="789" data-height="547" alt="008eGmZEly1gpb7y4v7x3j30lx0f7my9.jpg" data-caption="NGAC">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/why-you-should-choose-ngac-as-your-access-control-model/008eGmZEly1gpb7y4v7x3j30lx0f7my9.jpg" data-img="/sdmxio/blog/why-you-should-choose-ngac-as-your-access-control-model/008eGmZEly1gpb7y4v7x3j30lx0f7my9.jpg" data-width="789" data-height="547" alt="008eGmZEly1gpb7y4v7x3j30lx0f7my9.jpg" data-caption="NGAC">
 &lt;figcaption>NGAC&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2526,7 +2526,7 @@ on Next Generation Access Control at Service Mesh Day 2019 in San Francisco.&lt;
 &lt;h2 id="summary">Summary&lt;/h2>
 &lt;p>The following table compares ABAC, RBAC, and NGAC in several aspects.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/why-you-should-choose-ngac-as-your-access-control-model/008eGmZEly1gpb7y5ehmej30zs0fw76d.jpg" data-img="/blog/why-you-should-choose-ngac-as-your-access-control-model/008eGmZEly1gpb7y5ehmej30zs0fw76d.jpg" data-width="1288" data-height="572" alt="008eGmZEly1gpb7y5ehmej30zs0fw76d.jpg" data-caption="NGAC vs RBAC vs ABAC">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/why-you-should-choose-ngac-as-your-access-control-model/008eGmZEly1gpb7y5ehmej30zs0fw76d.jpg" data-img="/sdmxio/blog/why-you-should-choose-ngac-as-your-access-control-model/008eGmZEly1gpb7y5ehmej30zs0fw76d.jpg" data-width="1288" data-height="572" alt="008eGmZEly1gpb7y5ehmej30zs0fw76d.jpg" data-caption="NGAC vs RBAC vs ABAC">
 &lt;figcaption>NGAC vs RBAC vs ABAC&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2548,7 +2548,7 @@ on Next Generation Access Control at Service Mesh Day 2019 in San Francisco.&lt;
 &lt;/li>
 &lt;li>&lt;a href="https://www.nist.gov/publications/exploring-next-generation-access-control-methodologies" title="Exploring the Next Generation of Access Control Methodologies" target="_blank" rel="noopener">Exploring the Next Generation of Access Control Methodologies&lt;/a>
 &lt;/li>
-&lt;/ul></description></item><item><title>Istio 1.8: A Virtual Machine Integration Odyssey</title><link>https://sdmx.io/blog/istio-18-a-virtual-machine-integration-odyssey/</link><pubDate>Sat, 23 Jan 2021 08:27:17 +0800</pubDate><guid>https://sdmx.io/blog/istio-18-a-virtual-machine-integration-odyssey/</guid><description>
+&lt;/ul></description></item><item><title>Istio 1.8: A Virtual Machine Integration Odyssey</title><link>https://glennmdt.github.io/sdmxio/blog/istio-18-a-virtual-machine-integration-odyssey/</link><pubDate>Sat, 23 Jan 2021 08:27:17 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/istio-18-a-virtual-machine-integration-odyssey/</guid><description>
 &lt;p>In this article, I’ll give you an overview of &lt;a href="https://istio.io/" title="Istio" target="_blank" rel="noopener">Istio&lt;/a>
 ‘s history of virtual machine integration support. In particular, the introduction of the smart DNS proxy and WorkloadGroup in Istio 1.8, which makes virtual machines and containers equivalent at the resource abstraction level.&lt;/p>
 &lt;p>I will show you a tumultuous odyssey of Istio’s virtual machine integration. Tetrate, the enterprise service mesh company that made pushing Istio to run everywhere part of its founding mission, has used VM features extensively in customer deployments and has been instrumental in pushing VMs to Istio upstream.&lt;/p>
@@ -2559,7 +2559,7 @@ on Next Generation Access Control at Service Mesh Day 2019 in San Francisco.&lt;
 &lt;h2 id="why-is-virtual-machine-support-important">Why Is Virtual Machine Support Important?&lt;/h2>
 &lt;p>In the process of migrating our applications to cloud native architectures and continuously containerizing them, we will go through three phases as shown in the figure below.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-18-a-virtual-machine-integration-odyssey/0081Kckwly1gm0d6t775lj31s80k8go8.jpg" data-img="/blog/istio-18-a-virtual-machine-integration-odyssey/0081Kckwly1gm0d6t775lj31s80k8go8.jpg" data-width="2312" data-height="728" alt="0081Kckwly1gm0d6t775lj31s80k8go8.jpg" data-caption="Cloud Native Stages">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-18-a-virtual-machine-integration-odyssey/0081Kckwly1gm0d6t775lj31s80k8go8.jpg" data-img="/sdmxio/blog/istio-18-a-virtual-machine-integration-odyssey/0081Kckwly1gm0d6t775lj31s80k8go8.jpg" data-width="2312" data-height="728" alt="0081Kckwly1gm0d6t775lj31s80k8go8.jpg" data-caption="Cloud Native Stages">
 &lt;figcaption>Cloud Native Stages&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2588,7 +2588,7 @@ on Next Generation Access Control at Service Mesh Day 2019 in San Francisco.&lt;
 &lt;/ol>
 &lt;p>The following figure shows the detailed flow from integrating a virtual machine to accessing services in the virtual machine in a mesh.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-18-a-virtual-machine-integration-odyssey/0081Kckwly1gm0d6rogojj30u00yhdil.jpg" data-img="/blog/istio-18-a-virtual-machine-integration-odyssey/0081Kckwly1gm0d6rogojj30u00yhdil.jpg" data-width="1080" data-height="1241" alt="0081Kckwly1gm0d6rogojj30u00yhdil.jpg" data-caption="Figure 1">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-18-a-virtual-machine-integration-odyssey/0081Kckwly1gm0d6rogojj30u00yhdil.jpg" data-img="/sdmxio/blog/istio-18-a-virtual-machine-integration-odyssey/0081Kckwly1gm0d6rogojj30u00yhdil.jpg" data-width="1080" data-height="1241" alt="0081Kckwly1gm0d6rogojj30u00yhdil.jpg" data-caption="Figure 1">
 &lt;figcaption>Figure 1&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2643,7 +2643,7 @@ that provides a specification that can include both virtual machines and Kuberne
 , so we usually manually write the domain name and Cluster IP pair of the service the virtual machine needs to access to the local /etc/hosts — but this is not practical for a distributed cluster with a large number of nodes.&lt;/p>
 &lt;p>The process of accessing the services inside mesh by configuring the local /etc/hosts of the virtual machine is shown in the following figure.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-18-a-virtual-machine-integration-odyssey/0081Kckwly1gm0d6qx2o0j30sq0v440v.jpg" data-img="/blog/istio-18-a-virtual-machine-integration-odyssey/0081Kckwly1gm0d6qx2o0j30sq0v440v.jpg" data-width="1034" data-height="1120" alt="0081Kckwly1gm0d6qx2o0j30sq0v440v.jpg" data-caption="Figure 2">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-18-a-virtual-machine-integration-odyssey/0081Kckwly1gm0d6qx2o0j30sq0v440v.jpg" data-img="/sdmxio/blog/istio-18-a-virtual-machine-integration-odyssey/0081Kckwly1gm0d6qx2o0j30sq0v440v.jpg" data-width="1034" data-height="1120" alt="0081Kckwly1gm0d6qx2o0j30sq0v440v.jpg" data-caption="Figure 2">
 &lt;figcaption>Figure 2&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2660,7 +2660,7 @@ that provides a specification that can include both virtual machines and Kuberne
 &lt;p>With the introduction of smart &lt;a href="https://cloudnative.to/blog/istio-dns-proxy/" title="DNS proxy" target="_blank" rel="noopener">DNS proxy&lt;/a>
 in Istio 1.8, virtual machines can access services within the mesh without the need to configure /etc/hosts, as shown in the following figure.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/istio-18-a-virtual-machine-integration-odyssey/0081Kckwly1gm0d6sgfpxj30oi0rsjt5.jpg" data-img="/blog/istio-18-a-virtual-machine-integration-odyssey/0081Kckwly1gm0d6sgfpxj30oi0rsjt5.jpg" data-width="882" data-height="1000" alt="0081Kckwly1gm0d6sgfpxj30oi0rsjt5.jpg" data-caption="Figure 3">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/istio-18-a-virtual-machine-integration-odyssey/0081Kckwly1gm0d6sgfpxj30oi0rsjt5.jpg" data-img="/sdmxio/blog/istio-18-a-virtual-machine-integration-odyssey/0081Kckwly1gm0d6sgfpxj30oi0rsjt5.jpg" data-width="882" data-height="1000" alt="0081Kckwly1gm0d6sgfpxj30oi0rsjt5.jpg" data-caption="Figure 3">
 &lt;figcaption>Figure 3&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2679,11 +2679,11 @@ in Istio 1.8, virtual machines can access services within the mesh without the n
 &lt;/li>
 &lt;li>&lt;a href="https://thenewstack.io/how-to-integrate-virtual-machines-into-istio-service-mesh/" title="How to Integrate Virtual Machines into Istio Service Mesh" target="_blank" rel="noopener">How to Integrate Virtual Machines into Istio Service Mesh&lt;/a>
 &lt;/li>
-&lt;/ul></description></item><item><title>What is a service mesh?</title><link>https://sdmx.io/blog/what-is-a-service-mesh/</link><pubDate>Fri, 22 Jan 2021 08:27:17 +0800</pubDate><guid>https://sdmx.io/blog/what-is-a-service-mesh/</guid><description>
+&lt;/ul></description></item><item><title>What is a service mesh?</title><link>https://glennmdt.github.io/sdmxio/blog/what-is-a-service-mesh/</link><pubDate>Fri, 22 Jan 2021 08:27:17 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/what-is-a-service-mesh/</guid><description>
 &lt;p>A service mesh is a relatively simple concept, consisting of a bunch of network proxies paired with each service in an application, plus a set of task management processes. The proxies are called the data plane and the management processes are called the control plane in the Service Mesh. The data plane intercepts calls between different services and “processes” them; the control plane is the brain of the mesh that coordinates the behavior of proxies and provides APIs for operations and maintenance personnel to manipulate and observe the entire network.&lt;/p>
 &lt;p>The diagram below shows the architecture of a service mesh.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/what-is-a-service-mesh/service-mesh-architecture.png" data-img="/blog/what-is-a-service-mesh/service-mesh-architecture.png" data-width="2676" data-height="1328" alt="service-mesh-architecture.png" data-caption="Service Mesh Architecture">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/what-is-a-service-mesh/service-mesh-architecture.png" data-img="/sdmxio/blog/what-is-a-service-mesh/service-mesh-architecture.png" data-width="2676" data-height="1328" alt="service-mesh-architecture.png" data-caption="Service Mesh Architecture">
 &lt;figcaption>Service Mesh Architecture&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2730,7 +2730,7 @@ in Istio 1.8, virtual machines can access services within the mesh without the n
 &lt;h2 id="summary">Summary&lt;/h2>
 &lt;p>Readers should look dialectically at the advantages and disadvantages of a service mesh compared with traditional microservices architecture. A service mesh can be a critical part of the evolutionary path of application architecture, from the earliest monolith to distributed, to microservices, containerization, container orchestration, to hybrid workloads and multi-cloud.&lt;/p>
 &lt;p>Looking ahead, Kubernetes is exploding, and it has become the container orchestration of choice for enterprise greenfield applications. If Kubernetes has completely won the market and the size and complexity of Kubernetes-based applications continue to grow, there will be a tipping point, and service mesh will be necessary to effectively manage these applications. As service mesh technology continues to evolve and the architecture and functionality of its implementation products, such as Istio, continue to be optimized, service mesh will completely replace traditional microservice architectures as the architecture of choice for microservices and transformation to the cloud for enterprises.&lt;/p>
-&lt;p>This article was co-authored by Guangming Luo, a member of the ServiceMesher community and the CNC steering community.&lt;/p></description></item><item><title>Istio 1.8: A Smart DNS Proxy Takes Support for Virtual Machines a Step Further</title><link>https://sdmx.io/blog/istio-1-8-a-smart-dns-proxy-takes-support-for-virtual-machines-a-step-further/</link><pubDate>Thu, 19 Nov 2020 16:43:27 +0800</pubDate><guid>https://sdmx.io/blog/istio-1-8-a-smart-dns-proxy-takes-support-for-virtual-machines-a-step-further/</guid><description>
+&lt;p>This article was co-authored by Guangming Luo, a member of the ServiceMesher community and the CNC steering community.&lt;/p></description></item><item><title>Istio 1.8: A Smart DNS Proxy Takes Support for Virtual Machines a Step Further</title><link>https://glennmdt.github.io/sdmxio/blog/istio-1-8-a-smart-dns-proxy-takes-support-for-virtual-machines-a-step-further/</link><pubDate>Thu, 19 Nov 2020 16:43:27 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/istio-1-8-a-smart-dns-proxy-takes-support-for-virtual-machines-a-step-further/</guid><description>
 &lt;p>1.8 is the last version of Istio to be released in 2020 and it has the following major updates:&lt;/p>
 &lt;ul>
 &lt;li>Supports installation and upgrades using Helm 3.&lt;/li>
@@ -2764,7 +2764,7 @@ and Istio 1.8 adds a &lt;a href="https://istio.io/latest/blog/2020/dns-proxy/" t
 , the enterprise service mesh company, uses these &lt;a href="https://www.tetrate.io/blog/whats-new-in-istio-1-8-dns-proxy-helps-expand-mesh-to-vms-and-multicluster/" title="VM features" target="_blank" rel="noopener">VM features&lt;/a>
 extensively in customers’ multicluster deployments, to enable sidecars to resolve DNS for hosts exposed at ingress gateways of all the clusters in a mesh; and to access them over mutual TLS.&lt;/p>
 &lt;h2 id="conclusion">Conclusion&lt;/h2>
-&lt;p>All in all, the Istio team has kept the promise made at the beginning of the year to maintain a regular release cadence of one release every three months since the 1.1 release in 2018, with continuous optimizations in performance and user experience for a seamless experience of brownfield and greenfield apps on Istio. We look forward to more progress from Istio in 2021.&lt;/p></description></item><item><title>How to Integrate Virtual Machines into Istio Service Mesh</title><link>https://sdmx.io/blog/how-to-integrate-virtual-machines-into-istio-service-mesh/</link><pubDate>Mon, 02 Nov 2020 16:43:27 +0800</pubDate><guid>https://sdmx.io/blog/how-to-integrate-virtual-machines-into-istio-service-mesh/</guid><description>
+&lt;p>All in all, the Istio team has kept the promise made at the beginning of the year to maintain a regular release cadence of one release every three months since the 1.1 release in 2018, with continuous optimizations in performance and user experience for a seamless experience of brownfield and greenfield apps on Istio. We look forward to more progress from Istio in 2021.&lt;/p></description></item><item><title>How to Integrate Virtual Machines into Istio Service Mesh</title><link>https://glennmdt.github.io/sdmxio/blog/how-to-integrate-virtual-machines-into-istio-service-mesh/</link><pubDate>Mon, 02 Nov 2020 16:43:27 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/how-to-integrate-virtual-machines-into-istio-service-mesh/</guid><description>
 &lt;p>&lt;a href="https://istio.io/" title="Istio" target="_blank" rel="noopener">Istio&lt;/a>
 is a popular service mesh to connect, secure, control, and observe services. When it was first introduced as open source in 2017, Kubernetes was winning the container orchestration battle and Istio answered the needs of organizations moving to microservices. Although Istio claims to support heterogeneous environments such as Nomad, Consul, Eureka, Cloud Foundry, Mesos, etc., in reality, it has always worked best with Kubernetes — on which its service discovery is based.&lt;/p>
 &lt;p>Istio was criticized for a number of issues early in its development, for the large number of components, the complexity of installation and maintenance, the difficulty of debugging, a steep learning curve due to the introduction of too many new concepts and objects (up to 50 CRDs), and the impact of Mixer components on performance. But these issues are gradually being overcome by the Istio team. As you can see from the &lt;a href="https://istio.io/latest/zh/blog/2020/tradewinds-2020/" title="roadmap" target="_blank" rel="noopener">roadmap&lt;/a>
@@ -2782,7 +2782,7 @@ have done a lot of &lt;a href="https://www.tetrate.io/blog/istio-bringing-vms-in
 on Istio’s support for virtual machines. The 1.6 release included the addition of WorkloadEntry, which allows you to describe a VM exactly as you would a host running in Kubernetes. In 1.7, the release started to add the foundations for bootstrapping VMs into the mesh automatically through tokens, with Istio doing the heavy lifting. Istio 1.8 will debut another abstraction called WorkloadGroup, which is similar to a Kubernetes Deployment object — but for VMs.&lt;/p>
 &lt;p>The following diagram shows how Istio models services in the mesh. The predominant source of information comes from a platform service registry like Kubernetes, or a system like Consul. In addition, the ServiceEntry serves as a user-defined service registry, modeling services on VMs or external services outside the organization.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/how-to-integrate-virtual-machines-into-istio-service-mesh/0081Kckwgy1gkp0fvr3orj30p30ehabc.jpg" data-img="/blog/how-to-integrate-virtual-machines-into-istio-service-mesh/0081Kckwgy1gkp0fvr3orj30p30ehabc.jpg" data-width="903" data-height="521" alt="0081Kckwgy1gkp0fvr3orj30p30ehabc.jpg" data-caption="">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/how-to-integrate-virtual-machines-into-istio-service-mesh/0081Kckwgy1gkp0fvr3orj30p30ehabc.jpg" data-img="/sdmxio/blog/how-to-integrate-virtual-machines-into-istio-service-mesh/0081Kckwgy1gkp0fvr3orj30p30ehabc.jpg" data-width="903" data-height="521" alt="0081Kckwgy1gkp0fvr3orj30p30ehabc.jpg" data-caption="">
 &lt;figcaption>&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2803,7 +2803,7 @@ for more details about virtual machine support.&lt;/p>
 &lt;/li>
 &lt;li>&lt;a href="https://www.tetrate.io/blog/bridging-traditional-and-modern-workloads/" title="Bridging Traditional and Modern Workloads" target="_blank" rel="noopener">Bridging Traditional and Modern Workloads&lt;/a>
 &lt;/li>
-&lt;/ul></description></item><item><title>New Beginning - Goodbye Ant, Hello Tetrate</title><link>https://sdmx.io/blog/moving-on-from-ant-group/</link><pubDate>Mon, 31 Aug 2020 08:27:17 +0800</pubDate><guid>https://sdmx.io/blog/moving-on-from-ant-group/</guid><description>
+&lt;/ul></description></item><item><title>New Beginning - Goodbye Ant, Hello Tetrate</title><link>https://glennmdt.github.io/sdmxio/blog/moving-on-from-ant-group/</link><pubDate>Mon, 31 Aug 2020 08:27:17 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/moving-on-from-ant-group/</guid><description>
 &lt;p>Today is my 914th day and also the last day with &lt;a href="https://www.antgroup.com/" title="Ant Group" target="_blank" rel="noopener">Ant Group&lt;/a>
 , tomorrow is September 1st, which is usually the day school starts, and everyone at Alibaba is known as &amp;ldquo;classmate&amp;rdquo;, tomorrow I will join &lt;a href="https://tetrate.io" title="Tetrate" target="_blank" rel="noopener">Tetrate&lt;/a>
 , and that&amp;rsquo;s kind of starting my new semester!&lt;/p>
@@ -2811,7 +2811,7 @@ for more details about virtual machine support.&lt;/p>
 &lt;p>To date, Ant/Alibaba Group has had a profound impact on my career, especially its corporate culture and values, and the Alibaba recruiting philosophy of &amp;ldquo;finding like-minded people&amp;rdquo;, and isn&amp;rsquo;t the process of creating the Cloud Native Community also a process of finding like-minded people? &lt;a href="https://cloudnative.to" title="Cloud Native Community" target="_blank" rel="noopener">Cloud Native Community&lt;/a>
 is like a small society, I don&amp;rsquo;t want it to have much social value, but only want it to make a small but beautiful change to individuals, to enterprises and to society. I constantly think about myself as an individual and as an employee, especially as an initiator of the community. What is my mission as an individual, an employee, and especially as an initiator of a community? What role should I play in the company? Where is this community going? I&amp;rsquo;m fumbling along, but because of your support, it makes me stronger and more committed to the adoption and application of cloud native technology in China, outside of me I may have gone faster, but now with the community together we will go further!&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/moving-on-from-ant-group/20190624.jpg" data-img="/blog/moving-on-from-ant-group/20190624.jpg" data-width="1200" data-height="559" alt="20190624.jpg" data-caption="24 June 2019, Shanghai, KubeCon China 2019">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/moving-on-from-ant-group/20190624.jpg" data-img="/sdmxio/blog/moving-on-from-ant-group/20190624.jpg" data-width="1200" data-height="559" alt="20190624.jpg" data-caption="24 June 2019, Shanghai, KubeCon China 2019">
 &lt;figcaption>24 June 2019, Shanghai, KubeCon China 2019&lt;/figcaption>
 &lt;/figure>
 &lt;em>June 24, 2019, Shanghai, KubeCon China 2019&lt;/em>&lt;/p>
@@ -2827,9 +2827,9 @@ to bring Service Mesh technology to China. Next I want to bring Chinese practice
 , etc., and I believe that working with them can help you understand and apply Service Mesh quickly and effectively across cloud native.&lt;/p>
 &lt;h2 id="more">More&lt;/h2>
 &lt;p>Earlier this year as I was preparing for the Cloud Native community, I set the course for the next three years - cloud native, open source and community. The road to pursue my dream is full of thorns, not only need courage and perseverance, but also need you to be my strong backing, I will overcome the thorns and move forward. Open source belongs to the world, to let the world understand us better, we must be more active into the world. I hope that China&amp;rsquo;s open source tomorrow will be better, I hope that Service Mesh technology will be better applied by the enterprises in China, I hope that cloud native can benefit the public, and I hope that we can all find our own mission.&lt;/p>
-&lt;p>We are hiring now, if you are interested with &lt;a href="https://sdmx.io/en/job/tetrate" title="Tetrate">Tetrate&lt;/a>
+&lt;p>We are hiring now, if you are interested with &lt;a href="https://glennmdt.github.io/sdmxio/en/job/tetrate" title="Tetrate">Tetrate&lt;/a>
 , please send your resume to &lt;a href="mailto:careers@tetrate.io" title="careers@tetrate.io">careers@tetrate.io&lt;/a>
-.&lt;/p></description></item><item><title>Service Mesh - the Microservices in Post Kubernetes Era</title><link>https://sdmx.io/blog/service-mesh-the-microservices-in-post-kubernetes-era/</link><pubDate>Wed, 01 Apr 2020 11:56:04 +0800</pubDate><guid>https://sdmx.io/blog/service-mesh-the-microservices-in-post-kubernetes-era/</guid><description>
+.&lt;/p></description></item><item><title>Service Mesh - the Microservices in Post Kubernetes Era</title><link>https://glennmdt.github.io/sdmxio/blog/service-mesh-the-microservices-in-post-kubernetes-era/</link><pubDate>Wed, 01 Apr 2020 11:56:04 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/service-mesh-the-microservices-in-post-kubernetes-era/</guid><description>
 &lt;p>This article is a rework of previously written content and is included in the &lt;a href="https://www.servicemesher.com/istio-handbook" title="Istio Handbook" target="_blank" rel="noopener">Istio Handbook&lt;/a>
 of the ServiceMesher community . Other chapters are still being compiled.&lt;/p>
 &lt;p>People who have just heard of Service Mesh and tried &lt;a href="https://istio.io/" title="Istio" target="_blank" rel="noopener">Istio&lt;/a>
@@ -2870,7 +2870,7 @@ etc. Envoy&amp;rsquo;s biggest contribution to Service Mesh or cloud native is t
 &lt;h2 id="kubernetes-vs-service-mesh">Kubernetes vs Service Mesh&lt;/h2>
 &lt;p>The following figure shows the service access relationship between Kubernetes and Service Mesh (one sidecar per pod mode).&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/service-mesh-the-microservices-in-post-kubernetes-era/kubernetes-vs-service-mesh.png" data-img="/blog/service-mesh-the-microservices-in-post-kubernetes-era/kubernetes-vs-service-mesh.png" data-width="1928" data-height="986" alt="kubernetes-vs-service-mesh.png" data-caption="kubernetes vs service mesh">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/service-mesh-the-microservices-in-post-kubernetes-era/kubernetes-vs-service-mesh.png" data-img="/sdmxio/blog/service-mesh-the-microservices-in-post-kubernetes-era/kubernetes-vs-service-mesh.png" data-width="1928" data-height="986" alt="kubernetes-vs-service-mesh.png" data-caption="kubernetes vs service mesh">
 &lt;figcaption>kubernetes vs service mesh&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2879,11 +2879,11 @@ etc. Envoy&amp;rsquo;s biggest contribution to Service Mesh or cloud native is t
 information, and then set iptables rules, sends a request for a service directly to the corresponding Endpoint (belonging to the same group service pod).&lt;/p>
 &lt;p>&lt;strong>Service discovery&lt;/strong>&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/service-mesh-the-microservices-in-post-kubernetes-era/istio-service-registry.png" data-img="/blog/service-mesh-the-microservices-in-post-kubernetes-era/istio-service-registry.png" data-width="761" data-height="552" alt="istio-service-registry.png" data-caption="Service registration in Service Mesh">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/service-mesh-the-microservices-in-post-kubernetes-era/istio-service-registry.png" data-img="/sdmxio/blog/service-mesh-the-microservices-in-post-kubernetes-era/istio-service-registry.png" data-width="761" data-height="552" alt="istio-service-registry.png" data-caption="Service registration in Service Mesh">
 &lt;figcaption>Service registration in Service Mesh&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
-&lt;p>Istio Service Mesh can use the service in Kubernetes for service registration. It can also connect to other service discovery systems through the platform adapter of the control plane, and then generate the configuration of the data plane (using CRD statements, stored in etcd), a &lt;strong>transparent proxy&lt;/strong> for the data plane. (Transparent proxy) is deployed in the sidecar container in each application service pod. These proxy need to request the control plane to synchronize the proxy configuration. The reason why is a transparent proxy, because there is no application container fully aware agent, the process kube-proxy components like the need to block traffic, but &lt;code>kube-proxy&lt;/code>that blocks traffic to Kubernetes node and sidecar proxy that blocks out of the Pod For more information, see &lt;a href="https://sdmx.io/en/blog/envoy-sidecar-routing-of-istio-service-mesh-deep-dive/" title="Understanding Route Forwarding by the Envoy Sidecar Proxy in Istio Service Mesh">Understanding Route Forwarding by the Envoy Sidecar Proxy in Istio Service Mesh&lt;/a>
+&lt;p>Istio Service Mesh can use the service in Kubernetes for service registration. It can also connect to other service discovery systems through the platform adapter of the control plane, and then generate the configuration of the data plane (using CRD statements, stored in etcd), a &lt;strong>transparent proxy&lt;/strong> for the data plane. (Transparent proxy) is deployed in the sidecar container in each application service pod. These proxy need to request the control plane to synchronize the proxy configuration. The reason why is a transparent proxy, because there is no application container fully aware agent, the process kube-proxy components like the need to block traffic, but &lt;code>kube-proxy&lt;/code>that blocks traffic to Kubernetes node and sidecar proxy that blocks out of the Pod For more information, see &lt;a href="https://glennmdt.github.io/sdmxio/en/blog/envoy-sidecar-routing-of-istio-service-mesh-deep-dive/" title="Understanding Route Forwarding by the Envoy Sidecar Proxy in Istio Service Mesh">Understanding Route Forwarding by the Envoy Sidecar Proxy in Istio Service Mesh&lt;/a>
 .&lt;/p>
 &lt;p>&lt;strong>Disadvantages of Service Mesh&lt;/strong>&lt;/p>
 &lt;p>Because each node on Kubernetes many runs Pod, the original &lt;code>kube-proxy&lt;/code>routing forwarding placed in each pod, the distribution will lead to a lot of configuration, synchronization, and eventual consistency problems. In order to perform fine-grained traffic management, a series of new abstractions will be added, which will further increase the user&amp;rsquo;s learning costs. However, with the popularization of technology, this situation will gradually ease.&lt;/p>
@@ -2921,7 +2921,7 @@ the capability of sidecar proxy. For detailed configuration, please refer to &lt
 &lt;h2 id="xds-protocol">xDS protocol&lt;/h2>
 &lt;p>You may have seen the following picture when you understand Service Mesh. Each block represents an instance of a service, such as a Pod in Kubernetes (which contains a sidecar proxy). The xDS protocol controls all traffic in Istio Service Mesh. The specific behavior is to link the squares in the figure below.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/service-mesh-the-microservices-in-post-kubernetes-era/service-mesh-schematic-diagram.png" data-img="/blog/service-mesh-the-microservices-in-post-kubernetes-era/service-mesh-schematic-diagram.png" data-width="736" data-height="626" alt="service-mesh-schematic-diagram.png" data-caption="Service Mesh diagram">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/service-mesh-the-microservices-in-post-kubernetes-era/service-mesh-schematic-diagram.png" data-img="/sdmxio/blog/service-mesh-the-microservices-in-post-kubernetes-era/service-mesh-schematic-diagram.png" data-width="736" data-height="626" alt="service-mesh-schematic-diagram.png" data-caption="Service Mesh diagram">
 &lt;figcaption>Service Mesh diagram&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2930,7 +2930,7 @@ the capability of sidecar proxy. For detailed configuration, please refer to &lt
 details .&lt;/p>
 &lt;p>Let&amp;rsquo;s take a look at the xDS protocol with a service with two instances each.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/service-mesh-the-microservices-in-post-kubernetes-era/00831rSTly1gde7ydng3ij30s80j4aba.jpg" data-img="/blog/service-mesh-the-microservices-in-post-kubernetes-era/00831rSTly1gde7ydng3ij30s80j4aba.jpg" data-width="1016" data-height="688" alt="00831rSTly1gde7ydng3ij30s80j4aba.jpg" data-caption="xDS protocol">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/service-mesh-the-microservices-in-post-kubernetes-era/00831rSTly1gde7ydng3ij30s80j4aba.jpg" data-img="/sdmxio/blog/service-mesh-the-microservices-in-post-kubernetes-era/00831rSTly1gde7ydng3ij30s80j4aba.jpg" data-width="1016" data-height="688" alt="00831rSTly1gde7ydng3ij30s80j4aba.jpg" data-caption="xDS protocol">
 &lt;figcaption>xDS protocol&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2966,7 +2966,7 @@ to point to the cluster address of the corresponding upstream management server.
 and &lt;a href="https://jimmysong.io/blog/envoy-sidecar-injection-in-istio-service-mesh-deep-dive/" title="understanding Istio Service Mesh Envoy agent in Sidecar injection and traffic hijacking" target="_blank" rel="noopener">understanding Istio Service Mesh Envoy agent in Sidecar injection and traffic hijacking&lt;/a>
 , in which the article refers to some of the points, the details will not be repeated.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/service-mesh-the-microservices-in-post-kubernetes-era/envoy-arch.png" data-img="/blog/service-mesh-the-microservices-in-post-kubernetes-era/envoy-arch.png" data-width="1456" data-height="1070" alt="envoy-arch.png" data-caption="Envoy proxy architecture diagram">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/service-mesh-the-microservices-in-post-kubernetes-era/envoy-arch.png" data-img="/sdmxio/blog/service-mesh-the-microservices-in-post-kubernetes-era/envoy-arch.png" data-width="1456" data-height="1070" alt="envoy-arch.png" data-caption="Envoy proxy architecture diagram">
 &lt;figcaption>Envoy proxy architecture diagram&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -2988,7 +2988,7 @@ by &lt;a href="https://www.antfin.com" title="Ant Group" target="_blank" rel="no
 .&lt;/p>
 &lt;h2 id="istio-service-mesh">Istio Service Mesh&lt;/h2>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/service-mesh-the-microservices-in-post-kubernetes-era/istio-mesh-arch.png" data-img="/blog/service-mesh-the-microservices-in-post-kubernetes-era/istio-mesh-arch.png" data-width="1424" data-height="784" alt="istio-mesh-arch.png" data-caption="Istio service mesh architecture diagram">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/service-mesh-the-microservices-in-post-kubernetes-era/istio-mesh-arch.png" data-img="/sdmxio/blog/service-mesh-the-microservices-in-post-kubernetes-era/istio-mesh-arch.png" data-width="1424" data-height="784" alt="istio-mesh-arch.png" data-caption="Istio service mesh architecture diagram">
 &lt;figcaption>Istio service mesh architecture diagram&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -3073,7 +3073,7 @@ platforms like knative, but that&amp;rsquo;s what comes next.&lt;/p>
 &lt;/li>
 &lt;li>&lt;a href="https://www.envoyproxy.io/docs/envoy/latest/api-docs/xds_protocol" title="xDS REST and gRPC protocol - envoyproxy.io" target="_blank" rel="noopener">xDS REST and gRPC protocol - envoyproxy.io&lt;/a>
 &lt;/li>
-&lt;/ul></description></item><item><title>Cloud Native Sandbox</title><link>https://sdmx.io/blog/cloud-native-sandbox/</link><pubDate>Fri, 18 Jan 2019 19:06:14 +0800</pubDate><guid>https://sdmx.io/blog/cloud-native-sandbox/</guid><description>
+&lt;/ul></description></item><item><title>Cloud Native Sandbox</title><link>https://glennmdt.github.io/sdmxio/blog/cloud-native-sandbox/</link><pubDate>Fri, 18 Jan 2019 19:06:14 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/cloud-native-sandbox/</guid><description>
 &lt;p>Github: &lt;a href="https://github.com/rootsongjc/cloud-native-sandbox" title="https://github.com/rootsongjc/cloud-native-sandbox" target="_blank" rel="noopener">https://github.com/rootsongjc/cloud-native-sandbox&lt;/a>
 &lt;/p>
 &lt;p>Cloud Native Sandbox can help you setup a standalone Kubernetes and istio environment with Docker on you own laptop.&lt;/p>
@@ -3165,7 +3165,7 @@ with the above token.&lt;/p>
 - Switch faster between clusters and namespaces in kubectl&lt;/li>
 &lt;li>&lt;a href="https://github.com/jonmosco/kube-ps1" title="kube-ps1" target="_blank" rel="noopener">kube-ps1&lt;/a>
 - Kubernetes prompt info for bash and zsh&lt;/li>
-&lt;/ul></description></item><item><title>Understanding How Envoy Sidecar Intercept and Route Traffic in Istio Service Mesh</title><link>https://sdmx.io/blog/understanding-how-envoy-sidecar-intercept-and-route-traffic-in-istio-service-mesh/</link><pubDate>Thu, 27 Dec 2018 10:01:22 +0800</pubDate><guid>https://sdmx.io/blog/understanding-how-envoy-sidecar-intercept-and-route-traffic-in-istio-service-mesh/</guid><description>
+&lt;/ul></description></item><item><title>Understanding How Envoy Sidecar Intercept and Route Traffic in Istio Service Mesh</title><link>https://glennmdt.github.io/sdmxio/blog/understanding-how-envoy-sidecar-intercept-and-route-traffic-in-istio-service-mesh/</link><pubDate>Thu, 27 Dec 2018 10:01:22 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/understanding-how-envoy-sidecar-intercept-and-route-traffic-in-istio-service-mesh/</guid><description>
 &lt;p>Updated at Mar 8, 2022&lt;/p>
 &lt;p>This article uses Istio&amp;rsquo;s official &lt;a href="https://istio.io/latest/docs/examples/bookinfo/" title="bookinfo sample" target="_blank" rel="noopener">bookinfo sample&lt;/a>
 to explain how Envoy performs routing forwarding after the traffic entering the Pod and forwarded to Envoy sidecar by iptables, detailing the inbound and outbound processing. For a detailed analysis of traffic interception, see &lt;a href="https://jimmysong.io/blog/envoy-sidecar-injection-in-istio-service-mesh-deep-dive/" title="Understanding Envoy Sidecar Proxy Injection and Traffic Interception in Istio Service Mesh" target="_blank" rel="noopener">Understanding Envoy Sidecar Proxy Injection and Traffic Interception in Istio Service Mesh&lt;/a>
@@ -3196,7 +3196,7 @@ to explain how Envoy performs routing forwarding after the traffic entering the 
 &lt;h2 id="how-envoy-handles-route-forwarding">How Envoy handles route forwarding&lt;/h2>
 &lt;p>The following figure shows a &lt;code>productpage&lt;/code>service access request &lt;code>http://reviews.default.svc.cluster.local:9080/&lt;/code>, when traffic enters &lt;code>reviews&lt;/code> the internal services, &lt;code>reviews&lt;/code> internal services Envoy Sidecar is how to do traffic blocked the route forward.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/understanding-how-envoy-sidecar-intercept-and-route-traffic-in-istio-service-mesh/sidecar-iptables.webp" data-img="/blog/understanding-how-envoy-sidecar-intercept-and-route-traffic-in-istio-service-mesh/sidecar-iptables.webp" data-width="2968" data-height="1872" alt="sidecar-iptables.webp" data-caption="Istio transparent traffic hijacking and traffic routing schematic">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/understanding-how-envoy-sidecar-intercept-and-route-traffic-in-istio-service-mesh/sidecar-iptables.webp" data-img="/sdmxio/blog/understanding-how-envoy-sidecar-intercept-and-route-traffic-in-istio-service-mesh/sidecar-iptables.webp" data-width="2968" data-height="1872" alt="sidecar-iptables.webp" data-caption="Istio transparent traffic hijacking and traffic routing schematic">
 &lt;figcaption>Istio transparent traffic hijacking and traffic routing schematic&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
@@ -3469,20 +3469,20 @@ configuration that is &lt;code>false&lt;/code>, the default value of the configu
 &lt;/li>
 &lt;li>&lt;a href="https://zhaohuabing.com/post/2018-09-25-istio-traffic-management-impl-intro/" title="Istio traffic management implementation mechanism deep analysis - zhaohuabing.com" target="_blank" rel="noopener">Istio traffic management implementation mechanism deep analysis - zhaohuabing.com&lt;/a>
 &lt;/li>
-&lt;/ul></description></item><item><title>Cloud Native and me - the past, current and future</title><link>https://sdmx.io/blog/cloud-native-and-me-the-past-current-and-future/</link><pubDate>Sat, 11 Aug 2018 11:37:36 +0800</pubDate><guid>https://sdmx.io/blog/cloud-native-and-me-the-past-current-and-future/</guid><description>
+&lt;/ul></description></item><item><title>Cloud Native and me - the past, current and future</title><link>https://glennmdt.github.io/sdmxio/blog/cloud-native-and-me-the-past-current-and-future/</link><pubDate>Sat, 11 Aug 2018 11:37:36 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/cloud-native-and-me-the-past-current-and-future/</guid><description>
 &lt;p>Today I am honored to announce that I have become a &lt;a href="https://www.cncf.io/people/ambassadors/" title="CNCF Ambassador" target="_blank" rel="noopener">CNCF Ambassador&lt;/a>
 . Here is my story with Cloud Native.&lt;/p>
 &lt;h2 id="origin">Origin&lt;/h2>
 &lt;p>The first time to attend the Cloud Native Computing Foundation is at the LC3 in Beijing 2017. I attended the meeting again this year, and in November of this year, CNCF will hold the &lt;a href="https://www.lfasiallc.com/events/kubecon-cloudnativecon-china-2018/" title="KubeCon &amp;amp;amp; CloudNativeCon" target="_blank" rel="noopener">KubeCon &amp;amp; CloudNativeCon&lt;/a>
 for the first time in Shanghai, China. I&amp;rsquo;ll be there too.&lt;/p>
 &lt;h2 id="cloud-native-books">Cloud Native Books&lt;/h2>
-&lt;p>My origins with the Cloud Native is originated from Kevin Hoffman&amp;rsquo;s book &lt;a href="https://sdmx.io/en/book/cloud-native-go" title="Cloud Native Go">Cloud Native Go&lt;/a>
+&lt;p>My origins with the Cloud Native is originated from Kevin Hoffman&amp;rsquo;s book &lt;a href="https://glennmdt.github.io/sdmxio/en/book/cloud-native-go" title="Cloud Native Go">Cloud Native Go&lt;/a>
 . I translated this book at the end of 2016. Since then, in China, the translation of the word &lt;code>Cloud Native&lt;/code> has not been determined, we introduced it with &lt;code>云原生&lt;/code> to China.&lt;/p>
 &lt;p>And then I begin to write the &lt;a href="https://github.com/rootsongjc/kubernetes-handbook" title="kubernetes-handbook" target="_blank" rel="noopener">kubernetes-handbook&lt;/a>
 on GitHub. So far, it has more than 2000 stars. This book has written more than 200,000 Chinese characters, the first commit happened on April 14, 2017.&lt;/p>
-&lt;p>Since the the book Cloud Native Go completed, the publisher recommended another Cloud Native book to me - &lt;a href="https://sdmx.io/en/book/cloud-native-python/" title="Cloud Native Python">Cloud Native Python&lt;/a>
+&lt;p>Since the the book Cloud Native Go completed, the publisher recommended another Cloud Native book to me - &lt;a href="https://glennmdt.github.io/sdmxio/en/book/cloud-native-python/" title="Cloud Native Python">Cloud Native Python&lt;/a>
 by Manish Sethi.&lt;/p>
-&lt;p>And the book &lt;a href="https://sdmx.io/en/book/cloud-native-java/" title="Cloud Native Java">Cloud Native Java&lt;/a>
+&lt;p>And the book &lt;a href="https://glennmdt.github.io/sdmxio/en/book/cloud-native-java/" title="Cloud Native Java">Cloud Native Java&lt;/a>
 by Josh Long and Kenny Bastani.&lt;/p>
 &lt;p>In March 2018, with the hope that &lt;code>Bring the world equal opportunities&lt;/code> and &lt;code>Building a Financial Cloud Native Infrastructure&lt;/code>, I joined the &lt;a href="http://antfin.com" title="Ant Group" target="_blank" rel="noopener">Ant Group&lt;/a>
 .&lt;/p>
@@ -3506,7 +3506,7 @@ till now.&lt;/p>
 &lt;li>A book related to Cloud Native or Service Mesh&lt;/li>
 &lt;li>Strengthen cultural exchanges between China and the global&lt;/li>
 &lt;/ul>
-&lt;p>Finally, welcome to China for traveling or share your topic with us on Cloud Native, and in the mean while we will share our experience on large scale web apps to the world. Hope to hear your voice!&lt;/p></description></item><item><title>High Level Cloud Native From Kevin Hoffman</title><link>https://sdmx.io/blog/high-level-cloud-native-from-kevin-hoffman/</link><pubDate>Fri, 15 Sep 2017 20:32:47 +0800</pubDate><guid>https://sdmx.io/blog/high-level-cloud-native-from-kevin-hoffman/</guid><description>
+&lt;p>Finally, welcome to China for traveling or share your topic with us on Cloud Native, and in the mean while we will share our experience on large scale web apps to the world. Hope to hear your voice!&lt;/p></description></item><item><title>High Level Cloud Native From Kevin Hoffman</title><link>https://glennmdt.github.io/sdmxio/blog/high-level-cloud-native-from-kevin-hoffman/</link><pubDate>Fri, 15 Sep 2017 20:32:47 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/high-level-cloud-native-from-kevin-hoffman/</guid><description>
 &lt;p>Kevin Hoffman(From Capital One, twitter &lt;a href="https://twitter.com/KevinHoffman" title="@KevinHoffman" target="_blank" rel="noopener">@KevinHoffman&lt;/a>
 ) was making a speech on &lt;em>TalkingData T11 Smart Data Summit&lt;/em>.&lt;/p>
 &lt;p>He addressed that &lt;strong>15 Factors of Cloud Native&lt;/strong> which based on Heroku&amp;rsquo;s original &lt;a href="https://12factor.net" title="Twelve-Factor App" target="_blank" rel="noopener">Twelve-Factor App&lt;/a>
@@ -3748,13 +3748,13 @@ till now.&lt;/p>
 &lt;p>Kevin also wrote a book &lt;strong>Cloud Native Go&lt;/strong> to show how to &lt;strong>Building Web Applications and Microservices for the Cloud with Go and React&lt;/strong>. This book has been translated to Chinese by four guys from TalkingData with ❤️. 《Cloud Native Go 构建基于Go和React的云原生Web应用与微服务》published by PHEI publisher house.&lt;/p>
 &lt;p>Kevin was signing his name on the book&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/high-level-cloud-native-from-kevin-hoffman/kevin-hoffman-siging-on-the-book.jpg" data-img="/blog/high-level-cloud-native-from-kevin-hoffman/kevin-hoffman-siging-on-the-book.jpg" data-width="599" data-height="400" alt="kevin-hoffman-siging-on-the-book.jpg" data-caption="kevin siging on the book">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/high-level-cloud-native-from-kevin-hoffman/kevin-hoffman-siging-on-the-book.jpg" data-img="/sdmxio/blog/high-level-cloud-native-from-kevin-hoffman/kevin-hoffman-siging-on-the-book.jpg" data-width="599" data-height="400" alt="kevin-hoffman-siging-on-the-book.jpg" data-caption="kevin siging on the book">
 &lt;figcaption>kevin siging on the book&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
 &lt;p>This is his first visit to China, as a main translator of this book I an honored to be with him to take this photo.&lt;/p>
 &lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://sdmx.io/blog/high-level-cloud-native-from-kevin-hoffman/kevin-hoffman-with-me.jpg" data-img="/blog/high-level-cloud-native-from-kevin-hoffman/kevin-hoffman-with-me.jpg" data-width="539" data-height="355" alt="kevin-hoffman-with-me.jpg" data-caption="kevin hoffman with me">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/high-level-cloud-native-from-kevin-hoffman/kevin-hoffman-with-me.jpg" data-img="/sdmxio/blog/high-level-cloud-native-from-kevin-hoffman/kevin-hoffman-with-me.jpg" data-width="539" data-height="355" alt="kevin-hoffman-with-me.jpg" data-caption="kevin hoffman with me">
 &lt;figcaption>kevin hoffman with me&lt;/figcaption>
 &lt;/figure>
 &lt;/p></description></item></channel></rss>
