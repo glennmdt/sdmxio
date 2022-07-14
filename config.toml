@@ -1,0 +1,251 @@
+######################## default configuration ####################
+baseURL = "https://sdmx.io"
+title = "Open source software for official statistics"
+# post pagination
+paginate = "10"
+# post excerpt
+summaryLength = "100"
+metaDataFormat = "yaml"
+hasCJKLanguage = true
+DefaultContentLanguage = "en"
+gcs_engine_id=""
+# disable language
+disableLanguages = [] # desable language from here
+pygmentsUseClasses=true
+
+[outputs]
+home = ["HTML", "RSS", "Algolia"]
+
+[outputFormats.Algolia]
+baseName = "algolia"
+isPlainText = true
+mediaType = "application/json"
+notAlternative = true
+
+[params.algolia]
+vars = ["title", "summary", "date", "permalink", "image","description"]
+params = ["tags","categories"]
+
+[params.repository]
+url = "https://github.com/sdmxio/website"
+branch = "master"
+
+############################# Plugins ##############################
+
+# CSS Plugins
+[[params.plugins.css]]
+link = "plugins/bootstrap/bootstrap.min.css"
+[[params.plugins.css]]
+link = "plugins/slick/slick.css"
+[[params.plugins.css]]
+link = "plugins/animate/animate.css"
+[[params.plugins.css]]
+link = "plugins/venobox/venobox.css"
+[[params.plugins.css]]
+link = "plugins/themify-icons/themify-icons.css"
+[[params.plugins.css]]
+link = "plugins/hightlight/syntax.css"
+[[params.plugins.css]]
+link = "plugins/fontawesome/font-awesome.min.css"
+[[params.plugins.css]]
+link = "plugins/tocbot/tocbot.css"
+[[params.plugins.css]]
+link = "plugins/bigger-picture/bigger-picture.css"
+
+
+# JS Plugins
+[[params.plugins.js]]
+link = "plugins/jQuery/jquery.min.js"
+[[params.plugins.js]]
+link = "plugins/bootstrap/bootstrap.min.js"
+[[params.plugins.js]]
+link = "plugins/slick/slick.min.js"
+[[params.plugins.js]]
+link = "plugins/venobox/venobox.min.js"
+[[params.plugins.js]]
+link = "plugins/filterizr/jquery.filterizr.min.js"
+[[params.plugins.js]]
+link = "plugins/search/fuse.min.js"
+[[params.plugins.js]]
+link = "plugins/search/mark.js"
+[[params.plugins.js]]
+link = "plugins/search/search.js"
+#[[params.plugins.js]]
+#link = "plugins/bigpicture/bigpicture.min.js"
+[[params.plugins.js]]
+link = "plugins/hex_md5/hex_md5.js"
+[[params.plugins.js]]
+link = "plugins/anchor/anchor.min.js"
+[[params.plugins.js]]
+link = "plugins/tocbot/tocbot.min.js"
+[[params.plugins.js]]
+link = "plugins/bigger-picture/bigger-picture.min.js"
+
+#################### default parameters ################################
+[params]
+logo = "images/logo.png"
+# Meta data
+description = "宋净超（Jimmy Song）的个人博客， 专注于探索后 Kubernetes 时代的云原生新范式。"
+author = "BIS"
+# contact info
+address = "Bank for International Settlements, Basel"
+email = "info@sdmx.io"
+# contact form action
+contact_form_action = "https://formspree.io/mpzdzdbj" # contact form works with https://formspree.io
+# Google Analitycs
+google_analitycs_id = "" # your id
+
+# Preloader
+[params.preloader]
+enable = false
+preloader = "images/preloader.gif" # use jpg, png, svg or gif format.
+
+# Subscription
+#[params.subscription]
+#enable = true
+# mailchimp subsciption
+#mailchimp_form_action = "https://jimmysong.us20.list-manage.com/subscribe/post?u=cca519d8764547a389f52c57f&amp;id=e8e9e07dcc"
+# Use RSS instead
+#mailchimp_form_name = "b_cca519d8764547a389f52c57f_e8e9e07dcc"
+
+
+############################# social site ########################
+[[params.social]]
+title = "twitter"
+icon = "fa-twitter"
+link = "https://twitter.com/jimmysongio"
+
+[[params.social]]
+title = "github"
+icon = "fa-github"
+link = "https://github.com/sdmxio"
+
+[[params.social]]
+title = "linkedin"
+icon = "fa-linkedin"
+link = "https://linkedin.com/in/sdmxio"
+
+[[params.social]]
+title = "mail"
+icon = "fa-envelope"
+link = "mailto:info@sdmxio.io"
+
+
+
+################################### English language #####################################
+[Languages.en]
+languageName = "English"
+languageCode = "en-us"
+contentDir = "content/en"
+weight = 1
+home = "Home"
+# copyright
+copyright = "&copy; 2022 BIS All Rights Reserved"
+
+# top header
+top_header = false
+top_header_content = ""
+
+# main menu
+[[menu.main]]
+name = "About"
+URL = "about"
+weight = 1
+identifier = "about"
+
+[[menu.main]]
+name = "About sdmx.io"
+URL = "about"
+weight=1
+parent = "about"
+
+[[menu.main]]
+name = "sdmx.io members"
+URL = "members"
+weight=1
+parent = "about"
+
+
+[[menu.main]]
+name = "Blog"
+URL = "blog"
+weight = 2
+
+[[menu.main]]
+name = "Book"
+URL = "https://lib.jimmysong.io"
+weight = 3
+
+[[menu.main]]
+name = "Event"
+URL = "https://lib.jimmysong.io/event/"
+weight = 4
+
+[[menu.main]]
+name = "Notice"
+URL = "notice"
+weight = 5
+
+[[menu.main]]
+name = "Tags"
+URL = "tags"
+weight = 6
+
+[[menu.main]]
+name = "Contact"
+URL = "contact"
+weight = 7
+
+# footer links
+
+[[menu.footer]]
+name = "Tetrate Istio Distro"
+URL = "https://istio.tetratelabs.io/"
+
+[[menu.footer]]
+name = "Cloud Native Community(China)"
+URL = "https://cloudnative.to"
+
+[[menu.footer]]
+name = "Awesome Cloud Native"
+URL = "/awesome-cloud-native/"
+
+[[menu.footer]]
+name = "Jimmy's YouTube Channel"
+URL = "https://www.youtube.com/channel/UCwLGlxo3b492bzIgD8lnOKg/"
+
+[[menu.footer]]
+name = "Tetrate - Service Mesh Company"
+URL = "https://tetrate.io/?jimmysong"
+
+# book
+
+[[menu.book]]
+name = "Kubernetes Handbook"
+URL = "https://lib.jimmysong.io/kubernetes-handbook/"
+
+[[menu.book]]
+name = "Istio Handbook"
+URL = "https://lib.jimmysong.io/istio-handbook/"
+
+[[menu.book]]
+name = "Envoy Handbook"
+URL = "https://lib.jimmysong.io/envoy-handbook/"
+
+[[menu.book]]
+name = "Cloud Native Bible"
+URL = "https://lib.jimmysong.io/cloud-native/"
+
+
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "github"
+    tabWidth = 4

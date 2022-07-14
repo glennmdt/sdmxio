@@ -1,0 +1,154 @@
+################################# Slider #####################################
+slider:
+  enable : true
+  bg_image : "images/backgrounds/bg.jpg"
+  slider_item:
+    - title : "Open source software for official statistics"
+      animation_in : "left"
+      animation_out : "right"
+      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      # available animation : left, right, up, down
+      button:
+        enable : true
+        label : "Learn More"
+        link : "about/"
+
+    # slider item loop
+    - title : "Integrated ecosystem for practical use cases"
+      content : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      animation_in : "left"
+      animation_out : "right"
+      # available animation : left, right, up, down
+      button:
+        enable : true
+        label : "Go"
+        link : "ecosystem/"
+
+############################### Banner feature ###############################
+banner_feature:
+  enable : true
+  title: "Use cases"
+  button:
+    enable : false
+    label : "More"
+    link : "usecases/"
+
+  feature_item:
+    # feature item loop
+    - name : "Data domain modelling"
+      icon : "ti-layout-accordion-list" # icon pack : https://themify.me/themify-icons
+      image : "images/banner/neural.png"
+      content : "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+
+    # feature item loop
+    - name : "Data collection"
+      icon : "ti-layout-media-left" # icon pack : https://themify.me/themify-icons
+      image : "images/banner/data-collection.png"
+      content : "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+
+    # feature item loop
+    - name : "Statistics production"
+      icon : "ti-layout-sidebar-left" # icon pack : https://themify.me/themify-icons
+      image : "images/banner/statistic.png"
+      content : "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+
+    # feature item loop
+    - name : "Statistics dissemination"
+      icon : "ti-layout-sidebar-none" # icon pack : https://themify.me/themify-icons
+      image : "images/banner/share.png"
+      content : "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+
+
+############################## about ##################################
+about:
+  enable : true
+  title : "About Jimmy Song"
+  partner_enabled: false
+  funfacts_enabled: false
+  image: "/images/jimmy-song-avatar.webp"
+  content : 'Jimmy is a developer advocate at [Tetrate](https://tetrate.io), CNCF Ambassador, [Cloud Native Community(China)](https://cloudnative.to/en) founder, former cloud native advocate and head of OSS office at [Ant Group](https://www.antgroup.com). He mainly focuses on cloud native fields, including Kubernetes and Service Mesh.  He is one of the authors of books such as "Deeper Understanding of Istio" and "Future Architecture".'
+  button:
+    enable : true
+    label : "Learn more"
+    link : "about"
+
+
+############################# Course ################################
+book:
+  enable : true
+  title : "My books"
+  # book item comes from "content/**/book" folder.
+
+########################## Call to action ############################
+cta:
+  enable : false
+  title : "Welcome to join the Cloud Native Community"
+  button:
+    enable : true
+    label : "Apply now"
+    link : "https://cloudnative.to/contact/"
+
+
+######################## Success story #############################
+success_story:
+  enable : true
+  bg_image : "images/backgrounds/bg3.jpg"
+  title : "Fusion Metadata Registry"
+  content : "FMR helps organisations **externalise and take control** of their statistical metadata with the benefits of maintainability, re-use, standardisation, harmonisation and improved metadata and data governance."
+  # video link
+  video_link : "/video/FMR11_introduction.mp4"
+
+
+############################# event ################################
+event:
+  enable : true
+  title : "Events"
+  # event item comes from "content/**/event" folder.
+
+############################ funfacts ############################
+#funfacts:
+#  enable : true
+#  funfact_item:
+#    # funfact item loop
+#    - name : "Published Books"
+#      count : "7"
+#      link : "https://lib.jimmysong.io/#books"
+#
+#    # funfact item loop
+#    - name : "Hosted Events"
+#      count : "19"
+#      link: "https://lib.jimmysong.io/event/"
+#
+#    # funfact item loop
+#    - name : "Live Shows"
+#      count : "30"
+#      link : "https://space.bilibili.com/515485124/"
+#
+#    # funfact item loop
+#    - name : "Community Members"
+#      count : "10566"
+#      link : "https://cloudnative.to/en"
+#
+## funfact is for about page
+
+
+
+############################# blog ################################
+blog:
+  enable : true
+  title : "Latest articles"
+  # blog item comes from "content/**/blog" folder.
+
+############################# footer ##############################
+footer:
+  content : "Twitter"
+  button_link : "https://twitter.com/sdmxio"
+  #footer_image : "images/jimmysong-twitter-qr-code.webp"
+  address : "Beijing, China"
+  email : "jimmysong@jimmysong.io"
+  subscribe_enable: false
+  button_title: "Follow Me"
+
+### contact ###
+contact:
+  qr_code: "/images/jimmysong-twitter-qr-code.webp"

@@ -1,0 +1,93 @@
+<!-- header -->
+<header class="fixed-top header">
+  <!-- top header -->
+  {{ if .Site.Params.top_header }}
+  <div class="top-header py-2 bg-white">
+    <div class="container">
+      <div class="row no-gutters align-items-center">
+        <div class="col-12 text-center">
+          <ul class="list-inline">
+            <li class="list-inline-item">
+                {{ .Site.Params.top_header_content | markdownify }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{ end }}
+  <!-- navbar -->
+  <div class="navigation w-100 {{ if .Site.Params.top_header }} top-hider {{ end }}">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <a class="navbar-brand" href="{{ .Site.BaseURL | relLangURL }}"><img class="img-fluid" width="200px"
+            src="{{ .Site.Params.logo | relURL }}" alt="{{ .Site.Title }}"></a>
+        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse text-center" id="navigation">
+          <ul class="navbar-nav ml-auto">
+            {{ range .Site.Menus.main }}
+            {{ if .HasChildren }}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                {{ .Name }}
+              </a>
+              <div class="dropdown-menu">
+                {{ range .Children }}
+                <a class="dropdown-item" href="{{ .URL | relLangURL }}">{{ .Name | upper }}</a>
+                {{ end }}
+              </div>
+            </li>
+            {{ else }}
+            <li class="nav-item">
+              {{ if strings.HasPrefix .URL "http" }}
+              <a class="nav-link" href="{{ .URL | absURL }}" target="_blank" rel="noopener">{{ .Name }}</a>
+              {{ else }}
+              <a class="nav-link" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+              {{ end  }}
+            </li>
+            {{ end }}
+            {{ end }}
+
+          <!-- Language List -->
+          {{ if .IsTranslated }}
+          <li class="nav-item">
+            {{ $siteLanguages := .Site.Languages}}
+            {{ $pageLang := .Page.Lang}}
+            {{ range .Page.AllTranslations }}
+            {{ $translation := .}}
+            {{ range $siteLanguages }}
+            {{ if eq $translation.Lang .Lang }}
+            {{ $selected := false }}
+            {{ if eq $pageLang .Lang}}
+            {{ else }}
+            <a class="nav-link" href="{{ $translation.Permalink | relURL }}">{{ .LanguageName }}</a>
+            {{ end }}
+            {{ end }}
+            {{ end }}
+            {{ end }}
+          </li>
+          {{ end }}
+          {{ if .Site.Params.search }}
+          {{ "<!-- search -->" | safeHTML }}
+          <div class="m-auto search px-4">
+            <button id="searchOpen" class="search-btn"><i class="fa fa-search text-dark"></i></button>
+            <div class="search-wrapper">
+              <form action="{{ `search`| relLangURL }}">
+                <input class="search-box form-control" id="js-algolia-btn" name="s" type="search" placeholder="{{ i18n `search_placeholder`}}">
+              </form>
+              <button id="searchClose" class="search-close"><i class="fa fa-close text-dark"></i></button>
+            </div>
+          </div>
+          {{ end }}
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+<!-- /header -->

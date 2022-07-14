@@ -1,0 +1,8 @@
+public/
+.DS_Store
+deploy.sh
+node_modules
+package-lock.json
+.htmlproofer
+resources
+hugo

@@ -1,0 +1,182 @@
+################################# Slider #####################################
+slider:
+  enable : true
+  bg_image : "/images/backgrounds/bg.svg"
+  slider_item:
+    # slider item loop
+    - title : "《深入理解 Istio》出版啦"
+      content : "三年磨一剑，云原生社区著的《深入理解 Istio —— 云原生服务网格进阶实战》出版啦！基于 Istio 1.11 编写，本书在持续追踪 Istio 社区最新动向的基础上，力求为读者提供最新、最全面的内容。另外，本书的多位作者都是一线的开发或运维工程师，具有丰富的 Istio 实战经验， 为本书提供了翔实、宝贵的参考案例。"
+      animation_in : "left"
+      animation_out : "right"
+      # available animation : left, right, up, down
+      button:
+        enable : true
+        label : "了解详情"
+        link : "/blog/istio-service-mesh-book"
+    - title : "云原生资料库上线"
+      content : "云原生资料库收集了 Jimmy 自 2017 年以来的发表和翻译的云原生相关图书、资料、活动等，是对已发布的的十几本资料的一个梳理和补充。"
+      animation_in : "left"
+      animation_out : "right"
+      # available animation : left, right, up, down
+      button:
+        enable : true
+        label : "查看资料"
+        link : "https://lib.jimmysong.io"
+
+    # slider item loop
+    - title : "独立第三方云原生终端用户社区"
+      animation_in : "left"
+      animation_out : "right"
+      content: "云原生社区成立于 2020 年 5 月 12 日，始于 Jimmy 2016 年创建的 Kubernetes & 云原生实战群。云原生社区是一个中立的云原生终端用户社区，现有成员一万余人，欢迎加入我们。"
+      # available animation : left, right, up, down
+      button:
+        enable : true
+        label : "加入社区"
+        link : "https://mp.weixin.qq.com/s/ppDxLapuFwo3isEpg3zfUQ"
+
+    # slider item loop
+    - title : "开启云原生之旅"
+      content : "Kubernetes 开启了云原生 1.0 的序幕，服务网格 Istio 的出现，引领了后 Kubernetes 时代的微服务，Serverless 的再次兴起，使得云原生从基础设施层不断向应用架构层挺进，我们正处于一个云原生的新时代。"
+      animation_in : "left"
+      animation_out : "right"
+      # available animation : left, right, up, down
+      button:
+        enable : true
+        label : "开启旅程"
+        link : "/kubernetes-handbook/"
+
+############################### Banner feature ###############################
+banner_feature:
+  enable : true
+  title: "云原生资料库"
+  button:
+    enable : true
+    label : "点击进入"
+    link : "https://lib.jimmysong.io/"
+  image : "/images/banner/cloud-landscape-zh.jpg"
+  feature_item:
+    # feature item loop
+    - name : "容器"
+      icon : "ti-layout-grid3" # icon pack : https://themify.me/themify-icons
+      image : "/images/banner/containers.svg"
+      content : "容器作为云原生应用的标准交付物和最小的构建单元，一次构建，到处运行。"
+
+    # feature item loop
+    - name : "Kubernetes"
+      icon : "ti-layout-media-left" # icon pack : https://themify.me/themify-icons
+      image : "/images/banner/kubernetes.svg"
+      content : "Kubernetes 是云原生时代的操作系统，以不可变基础设施为设计的理念，以声明式 API 为核心，Operator 扩展的引擎。"
+
+    # feature item loop
+    - name : "Service Mesh"
+      icon : "ti-layout-sidebar-left" # icon pack : https://themify.me/themify-icons
+      image : "/images/banner/istio.svg"
+      content : "服务网格作为云原生网络基础设施，负责服务间通信的一切方面，旨在构建零信任网络。"
+
+    # feature item loop
+    - name : "Serverless"
+      icon : "ti-layout-sidebar-none" # icon pack : https://themify.me/themify-icons
+      image : "/images/banner/serverless.svg"
+      content : "可预见时间内的云原生的终极形式，真正的按需使用和按量付费。"
+
+
+############################## about ##################################
+about:
+  enable : true
+  title : "关于 Jimmy Song"
+  partner_enabled: false
+  funfacts_enabled: false
+  image: "/images/jimmy-song-avatar.webp"
+  content : "宋净超（Jimmy Song），[Tetrate](https://tetrate.io) 布道师，CNCF Ambassador，[云原生社区](https://cloudnative.to)及 [ServiceMesher](https://www.servicemesher.com) 创始人，前[蚂蚁集团](https://www.antgroup.com)云原生布道师及开源管理负责人，独立撰稿人，摄影师。"
+  button:
+    enable : true
+    label : "详细介绍"
+    link : "about"
+
+############################# Book ################################
+book:
+  enable : true
+  title : "图书"
+  # book item comes from "content/**/book" folder.
+  book_item:
+    - name: "Istio 服务网格"
+      link: "/istio-handbook/"
+    - name: "Kubernetes 中文指南"
+      link: "/kubernetes-handbook/"
+    - name: "Envoy 基础教程"
+      link: "/envoy-handbook/"
+
+
+########################## Call to action ############################
+cta:
+  enable : false
+  title : "欢迎与几千名云原生早期采纳者一起加入云原生社区！"
+  button:
+    enable : true
+    label : "点此申请"
+    link : "https://wj.qq.com/s2/5479026/bf82/"
+
+
+######################## Success story #############################
+success_story:
+  enable : true
+  bg_image : "/images/backgrounds/books.svg"
+  title : "云原生学院"
+  content : "欢迎来到云原生学院，云原生学院由云原生社区主办，致力于云原生知识的传播和普及。云原生学院定期举办线上直播活动， 组织 SIG（特别兴趣小组），直播分享云原生领域的前沿知识和动向。欢迎关注我们的 Bilibili [频道](https://space.bilibili.com/515485124)和[直播间](http://live.bilibili.com/22230973)。"
+  # video link
+  # video_link : "https://youtu.be/26kbaZxcB4A"
+  video_link: "https://space.bilibili.com/515485124"
+
+
+############################# event ################################
+event:
+  enable : false
+  title : "活动信息"
+  # event item comes from "content/**/event" folder.
+
+
+########################### funfacts ############################
+funfacts:
+  enable : true
+  funfact_item:
+    # funfact item loop
+    - name : "出版图书"
+      count : "7"
+      link : "https://lib.jimmysong.io/#books"
+
+    # funfact item loop
+    - name : "举办活动"
+      count : "19"
+      link : "https://lib.jimmysong.io/event/"
+
+    # funfact item loop
+    - name : "社区直播"
+      count : "30"
+      link: "https://space.bilibili.com/515485124/"
+
+    # funfact item loop
+    - name : "社区成员"
+      count : "10566"
+      link : "https://cloudnative.to"
+
+# funfact is for about page
+
+############################# blog ################################
+blog:
+  enable : true
+  title : "最新博客"
+  # blog item comes from "content/**/blog" folder.
+
+############################ footer ###############################
+footer:
+  content : "扫码关注我的微信公众号"
+  footer_image: "/images/servicemesher-wechat.webp"
+  address : "中国，北京"
+  email : "jimmysong@jimmysong.io"
+  subscribe_enable: false
+  button_link: "/contact"
+  button_title: "订阅"
+
+### contact ###
+contact:
+  qr_code: "images/jimmysongio-wechat.webp"
