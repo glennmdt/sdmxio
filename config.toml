@@ -1,5 +1,5 @@
 ######################## default configuration ####################
-baseURL = "https://sdmx.io"
+baseURL = "https://glennmdt.github.io/sdmxio/"
 title = "Open source software for official statistics"
 # post pagination
 paginate = "10"
