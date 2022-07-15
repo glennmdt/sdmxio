@@ -1,6 +1,6 @@
 ######################## default configuration ####################
 baseURL = "https://glennmdt.github.io/sdmxio/"
-title = "Open source SDMX software for official statistics"
+title = "Open source software for official statistics"
 # post pagination
 paginate = "10"
 # post excerpt

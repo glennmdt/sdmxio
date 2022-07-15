@@ -6,8 +6,6 @@ publishDate: "2019-01-01T00:00:00Z"
 date: "2022-07-28T13:00:17+06:00"
 # post save as draft
 draft: false
-# page title background image
-bg_image: "images/event-speakers/baixiyuan.jpg"
 # meta description
 description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. dolore magna aliqua. Ut enim ad minim veniam, quis nostrud."
 # Event image
