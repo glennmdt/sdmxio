@@ -1,4 +1,38 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – Events</title><link>https://glennmdt.github.io/sdmxio/event/</link><description>Recent content in Events on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Thu, 28 Jul 2022 13:00:17 +0600</lastBuildDate><atom:link href="https://glennmdt.github.io/sdmxio/event/index.xml" rel="self" type="application/rss+xml"/><item><title>Fusion Metadata Registry - validating data</title><link>https://glennmdt.github.io/sdmxio/event/event-1/</link><pubDate>Thu, 28 Jul 2022 13:00:17 +0600</pubDate><guid>https://glennmdt.github.io/sdmxio/event/event-1/</guid><description>
-&lt;h3 id="about-event">About Event&lt;/h3>
-&lt;p>Test event&lt;/p>
-&lt;p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.&lt;/p></description></item></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – Events</title><link>https://glennmdt.github.io/sdmxio/event/</link><description>Recent content in Events on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Thu, 13 Oct 2022 13:00:17 +0600</lastBuildDate><atom:link href="https://glennmdt.github.io/sdmxio/event/index.xml" rel="self" type="application/rss+xml"/><item><title>Fusion Metadata Registry - data collection using Excel templates</title><link>https://glennmdt.github.io/sdmxio/event/datacollection-with-excel-templates/</link><pubDate>Thu, 13 Oct 2022 13:00:17 +0600</pubDate><guid>https://glennmdt.github.io/sdmxio/event/datacollection-with-excel-templates/</guid><description>
+&lt;h3 id="webinar">Webinar&lt;/h3>
+&lt;p>&lt;strong>Fusion Metadata Registry&lt;/strong> (FMR) is the free to use SDMX structural metadata registry from the BIS supporting EDI, SDMX 2.0, 2.1 and 3.0. FMR enables official statistics organisations to externalise, centralise and control all SDMX structures including Codelists, Concepts and DSDs with the benefits of maintainability, re-use, standardisation, harmonisation and improved metadata and data governance.&lt;/p>
+&lt;p>Excel remains a popular choice for managing and exchanging statistical data. For many data providers, reporting their data in an Excel workbook is simple requiring no specialised software, procedures or SDMX expertise. However, the worksheets must follow a specific format to be processable by the data collector.&lt;/p>
+&lt;p>&lt;strong>FMR&amp;rsquo;s Excel Templates feature&lt;/strong> provides an answer by generating &lt;strong>cross-tabulation Excel forms&lt;/strong> requiring the data reporter to simply fill in the observation values (and optionally observation attributes). Excel Templates are best suited to smaller universes of data to avoid the tables becoming too large – although an Excel workbook can contain multiple worksheets / tables.&lt;/p>
+&lt;p>&lt;figure class="mx-auto text-center">
+&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/event/datacollection-with-excel-templates/exceltemplateexample.png" data-img="/sdmxio/event/datacollection-with-excel-templates/exceltemplateexample.png" data-width="669" data-height="356" alt="exceltemplateexample.png" data-caption="Excel Templates make use of colour to indicate attributes like confidentiality status">
+&lt;figcaption>Excel Templates make use of colour to indicate attributes like confidentiality status&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;h3 id="audience">Audience&lt;/h3>
+&lt;p>The webinar is for those concerned with the collection of data from multiple data providers / reporters.&lt;/p>
+&lt;h3 id="learning-outcomes">Learning outcomes&lt;/h3>
+&lt;p>By attending you will learn about:&lt;/p>
+&lt;ul>
+&lt;li>Excel Templates principles and use cases&lt;/li>
+&lt;li>Where Excel Templates work well, and when to consider other data collection strategies&lt;/li>
+&lt;li>Defining an Excel Template using Fusion Metadata Registry&amp;rsquo;s web user interface&lt;/li>
+&lt;li>Generating Excel an form from a Template for a specific data provider&lt;/li>
+&lt;li>Validating the completed Excel forms and converting to other SDMX formats&lt;/li>
+&lt;/ul>
+&lt;p>More on SDMX at &lt;a href="https://sdmx.org" title="sdmx.org" target="_blank" rel="noopener">sdmx.org&lt;/a>
+.&lt;/p></description></item><item><title>Fusion Metadata Registry - validating data</title><link>https://glennmdt.github.io/sdmxio/event/fmr-validating-data/fmr-validating_data-20220728/</link><pubDate>Thu, 28 Jul 2022 13:00:17 +0600</pubDate><guid>https://glennmdt.github.io/sdmxio/event/fmr-validating-data/fmr-validating_data-20220728/</guid><description>
+&lt;h3 id="webinar">Webinar&lt;/h3>
+&lt;p>&lt;strong>Fusion Metadata Registry&lt;/strong> (FMR) is the free to use SDMX structural metadata registry from the BIS supporting EDI, SDMX 2.0, 2.1 and 3.0. FMR enables official statistics organisations to externalise, centralise and control all SDMX structures including Codelists, Concepts and DSDs with the benefits of maintainability, re-use, standardisation, harmonisation and improved metadata and data governance.&lt;/p>
+&lt;p>While metadata management is its main purpose, FMR additionally provides some useful SDMX data processing functions including converting between transmission formats and transforming datasets to different structures.&lt;/p>
+&lt;p>It also provides a service for validating SDMX data which is the subject of this webinar.
+The webinar is for statisticians, data engineers, IT specialists and anyone involved in collecting, reporting or processing SDMX data. More on SDMX at &lt;a href="https://sdmx.org" title="https://sdmx.org" target="_blank" rel="noopener">https://sdmx.org&lt;/a>
+.
+By attending you will learn about:&lt;/p>
+&lt;ul>
+&lt;li>FMR data validation use cases&lt;/li>
+&lt;li>Validating data interactively using FMR’s web user interface&lt;/li>
+&lt;li>The validation rules available in FMR&lt;/li>
+&lt;li>Using Concept representations and Constraints to define the universe of valid data&lt;/li>
+&lt;li>Checking balance equalities using Validation Schemes&lt;/li>
+&lt;/ul>
+&lt;p>Register now.&lt;/p></description></item></channel></rss>

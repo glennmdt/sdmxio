@@ -1,0 +1,114 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – FMR</title><link>https://glennmdt.github.io/sdmxio/tags/fmr/</link><description>Recent content in FMR on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Thu, 14 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://glennmdt.github.io/sdmxio/tags/fmr/index.xml" rel="self" type="application/rss+xml"/><item><title>Fusion Metadata Registry</title><link>https://glennmdt.github.io/sdmxio/ecosystem/fmr/</link><pubDate>Thu, 14 Jul 2022 00:00:00 +0000</pubDate><guid>https://glennmdt.github.io/sdmxio/ecosystem/fmr/</guid><description>
+&lt;h1 id="the-sdmxio-ecosystem">The sdmx.io ecosystem&lt;/h1>
+&lt;p>The sdmx.io ecosystem is a collection of open source SDMX software tools cooperating to solve official statisics use cases.&lt;/p>
+&lt;figure class="mx-auto text-center">
+&lt;img src="sdmxio-ecosystem-20220714.jpg" loading="lazy" decoding="async" width="80%"data-img="sdmxio-ecosystem-20220714.jpg"
+data-caption=""
+/>
+&lt;/figure>
+&lt;h1 id="tools">Tools&lt;/h1>
+&lt;h2 id="fusion-metadata-registry">Fusion Metadata Registry&lt;/h2>
+&lt;p>Fusion Metadata Registry (FMR) is first and foremost a &lt;strong>structural metadata registry&lt;/strong> - essentially a database designed specifically for storing SDMX artefacts including Concepts, Codelists and Data Structure definitions. A centralised and controlled repository for metadata is useful in many cases where statistics are collected, produced and exchanged&lt;br>
+How?&lt;/p>
+&lt;ul>
+&lt;li>sharing and re-use&lt;/li>
+&lt;li>standardisation&lt;/li>
+&lt;li>harmonisation of concepts helps to make datasets comparable and consistent&lt;/li>
+&lt;li>by enabling metadata and data governance&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="../fmr" title="More about FMR">More about FMR&lt;/a>
+&lt;/p>
+&lt;h2 id="more-stuff">More stuff&lt;/h2>
+&lt;p>sfsdfs&lt;/p>
+&lt;h3 id="sfsdfs">sfsdfs&lt;/h3>
+&lt;p>dsfasfasdf&lt;/p>
+&lt;h2 id="sdsdfsdfs">sdsdfsdfs&lt;/h2>
+&lt;p>sdfdsf&lt;/p>
+&lt;h2 id="sdfsdfads">sdfsdfads&lt;/h2>
+&lt;p>sdfsdfads&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;strong>Rule&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>target&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>in&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>out&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>source&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>destination&lt;/strong>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>1&lt;/td>
+&lt;td>RETURN&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>lo&lt;/td>
+&lt;td>127.0.0.6&lt;/td>
+&lt;td>anywhere&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>2&lt;/td>
+&lt;td>ISTIO_IN_REDIRECT&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>lo&lt;/td>
+&lt;td>anywhere&lt;/td>
+&lt;td>!localhost owner UID match 1337&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>3&lt;/td>
+&lt;td>RETURN&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>lo&lt;/td>
+&lt;td>anywhere&lt;/td>
+&lt;td>anywhere !owner UID match 1337&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>4&lt;/td>
+&lt;td>RETURN&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>anywhere&lt;/td>
+&lt;td>anywhere owner UID match 1337&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>5&lt;/td>
+&lt;td>ISTIO_IN_REDIRECT&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>lo&lt;/td>
+&lt;td>anywhere&lt;/td>
+&lt;td>!localhost owner GID match 1337&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>6&lt;/td>
+&lt;td>RETURN&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>lo&lt;/td>
+&lt;td>anywhere&lt;/td>
+&lt;td>anywhere !owner GID match 1337&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>7&lt;/td>
+&lt;td>RETURN&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>anywhere&lt;/td>
+&lt;td>anywhere owner GID match 1337&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>8&lt;/td>
+&lt;td>RETURN&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>anywhere&lt;/td>
+&lt;td>localhost&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>9&lt;/td>
+&lt;td>ISTIO_REDIRECT&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>anywhere&lt;/td>
+&lt;td>anywhere&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item></channel></rss>
