@@ -165,20 +165,21 @@ URL = "members"
 weight=1
 parent = "about"
 
+[[menu.main]]
+name = "Governance"
+URL = "governance"
+weight=1
+parent = "about"
+
 
 [[menu.main]]
-name = "Blog"
+name = "Articles"
 URL = "blog"
 weight = 2
 
 [[menu.main]]
-name = "Book"
-URL = "https://lib.jimmysong.io"
-weight = 3
-
-[[menu.main]]
-name = "Event"
-URL = "https://lib.jimmysong.io/event/"
+name = "Events"
+URL = "event"
 weight = 4
 
 [[menu.main]]
