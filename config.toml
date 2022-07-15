@@ -160,82 +160,73 @@ weight=1
 parent = "about"
 
 [[menu.main]]
-name = "sdmx.io members"
-URL = "members"
+name = "community"
+URL = "community"
 weight=1
 parent = "about"
 
+[[menu.main]]
+name = "Governance"
+URL = "governance"
+weight=1
+parent = "about"
 
 [[menu.main]]
-name = "Blog"
+name = "Ecosystem"
+url= "ecosystem/ecosystemintro"
+weight=2
+identifier="ecosystem"
+
+[[menu.main]]
+name = "Articles"
 URL = "blog"
-weight = 2
-
-[[menu.main]]
-name = "Book"
-URL = "https://lib.jimmysong.io"
 weight = 3
 
 [[menu.main]]
-name = "Event"
-URL = "https://lib.jimmysong.io/event/"
+name = "Events"
+URL = "event"
 weight = 4
 
 [[menu.main]]
-name = "Notice"
-URL = "notice"
+name = "Learn"
+URL = "learn"
 weight = 5
 
 [[menu.main]]
-name = "Tags"
-URL = "tags"
+name = "Notices"
+URL = "notice"
 weight = 6
+
+[[menu.main]]
+name = "Help"
+URL= "help"
+weight=7
+identifier="help"
+
+[[menu.main]]
+name = "Issues on GitHub"
+URL = "https://github.com/glennmdt/sdmxio/issues"
+weight=1
+parent="help"
 
 [[menu.main]]
 name = "Contact"
 URL = "contact"
-weight = 7
+weight = 20
 
 # footer links
 
 [[menu.footer]]
-name = "Tetrate Istio Distro"
-URL = "https://istio.tetratelabs.io/"
+name = "FMR @ BIS Open Tech"
+URL = "https://www.bis.org/innovation/bis_open_tech_sdmx.htm"
 
 [[menu.footer]]
-name = "Cloud Native Community(China)"
-URL = "https://cloudnative.to"
+name = "SDMX"
+URL = "https://sdmx.org"
 
 [[menu.footer]]
-name = "Awesome Cloud Native"
-URL = "/awesome-cloud-native/"
-
-[[menu.footer]]
-name = "Jimmy's YouTube Channel"
-URL = "https://www.youtube.com/channel/UCwLGlxo3b492bzIgD8lnOKg/"
-
-[[menu.footer]]
-name = "Tetrate - Service Mesh Company"
-URL = "https://tetrate.io/?jimmysong"
-
-# book
-
-[[menu.book]]
-name = "Kubernetes Handbook"
-URL = "https://lib.jimmysong.io/kubernetes-handbook/"
-
-[[menu.book]]
-name = "Istio Handbook"
-URL = "https://lib.jimmysong.io/istio-handbook/"
-
-[[menu.book]]
-name = "Envoy Handbook"
-URL = "https://lib.jimmysong.io/envoy-handbook/"
-
-[[menu.book]]
-name = "Cloud Native Bible"
-URL = "https://lib.jimmysong.io/cloud-native/"
-
+name = "SDMX Global Registry"
+URL = "https://registry.sdmx.org"
 
 
 [markup]

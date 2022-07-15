@@ -86,7 +86,7 @@
   translation: Books
 
 - id: new_notice
-  translation: new notice
+  translation: new notices
 
 - id: wechat
   translation: Twitter
@@ -152,7 +152,7 @@
   translation: "Go Home"
 
 - id: blog
-  translation: "Blog"
+  translation: "Articles"
 
 - id: website_search
   translation: "In-site Search"
@@ -188,7 +188,7 @@
   translation: "Blog Subscribe"
 
 - id: follow_me
-  translation: "Follow Me"
+  translation: "Follow sdmx.io"
 
 - id: edit_page
   translation: "Edit this page"

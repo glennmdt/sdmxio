@@ -1,2 +1,2 @@
 # Website
-https://sdmx.io hugo source
+https://sdmx.io Hugo source code
