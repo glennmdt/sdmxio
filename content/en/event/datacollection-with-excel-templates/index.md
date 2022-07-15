@@ -3,7 +3,7 @@ title: "Fusion Metadata Registry - data collection using Excel templates"
 # Schedule page publish date
 publishDate: "2022-06-06T00:00:00Z"
 # event date
-date: "2022-10-10T13:00:17+06:00"
+date: "2022-10-13T13:00:17+06:00"
 # post save as draft
 draft: false
 # meta description

@@ -81,12 +81,12 @@ book:
 
 ########################## Call to action ############################
 cta:
-  enable : false
-  title : "Welcome to join the Cloud Native Community"
+  enable : true
+  title : "Join the sdmx.io community"
   button:
     enable : true
-    label : "Apply now"
-    link : "https://cloudnative.to/contact/"
+    label : "Contact"
+    link : "contact"
 
 
 ######################## Success story #############################

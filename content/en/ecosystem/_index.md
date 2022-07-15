@@ -1,11 +1,11 @@
 ---
-title: "Blogs"
+title: "Ecosystem"
 draft: false
 # page title background image
 bg_image: "images/backgrounds/page-title.webp"
 # meta description
-description : "Blog posts and articles."
+description : "The sdmx.io software tools ecosystem"
 cascade:
-  editable: true
+  editable: false
   bg_image: "images/backgrounds/page-title.webp"
 ---
