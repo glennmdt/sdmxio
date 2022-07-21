@@ -7,12 +7,8 @@ bg_image: "images/backgrounds/page-title.webp"
 description : "Contact sdmx.io"
 ---
 
-You can contact Jimmy Song in the following ways.
-
-##### Via the form on the web page
-
-You can send me a message directly via the form on the current web page.
+You can contact sdmx.io in the following ways.
 
 ##### Follow sdmx.io on Twitter
 
-Free feel to directly message to me on twitter [@sdmxio](https://twitter.com/sdmxio)
+Free feel to directly message us on twitter [@sdmxio](https://twitter.com/sdmxio)

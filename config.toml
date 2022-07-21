@@ -45,12 +45,14 @@ link = "plugins/venobox/venobox.css"
 link = "plugins/themify-icons/themify-icons.css"
 [[params.plugins.css]]
 link = "plugins/hightlight/syntax.css"
-[[params.plugins.css]]
-link = "plugins/fontawesome/font-awesome.min.css"
+#[[params.plugins.css]]
+#link = "plugins/fontawesome/font-awesome.min.css"
 [[params.plugins.css]]
 link = "plugins/tocbot/tocbot.css"
 [[params.plugins.css]]
 link = "plugins/bigger-picture/bigger-picture.css"
+[[params.plugins.css]]
+link = "plugins/fontawesome-pro-5.0.13/svg-with-js/css/fa-svg-with-js.css"
 
 
 # JS Plugins
@@ -80,12 +82,15 @@ link = "plugins/anchor/anchor.min.js"
 link = "plugins/tocbot/tocbot.min.js"
 [[params.plugins.js]]
 link = "plugins/bigger-picture/bigger-picture.min.js"
+[[params.plugins.js]]
+link = "plugins/fontawesome-pro-5.0.13/svg-with-js/js/fontawesome-all.min.js"
+
 
 #################### default parameters ################################
 [params]
 logo = "images/logo.png"
 # Meta data
-description = "宋净超（Jimmy Song）的个人博客， 专注于探索后 Kubernetes 时代的云原生新范式。"
+description = "sdmx.io"
 author = "BIS"
 # contact info
 address = "Bank for International Settlements, Basel"
@@ -104,7 +109,7 @@ preloader = "images/preloader.gif" # use jpg, png, svg or gif format.
 #[params.subscription]
 #enable = true
 # mailchimp subsciption
-#mailchimp_form_action = "https://jimmysong.us20.list-manage.com/subscribe/post?u=cca519d8764547a389f52c57f&amp;id=e8e9e07dcc"
+#mailchimp_form_action = "https://thesdmxiomailchimpurl.us20.list-manage.com/subscribe/post?u=cca519d8764547a389f52c57f&amp;id=e8e9e07dcc"
 # Use RSS instead
 #mailchimp_form_name = "b_cca519d8764547a389f52c57f_e8e9e07dcc"
 
@@ -113,7 +118,7 @@ preloader = "images/preloader.gif" # use jpg, png, svg or gif format.
 [[params.social]]
 title = "twitter"
 icon = "fa-twitter"
-link = "https://twitter.com/jimmysongio"
+link = "https://twitter.com/sdmxio"
 
 [[params.social]]
 title = "github"
@@ -176,6 +181,18 @@ name = "Ecosystem"
 url= "ecosystem/ecosystemintro"
 weight=2
 identifier="ecosystem"
+
+[[menu.main]]
+name = "Ecosystem"
+url= "ecosystem"
+weight=2
+parent = "ecosystem"
+
+[[menu.main]]
+name = "Fusion Metadata Registry"
+url= "fmr"
+weight=2
+parent = "ecosystem"
 
 [[menu.main]]
 name = "Articles"
