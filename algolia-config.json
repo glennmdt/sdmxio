@@ -2,23 +2,23 @@
     "index_name": "DocSearch",
     "start_urls": [
         {
-            "url": "https://jimmysong.io/blog/"
+            "url": "https://sdmx.io/blog/"
         },
         {
-            "url": "https://jimmysong.io/notice/"
+            "url": "https://sdmx.io/notice/"
         },
         {
-            "url": "https://jimmysong.io/en/blog/"
+            "url": "https://sdmx.io/en/blog/"
         },
         {
-            "url": "https://jimmysong.io/blog/"
+            "url": "https://sdmx.io/blog/"
         }
     ],
     "selectors": {
         "default": {
             "lvl0": {
                 "selector": ".custom-breadcrumb .h2",
-                "default_value": "主站"
+                "default_value": ""
             },
             "lvl1": ".custom-breadcrumb .h3",
             "lvl2": ".content h2",
@@ -36,11 +36,11 @@
     "min_indexed_level": 1,
     "scrape_start_urls": false,
     "sitemap_urls": [
-        "https://jimmysong.io/sitemap.xml"
+        "https://sdmx.io/sitemap.xml"
     ],
     "sitemap_alternate_links": true,
     "stop_urls": [
-        "https://jimmysong.io/tags/*",
-        "https://jimmysong.io/categories/*"
+        "https://sdmx.io/tags/*",
+        "https://sdmx.io/categories/*"
     ]
 }

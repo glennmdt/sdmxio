@@ -1,0 +1,43 @@
+{{ define "main" }}
+
+<!-- notice details -->
+<section class="section-sm">
+    <div class="container blog">
+        <div class="row">
+            <div class="col-12">
+                <!-- event info -->
+                <div class="row align-items-center mb-2">
+                    <div class="col-lg-12">
+                        <ul class="list-inline">
+                            <li class="list-inline-item mr-4 mb-3 mb-lg-3">
+                                <div class="d-flex align-items-center">
+                                    <i class="ti-calendar text-primary icon-md mr-2"></i>
+                                    <div class="text-left">
+                                        <p>
+                                            <li class="list-inline-item mr-4 mb-3 mb-md-0 text-light"><span class="font-weight-bold mr-2">{{ i18n "date" }}
+                  :</span>{{ default (i18n "dateFormat") .Site.Params.dateformat | .PublishDate.Format }}</li>
+
+                                            <li class="list-inline-item mr-4 mb-3 mb-md-0 text-light"><span class="font-weight-bold mr-2">{{ i18n "category" }}
+                  :</span>{{ range $index, $elements:= .Params.Categories }}<a href="{{ `categories/` | relLangURL }}{{ . | urlize | lower }}"> {{ if ne $index 0 }}, {{ end }}
+                  {{ . | title }}</a> {{ end}}</li>
+
+                                            <li class="list-inline-item mr-4 mb-3 mb-md-0 text-light"><span class="font-weight-bold mr-2">{{ i18n "reading_time" }}
+                  :</span>{{ math.Round (div (countwords .Content) 220.0) }} {{ i18n "minute" }}</li>
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- notice content -->
+                <div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /notice details -->
+
+{{ .Content }} {{ end }}

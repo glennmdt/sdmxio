@@ -1,6 +1,6 @@
 <div class="card border-0 rounded-0 mb-5 hover-shadow">
   <div class="card-img position-relative">
-    <img class="card-img-top rounded-0" style="width:80%;" src="{{ .Params.Image | relURL }}" alt="{{ .Title }}">
+    <img class="card-img-top rounded-0" style="width:100%;" src="{{ .Params.Image | relURL }}" alt="{{ .Title }}">
     <div class="card-date">{{ default (i18n "dateFormat") .Site.Params.dateformat | .Date.Format }}</div>
   </div>
   <div class="event-card-body">

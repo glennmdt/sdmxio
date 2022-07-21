@@ -24,8 +24,8 @@
         <!-- notice content -->
         <div class="content">
           {{ .Content }}
-          {{ with .Params.Link }} <a href="{{ . | relURL }}" class="btn btn-primary">{{ i18n "read_more" }}</a>
-          {{ end }}
+          {{ with .Params.Link }} <a href="{{ . | relURL }}" class="btn btn-primary">{{end}}{{ .Params.button_text }}</a>
+          
         </div>
       </div>
     </div>
