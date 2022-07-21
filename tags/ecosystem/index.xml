@@ -1,26 +1,26 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – ecosystem</title><link>https://glennmdt.github.io/sdmxio/tags/ecosystem/</link><description>Recent content in ecosystem on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Thu, 14 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://glennmdt.github.io/sdmxio/tags/ecosystem/index.xml" rel="self" type="application/rss+xml"/><item><title>sdmx.io ecosystem</title><link>https://glennmdt.github.io/sdmxio/ecosystem/ecosystemintro/</link><pubDate>Thu, 14 Jul 2022 00:00:00 +0000</pubDate><guid>https://glennmdt.github.io/sdmxio/ecosystem/ecosystemintro/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – ecosystem</title><link>https://glennmdt.github.io/sdmxio/tags/ecosystem/</link><description>Recent content in ecosystem on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Thu, 14 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://glennmdt.github.io/sdmxio/tags/ecosystem/index.xml" rel="self" type="application/rss+xml"/><item><title>sdmx.io ecosystem</title><link>https://glennmdt.github.io/sdmxio/ecosystem/</link><pubDate>Thu, 14 Jul 2022 00:00:00 +0000</pubDate><guid>https://glennmdt.github.io/sdmxio/ecosystem/</guid><description>
 &lt;h1 id="the-sdmxio-ecosystem">The sdmx.io ecosystem&lt;/h1>
 &lt;p>The sdmx.io ecosystem is a collection of open source SDMX software tools cooperating to solve official statisics use cases.&lt;/p>
 &lt;figure class="mx-auto text-center">
-&lt;img src="sdmxio-ecosystem-20220714.jpg" loading="lazy" decoding="async" width="80%"data-img="sdmxio-ecosystem-20220714.jpg"
+&lt;img src="sdmxio-ecosystem-20220721.jpg" loading="lazy" decoding="async" width="100%"data-img="sdmxio-ecosystem-20220721.jpg"
 data-caption=""
-data-width="4171"
-data-height="3131"
+data-width="5639"
+data-height="3966"
 />
 &lt;/figure>
-&lt;h1 id="fusion-metadata-registry">Fusion Metadata Registry&lt;/h1>
-&lt;p>Fusion Metadata Registry (FMR) is first and foremost a &lt;strong>structural metadata registry&lt;/strong> - essentially a &lt;strong>database designed specifically for storing SDMX artefacts&lt;/strong> including Concepts, Codelists and Data Structure definitions. A centralised and controlled repository for metadata is useful in many cases where statistics are collected, produced and exchanged&lt;br>
-How?&lt;/p>
+&lt;h1 id="fusion-metadata-registry-fmr">Fusion Metadata Registry (FMR)&lt;/h1>
+&lt;p>Fusion Metadata Registry (FMR) is primarily a &lt;strong>structural metadata registry&lt;/strong> - a &lt;strong>database designed specifically for storing SDMX artefacts&lt;/strong> including Concepts, Codelists and Data Structure definitions. A &lt;strong>registry&lt;/strong> is useful in many cases where statistics are collected, produced and exchanged for externalising, centralising and controlling the structural metadata.&lt;/p>
+&lt;p>Benefits of using a registry for managing structural metadata include:&lt;/p>
 &lt;ul>
-&lt;li>sharing and re-use&lt;/li>
+&lt;li>sharing and re-use efficiencies&lt;/li>
 &lt;li>standardisation&lt;/li>
-&lt;li>harmonisation of concepts helps to make datasets comparable and consistent&lt;/li>
-&lt;li>by enabling metadata and data governance&lt;/li>
+&lt;li>harmonisation of concepts making datasets comparable and consistent&lt;/li>
+&lt;li>improved metadata and data governance&lt;/li>
 &lt;/ul>
-&lt;p>In additional to it&amp;rsquo;s role as a place to store, centralise and control structures, FMR provides several additional features:&lt;/p>
+&lt;p>FMR provides several additional features in addition to its core registry role that help to support practical use cases:&lt;/p>
 &lt;dl>
 &lt;dt>Web user interface for creating and maintaining SDMX structure artefacts&lt;/dt>
-&lt;dd>FMR&amp;rsquo;s web user interface gives metadata managers a graphical way to explore the registry&amp;rsquo;s content, create new structures and maintain / modify existing structures. Many artefacts can be exported to Excel, modified and reloaded - particularly useful for maintaining large Codelists.&lt;/dd>
+&lt;dd>FMR&amp;rsquo;s web user interface provides metadata managers and data modellers with a graphical way to explore the registry&amp;rsquo;s content, create new structures and maintain existing ones.&lt;/dd>
 &lt;/dl>
 &lt;figure class="mx-auto text-center">
 &lt;img src="fmr-ui-codelists.jpg" loading="lazy" decoding="async" width="80%"data-img="fmr-ui-codelists.jpg"
@@ -29,9 +29,11 @@ data-width="1627"
 data-height="972"
 />
 &lt;/figure>
+&lt;p>Many artefacts can also be exported to Excel, modified and reloaded - particularly useful for maintaining large Codelists and Constraints.&lt;/p>
 &lt;dl>
 &lt;dt>Data validation&lt;/dt>
-&lt;dd>For both data collection and data reporting use cases, FMR supports validation of datasets for compliance with the DSD and any defined constraints. Checking data quality helps to deliver effective data governance and improves the efficiency of data exchanges, avoiding the costly re-processing or re-transmission.&lt;/dd>
+&lt;dd>Datasets can be loaded and validated - checked that they comply with the
+Checking data quality helps to deliver effective data governance and improves the efficiency of data exchanges, avoiding the costly re-processing or re-transmission.&lt;/dd>
 &lt;/dl>
 &lt;p>FMR applies nine standard validation rules:&lt;/p>
 &lt;table>
@@ -83,8 +85,40 @@ is consistent with the observation value&lt;/td>
 &lt;/table>
 &lt;dl>
 &lt;dt>Conversion of SDMX data between transmission formats&lt;/dt>
-&lt;dd>Data collectors sometimes require data to be submitted in a specific format such as SDMX-ML 2.1 &lt;em>structure specific&lt;/em>. FMR will perform that conversion.&lt;/dd>
+&lt;dd>Datasets can be converted between most SDMX formats including:&lt;/dd>
 &lt;/dl>
+&lt;ul>
+&lt;li>SDMX-ML (XML) 2.0 and 2.1&lt;/li>
+&lt;li>SDMX-JSON versions v1 (SDMX 2.1) and v2 (SDMX 3.0)&lt;/li>
+&lt;li>SDMX-CSV versions v1 (SDMX 2.1) and v2 (SDMX 3.0)&lt;/li>
+&lt;li>EDI&lt;/li>
+&lt;li>Excel (note that data worksheets must follow a specific layout)&lt;/li>
+&lt;/ul>
+&lt;dl>
+&lt;dt>Data mapping&lt;/dt>
+&lt;dd>Datasets can be mapped (transformed) to different DSDs using SDMX Structure Mapping.&lt;/dd>
+&lt;/dl>
+&lt;p>Typical use cases include:&lt;/p>
+&lt;ul>
+&lt;li>Data collection - transforming received datasets to the DSDs needed for internal processing&lt;/li>
+&lt;li>Data reporting - transforming reporting datasets into the structures specified by the data collector (e.g. IMF SDDS ECOFIN, or Eurosystem NAMAIN for National Accounts)&lt;/li>
+&lt;li>Public data dissemination - transforming datasets that use an internal DSD with many dimensions to a simpler DSD suitable for external publication&lt;/li>
+&lt;li>Statistics production - harmonising the structure and coding of datasets&lt;/li>
+&lt;/ul>
 &lt;p>&lt;a href="../fmr" title="More about FMR">More about FMR&lt;/a>
 &lt;/p>
-&lt;h1 id="fusionxl">FusionXL&lt;/h1></description></item></channel></rss>
+&lt;h1 id="fusionxl-fxl">FusionXL (FXL)&lt;/h1>
+&lt;p>FusionXL is an Excel interface for FMR that compliments and provides an alternative to the web user interface. The following functions are supported:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Structure Explorer&lt;/strong> - browse the structural metadata and work with artefacts such as Concepts, Codelists and DSDs in Excel worksheets. Create new structures and maintain existing ones, for instance: add new codes to a Codelist.&lt;/li>
+&lt;li>&lt;strong>Data Author, Validate&lt;/strong>, Convert - create SDMX datasets using helpers to set the correct structure and pick codes. Validate the dataset and convert it to any of the standard SDMX transmission formats including XML, JSON and EDI.&lt;/li>
+&lt;/ul>
+&lt;figure class="mx-auto text-center">
+&lt;img src="fxl-codelist.jpg" loading="lazy" decoding="async" width="80%"data-img="fxl-codelist.jpg"
+data-caption=""
+data-width="4764"
+data-height="2850"
+/>
+&lt;/figure>
+&lt;h1 id="fusion-transformer-ft">Fusion Transformer (FT)&lt;/h1>
+&lt;p>Fusion Transformer is a command line application for converting SDMX data between transmission formats. It provides an alternative to the FMR data conversion service finding application in scripts and data processing automation.&lt;/p></description></item></channel></rss>

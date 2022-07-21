@@ -1,114 +1,1109 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – FMR</title><link>https://glennmdt.github.io/sdmxio/tags/fmr/</link><description>Recent content in FMR on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Thu, 14 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://glennmdt.github.io/sdmxio/tags/fmr/index.xml" rel="self" type="application/rss+xml"/><item><title>Fusion Metadata Registry</title><link>https://glennmdt.github.io/sdmxio/ecosystem/fmr/</link><pubDate>Thu, 14 Jul 2022 00:00:00 +0000</pubDate><guid>https://glennmdt.github.io/sdmxio/ecosystem/fmr/</guid><description>
-&lt;h1 id="the-sdmxio-ecosystem">The sdmx.io ecosystem&lt;/h1>
-&lt;p>The sdmx.io ecosystem is a collection of open source SDMX software tools cooperating to solve official statisics use cases.&lt;/p>
-&lt;figure class="mx-auto text-center">
-&lt;img src="sdmxio-ecosystem-20220714.jpg" loading="lazy" decoding="async" width="80%"data-img="sdmxio-ecosystem-20220714.jpg"
-data-caption=""
-/>
-&lt;/figure>
-&lt;h1 id="tools">Tools&lt;/h1>
-&lt;h2 id="fusion-metadata-registry">Fusion Metadata Registry&lt;/h2>
-&lt;p>Fusion Metadata Registry (FMR) is first and foremost a &lt;strong>structural metadata registry&lt;/strong> - essentially a database designed specifically for storing SDMX artefacts including Concepts, Codelists and Data Structure definitions. A centralised and controlled repository for metadata is useful in many cases where statistics are collected, produced and exchanged&lt;br>
-How?&lt;/p>
-&lt;ul>
-&lt;li>sharing and re-use&lt;/li>
-&lt;li>standardisation&lt;/li>
-&lt;li>harmonisation of concepts helps to make datasets comparable and consistent&lt;/li>
-&lt;li>by enabling metadata and data governance&lt;/li>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – FMR</title><link>https://glennmdt.github.io/sdmxio/tags/fmr/</link><description>Recent content in FMR on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Thu, 21 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://glennmdt.github.io/sdmxio/tags/fmr/index.xml" rel="self" type="application/rss+xml"/><item><title>Fusion Metadata Registry</title><link>https://glennmdt.github.io/sdmxio/fmr/</link><pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate><guid>https://glennmdt.github.io/sdmxio/fmr/</guid><description>
+&lt;section>
+&lt;div class="container" style="padding-top:50px;">
+&lt;div class="row" style="align-items: center; justify-content: center;">
+&lt;div class="col-md-6">
+&lt;h4 style="font-size: 1.7rem;">Fusion Metadata Registry&lt;/h4>
+&lt;strong>SDMX Structural Metadata Registry&lt;/strong>
+&lt;p style="padding-top:20px;">Fusion Metadata Registry is a free to use structural metadata registry for SDMX supporting EDI, SDMX 1.0, 2.0, 2.1 and 3.0.&lt;/p>
+&lt;ul class="fa-ul">
+&lt;li>&lt;span class="fa-li">&lt;i class="fas fa-check-circle" style="font-size:1rem;">&lt;/i>&lt;/span>Structural Metadata Registry.&lt;/li>
+&lt;li>&lt;span class="fa-li">&lt;i class="fas fa-check-circle" style="font-size:1rem;">&lt;/i>&lt;/span>Author and maintain SDMX structures using the web user interface or programmatically through the REST API.&lt;/li>
+&lt;li>&lt;span class="fa-li">&lt;i class="fas fa-check-circle" style="font-size:1rem;">&lt;/i>&lt;/span>Data validation - validates that data files are correctly structured.&lt;/li>
+&lt;li>&lt;span class="fa-li">&lt;i class="fas fa-check-circle" style="font-size:1rem;">&lt;/i>&lt;/span>SDMX structure mapping - transform SDMX data to a different DSD and coding.&lt;/li>
+&lt;li>&lt;span class="fa-li">&lt;i class="fas fa-check-circle" style="font-size:1rem;">&lt;/i>&lt;/span>SDMX data conversion - convert data files between SDMX data formats and versions.&lt;/li>
+&lt;li>&lt;span class="fa-li">&lt;i class="fas fa-check-circle" style="font-size:1rem;">&lt;/i>&lt;/span>Download and &lt;a href="#install">install&lt;/a> the Java web application, or deploy as a &lt;a href="#docker">&lt;img class="img-fluid" style="width: 60px;" src="docker.png" />&lt;/a> container.&lt;/li>
 &lt;/ul>
-&lt;p>&lt;a href="../fmr" title="More about FMR">More about FMR&lt;/a>
+&lt;p>&lt;/p>
+&lt;p style="padding-top:0px;">Sponsored by the Bank for International Settlements &lt;a href="https://www.bis.org/innovation/bis_open_tech_sdmx.htm" target="_blank">&lt;img style="width: 70px;" src="bis.gif" />&lt;/a>&lt;/p>
+&lt;/div>
+&lt;div class="col-md-6">
+&lt;img class="img-fluid shadow" style="width: 32rem;" src="FRM_screenshot11.PNG" />
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/section>
+&lt;section >
+&lt;div class="container" style="background-color:#dde9f3;">
+&lt;div class="row" style="padding-top:20px; padding-bottom:20px;">
+&lt;div class="col-md-12">
+&lt;p>&lt;strong>The FMR enables organisations to 'get a grip of their metadata', by externalising their statistical structural metadata with the benefits of maintainability, re-use, standardisation, harmonisation and improved metadata and data governance, achieved by:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>A controlled repository for SDMX structural metadata, which acts as a single source of truth for: automated metadata-driven data processing systems, metadata needed by data providers in data collections, structures for the purposes of standardisation, statistical data harmonisation, and communal benefit. Implements the SDMX 3.0 Registry specification.&lt;/li>
+&lt;li>Three integrated metadata-driven data processing services: data validation, data transformation (mapping data between structures) and conversion of data between SDMX data formats. Usable through the web UI or integrated into data automation processes using the REST API.&lt;/li>
+&lt;li>Metadata authoring and maintenance web UI, enabling metadata managers to browse, author and maintain their structural metadata model.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/section>
+&lt;section style="padding-top:50px;">
+&lt;div class="container">
+&lt;div class="row">
+&lt;div class="col-md-12">
+&lt;div>
+&lt;div class="row" style="align-items: center; justify-content: center;">
+&lt;div class="col-md-2 text-center">
+&lt;!-- &lt;i class="fal fa-microphone-alt" style="font-size:5.0rem;">&lt;/i>-->
+&lt;img class="img-fluid" style="width: 200px;" src="FMR-Logo_FINAL_Alternative-Logo.png" />
+&lt;/div>
+&lt;div class="col-md-10">
+&lt;h4 class="alert-heading">Fusion Metadata Registry 11 released&lt;/h4>
+&lt;p>Fusion Metadata Registry version 11 implements the SDMX 3.0 specification.&lt;/p>
+&lt;p>&lt;a href="community/index.php">Download&lt;/a> get the &lt;a href="https://hub.docker.com/repository/docker/metadatatechnology/fmr-mysql">Docker image&lt;/a>, or read the &lt;a href="https://fmrwiki.sdmxcloud.org/FMR_11.0_release_notes">release notes&lt;/a>&lt;/p>
+&lt;p>
+Backward compatibility with SDMX 2.1 and FMR 10 has been preserved where possible allowing upgrade to FMR 11 with few changes to operating procedures and intergated systems / processes.&lt;br> Note that FMR 11 is not compatible with existing FMR 10 databases requiring a fresh install and export / import of the structural metadata content.&lt;/p>
+&lt;p>&lt;a href="../assets/Custom/Video/FMR11_introduction.mp4" target="_blank">&lt;i class="fas fa-play" style="font-size:0.8rem;">&lt;/i> introductory video&lt;/a>
 &lt;/p>
-&lt;h2 id="more-stuff">More stuff&lt;/h2>
-&lt;p>sfsdfs&lt;/p>
-&lt;h3 id="sfsdfs">sfsdfs&lt;/h3>
-&lt;p>dsfasfasdf&lt;/p>
-&lt;h2 id="sdsdfsdfs">sdsdfsdfs&lt;/h2>
-&lt;p>sdfdsf&lt;/p>
-&lt;h2 id="sdfsdfads">sdfsdfads&lt;/h2>
-&lt;p>sdfsdfads&lt;/p>
-&lt;table>
-&lt;thead>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/section>
+&lt;section>
+&lt;div class="container">
+&lt;div class="row">
+&lt;div class="col-md-12">
+&lt;p style="padding-top:1px;">
+&lt;a class="btn btn-danger text-truncate" style="width: 140px;" href="&lt;?php echo $levels ?>community/index.php">Download Free&lt;/a>
+&lt;a class="btn btn-primary text-truncate" style="width: 140px;" href="#docker">Docker&lt;/a>
+&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/section>
+&lt;section style="padding-top:50px;">
+&lt;div class="container">
+&lt;div class="row" style="align-items: center; justify-content: center;">
+&lt;div class="col-md-12">
+&lt;h4>Features&lt;/h4>
+&lt;ul class="nav nav-tabs">
+&lt;li class="active mr-1">&lt;a data-toggle="tab" href="#features">&lt;button class="btn btn-primary-muted" type="button" style="box-shadow:none; border-radius: 10px 10px 0 0;">Full Feature List&lt;/button>&lt;/a>&lt;/li>
+&lt;li class="mr-1">&lt;a data-toggle="tab" href="#roadmap">&lt;button class="btn btn-primary-muted" type="button" style="box-shadow:none; border-radius: 10px 10px 0 0;">2022 Roadmap&lt;/button>&lt;/a>&lt;/li>
+&lt;li>&lt;a data-toggle="tab" href="#recentfeatures">&lt;button class="btn btn-primary-muted" type="button" style="box-shadow:none; border-radius: 10px 10px 0 0;">Recent Features&lt;/button>&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;div class="tab-content">
+&lt;div class="container tab-pane fade in active " style="opacity:100;" id="features">
+&lt;div class="row" style="align-items: center; justify-content: center;">
+&lt;div class="col-md-12">
+&lt;table class="table table-sm shadow">
+&lt;thead style="color:black; background-color:white;">
 &lt;tr>
-&lt;th>&lt;strong>Rule&lt;/strong>&lt;/th>
-&lt;th>&lt;strong>target&lt;/strong>&lt;/th>
-&lt;th>&lt;strong>in&lt;/strong>&lt;/th>
-&lt;th>&lt;strong>out&lt;/strong>&lt;/th>
-&lt;th>&lt;strong>source&lt;/strong>&lt;/th>
-&lt;th>&lt;strong>destination&lt;/strong>&lt;/th>
+&lt;th scope="col" style="width:25%;">Function&lt;/th>
+&lt;th scope="col" style="width:45%;">Feature&lt;/th>
+&lt;th scope="col" style="width:15%;">Fusion Metadata Registry 10&lt;/th>
+&lt;th scope="col" style="width:15%;">Fusion Metadata Registry 11&lt;/th>
 &lt;/tr>
 &lt;/thead>
-&lt;tbody>
+&lt;tbody id="featureTable">
 &lt;tr>
-&lt;td>1&lt;/td>
-&lt;td>RETURN&lt;/td>
-&lt;td>any&lt;/td>
-&lt;td>lo&lt;/td>
-&lt;td>127.0.0.6&lt;/td>
-&lt;td>anywhere&lt;/td>
+&lt;th rowspan="2">Internal Information Model&lt;/th>
+&lt;td>SDMX 2.1&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>2&lt;/td>
-&lt;td>ISTIO_IN_REDIRECT&lt;/td>
-&lt;td>any&lt;/td>
-&lt;td>lo&lt;/td>
-&lt;td>anywhere&lt;/td>
-&lt;td>!localhost owner UID match 1337&lt;/td>
+&lt;td>SDMX 3.0&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>3&lt;/td>
-&lt;td>RETURN&lt;/td>
-&lt;td>any&lt;/td>
-&lt;td>lo&lt;/td>
-&lt;td>anywhere&lt;/td>
-&lt;td>anywhere !owner UID match 1337&lt;/td>
+&lt;th rowspan="7">Structural Metadata Formats&lt;/th>
+&lt;td>SDMX-ML v3.0&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>4&lt;/td>
-&lt;td>RETURN&lt;/td>
-&lt;td>any&lt;/td>
-&lt;td>any&lt;/td>
-&lt;td>anywhere&lt;/td>
-&lt;td>anywhere owner UID match 1337&lt;/td>
+&lt;td>SDMX-ML v2.1&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>5&lt;/td>
-&lt;td>ISTIO_IN_REDIRECT&lt;/td>
-&lt;td>any&lt;/td>
-&lt;td>lo&lt;/td>
-&lt;td>anywhere&lt;/td>
-&lt;td>!localhost owner GID match 1337&lt;/td>
+&lt;td>SDMX-ML v2.0&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>6&lt;/td>
-&lt;td>RETURN&lt;/td>
-&lt;td>any&lt;/td>
-&lt;td>lo&lt;/td>
-&lt;td>anywhere&lt;/td>
-&lt;td>anywhere !owner GID match 1337&lt;/td>
+&lt;td>SDMX-ML v1.0&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>7&lt;/td>
-&lt;td>RETURN&lt;/td>
-&lt;td>any&lt;/td>
-&lt;td>any&lt;/td>
-&lt;td>anywhere&lt;/td>
-&lt;td>anywhere owner GID match 1337&lt;/td>
+&lt;td>SDMX-JSON v3.0&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>As of FMR 11.1.2: AgencyScheme Categorisation CategoryScheme Codelist ConceptScheme ContentConstraint DataConsumerScheme Dataflow DataProviderScheme DataStructureDefinition ProvisionAgreement RepresentationMap StructureMap&lt;br> The remainder of the structures are on the roadmap
+&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>8&lt;/td>
-&lt;td>RETURN&lt;/td>
-&lt;td>any&lt;/td>
-&lt;td>any&lt;/td>
-&lt;td>anywhere&lt;/td>
-&lt;td>localhost&lt;/td>
+&lt;td>SDMX-JSON v2.1&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>9&lt;/td>
-&lt;td>ISTIO_REDIRECT&lt;/td>
-&lt;td>any&lt;/td>
-&lt;td>any&lt;/td>
-&lt;td>anywhere&lt;/td>
-&lt;td>anywhere&lt;/td>
+&lt;td>EDI&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th rowspan="20">Structural Metadata Management&lt;/th>
+&lt;td>Load structural metadata from file&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Load structural metadata from URL&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Author and maintain structural metadata using the web interface&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Author and maintain structural metadata using FusionXL addin for Excel&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ACID structure repository &lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Structural metadata import / export as SDMX &lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Structural metadata import / export as Excel &lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SDMX structures REST API&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Structure storage (limited by available memory)&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Structure comparison&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Structure validation on import&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Structure referential integrity enforcement&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tools to correct referential integrity issues (fix 'zombie' structures)&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Time dependant constraints&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Structure-level validity&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Item-level validity&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Subscription / notification of changes to structures via email or HTTP POST&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Structure update transaction journalling &lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Rollback structure changes to a specified journalled transaction &lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Structural metadata time travel&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>On roadmap&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th rowspan="33">SDMX Structures&lt;/th>
+&lt;td>Agency Schemes&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Constraints&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>Converted to Data Constraints on import&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Categorisations&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Category Schemes&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Codelists&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Concept Schemes&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Data Consumer Schemes&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Data Provider Schemes&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Data Structure Definitions&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Dataflows&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Hierarchical Codelists&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>Converted to Hierarchies on import&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Metadata Structure Definitions&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Metadataflows&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Organisation Unit Schemes&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Processes&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Provision Agreements&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Reporting Taxonomies&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Structure Sets&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>Converted to Structure Maps on import&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Structure Map&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Representation Map&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Organisation Scheme Map&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Concept Scheme Map (SDMX 3.0)&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>On roadmap&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Category Scheme Map&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>On roadmap&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Reporting Taxonomy Map&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Value List&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Hierarchy&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Hierarchy Association&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Metadata Constraint&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>On roadmap&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Data Constraint&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Metadata Constraint&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Metadata Provision Agreement&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Metadata Provider Scheme&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Metadataset&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>On roadmap&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th rowspan="3">'Extended' Structures (structures that are not part of the formal SDMX specification)&lt;/th>
+&lt;td>Validation Schemes&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Reporting Templates&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Publication Tables&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th rowspan="3">Structural Metadata Storage Options&lt;/th>
+&lt;td>MySQL&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Oracle&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Microsoft SQL Server&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th rowspan="6">Identity and Access Management&lt;/th>
+&lt;td>Microsoft Active Directory service integration&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>OpenLDAP directory service integration&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Fusion Security directory service integration&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Single-user mode (no directory service required)&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Certificate authentication&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SSO&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th rowspan="18">Data &lt;/th>
+&lt;td>Load data from file&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Load data from URL (file or REST API)&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SDMX-ML v3.0 structure specific data format (XML)&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>On roadmap&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SDMX-ML v2.1 structure specific data format (XML)&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SDMX-ML v2.0 structure specific data format (XML)&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SDMX-ML v2.1 generic data format (XML)&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SDMX-ML v2.0 generic data format (XML)&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SDMX-JSON v2.1 data format&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SDMX-JSON v3.0 data format&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>On roadmap&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SDMX-CSV v2.1 data format&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SDMX-CSV v3.0 data format&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i> (some limitations)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>EDI data format&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Excel FusionXL data format&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Interactive data load using the web user interface&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Data storage&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Data processing REST API (validation, conversion, mapping)&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Data storage REST API&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Plugin interface for adding custom data readers&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th rowspan="2">Data Registration&lt;/th>
+&lt;td>SDMX data source registration&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>On roadmap&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Validation and indexing of registered data sources&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th rowspan="11">&lt;a href="https://wiki.sdmxcloud.org/Data_Validation" target="_blank" class="plain-link">Data Validation&lt;/a>&lt;/th>
+&lt;td>Structural compliance&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Compliance of data values with the DSD &lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Compliance with constraint rules&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Duplicate observations or series checks&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Mandatory attributes&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Validation Schemes - basic business rule validation expressions&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Validation Schemes - advanced business rule validation expressions&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Validation rules configuration - set what rules are applied and whether they prevent conversion or data publication&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Plugin interface for adding custom validators&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Data validation processing (load data, validate it against the defined structure and business rules, return a validation report plus valid and invalid series as separate output datasets) &lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Data validation REST API&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th rowspan="2">VTL 2.0&lt;/th>
+&lt;td>Storage of VTL programs as SDMX structural metadata&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Execution of VTL programs for validation or transformation of data&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th rowspan="9">SDMX Structure Mapping&lt;/th>
+&lt;td>Concept Scheme Maps (SDMX 2.1)&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Codelist Maps&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Data Structure Maps&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Dataflow Maps&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Regex pattern mapping rules&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>N-to-N data maps&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>N-to-1 data maps&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>1-to-N data maps&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>1-to-1 data maps&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th rowspan="1">Mapped Datasets&lt;/th>
+&lt;td>Mapped Datasets - like SQL views&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th rowspan="1">Virtual Dataflows&lt;/th>
+&lt;td>Virtual Dataflows describe a sub-cube of a dataflow&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>On roadmap&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th rowspan="2">Data Transformation&lt;/th>
+&lt;td>Data transformation processing (load data, transform it to a different structure using SDMX Structure Mapping and return the result)&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Data transformation REST API&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th rowspan="4">Data Conversion&lt;/th>
+&lt;td>Between supported SDMX formats and versions (SDMX-ML, SDMX-JSON, SDMX-CSV, EDI)&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>
+From Excel Reporting Template to SDMX formats&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>
+Quick convert to SDMX-ML 2.1 Structure Specific format&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Conversion to and from Fusion Excel format for SDMX datasets&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>On roadmap&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th rowspan="4">Data Reporting&lt;/th>
+&lt;td>Excel Reporting Templates - definition and generation&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Excel Reporting Templates - validation and conversion of reported data&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Excel Reporting Templates - load and storage of reported data&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Excel Reporting Templates - configurable template security rules&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th rowspan="6">Content Security / Access Controls&lt;/th>
+&lt;td>Structure creation and maintenance controls (Agency privileges)&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Data load and modification controls (Data Provider privileges)&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Data access controls at the dataflow, series or observation level&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Structure access controls at the structure or item level&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Public mode - Registry content is readable by both unauthenticated guest and authenticated users&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Private mode - Registry content is accessible only to authenticated users&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th rowspan="2">Auditing&lt;/th>
+&lt;td>SDMX structure transaction auditing&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>User activity auditing&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th rowspan="1">Enterprise Deployment&lt;/th>
+&lt;td>Load balancer support (clustering multiple Registry instances behind a load balancer for resilience and load tolerance)&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th rowspan="1">&lt;a href="https://wiki.sdmxcloud.org/Apache_Kafka_integration" target="_blank" class="plain-link">Apache Kafka Integration&lt;/a>&lt;/th>
+&lt;td>&lt;a href="https://wiki.sdmxcloud.org/Apache_Kafka_integration#Structure_Notification" target="_blank" class="plain-link">Kafka 'Structure Notification' Producer for publishing changes to structural metadata on a definable topic&lt;/a>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;td>&lt;i class="fal fa-check-square checkbox">&lt;/i>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th rowspan="2">Client-side API&lt;/th>
+&lt;td>IM-JS JavaScript client-side programming library&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SDMX-UI TypeScript client-side programming library (higher-level abstraction)&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>On roadmap&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th rowspan="1">Command Line Interface&lt;/th>
+&lt;td>Fusion Command Line Interface for managing structural metadata&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
 &lt;/tr>
 &lt;/tbody>
-&lt;/table></description></item></channel></rss>
+&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;div class="container tab-pane fade" id="roadmap">
+&lt;!-- &lt;div class="row" style="align-items: center; justify-content: center;">-->
+&lt;div class="row">
+&lt;div class="col-md-6">
+&lt;h4>Prioritised General Enhancements workstream&lt;/h4>
+&lt;span class="badge badge-success">Complete&lt;/span>
+&lt;dt>Publication tables&lt;/dt> FMR 11.1.4
+&lt;dd>New presentational metadata artefact describing curated tables of statistics for publication on websites or dashboards &lt;a href="https://wiki.sdmxcloud.org/Publication_Table" target="_blank">(more)&lt;/a>&lt;/dd>
+&lt;dt>Author, validate, map and transform data using Excel&lt;/dt> FMR 11.1.5
+&lt;dd>Load data from Excel workbooks in &lt;a href="https://fmrwiki.sdmxcloud.org/Fusion-Excel_Default">FusionXL data format&lt;/a>&lt;br>
+Use the FusionXL Excel add in for FMR to author, validate and transform SDMX datasets
+&lt;/dd>
+&lt;dt>Improved data processing performance&lt;/dt> FMR 11.1.6
+&lt;dd>Improved performance and reduced memory requirements when loading, validating, mapping and converting large datasets
+&lt;/dd>
+&lt;span class="badge badge-success">On work plan&lt;/span>
+&lt;dl>
+&lt;dt>Reference metadata reports (metadataset)&lt;/dt>
+&lt;dd>Support for reference metadata report / metadataset artefacts&lt;/dd>
+&lt;dt>SDMX-JSON 3.0 structure format&lt;/dt>
+&lt;dd>Support for the SDMX 3.0 JSON transmission format for structural metadata&lt;/dd>
+&lt;dt>Improved error handling framework&lt;/dt>
+&lt;dd>Improved capture, handling and reporting of errors such as referential integrity violations&lt;/dd>
+&lt;dt>Structural metadata consistency checks and 'safe mode'&lt;/dt>
+&lt;dd>Strengthened checks on Registry start-up with the Registry placed in 'safe mode' if problems are detected&lt;/dd>
+&lt;dt>Performance improvements&lt;/dt>
+&lt;dd>Improved support for very large structures, improved performance when processing large datasets&lt;/dd>
+&lt;dt>Metadata time travel&lt;/dt>
+&lt;dd>Retrieve structual metadata as it was at a defined point in the past&lt;/dd>
+&lt;dt>Structure mapping default observation value&lt;/dt>
+&lt;dd>Option to to set a default ouput observation value for use where the input value is missing&lt;/dd>
+&lt;dt>SDMX-JSON 3.0 data format&lt;/dt>
+&lt;dd>Support for the SDMX 3.0 JSON transmission format for data excluding hierarchical reference metadata embedded within the data message&lt;/dd>
+&lt;dt>SDMX Data Registration&lt;/dt>
+&lt;dd>Support for registering SDMX data sources&lt;/dd>
+&lt;dt>Virtual dataflows&lt;/dt>
+&lt;dd>Virtual dataflows describe a sub-cube of data similar in concept to a SQL view&lt;/dd>
+&lt;/dl>
+&lt;/div>
+&lt;div class="col-md-6">
+&lt;h4>Data processing microservices workstream&lt;/h4>
+&lt;span class="badge badge-success">On work plan&lt;/span>
+&lt;dl>
+&lt;dt>Mapping microservice&lt;/dt>
+&lt;dd>Decoupled stateless SDMX mapping microservice&lt;/dd>
+&lt;/dl>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;div class="container tab-pane fade" id="recentfeatures">
+&lt;div>
+&lt;div class="row">
+&lt;div class="col-md-12">
+&lt;p>See the &lt;a href="https://fmrwiki.sdmxcloud.org/Change_Log">full changelog&lt;/a> for details of all new features and bug fixes.&lt;/p>
+&lt;strong>11.1.6 - June 2022&lt;/strong>
+&lt;ul>
+&lt;li>New REST API web service parameter to control how duplicate obervations are handled on validation and transformation&lt;/li>
+&lt;li>Introduction of &lt;a href="https://www.h2database.com/html/mvstore.html" target="_blank">MVStore&lt;/a> for temporary storage and consolidation of datasets during processing operations delivering improved performance and reduced memory demand&lt;/li>
+&lt;/ul>
+&lt;strong>11.1.5 - June 2022&lt;/strong>
+&lt;ul>
+&lt;li>MySQL 8 support&lt;/li>
+&lt;li>Publication Tables: Option to output rows with no data&lt;/li>
+&lt;li>Publication Tables: Dimension Value based on another Dimenisons variable value&lt;/li>
+&lt;li>Publication Tables: CPMI - Dynamic Rows and columns&lt;/li>
+&lt;li>Load data from Excel workbooks in &lt;a href="https://fmrwiki.sdmxcloud.org/Fusion-Excel_Default">Fusion Excel data format&lt;/a> &lt;/li>
+&lt;/ul>
+&lt;strong>11.1.4 - May 2022&lt;/strong>
+&lt;ul>
+&lt;li>Publication tables - new presentational metadata artefact describing curated tables of statistics for publication on websites or dashboards &lt;a href="https://wiki.sdmxcloud.org/Publication_Table" target="_blank">(more)&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;strong>11.1.3 - May 2022&lt;/strong>
+&lt;p>maintenance release&lt;/p>
+&lt;strong>11.1.2 - April 2022&lt;/strong>
+&lt;p>maintenance release&lt;/p>
+&lt;strong>11.1.1 - February 2022&lt;/strong>
+&lt;p>maintenance release&lt;/p>
+&lt;strong>11.1.0 - February 2022&lt;/strong>
+&lt;ul>
+&lt;li>Code refactored to use the new SDMX 3.0 io.sdmx Java packages&lt;/li>
+&lt;li>New validation rule to check that OBS_PRE_BREAK is consistent with OBS_STATUS&lt;/li>
+&lt;/ul>
+&lt;strong>11.0.2 and 11.0.3 - February 2022&lt;/strong>
+&lt;p>maintenance releases&lt;/p>
+&lt;strong>11.0.1 - January 2022&lt;/strong>
+&lt;ul>
+&lt;li>SDMX 2.1 categorisations against hierarchical code lists applied to all relevant SDMX 3.0 hierarchies&lt;/li>
+&lt;/ul>
+&lt;strong>11.0.0 - December 2021&lt;/strong>
+&lt;ul>
+&lt;li>Internal information model changed to SDMX 3.0 (FMR 10 uses the SDMX 2.1 information model internally)&lt;/li>
+&lt;li>Support for storage of all SDMX 3.0 structures with the exception of Metadata Constraints, Concept Scheme Map, Category Scheme Map&lt;/li>
+&lt;li>Support for SDMX 3.0 XML format for structures&lt;/li>
+&lt;li>Support for SDMX 3.0 CSV format for data&lt;/li>
+&lt;li>Automatic conversion of SDMX 2.1 structure sets to the SDMX 3.0 mapping model on load&lt;/li>
+&lt;li>Semantic versioning - support for three-digit version numbers&lt;/li>
+&lt;li>JNDI database connection support&lt;/li>
+&lt;/ul>
+&lt;a data-toggle="collapse" data-target="#morefeatures">More...&lt;/a>&lt;br>
+&lt;div class="collapse" id="morefeatures">
+&lt;strong>10.7 - May 2021&lt;/strong>
+&lt;ul>
+&lt;li>Option to send structures as stubs on Kafka&lt;/li>
+&lt;li>Data validation - new option to supply the SDMX Sender ID&lt;/li>
+&lt;li>Mappings can be applied to multiple datasets if they refer to the same dataset&lt;/li>
+&lt;li>Support the creation of the TIME_SERIES attributes from an EDI file&lt;/li>
+&lt;/ul>
+&lt;strong>10.6&lt;/strong>
+&lt;ul>
+&lt;li style="padding-bottom:0px;">&lt;a data-toggle="collapse" data-target="#kafka" aria-controls="features">Improved Apache Kafka integration
+&lt;i class="fas fa-arrow-circle-right" style="font-size:1rem;">&lt;/i>&lt;/a> &lt;span class="collapse" id="kafka">&lt;br>Fusion Metadata Registry acts as an &lt;a href="https://kafka.apache.org/">Apache Kafka&lt;/a> producer publishing changes to the SDMX structures on definable topics. This is useful in metadata-driven statistics production architectures where distributed applications like data validators need to hold a synchronised copy of the master structural metadata.&lt;br>
+In 10.6, the Kafka interface has been enhanced to support all connection properties, email alerts are sent if the producer terminates, filters have been added to select the structures to publish and publication failure recovery has been strengthened.&lt;a href="https://fmrwiki.sdmxcloud.org/Apache_Kafka_integration"> more&lt;/a>&lt;/span>&lt;/li>
+&lt;/ul>
+&lt;strong>10.5&lt;/strong>
+&lt;ul>
+&lt;li style="padding-bottom:0px;">&lt;a data-toggle="collapse" data-target="#audit" aria-controls="features">Transaction and user activity auditing &lt;i class="fas fa-arrow-circle-right" style="font-size:1rem;">&lt;/i>&lt;/a> &lt;span class="collapse" id="audit">&lt;br>Auditing of changes to SDMX structural metadata artefacts and user activity &lt;a href="https://fmrwiki.sdmxcloud.org/Audit_Settings">more&lt;/a>&lt;/span>&lt;/li>
+&lt;li style="padding-bottom:0px;">&lt;a data-toggle="collapse" data-target="#rollback" aria-controls="features">Structure transaction rollback &lt;i class="fas fa-arrow-circle-right" style="font-size:1rem;">&lt;/i>&lt;/a> &lt;span class="collapse" id="rollback">&lt;br>Journalling of changes to the structural metadata content allowing administrators to rollback to a specific point in time &lt;a href="https://fmrwiki.sdmxcloud.org/Restore_(Rollback)_Structures">more&lt;/a>&lt;/span>&lt;/li>
+&lt;li style="padding-bottom:0px;">&lt;a data-toggle="collapse" data-target="#integrity" aria-controls="features">Server integrity &lt;i class="fas fa-arrow-circle-right" style="font-size:1rem;">&lt;/i>&lt;/a> &lt;span class="collapse" id="integrity">&lt;br>Checks the referential integrity of the structural metadata allowing administrators to fix problems found like 'zombie' artefacts that have broken references &lt;a href="https://fmrwiki.sdmxcloud.org/Check_the_integrity_of_the_registry" >more&lt;/a>&lt;/span>&lt;/li>
+&lt;li style="padding-bottom:0px;">&lt;a data-toggle="collapse" data-target="#dockermore" aria-controls="features">Docker image for containerised deployment &lt;i class="fas fa-arrow-circle-right" style="font-size:1rem;">&lt;/i>&lt;/a> &lt;span class="collapse" id="dockermore">&lt;br>Fusion Metadata Registry is now available as an image on &lt;a href="https://hub.docker.com/r/metadatatechnology/fmr-mysql">Docker Hub&lt;/a> for faster containerised deployment with minimal setup &lt;a href="#docker">quick start&lt;/a>&lt;/span>&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/section>
+&lt;section id="whatdoesfmrdo" style="padding-top:50px;">
+&lt;div class="container">
+&lt;div class="row">
+&lt;div class="col-md-12">
+&lt;h4 style="font-size: 1.5rem;">What does Fusion Metadata Registry do?&lt;/h4>
+&lt;p>Its primary function is an SDMX structural metadata registry.&lt;/p>
+&lt;p>FMR 10 implements the &lt;a href="https://sdmx.org/wp-content/uploads/SDMX_2-1_SECTION_5_RegistrySpecification_2020-07.pdf" target="_blank">SDMX 2.1 registry specification&lt;/a>.&lt;br> FMR 11 implements the &lt;a href="https://sdmx.org/wp-content/uploads/SDMX_3-0-0_SECTION_5_FINAL-1_0.pdf" target="_blank">SDMX 3.0 registry specification&lt;/a>.
+&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;div class="row" style="align-items: center; justify-content: center;">
+&lt;div class="col-md-5">
+&lt;p>In addition, FMR provides three built-in data processing functions:&lt;/p>
+&lt;ul>
+&lt;li>SDMX data validation&lt;/li>
+&lt;li>SDMX data format conversion - convert datasets between the SDMX transmission formats (XML, JSON, CSV, EDI)&lt;/li>
+&lt;li>SDMX data mapping - transforms the structure of a dataset using SDMX structure map rules&lt;/li>
+&lt;/ul>
+&lt;p>Plus a function to generate Excel forms to simplify the task of authoring and reporting data for specific dataflows.&lt;/p>
+&lt;/div>
+&lt;div class="col-md-7">
+&lt;img class="img-fluid" style="width:90%;" src="FMR_logical_architecture.png" />
+&lt;/div>
+&lt;/div>
+&lt;div class="row" style="align-items: center; justify-content: center;">
+&lt;div class="col-md-12">
+&lt;h4 style="font-size: 1.2rem;">Key use cases&lt;/h4>
+&lt;div class="text-left">
+Structural metadata management
+&lt;ul>
+&lt;li>Centralise and control structural metadata&lt;/li>
+&lt;li>Author and maintain structural metadata&lt;/li>
+&lt;li>Drive statistics production using centrally-controlled metadata&lt;/li>
+&lt;li>Provide an SDMX-compliant a REST structure API&lt;/li>
+&lt;/ul>
+Statistics production
+&lt;ul>
+&lt;li>Validate data for compliance with structural metadata, constraints and business rules (not VTL)&lt;/li>
+&lt;li>Execute complex data mapping (SDMX structure maps, not VTL)&lt;/li>
+&lt;li>Convert data between formats (convert between SDMX formats)&lt;/li>
+&lt;/ul>
+Data collection
+&lt;ul>
+&lt;li>Collect data using metadata-driven Excel forms&lt;/li>
+&lt;li>Map incoming data into standardised structures&lt;/li>
+&lt;/ul>
+Data reporting
+&lt;ul>
+&lt;li>Prepare SDMX data for reporting&lt;/li>
+&lt;li>Validate data for compliance with the data collector's specifications prior to reporting&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;strong>Capacity and Limits&lt;/strong>
+&lt;ul>
+&lt;li>No fixed limits on the number of users&lt;/li>
+&lt;li>No fixed limits on the volume of structures - in practice the volume of structures is limited by the available compute platform memory&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>License Terms&lt;/strong>&lt;br>
+&lt;a href="https://metadatatechnology.com/assets/Custom/pdf/SDMX%20Community%20Tools%20Public%20License%20Agreement.pdf">Public license agreement&lt;/a>&lt;/p>
+&lt;p>&lt;strong>Support&lt;/strong>&lt;br> Technical support contracts are available - please contact us for details.&lt;/p>
+&lt;p>&lt;strong>Availability&lt;/strong>&lt;br>Free for all.&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/section>
+&lt;section id="docker" style="padding-top:50px;">
+&lt;div class="container">
+&lt;div class="row" style="align-items: center; justify-content: center;">
+&lt;div class="col-md-12">
+&lt;img class="img-fluid" style="height: 40px;" src="docker.png" />
+&lt;div style="padding-top:20px;">
+A self-contained Fusion Metadata Registry image complete with a MySQL database suitable for testing, personal use and light production work loads.
+&lt;/div>
+&lt;div style="padding-top:20px;">
+1. Install &lt;a href="https://www.docker.com/products/docker-desktop">Docker Desktop&lt;/a>
+&lt;/div>
+&lt;div style="padding-top:20px;">
+Execute the following commands using the Windows Command App, Windows PowerShell, Linux terminal or Mac terminal.
+&lt;/div>
+&lt;div style="padding-top:20px;">
+2. Download the Fusion Metadata Registry Docker image
+&lt;div style="background-color:#545454; font-family:courier; color:white;">
+&lt;div class="ml-2 pt-2 pb-2">
+docker pull metadatatechnology/fmr-mysql:latest
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;div style="padding-top:20px;">
+3. Create a container called 'fmr'
+&lt;div style="background-color:#545454; font-family:courier; color:white;">
+&lt;div class="ml-2 pt-2 pb-2">
+docker container create --name fmr --publish 8080:8080 metadatatechnology/fmr-mysql:latest
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;div style="padding-top:20px;">
+4. Start the container
+&lt;div style="background-color:#545454; font-family:courier; color:white;">
+&lt;div class="ml-2 pt-2 pb-2">
+docker start fmr
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;div style="padding-top:20px;">
+&lt;p>Point your browser at &lt;a href="http://localhost:8080">http://localhost:8080&lt;/a>&lt;/p>
+&lt;p>The container will take between 1 and 2 minutes to start - so be patient!&lt;/p>
+&lt;p>There is a single Root User Account:&lt;br> Username: root&lt;br> Password: password&lt;/p>
+&lt;p>Log in to administer the system, and create, load and maintain SDMX structures.&lt;/p>
+&lt;/div>
+&lt;div style="padding-top:20px;">
+5. When finished - stop the container
+&lt;div style="background-color:#545454; font-family:courier; color:white;">
+&lt;div class="ml-2 pt-2 pb-2">
+docker stop fmr
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;div style="padding-top:30px;">
+&lt;p>More on &lt;a href="https://hub.docker.com/r/metadatatechnology/fmr-mysql">Docker Hub&lt;/a>.&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/section>
+&lt;section id="install" style="padding-top:50px;padding-bottom: 70px;">
+&lt;div class="container">
+&lt;div class="row" style="align-items: center; justify-content: center;">
+&lt;div class="col-md-12">
+&lt;h3>Install on Windows, Linux or Apple Mac&lt;/h3>
+&lt;p>Fusion Metadata Registry is a Java web applications that will run on most Windows, Linux or Apple Mac machines with a minimum of 4GB memory.
+&lt;/p>
+&lt;p>There are three key pre-requisities:&lt;/p>
+&lt;ul>
+&lt;li>A Java Runtime Environment (JRE or JDK) - &lt;a href="https://aws.amazon.com/corretto/">Amazon Corretto&lt;/a> 8 is a good free-to-use choice&lt;/li>
+&lt;li>A Java web application server - we recommend &lt;a href="http://tomcat.apache.org/">Apache Tomcat&lt;/a> 8.0, 8.5 or 9.0&lt;/li>
+&lt;li>A database service - &lt;a href="https://www.mysql.com/">MySQL&lt;/a>, Oracle or SQL Server are supported&lt;/li>
+&lt;/ul>
+&lt;p>Take a look at the quick start guide&lt;/p>
+&lt;a href="https://fmrwiki.sdmxcloud.org/Quick_start_guide" class="btn btn-success d-inline-block">Quick Start Guide&lt;/a>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/section></description></item></channel></rss>
