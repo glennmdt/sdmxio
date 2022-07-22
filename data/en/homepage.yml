@@ -4,9 +4,9 @@ slider:
   bg_image : "images/backgrounds/bg.jpg"
   slider_item:
     - title : "Open source software for official statistics"
-      animation_in : "left"
-      animation_out : "right"
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      animation_in : "down"
+      animation_out : "down"
+      content: "Open source software founded on the principles of consensus, co-construction, collaboration and avoiding duplication of effort"
       # available animation : left, right, up, down
       button:
         enable : true
@@ -15,9 +15,9 @@ slider:
 
     # slider item loop
     - title : "Integrated ecosystem for practical use cases"
-      content : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-      animation_in : "left"
-      animation_out : "right"
+      content : "An ecosystem of open-source SDMX software tools for official statistics use cases including data domain modelling, data collection, statistics production and statistics dissemination"
+      animation_in : "down"
+      animation_out : "down"
       # available animation : left, right, up, down
       button:
         enable : true
@@ -38,25 +38,25 @@ banner_feature:
     - name : "Data domain modelling"
       icon : "ti-layout-accordion-list" # icon pack : https://themify.me/themify-icons
       image : "images/banner/neural.png"
-      content : "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+      content : "Model data domains using the SDMX information model"
 
     # feature item loop
     - name : "Data collection"
       icon : "ti-layout-media-left" # icon pack : https://themify.me/themify-icons
       image : "images/banner/data-collection.png"
-      content : "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+      content : "Efficiently collect data from multiple providers"
 
     # feature item loop
     - name : "Statistics production"
       icon : "ti-layout-sidebar-left" # icon pack : https://themify.me/themify-icons
       image : "images/banner/statistic.png"
-      content : "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+      content : "Repeatable and systematic metadata-driven statistics production"
 
     # feature item loop
     - name : "Statistics dissemination"
       icon : "ti-layout-sidebar-none" # icon pack : https://themify.me/themify-icons
       image : "images/banner/share.png"
-      content : "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+      content : "Publishing statistics that are discoverable, understandable and consumable"
 
 
 ############################## about ##################################
@@ -66,18 +66,12 @@ about:
   partner_enabled: false
   funfacts_enabled: false
   image: ""
-  content : "Content about sdmx.io"
+  content : "sdmx.io is a community of organisations and open source projects collaborating and coordinating activity to deliver an integrated ecosystem of software tools for official statistics use cases"
   button:
     enable : true
     label : "Learn more"
     link : "about"
 
-
-############################# Course ################################
-book:
-  enable : true
-  title : "My books"
-  # book item comes from "content/**/book" folder.
 
 ########################## Call to action ############################
 cta:
@@ -92,11 +86,12 @@ cta:
 ######################## Success story #############################
 success_story:
   enable : true
-  bg_image : "images/backgrounds/bg3.jpg"
+  bg_image : "images/backgrounds/bg.webp"
   title : "Fusion Metadata Registry"
-  content : "FMR helps organisations **externalise and take control** of their statistical metadata with the benefits of maintainability, re-use, standardisation, harmonisation and improved metadata and data governance."
+  content : "Fusion Metadata Registry (FMR) is an **SDMX structural metadata** registry that helps organisations **externalise and take control** of their statistical metadata with the benefits of maintainability, re-use, standardisation, harmonisation and improved metadata and data governance
+  [learn more ...](fmr)"
   # video link
-  video_link : "/video/FMR11_introduction.mp4"
+  video_link : "https://metadatatechnology.com/assets/Custom/Video/FMR11_introduction.mp4"
 
 
 ############################# event ################################

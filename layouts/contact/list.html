@@ -1,42 +1,37 @@
-{{ define "main" }}
-{{ $data := index .Site.Data .Site.Language.Lang }}
+{{ define "main" }} {{ $data := index .Site.Data .Site.Language.Lang }}
 <!-- contact -->
 <section class="section-sm bg-gray">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <h2 class="section-title">{{ i18n "contact_us" }}</h2>
-      </div>
+    <div class="container">
+
+        <div class="row" style="padding-bottom: 100px; padding-top: 100px;">
+            <div class="col-lg-6">
+
+                <h1>By email</h1>
+                
+                <span style="font-size:3.5rem;font-weight: 200;">info@sdmx.io</span>
+                <p style="padding-top: 40px;">
+                    <a href="mailto:info@sdmx.io"><button class="btn btn-primary">{{ i18n "send" }}</button></a>
+                </p>
+            </div>
+            <div class="col-lg-6 text-center">
+                <h1>Raise an issue on GitHub</h1>
+                
+                <span style="font-size:3.5rem;font-weight: 200;"><i class="fab fa-github"></i></span>
+                <p style="padding-top: 40px;">
+                    <a href="https://github.com/sdmxio/issues"><button class="btn btn-secondary">Submit Issue</button></a>
+                </p>
+            </div>
+        </div>
+
+
     </div>
-    <div class="row">
-      <div class="col-lg-7 mb-4 mb-lg-0">
-        <form action="{{ .Site.Params.contact_form_action | safeURL }}" method="POST">
-            <input type="text" class="form-control mb-3" id="name" name="name" placeholder="{{ i18n "yourName" }}">
-            <input type="email" class="form-control mb-3" id="mail" name="mail" placeholder="{{ i18n "yourEmail" }}">
-            <input type="text" class="form-control mb-3" id="subject" name="subject" placeholder="{{ i18n "subject" }}">
-            <textarea name="message" id="message" class="form-control mb-3" placeholder="{{ i18n "yourMessage"}}"></textarea>
-          <button type="submit" value="send" class="btn btn-primary">{{ i18n "send" }}</button>
-        </form>
-      </div>
-      <div class="col-lg-5 content">
-        {{ .Content }}
-        {{ with $data.homepage.contact }}
-        <img src="{{ .qr_code | relURL }}" width="128px" alt="img">
-        {{ end }}
-      </div>
-    </div>
-  </div>
 </section>
 <!-- /contact -->
 
 <!-- gmap -->
 {{ if .Site.Params.map.enable }}
 <section class="section pt-0">
-  <div id="map_canvas"
-  data-latitude="{{ .Site.Params.map.map_latitude }}"
-  data-longitude="{{ .Site.Params.map.map_longitude }}"
-  data-marker="{{ .Site.Params.map.map_marker | relURL }}"
-  data-marker-name="{{ .Site.Title }}"></div>
+    <div id="map_canvas" data-latitude="{{ .Site.Params.map.map_latitude }}" data-longitude="{{ .Site.Params.map.map_longitude }}" data-marker="{{ .Site.Params.map.map_marker | relURL }}" data-marker-name="{{ .Site.Title }}"></div>
 </section>
 {{ end }}
 <!-- /gmap -->

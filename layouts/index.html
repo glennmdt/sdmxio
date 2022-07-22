@@ -11,8 +11,8 @@
             <div class="hero-slider-item">
                 <div class="row">
                     <div class="col-md-8">
-                        <h1 class="text-white" data-animation-out="fadeOut{{.animation_out | title }}" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeIn{{.animation_in | title }}" data-delay-in=".1">{{ .title | markdownify }}</h1>
-                        <p class="text-white mb-4" data-animation-out="fadeOut{{.animation_out | title }}" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeIn{{.animation_in | title }}" data-delay-in=".1">{{ .content | markdownify }}</p>
+                        <h1 class="text-white" data-animation-out="fadeOut{{.animation_out | title }}" data-delay-out="7" data-duration-in=".3" data-animation-in="fadeIn{{.animation_in | title }}" data-delay-in=".1">{{ .title | markdownify }}</h1>
+                        <p class="text-white mb-4" data-animation-out="fadeOut{{.animation_out | title }}" data-delay-out="7" data-duration-in=".3" data-animation-in="fadeIn{{.animation_in | title }}" data-delay-in=".1">{{ .content | markdownify }}</p>
                         {{ if .button.enable }}
                         <a href="{{ .button.link | relLangURL }}" target="_blank" rel="noopener" class="btn btn-primary" data-animation-out="fadeOut{{.animation_out | title }}" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeIn{{.animation_in | title }}" data-delay-in=".1">{{ .button.label }}</a>                        {{ end }}
                     </div>
@@ -36,6 +36,7 @@
                     <div class="border-top w-100 border-primary d-none d-sm-block"></div>
                     <div>
                         <a href="{{`blog` | relLangURL }}" class="btn btn-sm btn-primary-outline ml-sm-3 d-none d-sm-block">{{ i18n "see_all" }}</a>
+                        
                     </div>
                 </div>
             </div>
@@ -58,6 +59,7 @@
 </section>
 {{ end }}
 <!-- /blog -->
+
 
 <!-- banner-feature -->
 {{ if $data.homepage.banner_feature.enable }} {{ with $data.homepage.banner_feature }}
@@ -82,7 +84,7 @@
                    <p><img class="img-fluid feature-icon" width="80px" src="{{ .image | relURL }}" alt="feature-item-banner"></p>
                    <div class="card-body lib-element-card-body">
                    <h5 class="card-title text-center">{{ .name | markdownify }}</h5>
-                   <p class="text-left">{{ .content | markdownify }}</p>
+                   <p class="text-center">{{ .content | markdownify }}</p>
                    </div>
                </div>
                {{ end }}
@@ -101,6 +103,44 @@
 </section>
 {{ end }} {{ end }}
 <!-- banner-feature -->
+
+
+
+<!-- events -->
+{{ if $data.homepage.event.enable }}
+<section class="section-sm bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex align-items-center section-title justify-content-between">
+                    <h2 class="mb-0 text-nowrap mr-3">{{ $data.homepage.event.title }}</h2>
+                    <div class="border-top w-100 border-primary d-none d-sm-block"></div>
+                    <div>
+                        <a href="{{`event` | relLangURL }}" class="btn btn-sm btn-primary-outline ml-sm-3 d-none d-sm-block">{{ i18n "see_all" }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <!-- event -->
+            {{ range first 3 (where .Site.RegularPages "Type" "event")}}
+            <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
+                {{ .Render "event" }}
+            </div>
+            {{ end }}
+        </div>
+        <!-- mobile see all button -->
+        <div class="row">
+            <div class="col-12 text-center">
+                <a href="{{`event` | relLangURL }}" class="btn btn-sm btn-primary-outline d-sm-none d-inline-block">{{ i18n "see_all" }}</a>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}
+<!-- /events -->
+
+
 
 <!-- books -->
 {{ if $data.homepage.books.enable }}
@@ -140,7 +180,7 @@
 
 <!-- cta -->
 {{ if $data.homepage.cta.enable }} {{ with $data.homepage.cta }}
-<section class="section-sm bg-primary">
+<section class="section-sm" style="background-color: #adb2bd">
     <div class="container homepage-apply">
         <div class="row">
             <div class="col-12 text-center">
@@ -177,43 +217,9 @@
 {{ end }} {{ end }}
 <!-- /funfacts -->
 
-<!-- 云原生学院 -->
+<!-- FMR -->
 {{ if $data.homepage.success_story.enable }} {{ partial "success-story.html" . }} {{ end }}
 <!-- /success story -->
-
-<!-- events -->
-{{ if $data.homepage.event.enable }}
-<section class="section-sm bg-gray">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="d-flex align-items-center section-title justify-content-between">
-                    <h2 class="mb-0 text-nowrap mr-3">{{ $data.homepage.event.title }}</h2>
-                    <div class="border-top w-100 border-primary d-none d-sm-block"></div>
-                    <div>
-                        <a href="{{`event` | relLangURL }}" class="btn btn-sm btn-primary-outline ml-sm-3 d-none d-sm-block">{{ i18n "see_all" }}</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <!-- event -->
-            {{ range first 3 (where .Site.RegularPages "Type" "event")}}
-            <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
-                {{ .Render "event" }}
-            </div>
-            {{ end }}
-        </div>
-        <!-- mobile see all button -->
-        <div class="row">
-            <div class="col-12 text-center">
-                <a href="{{`event` | relLangURL }}" class="btn btn-sm btn-primary-outline d-sm-none d-inline-block">{{ i18n "see_all" }}</a>
-            </div>
-        </div>
-    </div>
-</section>
-{{ end }}
-<!-- /events -->
 
 <!-- about -->
 {{ if $data.homepage.about.enable }} {{ with $data.homepage.about }}

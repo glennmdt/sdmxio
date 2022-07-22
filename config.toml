@@ -1,5 +1,5 @@
 ######################## default configuration ####################
-baseURL = "https://glennmdt.github.io/sdmxio/"
+baseURL = "https://glennmdt.github.io/sdmxio"
 title = "Open source software for official statistics"
 # post pagination
 paginate = "10"
@@ -45,8 +45,8 @@ link = "plugins/venobox/venobox.css"
 link = "plugins/themify-icons/themify-icons.css"
 [[params.plugins.css]]
 link = "plugins/hightlight/syntax.css"
-#[[params.plugins.css]]
-#link = "plugins/fontawesome/font-awesome.min.css"
+[[params.plugins.css]]
+link = "plugins/fontawesome/font-awesome.min.css"
 [[params.plugins.css]]
 link = "plugins/tocbot/tocbot.css"
 [[params.plugins.css]]
@@ -117,18 +117,13 @@ preloader = "images/preloader.gif" # use jpg, png, svg or gif format.
 ############################# social site ########################
 [[params.social]]
 title = "twitter"
-icon = "fa-twitter"
+icon = "fab fa-twitter"
 link = "https://twitter.com/sdmxio"
 
 [[params.social]]
 title = "github"
-icon = "fa-github"
+icon = "fab fa-github"
 link = "https://github.com/sdmxio"
-
-[[params.social]]
-title = "linkedin"
-icon = "fa-linkedin"
-link = "https://linkedin.com/in/sdmxio"
 
 [[params.social]]
 title = "mail"
@@ -157,24 +152,6 @@ name = "About"
 URL = "about"
 weight = 1
 identifier = "about"
-
-[[menu.main]]
-name = "About sdmx.io"
-URL = "about"
-weight=1
-parent = "about"
-
-[[menu.main]]
-name = "community"
-URL = "community"
-weight=1
-parent = "about"
-
-[[menu.main]]
-name = "Governance"
-URL = "governance"
-weight=1
-parent = "about"
 
 [[menu.main]]
 name = "Ecosystem"
@@ -221,7 +198,7 @@ weight=7
 identifier="help"
 
 [[menu.main]]
-name = "Issues on GitHub"
+name = "Raise an issue on GitHub"
 URL = "https://github.com/glennmdt/sdmxio/issues"
 weight=1
 parent="help"
@@ -234,7 +211,7 @@ weight = 20
 # footer links
 
 [[menu.footer]]
-name = "FMR @ BIS Open Tech"
+name = "BIS Open Tech"
 URL = "https://www.bis.org/innovation/bis_open_tech_sdmx.htm"
 
 [[menu.footer]]
@@ -247,6 +224,26 @@ URL = "https://registry.sdmx.org"
 
 
 [markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      linkifyProtocol = 'https'
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      autoHeadingIDType = 'github'
+      [markup.goldmark.parser.attribute]
+        block = false
+        title = true
+    [markup.goldmark.renderer]
+      hardWraps = false
+      unsafe = true
+      xhtml = false
   [markup.highlight]
     codeFences = true
     guessSyntax = false
