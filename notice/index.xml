@@ -1,4 +1,30 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – Notice</title><link>https://glennmdt.github.io/sdmxio/notice/</link><description>Recent content in Notice on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Wed, 06 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://glennmdt.github.io/sdmxio/notice/index.xml" rel="self" type="application/rss+xml"/><item><title>FMR 11.1.7 release</title><link>https://glennmdt.github.io/sdmxio/notice/fmr-11.1.7-release/</link><pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate><guid>https://glennmdt.github.io/sdmxio/notice/fmr-11.1.7-release/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – Notice</title><link>https://glennmdt.github.io/sdmxio/notice/</link><description>Recent content in Notice on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Fri, 22 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://glennmdt.github.io/sdmxio/notice/index.xml" rel="self" type="application/rss+xml"/><item><title>FMR 11.2.0 release</title><link>https://glennmdt.github.io/sdmxio/notice/fmr-11.2.0-release/</link><pubDate>Fri, 22 Jul 2022 00:00:00 +0000</pubDate><guid>https://glennmdt.github.io/sdmxio/notice/fmr-11.2.0-release/</guid><description>
+&lt;h1 id="version-1112-released-20220722">Version 11.1.2 (Released: 2022/07/22)&lt;/h1>
+&lt;p>&lt;strong>New Feature:&lt;/strong>&lt;/p>
+&lt;p>FMR11-164 - Support Reference Metadata&lt;br>
+FMR11-165 - Support Certificate Authentication &lt;a href="https://github.com/MEDIT-Org/fmr/issues/234" title="https://github.com/MEDIT-Org/fmr/issues/234" target="_blank" rel="noopener">https://github.com/MEDIT-Org/fmr/issues/234&lt;/a>
+&lt;a href="https://fmrwiki.sdmxcloud.org/Configure_X509_Certificate_Authentication" title="https://fmrwiki.sdmxcloud.org/Configure_X509_Certificate_Authentication" target="_blank" rel="noopener">https://fmrwiki.sdmxcloud.org/Configure_X509_Certificate_Authentication&lt;/a>
+&lt;/p>
+&lt;p>&lt;strong>Improvement:&lt;/strong>&lt;/p>
+&lt;p>FMR11-146 - FMR dependency updates &lt;a href="https://github.com/MEDIT-Org/fmr/issues/232" title="https://github.com/MEDIT-Org/fmr/issues/232" target="_blank" rel="noopener">https://github.com/MEDIT-Org/fmr/issues/232&lt;/a>
+&lt;br>
+FMR11-159 - Add &amp;ldquo;Raw&amp;rdquo; option to Download structures and remove &amp;ldquo;Include internal settings&amp;rdquo; &lt;a href="https://github.com/MEDIT-Org/fmr/issues/227" title="https://github.com/MEDIT-Org/fmr/issues/227" target="_blank" rel="noopener">https://github.com/MEDIT-Org/fmr/issues/227&lt;/a>
+&lt;br>
+FMR11-160 - Allow a Concept Representation to be a ValueList &lt;a href="https://github.com/MEDIT-Org/fmr/issues/83" title="https://github.com/MEDIT-Org/fmr/issues/83" target="_blank" rel="noopener">https://github.com/MEDIT-Org/fmr/issues/83&lt;/a>
+&lt;/p>
+&lt;p>&lt;strong>Bug Fixes:&lt;/strong>&lt;/p>
+&lt;p>FMR11-162 - SERIES_KEY column should be reserved for series keys &lt;a href="https://github.com/MEDIT-Org/fmr/issues/128" title="https://github.com/MEDIT-Org/fmr/issues/128" target="_blank" rel="noopener">https://github.com/MEDIT-Org/fmr/issues/128&lt;/a>
+&lt;br>
+FMR11-161 - Issue loading Data Constraint with a Component element under Cube Region element &lt;a href="https://github.com/MEDIT-Org/fmr/issues/210" title="https://github.com/MEDIT-Org/fmr/issues/210" target="_blank" rel="noopener">https://github.com/MEDIT-Org/fmr/issues/210&lt;/a>
+&lt;br>
+FMR11-163 - Attribute variable does not work in table heading &lt;a href="https://github.com/MEDIT-Org/fmr/issues/240" title="https://github.com/MEDIT-Org/fmr/issues/240" target="_blank" rel="noopener">https://github.com/MEDIT-Org/fmr/issues/240&lt;/a>
+&lt;br>
+FMR11-166 - Duplicate attribute is not detected anymore in FMR &lt;a href="https://github.com/MEDIT-Org/fmr/issues/143" title="https://github.com/MEDIT-Org/fmr/issues/143" target="_blank" rel="noopener">https://github.com/MEDIT-Org/fmr/issues/143&lt;/a>
+&lt;br>
+FMR11-167 - Publication Table - Array Variables fail to save &lt;a href="https://github.com/MEDIT-Org/fmr/issues/239" title="https://github.com/MEDIT-Org/fmr/issues/239" target="_blank" rel="noopener">https://github.com/MEDIT-Org/fmr/issues/239&lt;/a>
+&lt;br>
+FMR11-168 - Error encountered whist attempting to deserialize structure &lt;a href="https://github.com/MEDIT-Org/fmr/issues/210" title="https://github.com/MEDIT-Org/fmr/issues/210" target="_blank" rel="noopener">https://github.com/MEDIT-Org/fmr/issues/210&lt;/a>
+&lt;/p></description></item><item><title>FMR 11.1.7 release</title><link>https://glennmdt.github.io/sdmxio/notice/fmr-11.1.7-release/</link><pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate><guid>https://glennmdt.github.io/sdmxio/notice/fmr-11.1.7-release/</guid><description>
 &lt;h1 id="version-1117-released-20220706">Version 11.1.7 (Released: 2022/07/06)&lt;/h1>
 &lt;p>&lt;strong>New Feature:&lt;/strong>&lt;/p>
 &lt;p>FMR11-153 - Add Environment Sync back in from FR10&lt;/p>

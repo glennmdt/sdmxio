@@ -1,0 +1,73 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – FMR</title><link>https://glennmdt.github.io/sdmxio/categories/fmr/</link><description>Recent content in FMR on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Fri, 22 Jul 2022 22:22:00 +0800</lastBuildDate><atom:link href="https://glennmdt.github.io/sdmxio/categories/fmr/index.xml" rel="self" type="application/rss+xml"/><item><title>Creating balance equality validation rules using hierarical codelists in FMR</title><link>https://glennmdt.github.io/sdmxio/blog/balance-equality-validation-rules-using-hcl/</link><pubDate>Fri, 22 Jul 2022 22:22:00 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/balance-equality-validation-rules-using-hcl/</guid><description>
+&lt;p>Balance equalities are a useful addition in the data quality toolbox for checking arithemtic consistency between data points. In FMR they are defined as structural metadata using &lt;strong>validation schemes&lt;/strong>. One option is to define explcit arithmetic expressions on specific variables in a dataset, but hierarchical codelists can also be used.&lt;/p>
+&lt;h2 id="defining-implict-aggegation-using-hierarchical-codelists">Defining implict aggegation using hierarchical codelists&lt;/h2>
+&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In est risus, finibus sit amet massa ac, ultricies ornare nisi. Phasellus id orci fringilla, tincidunt velit sed, cursus nulla. Nulla facilisi. Fusce justo sem, sollicitudin sed libero vel, ultricies pretium mauris. Nam ac ligula ultricies, sagittis lacus nec, mollis diam. In sit amet auctor magna. Etiam ornare vestibulum nisl, eu blandit nunc mattis ac. Aenean fermentum nisi non dui vestibulum, at tristique magna iaculis. Praesent sed congue quam, nec faucibus nulla. Aenean risus est, feugiat nec purus at, pharetra porta diam. Fusce dolor purus, faucibus sed velit sit amet, ullamcorper condimentum turpis. Donec condimentum nulla eu nisl ultricies, ac tincidunt magna sollicitudin. Nulla facilisi. Nam nec egestas tortor, non iaculis orci.&lt;/p>
+&lt;p>Donec a tempus mi, non rutrum nibh. Aenean non leo porta, porta massa eget, suscipit risus. Nulla facilisi. Phasellus id consequat dui. Phasellus vel justo tincidunt, ultrices sapien nec, volutpat enim. Vestibulum posuere metus eget nisl ultrices placerat. Cras tincidunt nunc ut leo lacinia sodales. Nunc et enim quis nunc auctor molestie. Nam at lectus sed sem porta viverra a ac libero. Nullam lacus ex, vehicula ut placerat in, fringilla eu mi.&lt;/p></description></item><item><title>How to use an external database with the FMR Docker image</title><link>https://glennmdt.github.io/sdmxio/blog/how-to-use-an-external-database-with-fmr-docker/</link><pubDate>Tue, 05 Jul 2022 22:22:00 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/how-to-use-an-external-database-with-fmr-docker/</guid><description>
+&lt;p>The standard &lt;a href="https://hub.docker.com/r/metadatatechnology/fmr-mysql" title="FMR Docker image" target="_blank" rel="noopener">FMR Docker image&lt;/a>
+is self contained in that includes everything needed to run a light-weight installation suitable for testing, personal use and light production workloads. But what happens if you want to use a database service external to the container? - SQL Server or Oracle for instance. This article explains how.&lt;/p>
+&lt;h2 id="about-fmrs-operating-database">About FMR&amp;rsquo;s operating database&lt;/h2>
+&lt;p>Just as a bit of background, FMR uses a SQL database for its operational storage - that is:&lt;/p>
+&lt;ul>
+&lt;li>structural metadata content&lt;/li>
+&lt;li>settings and configuration information&lt;/li>
+&lt;li>audits and transaction history&lt;/li>
+&lt;/ul>
+&lt;p>MySQL (5.7 and 8) is mature and free making it a good choice for many use cases. But FMR also supports Oracle (12c and 19c), Microsoft SQL Server and MariaDB.&lt;/p>
+&lt;p>During FMR installation, the database service and schema are defined either as a direct (JDBC) connection, or from FMR 11 by choosing a JNDI data source that must be pre-configured in the Java web application server.&lt;/p>
+&lt;p>When using the FMR Docker image, the installation phase has already been completed and the operating database set to the MySQL service internal to the container. However, that can be changed as explained in the following section.&lt;/p>
+&lt;h2 id="changing-the-fmr-docker-database">Changing the FMR Docker database&lt;/h2>
+&lt;h3 id="save-existing-structural-metadata-content">Save existing structural metadata content&lt;/h3>
+&lt;p>If you already have structural metadata in the container&amp;rsquo;s MySQL database, save it by exporting to file so that it can be reloaded when the new database is connected.&lt;/p>
+&lt;p>Log in as the root user:&lt;/p>
+&lt;ol>
+&lt;li>From &lt;code>Export Structures&lt;/code> in the menu bar, choose &lt;strong>All Structures&lt;/strong>. A Download Structures popup should appear.&lt;/li>
+&lt;li>Choose &lt;code>FUSION-JSON&lt;/code> from the list of formats, and check all of the boxes (Compress returned data etc)&lt;/li>
+&lt;li>Choose &lt;code>Download&lt;/code> to download all of the structures to a ZIP file which needs to be saved for later use.&lt;/li>
+&lt;/ol>
+&lt;h3 id="create-a-new-schema-on-the-external-database-service">Create a new schema on the external database service&lt;/h3>
+&lt;p>FMR creates its own tables, but needs an empty schema (or &amp;lsquo;database&amp;rsquo; depending on the terminology your database product uses). Create that and also a user account with privileges sufficient to create, modify and drop tables, insert, update and delete data. It&amp;rsquo;s this account that FMR will use to access the schema.&lt;/p>
+&lt;h3 id="change-fmrs-database-settings">Change FMR&amp;rsquo;s database settings&lt;/h3>
+&lt;p>Back in your running FMR Docker container&amp;hellip;&lt;/p>
+&lt;p>Log in as the root user:&lt;/p>
+&lt;ol>
+&lt;li>Choose &lt;code>Settings&lt;/code> &amp;gt; &lt;code>Database settings&lt;/code> from the menu bar. The current database settings reference the interal MySQL service so have:&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>Database Type = MySQL
+Server = Localhost
+Port = 3306
+Schema = fmr
+UserId = fmr_user
+&lt;/code>&lt;/pre>&lt;ol start="2">
+&lt;li>Choose the type of the external database service.&lt;br>For complex environments such as Oracle configured for HA-failover, choose &lt;code>Custom&lt;/code> which allows a custom connection string to be set. For most other use cases, the standard &lt;code>MySQL&lt;/code>, &lt;code>Oracle&lt;/code> or &lt;code>SQL Server&lt;/code> configurations should be sufficient. Choose &lt;code>MySQL&lt;/code> for MariaDB. The &lt;code>JNDI&lt;/code> option requires manual modifications to the Docker container&amp;rsquo;s Apache Tomcat configuration and for that reason it&amp;rsquo;s not recommended unless you have a specific use case.&lt;/li>
+&lt;li>Set the database server hostname and port. The Docker container should inherit the DNS configuration from the host platform allowing a hostname to be used. If there are connection problems, try substituing the IP address instead.&lt;/li>
+&lt;li>Set the schema, user ID and user password.&lt;/li>
+&lt;li>Apply settings.&lt;/li>
+&lt;/ol>
+&lt;figure class="mx-auto text-center">
+&lt;img src="fmr_oracle_config.jpg" loading="lazy" decoding="async" width="80%"data-img="fmr_oracle_config.jpg"
+data-caption=""
+data-width="1263"
+data-height="650"
+/>
+&lt;/figure>
+&lt;h3 id="check-the-new-database-connection-is-working">Check the new database connection is working&lt;/h3>
+&lt;p>A &amp;lsquo;Database Updated&amp;rsquo; message means a connection has been made successfully and FMR will reload its working environment from that database.&lt;/p>
+&lt;p>The most common source of failure is problems communicating with the external database service. The error report explains more:&lt;/p>
+&lt;figure class="mx-auto text-center">
+&lt;img src="fmr_database_comms_failure.jpg" loading="lazy" decoding="async" width="80%"data-img="fmr_database_comms_failure.jpg"
+data-caption=""
+data-width="1827"
+data-height="395"
+/>
+&lt;/figure>
+&lt;h3 id="recreate-settings-and-reload-any-saved-structural-metadata">Recreate settings, and reload any saved structural metadata&lt;/h3>
+&lt;p>Settings such as Active Directory configuration and appearance aren&amp;rsquo;t exported with the structural metadata so will need to be recreated manually.&lt;/p>
+&lt;p>If structural metadata was exported in the first step, that can now be reloaded.&lt;/p>
+&lt;p>Log in as the root user:&lt;/p>
+&lt;ol>
+&lt;li>Choose &lt;code>Load Structures&lt;/code> from the FMR home page.&lt;/li>
+&lt;li>Choose the File option and locate the file saved in the first step.&lt;/li>
+&lt;li>For the Action choose &lt;code>Replace&lt;/code> and click &lt;code>Import Content&lt;/code>.&lt;/li>
+&lt;/ol>
+&lt;h2 id="summary">Summary&lt;/h2>
+&lt;p>The MySQL database service integrated with the standard FMR Docker image is convenient and suitable for many purposes, but some use cases demand a service external to the container is used. That&amp;rsquo;s possible by simply changing the the database connection details through the web user interface.&lt;/p></description></item></channel></rss>

@@ -1,263 +1,73 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – Blogs</title><link>https://glennmdt.github.io/sdmxio/blog/</link><description>Recent content in Blogs on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Sun, 15 May 2022 14:18:40 +0800</lastBuildDate><atom:link href="https://glennmdt.github.io/sdmxio/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>How to build Istio?</title><link>https://glennmdt.github.io/sdmxio/blog/how-to-build-istio/</link><pubDate>Sun, 15 May 2022 14:18:40 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/how-to-build-istio/</guid><description>
-&lt;p>This article will guide you on how to compile the Istio binaries and Docker images on macOS.&lt;/p>
-&lt;h2 id="before-you-begin">Before you begin&lt;/h2>
-&lt;p>Before we start, refer to the &lt;a href="https://github.com/istio/istio/wiki/Preparing-for-Development-Mac" title="Istio Wiki" target="_blank" rel="noopener">Istio Wiki&lt;/a>
-, here is the information about my build environment.&lt;/p>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open source software for official statistics – Articles</title><link>https://glennmdt.github.io/sdmxio/blog/</link><description>Recent content in Articles on Open source software for official statistics</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&amp;copy; 2022 BIS All Rights Reserved</copyright><lastBuildDate>Fri, 22 Jul 2022 22:22:00 +0800</lastBuildDate><atom:link href="https://glennmdt.github.io/sdmxio/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Creating balance equality validation rules using hierarical codelists in FMR</title><link>https://glennmdt.github.io/sdmxio/blog/balance-equality-validation-rules-using-hcl/</link><pubDate>Fri, 22 Jul 2022 22:22:00 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/balance-equality-validation-rules-using-hcl/</guid><description>
+&lt;p>Balance equalities are a useful addition in the data quality toolbox for checking arithemtic consistency between data points. In FMR they are defined as structural metadata using &lt;strong>validation schemes&lt;/strong>. One option is to define explcit arithmetic expressions on specific variables in a dataset, but hierarchical codelists can also be used.&lt;/p>
+&lt;h2 id="defining-implict-aggegation-using-hierarchical-codelists">Defining implict aggegation using hierarchical codelists&lt;/h2>
+&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In est risus, finibus sit amet massa ac, ultricies ornare nisi. Phasellus id orci fringilla, tincidunt velit sed, cursus nulla. Nulla facilisi. Fusce justo sem, sollicitudin sed libero vel, ultricies pretium mauris. Nam ac ligula ultricies, sagittis lacus nec, mollis diam. In sit amet auctor magna. Etiam ornare vestibulum nisl, eu blandit nunc mattis ac. Aenean fermentum nisi non dui vestibulum, at tristique magna iaculis. Praesent sed congue quam, nec faucibus nulla. Aenean risus est, feugiat nec purus at, pharetra porta diam. Fusce dolor purus, faucibus sed velit sit amet, ullamcorper condimentum turpis. Donec condimentum nulla eu nisl ultricies, ac tincidunt magna sollicitudin. Nulla facilisi. Nam nec egestas tortor, non iaculis orci.&lt;/p>
+&lt;p>Donec a tempus mi, non rutrum nibh. Aenean non leo porta, porta massa eget, suscipit risus. Nulla facilisi. Phasellus id consequat dui. Phasellus vel justo tincidunt, ultrices sapien nec, volutpat enim. Vestibulum posuere metus eget nisl ultrices placerat. Cras tincidunt nunc ut leo lacinia sodales. Nunc et enim quis nunc auctor molestie. Nam at lectus sed sem porta viverra a ac libero. Nullam lacus ex, vehicula ut placerat in, fringilla eu mi.&lt;/p></description></item><item><title>How to use an external database with the FMR Docker image</title><link>https://glennmdt.github.io/sdmxio/blog/how-to-use-an-external-database-with-fmr-docker/</link><pubDate>Tue, 05 Jul 2022 22:22:00 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/how-to-use-an-external-database-with-fmr-docker/</guid><description>
+&lt;p>The standard &lt;a href="https://hub.docker.com/r/metadatatechnology/fmr-mysql" title="FMR Docker image" target="_blank" rel="noopener">FMR Docker image&lt;/a>
+is self contained in that includes everything needed to run a light-weight installation suitable for testing, personal use and light production workloads. But what happens if you want to use a database service external to the container? - SQL Server or Oracle for instance. This article explains how.&lt;/p>
+&lt;h2 id="about-fmrs-operating-database">About FMR&amp;rsquo;s operating database&lt;/h2>
+&lt;p>Just as a bit of background, FMR uses a SQL database for its operational storage - that is:&lt;/p>
 &lt;ul>
-&lt;li>macOS 12.3.1 Darwin AMD64&lt;/li>
-&lt;li>Docker Desktop 4.8.1(78998)&lt;/li>
-&lt;li>Docker Engine v20.10.14&lt;/li>
+&lt;li>structural metadata content&lt;/li>
+&lt;li>settings and configuration information&lt;/li>
+&lt;li>audits and transaction history&lt;/li>
 &lt;/ul>
-&lt;h2 id="start-to-compile">Start to compile&lt;/h2>
-&lt;p>First, download the &lt;a href="https://github.com/istio/istio" title="Istio code" target="_blank" rel="noopener">Istio code&lt;/a>
-from GitHub to the &lt;code>$GOPATH/src/istio.io/istio&lt;/code> directory, and execute the commands below in that root directory.&lt;/p>
-&lt;h3 id="compile-into-binaries">Compile into binaries&lt;/h3>
-&lt;p>Execute the following command to download the Istio dependent packages, which will be downloaded to the &lt;code>vendor&lt;/code> directory.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">go mod vendor
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Run the following command to build Istio:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo make build
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If you do not run the command with &lt;code>sudo&lt;/code>, you may encounter the following error.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">fatal: unsafe repository &lt;span class="o">(&lt;/span>&lt;span class="s1">&amp;#39;/work&amp;#39;&lt;/span> is owned by someone &lt;span class="k">else&lt;/span>&lt;span class="o">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">To add an exception &lt;span class="k">for&lt;/span> this directory, call:
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git config --global --add safe.directory /work
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">fatal: unsafe repository &lt;span class="o">(&lt;/span>&lt;span class="s1">&amp;#39;/work&amp;#39;&lt;/span> is owned by someone &lt;span class="k">else&lt;/span>&lt;span class="o">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">To add an exception &lt;span class="k">for&lt;/span> this directory, call:
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git config --global --add safe.directory /work
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Makefile.core.mk:170: *** &lt;span class="s2">&amp;#34;TAG cannot be empty&amp;#34;&lt;/span>. Stop.
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">make: *** &lt;span class="o">[&lt;/span>build&lt;span class="o">]&lt;/span> Error &lt;span class="m">2&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Even if you follow the prompts and run &lt;code>git config --global --add safe.directory /work&lt;/code>, you will still get errors during compilation.&lt;/p>
-&lt;p>The compiled binary will be saved in &lt;code>out&lt;/code> directory with the following directory structure.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">out
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── darwin_amd64
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── bug-report
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── client
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── envoy
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── extauthz
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── install-cni
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── istio-cni
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── istio-cni-taint
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── istio-iptables
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── istio_is_init
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── istioctl
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── logs
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── operator
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── pilot-agent
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── pilot-discovery
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── release
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ └── server
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">└── linux_amd64
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├── envoy
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├── envoy-centos
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├── logs
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> └── release
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>It will build both the &lt;code>linux_amd64&lt;/code> and &lt;code>darwin_amd64&lt;/code> architectures binaries at the same time.&lt;/p>
-&lt;h3 id="compile-into-docker-images">Compile into Docker images&lt;/h3>
-&lt;p>Run the following command to compile Istio into a Docker image.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo make build
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The compilation will take about 3 to 5 minutes depending on your network. Once the compilation is complete, you will see the Docker image of Istio by running the following command.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ docker images
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">REPOSITORY TAG IMAGE ID CREATED SIZE
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">localhost:5000/app_sidecar_centos_7 latest 2044037df94b &lt;span class="m">51&lt;/span> seconds ago 524MB
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">localhost:5000/app_sidecar_ubuntu_jammy latest 5d8ae5ed55b7 About a minute ago 362MB
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">localhost:5000/proxyv2 latest d4679412385f About a minute ago 243MB
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">localhost:5000/install-cni latest 78f46d5771d2 About a minute ago 270MB
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">localhost:5000/istioctl latest c38130a5adc8 About a minute ago 190MB
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">localhost:5000/pilot latest 2aa9185ec202 About a minute ago 190MB
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">localhost:5000/app latest 473adafaeb8d About a minute ago 188MB
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">localhost:5000/operator latest 9ac1fedcdd12 About a minute ago 191MB
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">localhost:5000/ext-authz latest 1fb5aaf20791 About a minute ago 117MB
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">localhost:5000/app_sidecar_debian_11 latest 61376a02b95d &lt;span class="m">2&lt;/span> minutes ago 407MB
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">localhost:5000/app_sidecar_ubuntu_xenial latest 7e8efe666611 &lt;span class="m">2&lt;/span> minutes ago 418MB
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can change the image name and push it into your own container registry.&lt;/p>
-&lt;h2 id="summary">Summary&lt;/h2>
-&lt;p>This is how to build Istio on macOS. If you have already downloaded the Docker image you need to build, the build will take less than a minute. It also takes only a few minutes to build Docker images.&lt;/p>
-&lt;h2 id="reference">Reference&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/istio/istio/wiki/Using-the-Code-Base" title="Using the Code Base - github.com" target="_blank" rel="noopener">Using the Code Base - github.com&lt;/a>
-&lt;/li>
-&lt;/ul></description></item><item><title>How to debug microservices in Kubernetes with proxy, sidecar or service mesh?</title><link>https://glennmdt.github.io/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/</link><pubDate>Mon, 05 Jul 2021 22:22:00 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/</guid><description>
-&lt;p>Kubernetes is arguably the best environment for running microservices so far, but the experience of debugging microservices in a Kubernetes environment may not be as user-friendly. This article will show you how to debug microservices in Kubernetes, introduce common tools, and explain how the introduction of Istio impacts debugging microservices.&lt;/p>
-&lt;h2 id="debugging-microservices-is-vastly-different-from-traditional-monolithic-applications">Debugging microservices is vastly different from traditional monolithic applications&lt;/h2>
-&lt;p>The debugging of microservices has been a long-standing problem for software developers. This challenge does not exist in traditional monolithic applications because developers can leverage the debugger in IDEs to add breakpoints, modify environment variables, single-step execution, etc. for their applications, all of which provide great help in software debugging. With the popularity of Kubernetes, the debugging of microservices becomes a thorny issue, where the following issues are more complicated than the debugging of traditional monolithic applications.&lt;/p>
-&lt;h3 id="multiple-dependencies">Multiple dependencies&lt;/h3>
-&lt;p>A microservice often depends on multiple other microservices, some shared volumes across multiple microservices, and authorizations based on service accounts. When debugging a microservice, how do you deploy other dependent services to quickly build a latest set of staging environments?&lt;/p>
-&lt;h3 id="access-from-a-local-machine">Access from a local machine&lt;/h3>
-&lt;p>When microservices are running on a developer’s local computer, there is usually no direct access to the services in a Kubernetes cluster. How can you debug microservices deployed in a Kubernetes cluster as if they were local services?&lt;/p>
-&lt;h3 id="slow-development-loop">Slow development loop&lt;/h3>
-&lt;p>Usually, it takes a long process to update the code and build it into an image before pushing it to the cluster. How do you speed up the development cycle? Let’s look at the tools that address those challenges.&lt;/p>
-&lt;h2 id="tools">Tools&lt;/h2>
-&lt;p>The main solutions for debugging microservices in Kubernetes are:&lt;/p>
-&lt;ul>
-&lt;li>Proxy: by building a VPN, deploying a proxy in the Kubernetes cluster, and adding local debug endpoints to make the services in Kubernetes directly accessible to local applications, your architecture will look like [ local service ] &amp;lt;-&amp;gt; [ proxy ] &amp;lt;-&amp;gt; [ app in Kubernetes ].&lt;/li>
-&lt;li>Sidecar: Inject a sidecar into the pod of the microservice to be debugged to intercept all traffic to and from the service, so that the service can be tracked and monitored, and the service can also be debugged in this sidecar.&lt;/li>
-&lt;li>Service Mesh: To get an overall picture of the application, inject sidecars into all microservices so that you can get a dashboard that monitors global status.&lt;/li>
-&lt;/ul>
-&lt;p>Here are three typical open source projects that implement the above solutions, each of which can help you debug microservices from a different perspective. You can apply them at different stages of software development and they can be said to be complementary to each other.&lt;/p>
-&lt;h3 id="proxy--debugging-microservices-with-telepresence">Proxy – debugging microservices with Telepresence&lt;/h3>
-&lt;p>&lt;a href="https://www.telepresence.io/" title="Telepresence" target="_blank" rel="noopener">Telepresence&lt;/a>
-is essentially a local proxy that proxies data volumes, environment variables, and networks in a Kubernetes cluster locally. The following diagram shows the main usage scenarios for Telepresence.&lt;/p>
-&lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/telepresence.jpg" data-img="/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/telepresence.jpg" data-width="1080" data-height="1197" alt="telepresence.jpg" data-caption="Proxy mode: Telepresence">
-&lt;figcaption>Proxy mode: Telepresence&lt;/figcaption>
-&lt;/figure>
-&lt;/p>
-&lt;p>Users need to manually execute the telepresence command locally, which will automatically deploy the agent to Kubernetes. Once the agent has been deployed,&lt;/p>
-&lt;ul>
-&lt;li>Local services will have complete access to other services in the Kubernetes cluster, environment variables, Secret, ConfigMap, etc.&lt;/li>
-&lt;li>Services in the cluster also have direct access to the locally exposed endpoints.&lt;/li>
-&lt;/ul>
-&lt;p>However, this approach requires users to run multiple commands while debugging locally, and in some network environments it may not be possible to establish a VPN connection to the Kubernetes cluster.&lt;/p>
-&lt;h3 id="sidecar--debugging-microservices-with-nocalhost">Sidecar – debugging microservices with Nocalhost&lt;/h3>
-&lt;p>&lt;a href="https://nocalhost.dev/" title="Nocalhost" target="_blank" rel="noopener">Nocalhost&lt;/a>
-is a Kubernetes-based cloud development environment. To use it, you just need to install a plugin in your IDE – VS Code to extend Kubernetes and shorten the development feedback cycle. The development environment can be isolated by creating different namespaces for different users and using ServiceAccount when binding to different user corners. Nocalhost also provides a web console and API for administrators to manage different development environments.&lt;/p>
-&lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/sidecar-nocalhost.jpg" data-img="/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/sidecar-nocalhost.jpg" data-width="1928" data-height="1080" alt="sidecar-nocalhost.jpg" data-caption="Sidecar mode: Nocalhost">
-&lt;figcaption>Sidecar mode: Nocalhost&lt;/figcaption>
-&lt;/figure>
-&lt;/p>
-&lt;p>As long as you have a Kubernetes cluster and have admin rights to the cluster, you can refer to the &lt;a href="https://nocalhost.dev/getting-started/" title="Nocalhost documentation" target="_blank" rel="noopener">Nocalhost documentation&lt;/a>
-to quickly start trying it out. To use the Nocalhost plugin in VS Code, you need to configure the Kubernetes cluster in the plugin first.&lt;/p>
+&lt;p>MySQL (5.7 and 8) is mature and free making it a good choice for many use cases. But FMR also supports Oracle (12c and 19c), Microsoft SQL Server and MariaDB.&lt;/p>
+&lt;p>During FMR installation, the database service and schema are defined either as a direct (JDBC) connection, or from FMR 11 by choosing a JNDI data source that must be pre-configured in the Java web application server.&lt;/p>
+&lt;p>When using the FMR Docker image, the installation phase has already been completed and the operating database set to the MySQL service internal to the container. However, that can be changed as explained in the following section.&lt;/p>
+&lt;h2 id="changing-the-fmr-docker-database">Changing the FMR Docker database&lt;/h2>
+&lt;h3 id="save-existing-structural-metadata-content">Save existing structural metadata content&lt;/h3>
+&lt;p>If you already have structural metadata in the container&amp;rsquo;s MySQL database, save it by exporting to file so that it can be reloaded when the new database is connected.&lt;/p>
+&lt;p>Log in as the root user:&lt;/p>
 &lt;ol>
-&lt;li>Select the Kubeconfig file you just exported or copy and paste the contents of the file directly into the configuration.&lt;/li>
-&lt;li>Then select the service you need to test and select the corresponding Dev Container. VS Code will automatically open a new code window.&lt;/li>
+&lt;li>From &lt;code>Export Structures&lt;/code> in the menu bar, choose &lt;strong>All Structures&lt;/strong>. A Download Structures popup should appear.&lt;/li>
+&lt;li>Choose &lt;code>FUSION-JSON&lt;/code> from the list of formats, and check all of the boxes (Compress returned data etc)&lt;/li>
+&lt;li>Choose &lt;code>Download&lt;/code> to download all of the structures to a ZIP file which needs to be saved for later use.&lt;/li>
 &lt;/ol>
-&lt;p>Here is an example of the &lt;a href="https://istio.io/latest/docs/examples/bookinfo/" title="bookinfo sample" target="_blank" rel="noopener">bookinfo sample&lt;/a>
-provided by Istio. You can open the cloned code in your local IDE and click the hammer next to the code file to enter development mode. Selecting the corresponding DevContainer and Nocalhost will automatically inject a development container sidecar into the pod and automatically enter the container in the terminal, as shown in the following figure.&lt;/p>
-&lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/nocalhost-vs-code.jpg" data-img="/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/nocalhost-vs-code.jpg" data-width="1722" data-height="1080" alt="nocalhost-vs-code.jpg" data-caption="Nocalhost VS code">
-&lt;figcaption>Nocalhost VS code&lt;/figcaption>
+&lt;h3 id="create-a-new-schema-on-the-external-database-service">Create a new schema on the external database service&lt;/h3>
+&lt;p>FMR creates its own tables, but needs an empty schema (or &amp;lsquo;database&amp;rsquo; depending on the terminology your database product uses). Create that and also a user account with privileges sufficient to create, modify and drop tables, insert, update and delete data. It&amp;rsquo;s this account that FMR will use to access the schema.&lt;/p>
+&lt;h3 id="change-fmrs-database-settings">Change FMR&amp;rsquo;s database settings&lt;/h3>
+&lt;p>Back in your running FMR Docker container&amp;hellip;&lt;/p>
+&lt;p>Log in as the root user:&lt;/p>
+&lt;ol>
+&lt;li>Choose &lt;code>Settings&lt;/code> &amp;gt; &lt;code>Database settings&lt;/code> from the menu bar. The current database settings reference the interal MySQL service so have:&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>Database Type = MySQL
+Server = Localhost
+Port = 3306
+Schema = fmr
+UserId = fmr_user
+&lt;/code>&lt;/pre>&lt;ol start="2">
+&lt;li>Choose the type of the external database service.&lt;br>For complex environments such as Oracle configured for HA-failover, choose &lt;code>Custom&lt;/code> which allows a custom connection string to be set. For most other use cases, the standard &lt;code>MySQL&lt;/code>, &lt;code>Oracle&lt;/code> or &lt;code>SQL Server&lt;/code> configurations should be sufficient. Choose &lt;code>MySQL&lt;/code> for MariaDB. The &lt;code>JNDI&lt;/code> option requires manual modifications to the Docker container&amp;rsquo;s Apache Tomcat configuration and for that reason it&amp;rsquo;s not recommended unless you have a specific use case.&lt;/li>
+&lt;li>Set the database server hostname and port. The Docker container should inherit the DNS configuration from the host platform allowing a hostname to be used. If there are connection problems, try substituing the IP address instead.&lt;/li>
+&lt;li>Set the schema, user ID and user password.&lt;/li>
+&lt;li>Apply settings.&lt;/li>
+&lt;/ol>
+&lt;figure class="mx-auto text-center">
+&lt;img src="fmr_oracle_config.jpg" loading="lazy" decoding="async" width="80%"data-img="fmr_oracle_config.jpg"
+data-caption=""
+data-width="1263"
+data-height="650"
+/>
 &lt;/figure>
-&lt;/p>
-&lt;p>In development mode, the code is modified locally without rebuilding the image, and the remote development environment takes effect in real time, which can greatly accelerate the development speed. At the same time, Nocalhost also provides a server for managing the development environment and user rights, as shown in the following figure.&lt;/p>
-&lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/nocalhost-web-admin.jpg" data-img="/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/nocalhost-web-admin.jpg" data-width="2354" data-height="1080" alt="nocalhost-web-admin.jpg" data-caption="Nocalhost Web">
-&lt;figcaption>Nocalhost Web&lt;/figcaption>
+&lt;h3 id="check-the-new-database-connection-is-working">Check the new database connection is working&lt;/h3>
+&lt;p>A &amp;lsquo;Database Updated&amp;rsquo; message means a connection has been made successfully and FMR will reload its working environment from that database.&lt;/p>
+&lt;p>The most common source of failure is problems communicating with the external database service. The error report explains more:&lt;/p>
+&lt;figure class="mx-auto text-center">
+&lt;img src="fmr_database_comms_failure.jpg" loading="lazy" decoding="async" width="80%"data-img="fmr_database_comms_failure.jpg"
+data-caption=""
+data-width="1827"
+data-height="395"
+/>
 &lt;/figure>
-&lt;/p>
-&lt;h3 id="service-mesh--debugging-microservices-with-istio">Service Mesh – debugging microservices with Istio&lt;/h3>
-&lt;p>The above method of using proxy and sidecar can only debug one service at a time. You’ll need a mesh to get the global status of the application, such as the metrics of the service obtained, and debug the performance of the service by understanding the dependency and invocation process of the service through distributed tracing. These observability features need to be implemented by injecting sidecar uniformly for all services. And, when your services are in the process of migrating from VMs to Kubernetes, using Istio can bring VMs and Kubernetes into a single network plane (as shown below), making it easy for developers to debug and do incremental migrations.&lt;/p>
-&lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/istio-service-mesh.jpg" data-img="/sdmxio/blog/how-to-debug-microservices-in-kubernetes-with-proxy-sidecar-or-service-mesh/istio-service-mesh.jpg" data-width="1956" data-height="1080" alt="istio-service-mesh.jpg" data-caption="Serivce Mesh mode: Istio">
-&lt;figcaption>Serivce Mesh mode: Istio&lt;/figcaption>
-&lt;/figure>
-&lt;/p>
-&lt;p>Of course, these benefits do not come without a “cost.” With the introduction of Istio, your Kubernetes services will need to adhere to the Istio naming convention and you’ll need to know how to debug microservices using the Istioctl command line and logging.&lt;/p>
-&lt;ul>
-&lt;li>Use the &lt;em>istioctl analyze&lt;/em> command to debug the deployment of microservices in your cluster, and you can use YAML files to examine the deployment of resources in a namespace or across your cluster.&lt;/li>
-&lt;li>Use &lt;em>istioctl proxy-config secret&lt;/em> to ensure that the secret of a pod in a service mesh is loaded correctly and is valid.&lt;/li>
-&lt;/ul>
+&lt;h3 id="recreate-settings-and-reload-any-saved-structural-metadata">Recreate settings, and reload any saved structural metadata&lt;/h3>
+&lt;p>Settings such as Active Directory configuration and appearance aren&amp;rsquo;t exported with the structural metadata so will need to be recreated manually.&lt;/p>
+&lt;p>If structural metadata was exported in the first step, that can now be reloaded.&lt;/p>
+&lt;p>Log in as the root user:&lt;/p>
+&lt;ol>
+&lt;li>Choose &lt;code>Load Structures&lt;/code> from the FMR home page.&lt;/li>
+&lt;li>Choose the File option and locate the file saved in the first step.&lt;/li>
+&lt;li>For the Action choose &lt;code>Replace&lt;/code> and click &lt;code>Import Content&lt;/code>.&lt;/li>
+&lt;/ol>
 &lt;h2 id="summary">Summary&lt;/h2>
-&lt;p>In the process of microservicing applications and migrating from virtual machines to Kubernetes, developers need to make a lot of changes in their mindset and habits. By building a VPN between local and Kubernetes via proxy, developers can easily debug services in Kubernetes as if they were local services. By injecting a sidecar into the pod, you can achieve real-time debugging and speed up the development process. Finally, the Istio service mesh truly enables global observability, and you can also use tools like &lt;a href="https://www.tetrate.io/tetrate-service-bridge/" title="Tetrate Service Bridge" target="_blank" rel="noopener">Tetrate Service Bridge&lt;/a>
-to manage heterogeneous platforms, helping you gradually move from monolithic applications to microservices.&lt;/p></description></item><item><title>Istio 1.8: A Smart DNS Proxy Takes Support for Virtual Machines a Step Further</title><link>https://glennmdt.github.io/sdmxio/blog/istio-1-8-a-smart-dns-proxy-takes-support-for-virtual-machines-a-step-further/</link><pubDate>Thu, 19 Nov 2020 16:43:27 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/istio-1-8-a-smart-dns-proxy-takes-support-for-virtual-machines-a-step-further/</guid><description>
-&lt;p>1.8 is the last version of Istio to be released in 2020 and it has the following major updates:&lt;/p>
-&lt;ul>
-&lt;li>Supports installation and upgrades using Helm 3.&lt;/li>
-&lt;li>Mixer was officially removed.&lt;/li>
-&lt;li>Added Istio DNS proxy to transparently intercept DNS queries from applications.&lt;/li>
-&lt;li>WorkloadGroup has been added to simplify the integration of virtual machines.&lt;/li>
-&lt;/ul>
-&lt;p>WorkloadGroup is a new API object. It is intended to be used with non-Kubernetes workloads like Virtual Machines and is meant to mimic the existing sidecar injection and deployment specification model used for Kubernetes workloads to bootstrap Istio proxies.&lt;/p>
-&lt;h2 id="installation-and-upgrades">Installation and Upgrades&lt;/h2>
-&lt;p>Istio starts to officially support the use of &lt;a href="https://istio.io/latest/docs/setup/install/helm/" title="Helm" target="_blank" rel="noopener">Helm&lt;/a>
-v3 for installations and upgrades. In previous versions, the installation was done with the istioctl command-line tool or Operator. With version 1.8, Istio supports in-place and canary upgrades with Helm.&lt;/p>
-&lt;h2 id="enhancing-istios-usability">Enhancing Istio’s Usability&lt;/h2>
-&lt;p>The istioctl command-line tool has a new bug reporting feature (&lt;a href="https://istio.io/latest/docs/reference/commands/istioctl/#istioctl-bug-report" title="istioctl bug-report" target="_blank" rel="noopener">istioctl bug-report&lt;/a>
-), which can be used to collect debugging information and get cluster status.&lt;/p>
-&lt;p>The way to install the &lt;a href="https://istio.io/latest/blog/2020/addon-rework/" title="add-on" target="_blank" rel="noopener">add-on&lt;/a>
-has changed: 1.7 istioctl is no longer recommended and has been removed in 1.8, to help solve the problem of add-on lagging upstream and to make it easier to maintain.&lt;/p>
-&lt;p>Tetrate is an enterprise service mesh company. Our flagship product, TSB, enables customers to bridge their workloads across bare metal, VMs, K8s, &amp;amp; cloud at the application layer and provide a resilient, feature-rich service mesh fabric powered by Istio, Envoy, and Apache SkyWalking.&lt;/p>
-&lt;p>Mixer, the Istio component that had been responsible for policy controls and telemetry collection, has been removed. Its functionalities are now being served by the Envoy proxies. For extensibility, service mesh experts recommend using &lt;a href="https://istio.io/latest/blog/2020/wasm-announce/" title="WebAssembly" target="_blank" rel="noopener">WebAssembly&lt;/a>
-(Wasm) to extend Envoy; and you can also try the &lt;a href="https://www.getenvoy.io/reference/getenvoy_extension_toolkit_reference/" title="GetEnvoy Toolkit" target="_blank" rel="noopener">GetEnvoy Toolkit&lt;/a>
-, which makes it easier for developers to create Wasm extensions for Envoy. If you still want to use Mixer, you must use version 1.7 or older. Mixer continued receiving bug fixes and security fixes until Istio 1.7. Many features supported by Mixer have alternatives as specified in the &lt;a href="https://tinyurl.com/mixer-deprecation" title="Mixer Deprecation" target="_blank" rel="noopener">Mixer Deprecation&lt;/a>
-document, including the &lt;a href="https://github.com/istio/proxy/tree/master/extensions" title="in-proxy extensions" target="_blank" rel="noopener">in-proxy extensions&lt;/a>
-based on the Wasm sandbox API.&lt;/p>
-&lt;h2 id="support-for-virtual-machines">Support for Virtual Machines&lt;/h2>
-&lt;p>Istio’s recent upgrades have steadily focused on making virtual machines first-class citizens in the mesh. &lt;a href="https://thenewstack.io/how-to-integrate-virtual-machines-into-istio-service-mesh/" title="Istio 1.7 made progress to support virtual machines" target="_blank" rel="noopener">Istio 1.7 made progress to support virtual machines&lt;/a>
-and Istio 1.8 adds a &lt;a href="https://istio.io/latest/blog/2020/dns-proxy/" title="smart DNS proxy" target="_blank" rel="noopener">smart DNS proxy&lt;/a>
-, which is an Istio sidecar agent written in Go. The Istio agent on the sidecar will come with a cache that is dynamically programmed by Istiod DNS Proxy. DNS queries from applications are transparently intercepted and served by an Istio proxy in a pod or VM that intelligently responds to DNS query requests, enabling seamless multicluster access from virtual machines to the service mesh.&lt;/p>
-&lt;p>Istio 1.8 adds a &lt;a href="https://istio.io/latest/docs/reference/config/networking/workload-group/" title="WorkloadGroup" target="_blank" rel="noopener">WorkloadGroup&lt;/a>
-, which describes a collection of workload instances. It provides a specification that the workload instances can use to bootstrap their proxies, including the metadata and identity. It is only intended to be used with non-k8s workloads like Virtual Machines, and is meant to mimic the existing sidecar injection and deployment specification model used for Kubernetes workloads to bootstrap Istio proxies. Using WorkloadGroups, Istio has started to help automate VM registration with &lt;a href="https://istio.io/latest/docs/setup/install/virtual-machine/#create-files-to-transfer-to-the-virtual-machine" title="istioctl experimental workload group" target="_blank" rel="noopener">istioctl experimental workload group&lt;/a>
-.&lt;/p>
-&lt;p>&lt;a href="https://www.tetrate.io/" title="Tetrate" target="_blank" rel="noopener">Tetrate&lt;/a>
-, the enterprise service mesh company, uses these &lt;a href="https://www.tetrate.io/blog/whats-new-in-istio-1-8-dns-proxy-helps-expand-mesh-to-vms-and-multicluster/" title="VM features" target="_blank" rel="noopener">VM features&lt;/a>
-extensively in customers’ multicluster deployments, to enable sidecars to resolve DNS for hosts exposed at ingress gateways of all the clusters in a mesh; and to access them over mutual TLS.&lt;/p>
-&lt;h2 id="conclusion">Conclusion&lt;/h2>
-&lt;p>All in all, the Istio team has kept the promise made at the beginning of the year to maintain a regular release cadence of one release every three months since the 1.1 release in 2018, with continuous optimizations in performance and user experience for a seamless experience of brownfield and greenfield apps on Istio. We look forward to more progress from Istio in 2021.&lt;/p></description></item><item><title>How to Integrate Virtual Machines into Istio Service Mesh</title><link>https://glennmdt.github.io/sdmxio/blog/how-to-integrate-virtual-machines-into-istio-service-mesh/</link><pubDate>Mon, 02 Nov 2020 16:43:27 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/how-to-integrate-virtual-machines-into-istio-service-mesh/</guid><description>
-&lt;p>&lt;a href="https://istio.io/" title="Istio" target="_blank" rel="noopener">Istio&lt;/a>
-is a popular service mesh to connect, secure, control, and observe services. When it was first introduced as open source in 2017, Kubernetes was winning the container orchestration battle and Istio answered the needs of organizations moving to microservices. Although Istio claims to support heterogeneous environments such as Nomad, Consul, Eureka, Cloud Foundry, Mesos, etc., in reality, it has always worked best with Kubernetes — on which its service discovery is based.&lt;/p>
-&lt;p>Istio was criticized for a number of issues early in its development, for the large number of components, the complexity of installation and maintenance, the difficulty of debugging, a steep learning curve due to the introduction of too many new concepts and objects (up to 50 CRDs), and the impact of Mixer components on performance. But these issues are gradually being overcome by the Istio team. As you can see from the &lt;a href="https://istio.io/latest/zh/blog/2020/tradewinds-2020/" title="roadmap" target="_blank" rel="noopener">roadmap&lt;/a>
-released in early 2020, Istio has come a long way.&lt;/p>
-&lt;p>Better integration of VM-based workloads into the mesh is a major focus for the Istio team this year. Tetrate also offers seamless multicloud connectivity, security, and observability, including for VMs, via its product &lt;a href="https://www.tetrate.io/tetrate-service-bridge/" title="Tetrate Service Bridge" target="_blank" rel="noopener">Tetrate Service Bridge&lt;/a>
-. This article will take you through why Istio needs to integrate with virtual machines and how you can do so.&lt;/p>
-&lt;h2 id="why-should-istio-support-virtual-machines">Why Should Istio Support Virtual Machines?&lt;/h2>
-&lt;p>Although containers and Kubernetes are now widely used, there are still many services deployed on virtual machines and APIs outside of the Kubernetes cluster that needs to be managed by Istio mesh. It’s a huge challenge to unify the management of the brownfield environment with the greenfield.&lt;/p>
-&lt;h2 id="what-is-needed-to-add-vms-to-the-mesh">What Is Needed to Add VMs to the Mesh?&lt;/h2>
-&lt;p>Before the “how,” I’ll describe &lt;em>what&lt;/em> is needed to add virtual machines to the mesh. There are a couple of things that Istio must know when supporting virtual machine traffic: which VMs have services that should be part of the mesh, and how to reach the VMs. Each VM also needs an identity, in order to communicate securely with the rest of the mesh. These requirements could work with Kubernetes CRDs, as well as a full-blown Service Registry like Consul. And the service account based identity bootstrapping could work as a mechanism for assigning workload identities to VMs that do not have a platform identity. For VMs that do have a platform identity (like EC2, GCP, Azure, etc.), work is underway in Istio to exchange the platform identity with a Kubernetes identity for ease of setting up mTLS communication.&lt;/p>
-&lt;h2 id="how-does-istio-support-virtual-machines">How Does Istio Support Virtual Machines?&lt;/h2>
-&lt;p>Istio’s support for virtual machines starts with its service registry mechanism. The information about services and instances in the Istio mesh comes from Istio’s service registries, which up to this point have only looked at or tracked pods. In newer versions, Istio now has resource types to track and watch VMs. The sidecars inside the mesh cannot observe and control traffic to services outside the mesh, because they do not have any information about them.&lt;/p>
-&lt;p>The Istio community and &lt;a href="https://www.tetrate.io/" title="Tetrate" target="_blank" rel="noopener">Tetrate&lt;/a>
-have done a lot of &lt;a href="https://www.tetrate.io/blog/istio-bringing-vms-into-the-mesh-with-cynthia-coan/" title="work" target="_blank" rel="noopener">work&lt;/a>
-on Istio’s support for virtual machines. The 1.6 release included the addition of WorkloadEntry, which allows you to describe a VM exactly as you would a host running in Kubernetes. In 1.7, the release started to add the foundations for bootstrapping VMs into the mesh automatically through tokens, with Istio doing the heavy lifting. Istio 1.8 will debut another abstraction called WorkloadGroup, which is similar to a Kubernetes Deployment object — but for VMs.&lt;/p>
-&lt;p>The following diagram shows how Istio models services in the mesh. The predominant source of information comes from a platform service registry like Kubernetes, or a system like Consul. In addition, the ServiceEntry serves as a user-defined service registry, modeling services on VMs or external services outside the organization.&lt;/p>
-&lt;p>&lt;figure class="mx-auto text-center">
-&lt;img src="https://glennmdt.github.io/sdmxio/sdmxio/blog/how-to-integrate-virtual-machines-into-istio-service-mesh/0081Kckwgy1gkp0fvr3orj30p30ehabc.jpg" data-img="/sdmxio/blog/how-to-integrate-virtual-machines-into-istio-service-mesh/0081Kckwgy1gkp0fvr3orj30p30ehabc.jpg" data-width="903" data-height="521" alt="0081Kckwgy1gkp0fvr3orj30p30ehabc.jpg" data-caption="">
-&lt;figcaption>&lt;/figcaption>
-&lt;/figure>
-&lt;/p>
-&lt;p>&lt;strong>Why install Istio in a virtual machine when you can just use ServiceEntry to bring in the services in the VMs?&lt;/strong>&lt;/p>
-&lt;p>Using ServiceEntry, you can enable services inside the mesh to discover and access external services; and in addition, manage the traffic to those external services. In conjunction with VirtualService, you can also configure access rules for the corresponding external service — such as request timeouts, fault injection, etc. — to enable controlled access to the specified external service.&lt;/p>
-&lt;p>Even so, it only controls the traffic on the client-side, not access to the introduced external service to other services. That is, it cannot control the behavior of the service as the call initiator. Deploying sidecars in a virtual machine and introducing the virtual machine workload via workload selector allows the virtual machine to be managed indiscriminately, like a pod in Kubernetes.&lt;/p>
-&lt;h2 id="future">Future&lt;/h2>
-&lt;p>As you can see from the &lt;a href="https://istio.io/latest/docs/examples/virtual-machines/bookinfo/" title="bookinfo demo" target="_blank" rel="noopener">bookinfo demo&lt;/a>
-, there is too much manual work involved in the process and it’s easy to go wrong. In the future, Istio will improve VM testing to be realistic, automate bootstrapping based on platform identity, improve DNS support and istioctl debugging, and more. You can follow the &lt;a href="https://github.com/istio/community/blob/master/WORKING-GROUPS.md" title="Istio Environment Working Group" target="_blank" rel="noopener">Istio Environment Working Group&lt;/a>
-for more details about virtual machine support.&lt;/p>
-&lt;h2 id="references">References&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://istio.io/latest/docs/setup/install/virtual-machine/" title="Virtual Machine Installation" target="_blank" rel="noopener">Virtual Machine Installation&lt;/a>
-&lt;/li>
-&lt;li>&lt;a href="https://istio.io/latest/docs/examples/virtual-machines/single-network/" title="Virtual Machines in Single-Network Meshes" target="_blank" rel="noopener">Virtual Machines in Single-Network Meshes&lt;/a>
-&lt;/li>
-&lt;li>&lt;a href="https://www.tetrate.io/blog/istio-bringing-vms-into-the-mesh-with-cynthia-coan/" title="Istio: Bringing VMs into the Mesh (with Cynthia Coan)" target="_blank" rel="noopener">Istio: Bringing VMs into the Mesh (with Cynthia Coan)&lt;/a>
-&lt;/li>
-&lt;li>&lt;a href="https://www.tetrate.io/blog/bridging-traditional-and-modern-workloads/" title="Bridging Traditional and Modern Workloads" target="_blank" rel="noopener">Bridging Traditional and Modern Workloads&lt;/a>
-&lt;/li>
-&lt;/ul></description></item><item><title>Cloud Native and me - the past, current and future</title><link>https://glennmdt.github.io/sdmxio/blog/cloud-native-and-me-the-past-current-and-future/</link><pubDate>Sat, 11 Aug 2018 11:37:36 +0800</pubDate><guid>https://glennmdt.github.io/sdmxio/blog/cloud-native-and-me-the-past-current-and-future/</guid><description>
-&lt;p>Today I am honored to announce that I have become a &lt;a href="https://www.cncf.io/people/ambassadors/" title="CNCF Ambassador" target="_blank" rel="noopener">CNCF Ambassador&lt;/a>
-. Here is my story with Cloud Native.&lt;/p>
-&lt;h2 id="origin">Origin&lt;/h2>
-&lt;p>The first time to attend the Cloud Native Computing Foundation is at the LC3 in Beijing 2017. I attended the meeting again this year, and in November of this year, CNCF will hold the &lt;a href="https://www.lfasiallc.com/events/kubecon-cloudnativecon-china-2018/" title="KubeCon &amp;amp;amp; CloudNativeCon" target="_blank" rel="noopener">KubeCon &amp;amp; CloudNativeCon&lt;/a>
-for the first time in Shanghai, China. I&amp;rsquo;ll be there too.&lt;/p>
-&lt;h2 id="cloud-native-books">Cloud Native Books&lt;/h2>
-&lt;p>My origins with the Cloud Native is originated from Kevin Hoffman&amp;rsquo;s book &lt;a href="https://glennmdt.github.io/sdmxio/en/book/cloud-native-go" title="Cloud Native Go">Cloud Native Go&lt;/a>
-. I translated this book at the end of 2016. Since then, in China, the translation of the word &lt;code>Cloud Native&lt;/code> has not been determined, we introduced it with &lt;code>云原生&lt;/code> to China.&lt;/p>
-&lt;p>And then I begin to write the &lt;a href="https://github.com/rootsongjc/kubernetes-handbook" title="kubernetes-handbook" target="_blank" rel="noopener">kubernetes-handbook&lt;/a>
-on GitHub. So far, it has more than 2000 stars. This book has written more than 200,000 Chinese characters, the first commit happened on April 14, 2017.&lt;/p>
-&lt;p>Since the the book Cloud Native Go completed, the publisher recommended another Cloud Native book to me - &lt;a href="https://glennmdt.github.io/sdmxio/en/book/cloud-native-python/" title="Cloud Native Python">Cloud Native Python&lt;/a>
-by Manish Sethi.&lt;/p>
-&lt;p>And the book &lt;a href="https://glennmdt.github.io/sdmxio/en/book/cloud-native-java/" title="Cloud Native Java">Cloud Native Java&lt;/a>
-by Josh Long and Kenny Bastani.&lt;/p>
-&lt;p>In March 2018, with the hope that &lt;code>Bring the world equal opportunities&lt;/code> and &lt;code>Building a Financial Cloud Native Infrastructure&lt;/code>, I joined the &lt;a href="http://antfin.com" title="Ant Group" target="_blank" rel="noopener">Ant Group&lt;/a>
-.&lt;/p>
-&lt;h2 id="servicemesher-community">ServiceMesher Community&lt;/h2>
-&lt;p>By the time of May 2018, I start to organize the &lt;a href="http://www.servicemesher.com" title="ServiceMesher" target="_blank" rel="noopener">ServiceMesher&lt;/a>
-community.&lt;/p>
-&lt;p>In the last few months, we work with other open source communities in China, such as &lt;a href="http://www.k8smeetup.com" title="k8smeetup" target="_blank" rel="noopener">k8smeetup&lt;/a>
-, &lt;a href="http://shardingjdbc.io/" title="Sharding-Sphere" target="_blank" rel="noopener">Sharding-Sphere&lt;/a>
-, &lt;a href="http://skywalking.apache.org/" title="Apache SkyWalking" target="_blank" rel="noopener">Apache SkyWalking&lt;/a>
-. Our community has grown to have 1,700 members and two round meetups in &lt;a href="http://www.servicemesher.com/blog/hangzhou-meetup-20180630/" title="Hangzhou" target="_blank" rel="noopener">Hangzhou&lt;/a>
-and &lt;a href="http://www.servicemesher.com/blog/beijing-meetup-20180729/" title="Beijing" target="_blank" rel="noopener">Beijing&lt;/a>
-till now.&lt;/p>
-&lt;p>More than 300 people participated in the scene and more than 20,000 people watched it live by &lt;a href="http://www.itdks.com/eventlist/detail/2311" title="IT大咖说" target="_blank" rel="noopener">IT大咖说&lt;/a>
-。&lt;/p>
-&lt;h2 id="future">Future&lt;/h2>
-&lt;p>Here are some hopes of mine:&lt;/p>
-&lt;ul>
-&lt;li>Open source culture become popular in China&lt;/li>
-&lt;li>More and more people would like to be involved in open source projects&lt;/li>
-&lt;li>Host one open source project into the CNCF&lt;/li>
-&lt;li>A book related to Cloud Native or Service Mesh&lt;/li>
-&lt;li>Strengthen cultural exchanges between China and the global&lt;/li>
-&lt;/ul>
-&lt;p>Finally, welcome to China for traveling or share your topic with us on Cloud Native, and in the mean while we will share our experience on large scale web apps to the world. Hope to hear your voice!&lt;/p></description></item></channel></rss>
+&lt;p>The MySQL database service integrated with the standard FMR Docker image is convenient and suitable for many purposes, but some use cases demand a service external to the container is used. That&amp;rsquo;s possible by simply changing the the database connection details through the web user interface.&lt;/p></description></item></channel></rss>
